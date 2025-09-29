@@ -1,0 +1,25 @@
+Export started at 2025-09-28 22:41:54
+Output target is (SAPCM_SEPT2025 / main) /SAPCM_REPO
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_ADV-UFDL/Ultra Format] - Exporting SAPCM-SEPT25_ADV-UFDL.UFL_Elecusg
+[Configuration/SAPCM-SEPT25_ADV-UFDL/Ultra Format] - Exporting SAPCM-SEPT25_ADV-UFDL.UFL_SeqFormat
+[Configuration/SAPCM-SEPT25_ADV-UFDL/Ultra Format] - Exporting SAPCM-SEPT25_ADV-UFDL.UFL_StudentJSON
+[Configuration/SAPCM-SEPT25_ADV-UFDL/Ultra Format] - Exporting SAPCM-SEPT25_ADV-UFDL.UFL_Usage
+[Configuration/SAPCM-SEPT25_ADV-UFDL/Ultra Format] - Exporting SAPCM-SEPT25_ADV-UFDL.UFL_UsgTotal
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_APL-BASICS/APL Code] - Exporting SAPCM-SEPT25_APL-BASICS.APL_APL_Fundamentals
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_APL-BASICS/Workflow] - Exporting SAPCM-SEPT25_APL-BASICS.WFL_Variables
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_APL-BASICS_FUNCTIONS/APL Code] - Exporting SAPCM-SEPT25_APL-BASICS_FUNCTIONS.APL_FUN_USAGE
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_APL-BASICS_FUNCTIONS/Ultra Format] - Exporting SAPCM-SEPT25_APL-BASICS_FUNCTIONS.UFL_UsageOut
+[Configuration/SAPCM-SEPT25_APL-BASICS_FUNCTIONS/Ultra Format] - Exporting SAPCM-SEPT25_APL-BASICS_FUNCTIONS.ULF_UsageInput
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_APL-BASICS_FUNCTIONS/Workflow] - Exporting SAPCM-SEPT25_APL-BASICS_FUNCTIONS.WFL_USAGE
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_DECODING/Ultra Format] - Exporting SAPCM-SEPT25_DECODING.UFL_Person
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_FUNC-BLOCKS/Workflow] - Exporting SAPCM-SEPT25_FUNC-BLOCKS.WFL_FunctionBlocks
+--------------------------------------------------
+Export finished at 2025-09-28 22:41:54
