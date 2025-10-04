@@ -1,4 +1,4 @@
-Export started at 2025-09-28 22:41:54
+Export started at 2025-10-04 08:12:22
 Output target is (SAPCM_SEPT2025 / main) /SAPCM_REPO
 --------------------------------------------------
 [Configuration/SAPCM-SEPT25_ADV-UFDL/Ultra Format] - Exporting SAPCM-SEPT25_ADV-UFDL.UFL_Elecusg
@@ -14,12 +14,18 @@ Output target is (SAPCM_SEPT2025 / main) /SAPCM_REPO
 [Configuration/SAPCM-SEPT25_APL-BASICS_FUNCTIONS/APL Code] - Exporting SAPCM-SEPT25_APL-BASICS_FUNCTIONS.APL_FUN_USAGE
 --------------------------------------------------
 [Configuration/SAPCM-SEPT25_APL-BASICS_FUNCTIONS/Ultra Format] - Exporting SAPCM-SEPT25_APL-BASICS_FUNCTIONS.UFL_UsageOut
+[Configuration/SAPCM-SEPT25_APL-BASICS_FUNCTIONS/Ultra Format] - Exporting SAPCM-SEPT25_APL-BASICS_FUNCTIONS.UFL_USG_IP
+[Configuration/SAPCM-SEPT25_APL-BASICS_FUNCTIONS/Ultra Format] - Exporting SAPCM-SEPT25_APL-BASICS_FUNCTIONS.UFL_USG_OP
 [Configuration/SAPCM-SEPT25_APL-BASICS_FUNCTIONS/Ultra Format] - Exporting SAPCM-SEPT25_APL-BASICS_FUNCTIONS.ULF_UsageInput
 --------------------------------------------------
 [Configuration/SAPCM-SEPT25_APL-BASICS_FUNCTIONS/Workflow] - Exporting SAPCM-SEPT25_APL-BASICS_FUNCTIONS.WFL_USAGE
+[Configuration/SAPCM-SEPT25_APL-BASICS_FUNCTIONS/Workflow] - Exporting SAPCM-SEPT25_APL-BASICS_FUNCTIONS.WFL_USAGE_DATE_USECASE
 --------------------------------------------------
 [Configuration/SAPCM-SEPT25_DECODING/Ultra Format] - Exporting SAPCM-SEPT25_DECODING.UFL_Person
 --------------------------------------------------
+[Configuration/SAPCM-SEPT25_DECODING/Workflow] - Exporting SAPCM-SEPT25_DECODING.WFL_DecodingTest
+[Configuration/SAPCM-SEPT25_DECODING/Workflow] - Exporting SAPCM-SEPT25_DECODING.WFL_DecodingTest2
+--------------------------------------------------
 [Configuration/SAPCM-SEPT25_FUNC-BLOCKS/Workflow] - Exporting SAPCM-SEPT25_FUNC-BLOCKS.WFL_FunctionBlocks
 --------------------------------------------------
-Export finished at 2025-09-28 22:41:54
+Export finished at 2025-10-04 08:12:22
