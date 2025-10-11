@@ -3,8 +3,8 @@
    <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Nodes]/storable[0]">
       <int name="ID" value="2108931552"/>
       <storable name="XYposition" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
-         <int name="X position" value="190"/>
-         <int name="Y position" value="240"/>
+         <int name="X position" value="90"/>
+         <int name="Y position" value="190"/>
       </storable>
    </Multiplex_Ref>
    <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Nodes]/storable[0]/array[Configuration]/storable[0]">
@@ -19,8 +19,8 @@
    <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Nodes]/storable[1]">
       <int name="ID" value="-1576094480"/>
       <storable name="XYposition" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
-         <int name="X position" value="310"/>
-         <int name="Y position" value="230"/>
+         <int name="X position" value="220"/>
+         <int name="Y position" value="190"/>
       </storable>
    </Multiplex_Ref>
    <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Nodes]/storable[1]/array[Configuration]/storable[0]">
@@ -29,8 +29,8 @@
    <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Nodes]/storable[2]">
       <int name="ID" value="-1939312021"/>
       <storable name="XYposition" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
-         <int name="X position" value="440"/>
-         <int name="Y position" value="220"/>
+         <int name="X position" value="330"/>
+         <int name="Y position" value="190"/>
       </storable>
    </Multiplex_Ref>
    <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Nodes]/storable[2]/array[Configuration]/storable[0]">
@@ -40,10 +40,10 @@
       <int name="Type" value="0"/>
    </Multiplex_Ref>
    <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Nodes]/storable[3]">
-      <int name="ID" value="552215182"/>
+      <int name="ID" value="-1186562757"/>
       <storable name="XYposition" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
-         <int name="X position" value="540"/>
-         <int name="Y position" value="210"/>
+         <int name="X position" value="490"/>
+         <int name="Y position" value="100"/>
       </storable>
    </Multiplex_Ref>
    <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Nodes]/storable[3]/array[Configuration]/storable[0]">
@@ -52,17 +52,11 @@
    <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Nodes]/storable[3]/array[Configuration]/storable[1]">
       <int name="Type" value="0"/>
    </Multiplex_Ref>
-   <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Nodes]/storable[3]/array[Configuration]/storable[2]">
-      <int name="Type" value="0"/>
-   </Multiplex_Ref>
-   <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Nodes]/storable[3]/array[Configuration]/storable[3]">
-      <int name="Type" value="0"/>
-   </Multiplex_Ref>
    <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Nodes]/storable[4]">
-      <int name="ID" value="1311564194"/>
+      <int name="ID" value="-1426521943"/>
       <storable name="XYposition" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
-         <int name="X position" value="550"/>
-         <int name="Y position" value="350"/>
+         <int name="X position" value="500"/>
+         <int name="Y position" value="270"/>
       </storable>
    </Multiplex_Ref>
    <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Nodes]/storable[4]/array[Configuration]/storable[0]">
@@ -71,99 +65,141 @@
    <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Nodes]/storable[4]/array[Configuration]/storable[1]">
       <int name="Type" value="0"/>
    </Multiplex_Ref>
+   <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Nodes]/storable[5]">
+      <int name="ID" value="-848288927"/>
+      <storable name="XYposition" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
+         <int name="X position" value="720"/>
+         <int name="Y position" value="190"/>
+      </storable>
+   </Multiplex_Ref>
+   <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Nodes]/storable[5]/array[Configuration]/storable[0]">
+      <int name="Type" value="1"/>
+   </Multiplex_Ref>
+   <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Nodes]/storable[5]/array[Configuration]/storable[1]">
+      <int name="Type" value="0"/>
+   </Multiplex_Ref>
+   <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Nodes]/storable[6]">
+      <int name="ID" value="-798034759"/>
+      <storable name="XYposition" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
+         <int name="X position" value="880"/>
+         <int name="Y position" value="190"/>
+      </storable>
+   </Multiplex_Ref>
+   <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Nodes]/storable[6]/array[Configuration]/storable[0]">
+      <int name="Type" value="1"/>
+   </Multiplex_Ref>
+   <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Nodes]/storable[6]/array[Configuration]/storable[1]">
+      <int name="Type" value="0"/>
+   </Multiplex_Ref>
    <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Routes]/storable[0]">
       <int name="Destination ID" value="-1576094480"/>
       <int name="ID" value="-2"/>
-      <int name="Route type" value="1"/>
+      <int name="Route type" value="2"/>
       <int name="Source ID" value="2108931552"/>
       <list classname="java.util.ArrayList" name="Stroke points">
          <storable name="0" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
-            <int name="X position" value="220"/>
-            <int name="Y position" value="215"/>
+            <int name="X position" value="120"/>
+            <int name="Y position" value="183"/>
          </storable>
          <storable name="1" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
-            <int name="X position" value="238"/>
-            <int name="Y position" value="204"/>
-         </storable>
-         <storable name="2" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
-            <int name="X position" value="258"/>
-            <int name="Y position" value="202"/>
-         </storable>
-         <storable name="3" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
-            <int name="X position" value="280"/>
-            <int name="Y position" value="211"/>
+            <int name="X position" value="190"/>
+            <int name="Y position" value="183"/>
          </storable>
       </list>
    </Multiplex_Ref>
    <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Routes]/storable[1]">
       <int name="Destination ID" value="-1939312021"/>
       <int name="ID" value="-3"/>
-      <int name="Route type" value="1"/>
+      <int name="Route type" value="2"/>
       <int name="Source ID" value="-1576094480"/>
       <list classname="java.util.ArrayList" name="Stroke points">
          <storable name="0" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
-            <int name="X position" value="340"/>
-            <int name="Y position" value="206"/>
+            <int name="X position" value="250"/>
+            <int name="Y position" value="183"/>
          </storable>
          <storable name="1" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
-            <int name="X position" value="361"/>
-            <int name="Y position" value="194"/>
-         </storable>
-         <storable name="2" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
-            <int name="X position" value="385"/>
-            <int name="Y position" value="192"/>
-         </storable>
-         <storable name="3" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
-            <int name="X position" value="410"/>
-            <int name="Y position" value="202"/>
+            <int name="X position" value="300"/>
+            <int name="Y position" value="183"/>
          </storable>
       </list>
    </Multiplex_Ref>
    <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Routes]/storable[2]">
-      <int name="Destination ID" value="552215182"/>
-      <int name="ID" value="-4"/>
-      <int name="Route type" value="1"/>
+      <int name="Destination ID" value="-1186562757"/>
+      <int name="ID" value="-9"/>
+      <int name="Route type" value="2"/>
       <int name="Source ID" value="-1939312021"/>
       <list classname="java.util.ArrayList" name="Stroke points">
          <storable name="0" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
-            <int name="X position" value="470"/>
-            <int name="Y position" value="192"/>
+            <int name="X position" value="360"/>
+            <int name="Y position" value="166"/>
          </storable>
          <storable name="1" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
-            <int name="X position" value="481"/>
-            <int name="Y position" value="184"/>
-         </storable>
-         <storable name="2" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
-            <int name="X position" value="494"/>
-            <int name="Y position" value="182"/>
-         </storable>
-         <storable name="3" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
-            <int name="X position" value="510"/>
-            <int name="Y position" value="189"/>
+            <int name="X position" value="460"/>
+            <int name="Y position" value="110"/>
          </storable>
       </list>
    </Multiplex_Ref>
    <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Routes]/storable[3]">
-      <int name="Destination ID" value="1311564194"/>
-      <int name="ID" value="-5"/>
-      <int name="Route type" value="1"/>
-      <int name="Source ID" value="552215182"/>
+      <int name="Destination ID" value="-1426521943"/>
+      <int name="ID" value="-10"/>
+      <int name="Route type" value="2"/>
+      <int name="Source ID" value="-1939312021"/>
       <list classname="java.util.ArrayList" name="Stroke points">
          <storable name="0" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
-            <int name="X position" value="554"/>
-            <int name="Y position" value="229"/>
+            <int name="X position" value="360"/>
+            <int name="Y position" value="197"/>
          </storable>
          <storable name="1" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
-            <int name="X position" value="569"/>
-            <int name="Y position" value="257"/>
+            <int name="X position" value="470"/>
+            <int name="Y position" value="249"/>
          </storable>
-         <storable name="2" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
-            <int name="X position" value="571"/>
-            <int name="Y position" value="286"/>
+      </list>
+   </Multiplex_Ref>
+   <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Routes]/storable[4]">
+      <int name="Destination ID" value="-848288927"/>
+      <int name="ID" value="-11"/>
+      <int name="Route type" value="2"/>
+      <int name="Source ID" value="-1426521943"/>
+      <list classname="java.util.ArrayList" name="Stroke points">
+         <storable name="0" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
+            <int name="X position" value="530"/>
+            <int name="Y position" value="252"/>
          </storable>
-         <storable name="3" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
-            <int name="X position" value="560"/>
-            <int name="Y position" value="317"/>
+         <storable name="1" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
+            <int name="X position" value="690"/>
+            <int name="Y position" value="194"/>
+         </storable>
+      </list>
+   </Multiplex_Ref>
+   <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Routes]/storable[5]">
+      <int name="Destination ID" value="-848288927"/>
+      <int name="ID" value="-12"/>
+      <int name="Route type" value="2"/>
+      <int name="Source ID" value="-1186562757"/>
+      <list classname="java.util.ArrayList" name="Stroke points">
+         <storable name="0" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
+            <int name="X position" value="520"/>
+            <int name="Y position" value="105"/>
+         </storable>
+         <storable name="1" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
+            <int name="X position" value="690"/>
+            <int name="Y position" value="171"/>
+         </storable>
+      </list>
+   </Multiplex_Ref>
+   <Multiplex_Ref ref_path="exportmultiplex[Template]/list[Routes]/storable[6]">
+      <int name="Destination ID" value="-798034759"/>
+      <int name="ID" value="-13"/>
+      <int name="Route type" value="2"/>
+      <int name="Source ID" value="-848288927"/>
+      <list classname="java.util.ArrayList" name="Stroke points">
+         <storable name="0" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
+            <int name="X position" value="750"/>
+            <int name="Y position" value="183"/>
+         </storable>
+         <storable name="1" storable-id="dr.WfRoute$StorablePoint" ver="1.0">
+            <int name="X position" value="850"/>
+            <int name="Y position" value="183"/>
          </storable>
       </list>
    </Multiplex_Ref>
@@ -199,19 +235,19 @@
          </storable>
       </storable>
       <set name="Dynamic Parameters" null="true"/>
-      <string name="Folder" value="SAPCM-SEPT25_APL-BASICS_FUNCTIONS"/>
+      <string name="Folder" value="SAPCM-SEPT25_MIM"/>
       <boolean name="Is Dirty" value="false"/>
       <boolean name="Is Dry Run" value="false"/>
       <boolean name="Is Encrypted" value="false"/>
       <boolean name="Is Locked" value="false"/>
       <boolean name="Is Valid" value="true"/>
-      <string name="Key" value="DR1759584318339"/>
+      <string name="Key" value="DR1760185216957"/>
       <string name="Modified By" value="sapcmuser14"/>
-      <long name="Modified Date" value="1760187984736"/>
-      <string name="Name" value="WFL_USAGE_DATE_USECASE"/>
+      <long name="Modified Date" value="1760186457776"/>
+      <string name="Name" value="WFL_MIM_RecordLevelUsecase"/>
       <string name="Owner" value="sapcmuser14"/>
       <string name="Type" value="Workflow"/>
-      <int name="Version" value="20"/>
+      <int name="Version" value="8"/>
       <string name="documentation" value=""/>
    </storable>
 </workflow_data>

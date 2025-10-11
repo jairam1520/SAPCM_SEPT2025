@@ -150,7 +150,10 @@ usageOut_TI createUsageOpRec(usage_int ip){
     date dtCycleSt;
     debug(strToDate(dtCycleSt ,strDateWithoutTime , "yyyy-MM-dd"));
     dateSetDay(dtCycleSt,1);
-    usageOut.cyclePeriod =  ""+ dtCycleSt + "to ";
+    date dtCycleEnd = dateCreateCopy(dtCycleSt);
+    dateAddMonths(dtCycleEnd,1);
+    dateAddDays(dtCycleEnd,-1);
+    usageOut.cyclePeriod =  ""+ dtCycleSt + " to "+dtCycleEnd;
     
     usageOut.peakOrOffpeak = (dateGetHours24(ip.dtStartTime) >= 18 && dateGetHours24(ip.dtStartTime) <= 2) ?"Peak" :"Off-Peak"; 
     usageOut.leapyear = (string)dateIsLeapYear(ip.dtStartTime);
@@ -344,7 +347,7 @@ usageOut_TI createUsageOpRec(usage_int ip){
                <string name="Classname" value="com.digitalroute.devkit.wf.DRFNTServiceInsp"/>
                <storable name="Data" storable-id="dr.DRFNTServiceConfig" ver="11.0">
                   <boolean name="createNonExistDirectories" value="true"/>
-                  <array classname="com.digitalroute.devkit.hidden.DRFNTServiceEntry" name="entries" size="2">
+                  <array classname="com.digitalroute.devkit.hidden.DRFNTServiceEntry" name="entries" size="3">
                      <storable name="0" storable-id="dr.DRFNTServiceEntry" ver="3.0">
                         <int name="Alignment" value="1"/>
                         <string name="Date format" null="true"/>
@@ -356,6 +359,16 @@ usageOut_TI createUsageOpRec(usage_int ip){
                         <string name="User entry" value="Out"/>
                      </storable>
                      <storable name="1" storable-id="dr.DRFNTServiceEntry" ver="3.0">
+                        <int name="Alignment" value="1"/>
+                        <string name="Date format" null="true"/>
+                        <boolean name="Delimiter" value="false"/>
+                        <string name="Mim entry" value="Workflow.Transaction ID"/>
+                        <string name="Pad" null="true"/>
+                        <int name="Size" value="-1"/>
+                        <string name="Trailing separator" null="true"/>
+                        <string name="User entry" null="true"/>
+                     </storable>
+                     <storable name="2" storable-id="dr.DRFNTServiceEntry" ver="3.0">
                         <int name="Alignment" value="1"/>
                         <string name="Date format" null="true"/>
                         <boolean name="Delimiter" value="false"/>

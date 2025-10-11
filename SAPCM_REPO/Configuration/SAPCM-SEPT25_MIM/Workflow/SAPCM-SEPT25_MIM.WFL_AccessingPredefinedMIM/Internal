@@ -103,19 +103,19 @@
          </storable>
       </storable>
       <set name="Dynamic Parameters" null="true"/>
-      <string name="Folder" value="SAPCM-SEPT25_DECODING"/>
+      <string name="Folder" value="SAPCM-SEPT25_MIM"/>
       <boolean name="Is Dirty" value="false"/>
       <boolean name="Is Dry Run" value="false"/>
       <boolean name="Is Encrypted" value="false"/>
       <boolean name="Is Locked" value="false"/>
       <boolean name="Is Valid" value="true"/>
-      <string name="Key" value="DR1757857786126"/>
+      <string name="Key" value="DR1760009720215"/>
       <string name="Modified By" value="sapcmuser14"/>
-      <long name="Modified Date" value="1760009360379"/>
-      <string name="Name" value="WFL_DecodingTest"/>
+      <long name="Modified Date" value="1760189889169"/>
+      <string name="Name" value="WFL_AccessingPredefinedMIM"/>
       <string name="Owner" value="sapcmuser14"/>
       <string name="Type" value="Workflow"/>
-      <int name="Version" value="25"/>
+      <int name="Version" value="9"/>
       <string name="documentation" value=""/>
    </storable>
 </workflow_data>
