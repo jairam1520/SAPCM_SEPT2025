@@ -1,0 +1,53 @@
+{
+  "Key": "DR1759583725268",
+  "Name": "UFL_USG_IP",
+  "Type": "Ultra Format",
+  "Version": 9,
+  "Folder": "SAPCM-SEPT25_APL-BASICS_FUNCTIONS",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "Administrator",
+    "Administrator",
+    "Administrator"
+  ],
+  "Data": {
+    "Definition": "//Inpput structure
+/*
+SubscriberID,UsageType,StartTime,DurationSec
+1001,Voice,2025-09-30 23:55:00,600
+1002,Data,2025-10-01 01:15:30,120
+1003,SMS,2025-02-28 23:59:00,2
+1004,Voice,2025-03-10 01:00:00,300
+1005,Data,2025-10-02 14:30:00,1800
+*/
+external headerExt:identified_by(strStartsWith(header,\"SubscriberID\")){
+\tascii header : terminated_by(0xA);
+};
+external usageRecExt:identified_by(strLength(subsId) == 4){
+\tascii subsId : terminated_by(\",\");
+\tascii usageType : terminated_by(\",\");
+\tascii startTime : terminated_by(\",\");
+\tascii durSec : terminated_by(\"\\n\");
+};
+
+internal usage_int{
+\tstring subsId ;
+\tstring usageType ;
+    string startTime ;
+    string durSec ;
+    date dtStartTime;
+\t
+};
+
+in_map hIMap : external(headerExt),target_internal(header_TI), discard_output{automatic;};
+in_map uIMap : external(usageRecExt),internal(usage_int){automatic;};
+decoder usgDec : in_map(uIMap),in_map(hIMap);",
+    "$Type": "dr.UltraFormatConfig",
+    "$Version": 2.0
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1
+}

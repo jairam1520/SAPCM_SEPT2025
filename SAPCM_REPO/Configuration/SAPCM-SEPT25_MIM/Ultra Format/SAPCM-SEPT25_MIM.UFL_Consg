@@ -1,0 +1,48 @@
+{
+  "Key": "DR1760013370799",
+  "Name": "UFL_Consg",
+  "Type": "Ultra Format",
+  "Version": 2,
+  "Folder": "SAPCM-SEPT25_MIM",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "Administrator",
+    "Administrator",
+    "Administrator"
+  ],
+  "Data": {
+    "Definition": "external consgExt{
+    ascii consgNumber : terminated_by(\";\");
+    ascii consgType : terminated_by(\";\");   
+    ascii custNum : terminated_by(\";\"); 
+    ascii weight : terminated_by(\"\\n\");
+};
+
+in_map conImap : external(consgExt),target_internal(consgInt){automatic;};
+decoder conDec : in_map(conImap);
+
+out_map conOmap : external(consgExt),internal(consgInt){automatic;};
+encoder conEnc : out_map(conOmap);
+
+
+external consgErrExt{
+    ascii consgNumber : terminated_by(\";\");
+    ascii consgType : terminated_by(\";\");   
+    ascii custNum : terminated_by(\";\"); 
+    ascii weight : terminated_by(\";\");
+    ascii ERR_MSG : terminated_by(\"\\n\");
+}; 
+in_map conErrImap : external(consgErrExt),target_internal(consgErrInt){automatic;};
+
+out_map conErrOmap : external(consgErrExt),internal(consgErrInt){automatic;};
+encoder conErrEnc : out_map(conErrOmap);
+",
+    "$Type": "dr.UltraFormatConfig",
+    "$Version": 2.0
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1
+}

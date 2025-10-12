@@ -1,0 +1,40 @@
+{
+  "Key": "DR1758980994292",
+  "Name": "APL_APL_Fundamentals",
+  "Type": "APL Code",
+  "Version": 3,
+  "Folder": "SAPCM-SEPT25_APL-BASICS",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "Administrator",
+    "Administrator",
+    "Administrator"
+  ],
+  "Data": {
+    "Definition": "import ultra.SAPCM-SEPT25_DECODING.UFL_Person;
+
+
+//1 constants
+//2 functions
+//global constants
+final string COUNTRY = \"INDIA\";
+
+
+
+boolean isRecordValid(Person_TI person,date d){
+    debug(\"Date:\"+d);
+    if(person.id != null && person.name != null && person.city != null){
+         return true ; 
+    }else{
+        return false;
+    }        
+}",
+    "$Type": "dr.APLProfileData",
+    "$Version": 1.0
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1
+}

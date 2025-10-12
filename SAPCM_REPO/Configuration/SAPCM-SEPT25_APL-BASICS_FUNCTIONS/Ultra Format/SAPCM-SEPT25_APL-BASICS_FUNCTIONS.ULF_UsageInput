@@ -1,0 +1,42 @@
+{
+  "Key": "DR1759065766600",
+  "Name": "ULF_UsageInput",
+  "Type": "Ultra Format",
+  "Version": 1,
+  "Folder": "SAPCM-SEPT25_APL-BASICS_FUNCTIONS",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "Administrator",
+    "Administrator",
+    "Administrator"
+  ],
+  "Data": {
+    "Definition": "/*
+MSISDN,IMSI,ServiceType,AccountID,FileName,PartnerDomain,Duration
+*/
+
+external usageExt{
+    ascii MSISDN : terminated_by(\",\");
+    ascii IMSI : terminated_by(\",\");
+    ascii ServiceType : terminated_by(\",\");
+    ascii AccountID : terminated_by(\",\");
+    ascii FileName : terminated_by(\",\");
+    ascii PartnerDomain : terminated_by(\",\");
+    ascii Duration : terminated_by(\"\\n\");
+};
+
+in_map usageIMap : external(usageExt),target_internal(usage_TI){automatic;};
+decoder usgDec : in_map(usageIMap);
+
+
+",
+    "$Type": "dr.UltraFormatConfig",
+    "$Version": 2.0
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1,
+  "Comment": ""
+}

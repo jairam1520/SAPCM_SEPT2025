@@ -1,4 +1,4 @@
-Export started at 2025-10-11 08:08:19
+Export started at 2025-10-12 08:01:18
 Output target is (SAPCM_SEPT2025 / main) /SAPCM_REPO
 --------------------------------------------------
 [Configuration/SAPCM-SEPT25_ADV-UFDL/Ultra Format] - Exporting SAPCM-SEPT25_ADV-UFDL.UFL_Elecusg
@@ -21,6 +21,13 @@ Output target is (SAPCM_SEPT2025 / main) /SAPCM_REPO
 [Configuration/SAPCM-SEPT25_APL-BASICS_FUNCTIONS/Workflow] - Exporting SAPCM-SEPT25_APL-BASICS_FUNCTIONS.WFL_USAGE
 [Configuration/SAPCM-SEPT25_APL-BASICS_FUNCTIONS/Workflow] - Exporting SAPCM-SEPT25_APL-BASICS_FUNCTIONS.WFL_USAGE_DATE_USECASE
 --------------------------------------------------
+[Configuration/SAPCM-SEPT25_DATASTRUCTURES/Ultra Format] - Exporting SAPCM-SEPT25_DATASTRUCTURES.UFL_Cons
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_DATASTRUCTURES/Workflow] - Exporting SAPCM-SEPT25_DATASTRUCTURES.WFL_CombiningFiles_UsecaseList
+[Configuration/SAPCM-SEPT25_DATASTRUCTURES/Workflow] - Exporting SAPCM-SEPT25_DATASTRUCTURES.WFL_Datastructures_Fund2
+[Configuration/SAPCM-SEPT25_DATASTRUCTURES/Workflow] - Exporting SAPCM-SEPT25_DATASTRUCTURES.WFL_DS_Fundamentals
+[Configuration/SAPCM-SEPT25_DATASTRUCTURES/Workflow] - Exporting SAPCM-SEPT25_DATASTRUCTURES.WFL_ListUseCase_NetSysCons
+--------------------------------------------------
 [Configuration/SAPCM-SEPT25_DECODING/Ultra Format] - Exporting SAPCM-SEPT25_DECODING.UFL_Person
 --------------------------------------------------
 [Configuration/SAPCM-SEPT25_DECODING/Workflow] - Exporting SAPCM-SEPT25_DECODING.WFL_DecodingTest
@@ -35,4 +42,9 @@ Output target is (SAPCM_SEPT2025 / main) /SAPCM_REPO
 [Configuration/SAPCM-SEPT25_MIM/Workflow] - Exporting SAPCM-SEPT25_MIM.WFL_MIM_FilenameUsecase
 [Configuration/SAPCM-SEPT25_MIM/Workflow] - Exporting SAPCM-SEPT25_MIM.WFL_MIM_RecordLevelUsecase
 --------------------------------------------------
-Export finished at 2025-10-11 08:08:20
+[System/Pico Group] - Exporting EC_GROUP1
+[System/Pico Group] - Exporting EC_GROUP3
+--------------------------------------------------
+[System/User] - Exporting sapcmuser14
+--------------------------------------------------
+Export finished at 2025-10-12 08:01:18

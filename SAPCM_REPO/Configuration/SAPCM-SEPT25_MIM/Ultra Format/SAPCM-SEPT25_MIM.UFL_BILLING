@@ -1,0 +1,73 @@
+{
+  "Key": "DR1760181424380",
+  "Name": "UFL_BILLING",
+  "Type": "Ultra Format",
+  "Version": 7,
+  "Folder": "SAPCM-SEPT25_MIM",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "Administrator",
+    "Administrator",
+    "Administrator"
+  ],
+  "Data": {
+    "Definition": "external pospaidExt:identified_by(recType == \"Pos\"){
+    ascii recType : terminated_by(\"|\"),external_only;
+    ascii msisdn : terminated_by(\"|\"); 
+    ascii usage : terminated_by(\"|\"); 
+    ascii region : terminated_by(0xA);  
+};
+
+external prepaidExt:identified_by(recType == \"Pre\"){
+    ascii recType : terminated_by(\",\"),external_only;
+    ascii customerId : terminated_by(\",\"); 
+    ascii usage : terminated_by(\",\"); 
+    ascii region : terminated_by(0xA);  
+};
+
+in_map posIMap : external(pospaidExt),target_internal(pospaidTI){automatic;};
+in_map preIMap : external(prepaidExt),target_internal(prepaidTI){automatic;};
+
+decoder prePosDec : in_map(posIMap),in_map(preIMap);
+
+internal postpaidIntermediate {
+    string msisdn;
+    string usage;
+    string planType;          
+    double taxAmount;
+    string billingCycle;
+};
+
+internal prepaidIntermediate {
+    string customerId;
+    double usage;
+    string serviceName;
+    double bonusAmount;
+    string rechargeType;
+};
+
+
+internal CommonUsage {
+    string identifier;        // msisdn or customerId
+    string connectionType;    // POSTPAID / PREPAID
+    string usage;
+    string amountBeforeTax; // same as usage, for clarity
+    double taxAmount;       // applicable for postpaid
+    double bonusAmount;     // applicable for prepaid
+    string finalAmount;     // computed final charge
+    string planType;          // postpaid only
+    string serviceName;       // prepaid only
+    string billingCycle;      // postpaid only
+    string rechargeType;      // prepaid only
+    string region;            // from original input
+    
+};",
+    "$Type": "dr.UltraFormatConfig",
+    "$Version": 2.0
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1
+}
