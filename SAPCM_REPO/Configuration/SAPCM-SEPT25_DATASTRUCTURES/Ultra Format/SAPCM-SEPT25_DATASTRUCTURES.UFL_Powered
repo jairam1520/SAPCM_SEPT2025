@@ -2,12 +2,12 @@
   "Key": "DR1760783442444",
   "Name": "UFL_Powered",
   "Type": "Ultra Format",
-  "Version": 5,
+  "Version": 6,
   "Folder": "SAPCM-SEPT25_DATASTRUCTURES",
   "Owner": "sapcmuser14",
   "Is Valid": true,
   "Access Groups -read -write -execute": [
-    "Administrator",
+    "All",
     "Administrator",
     "Administrator"
   ],

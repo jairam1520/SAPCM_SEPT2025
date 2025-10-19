@@ -1,4 +1,4 @@
-Export started at 2025-10-18 22:42:15
+Export started at 2025-10-19 08:36:13
 Output target is (SAPCM_SEPT2025 / main) /SAPCM_REPO
 --------------------------------------------------
 [Configuration/SAPCM-SEPT25_ADV-UFDL/Ultra Format] - Exporting SAPCM-SEPT25_ADV-UFDL.UFL_Elecusg
@@ -40,12 +40,25 @@ Output target is (SAPCM_SEPT2025 / main) /SAPCM_REPO
 --------------------------------------------------
 [Configuration/SAPCM-SEPT25_DECODING/Ultra Format] - Exporting SAPCM-SEPT25_DECODING.UFL_Person
 --------------------------------------------------
+[Configuration/SAPCM-SEPT25_DECODING/Workflow] - Exporting SAPCM-SEPT25_DECODING.WFL_DecodingTest
+[Configuration/SAPCM-SEPT25_DECODING/Workflow] - Exporting SAPCM-SEPT25_DECODING.WFL_DecodingTest2
+--------------------------------------------------
 [Configuration/SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL/Duplicate Batch Profile] - Exporting SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL.PRF_DUP_BATCH1
 [Configuration/SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL/Duplicate Batch Profile] - Exporting SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL.PRF_DUP_BATCH2
 --------------------------------------------------
 [Configuration/SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL/Workflow] - Exporting SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL.WFL_DUP_BATCH1
 [Configuration/SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL/Workflow] - Exporting SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL.WFL_DUP_BATCH2
 [Configuration/SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL/Workflow] - Exporting SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL.WFL_DUP_BATCH_CKSUM_FUUNC
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_DUPLICATE-CHECK_UDRLEVEL/Duplicate UDR Profile] - Exporting SAPCM-SEPT25_DUPLICATE-CHECK_UDRLEVEL.PRF_DUP_UDR_1
+[Configuration/SAPCM-SEPT25_DUPLICATE-CHECK_UDRLEVEL/Duplicate UDR Profile] - Exporting SAPCM-SEPT25_DUPLICATE-CHECK_UDRLEVEL.PRF_DUP_UDR_2
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_DUPLICATE-CHECK_UDRLEVEL/Ultra Format] - Exporting SAPCM-SEPT25_DUPLICATE-CHECK_UDRLEVEL.UFL_SERVER_CONS
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_DUPLICATE-CHECK_UDRLEVEL/Workflow] - Exporting SAPCM-SEPT25_DUPLICATE-CHECK_UDRLEVEL.WFL_DUP_UDR_1
+[Configuration/SAPCM-SEPT25_DUPLICATE-CHECK_UDRLEVEL/Workflow] - Exporting SAPCM-SEPT25_DUPLICATE-CHECK_UDRLEVEL.WFL_DUP_UDR_2
+[Configuration/SAPCM-SEPT25_DUPLICATE-CHECK_UDRLEVEL/Workflow] - Exporting SAPCM-SEPT25_DUPLICATE-CHECK_UDRLEVEL.WFL_DUP_UDR_3
+[Configuration/SAPCM-SEPT25_DUPLICATE-CHECK_UDRLEVEL/Workflow] - Exporting SAPCM-SEPT25_DUPLICATE-CHECK_UDRLEVEL.WFL_DUP_UDR_4
 --------------------------------------------------
 [Configuration/SAPCM-SEPT25_FUNC-BLOCKS/Workflow] - Exporting SAPCM-SEPT25_FUNC-BLOCKS.WFL_FunctionBlocks
 --------------------------------------------------
@@ -56,4 +69,4 @@ Output target is (SAPCM_SEPT2025 / main) /SAPCM_REPO
 [Configuration/SAPCM-SEPT25_MIM/Workflow] - Exporting SAPCM-SEPT25_MIM.WFL_MIM_FilenameUsecase
 [Configuration/SAPCM-SEPT25_MIM/Workflow] - Exporting SAPCM-SEPT25_MIM.WFL_MIM_RecordLevelUsecase
 --------------------------------------------------
-Export finished at 2025-10-18 22:42:16
+Export finished at 2025-10-19 08:36:14

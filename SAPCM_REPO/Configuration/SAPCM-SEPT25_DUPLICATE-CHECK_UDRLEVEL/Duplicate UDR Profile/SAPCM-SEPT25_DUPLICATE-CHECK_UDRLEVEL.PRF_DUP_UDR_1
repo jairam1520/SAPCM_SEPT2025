@@ -1,0 +1,45 @@
+{
+  "Key": "DR1760854510464",
+  "Name": "PRF_DUP_UDR_1",
+  "Type": "Duplicate UDR Profile",
+  "Version": 6,
+  "Folder": "SAPCM-SEPT25_DUPLICATE-CHECK_UDRLEVEL",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "All",
+    "Administrator",
+    "Administrator"
+  ],
+  "Data": {
+    "Base path": "/opt/mz/SAPCM-SEPT25/DUPLICITY/CACHE",
+    "Cache max age": 30,
+    "Cache max size": 5000,
+    "UDR type": {
+      "TypeName": "SAPCM-SEPT25_DUPLICATE-CHECK_UDRLEVEL.UFL_SERVER_CONS.ServerCons_TI",
+      "FormatName": "SAPCM-SEPT25_DUPLICATE-CHECK_UDRLEVEL.UFL_SERVER_CONS",
+      "$Type": "dr.UltraClientInfo",
+      "$Version": 1.0
+    },
+    "Indexing field": "serverHash",
+    "Checked fields": [
+      "cpu",
+      "os",
+      "power",
+      "server"
+    ],
+    "Date Index": false,
+    "useCacheTime": false,
+    "instanceUniqueStorage": false,
+    "Storage type": "FILE_STORAGE",
+    "EXT_REF_VERSION": 0.1,
+    "ExtRef Version": 1.0,
+    "ExtRef Map": [],
+    "$Type": "dr.DupUDR2ProfileConfigExtRef",
+    "$Version": 5.0
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1
+}

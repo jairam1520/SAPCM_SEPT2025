@@ -2,7 +2,7 @@
   "Key": "DR1760780591264",
   "Name": "UFL_XML_SCHEMA",
   "Type": "Ultra Format",
-  "Version": 6,
+  "Version": 7,
   "Folder": "SAPCM-SEPT25_ADV-UFDL_XML-SCHEMA",
   "Owner": "sapcmuser14",
   "Is Valid": true,
@@ -20,6 +20,7 @@
 \t\t<xs:complexType>
 \t\t\t<xs:sequence>
 \t\t\t\t<xs:element ref=\"UsageRecord\" maxOccurs=\"unbounded\" />
+                <xs:element name=\"Powered\" type=\"xs:string\" />
 \t\t\t</xs:sequence>
 \t\t</xs:complexType>
 \t</xs:element>
@@ -40,6 +41,7 @@
 };
 internal UsageRecordsInt{
     list<UsageRecInt> UsageRecord;
+    string Powered;
 };
 internal UsageRecInt{
     long RecordID;
