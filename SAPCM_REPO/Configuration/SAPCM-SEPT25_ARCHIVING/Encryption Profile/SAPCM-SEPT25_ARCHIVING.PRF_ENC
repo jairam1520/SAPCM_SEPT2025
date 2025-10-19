@@ -1,0 +1,27 @@
+{
+  "Key": "DR1760800898528",
+  "Name": "PRF_ENC",
+  "Type": "Encryption Profile",
+  "Version": 2,
+  "Folder": "SAPCM-SEPT25_ARCHIVING",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "All",
+    "Administrator",
+    "Administrator"
+  ],
+  "Data": {
+    "UseKeyStore": false,
+    "Key": "DR-4-2987FB3F0DBF61BE7760D94AE5944A03",
+    "Algorithm": "AES-128",
+    "ExtRef Version": 1.0,
+    "ExtRef Map": [],
+    "$Type": "dr.EncryptionProfileConfigData",
+    "$Version": 1.0
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1
+}

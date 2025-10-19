@@ -7,7 +7,7 @@
   "Owner": "sapcmuser14",
   "Is Valid": true,
   "Access Groups -read -write -execute": [
-    "Administrator",
+    "All",
     "Administrator",
     "Administrator"
   ],

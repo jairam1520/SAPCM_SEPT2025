@@ -1,0 +1,26 @@
+{
+  "Key": "DR1760726679510",
+  "Name": "PRF_DUP_BATCH1",
+  "Type": "Duplicate Batch Profile",
+  "Version": 3,
+  "Folder": "SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "All",
+    "Administrator",
+    "Administrator"
+  ],
+  "Data": {
+    "Cache timeout": 30,
+    "Use CRC": true,
+    "Use byte count": true,
+    "Use MIM": false,
+    "$Type": "dr.DupBatchProfileConfig",
+    "$Version": 1.1
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1
+}

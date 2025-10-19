@@ -1,4 +1,4 @@
-Export started at 2025-10-12 08:01:18
+Export started at 2025-10-18 22:42:15
 Output target is (SAPCM_SEPT2025 / main) /SAPCM_REPO
 --------------------------------------------------
 [Configuration/SAPCM-SEPT25_ADV-UFDL/Ultra Format] - Exporting SAPCM-SEPT25_ADV-UFDL.UFL_Elecusg
@@ -6,6 +6,8 @@ Output target is (SAPCM_SEPT2025 / main) /SAPCM_REPO
 [Configuration/SAPCM-SEPT25_ADV-UFDL/Ultra Format] - Exporting SAPCM-SEPT25_ADV-UFDL.UFL_StudentJSON
 [Configuration/SAPCM-SEPT25_ADV-UFDL/Ultra Format] - Exporting SAPCM-SEPT25_ADV-UFDL.UFL_Usage
 [Configuration/SAPCM-SEPT25_ADV-UFDL/Ultra Format] - Exporting SAPCM-SEPT25_ADV-UFDL.UFL_UsgTotal
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_ADV-UFDL_XML-SCHEMA/Ultra Format] - Exporting SAPCM-SEPT25_ADV-UFDL_XML-SCHEMA.UFL_XML_SCHEMA
 --------------------------------------------------
 [Configuration/SAPCM-SEPT25_APL-BASICS/APL Code] - Exporting SAPCM-SEPT25_APL-BASICS.APL_APL_Fundamentals
 --------------------------------------------------
@@ -21,17 +23,29 @@ Output target is (SAPCM_SEPT2025 / main) /SAPCM_REPO
 [Configuration/SAPCM-SEPT25_APL-BASICS_FUNCTIONS/Workflow] - Exporting SAPCM-SEPT25_APL-BASICS_FUNCTIONS.WFL_USAGE
 [Configuration/SAPCM-SEPT25_APL-BASICS_FUNCTIONS/Workflow] - Exporting SAPCM-SEPT25_APL-BASICS_FUNCTIONS.WFL_USAGE_DATE_USECASE
 --------------------------------------------------
+[Configuration/SAPCM-SEPT25_ARCHIVING/Archive Profile] - Exporting SAPCM-SEPT25_ARCHIVING.PRF_ARCH_1
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_ARCHIVING/Encryption Profile] - Exporting SAPCM-SEPT25_ARCHIVING.PRF_ENC
+--------------------------------------------------
 [Configuration/SAPCM-SEPT25_DATASTRUCTURES/Ultra Format] - Exporting SAPCM-SEPT25_DATASTRUCTURES.UFL_Cons
+[Configuration/SAPCM-SEPT25_DATASTRUCTURES/Ultra Format] - Exporting SAPCM-SEPT25_DATASTRUCTURES.UFL_Powered
 --------------------------------------------------
 [Configuration/SAPCM-SEPT25_DATASTRUCTURES/Workflow] - Exporting SAPCM-SEPT25_DATASTRUCTURES.WFL_CombiningFiles_UsecaseList
 [Configuration/SAPCM-SEPT25_DATASTRUCTURES/Workflow] - Exporting SAPCM-SEPT25_DATASTRUCTURES.WFL_Datastructures_Fund2
 [Configuration/SAPCM-SEPT25_DATASTRUCTURES/Workflow] - Exporting SAPCM-SEPT25_DATASTRUCTURES.WFL_DS_Fundamentals
 [Configuration/SAPCM-SEPT25_DATASTRUCTURES/Workflow] - Exporting SAPCM-SEPT25_DATASTRUCTURES.WFL_ListUseCase_NetSysCons
+[Configuration/SAPCM-SEPT25_DATASTRUCTURES/Workflow] - Exporting SAPCM-SEPT25_DATASTRUCTURES.WFL_MapAggUseCase
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_DB-PROFILES/Database Profile] - Exporting SAPCM-SEPT25_DB-PROFILES.PRF_DB_POSTGRES
 --------------------------------------------------
 [Configuration/SAPCM-SEPT25_DECODING/Ultra Format] - Exporting SAPCM-SEPT25_DECODING.UFL_Person
 --------------------------------------------------
-[Configuration/SAPCM-SEPT25_DECODING/Workflow] - Exporting SAPCM-SEPT25_DECODING.WFL_DecodingTest
-[Configuration/SAPCM-SEPT25_DECODING/Workflow] - Exporting SAPCM-SEPT25_DECODING.WFL_DecodingTest2
+[Configuration/SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL/Duplicate Batch Profile] - Exporting SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL.PRF_DUP_BATCH1
+[Configuration/SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL/Duplicate Batch Profile] - Exporting SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL.PRF_DUP_BATCH2
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL/Workflow] - Exporting SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL.WFL_DUP_BATCH1
+[Configuration/SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL/Workflow] - Exporting SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL.WFL_DUP_BATCH2
+[Configuration/SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL/Workflow] - Exporting SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL.WFL_DUP_BATCH_CKSUM_FUUNC
 --------------------------------------------------
 [Configuration/SAPCM-SEPT25_FUNC-BLOCKS/Workflow] - Exporting SAPCM-SEPT25_FUNC-BLOCKS.WFL_FunctionBlocks
 --------------------------------------------------
@@ -42,9 +56,4 @@ Output target is (SAPCM_SEPT2025 / main) /SAPCM_REPO
 [Configuration/SAPCM-SEPT25_MIM/Workflow] - Exporting SAPCM-SEPT25_MIM.WFL_MIM_FilenameUsecase
 [Configuration/SAPCM-SEPT25_MIM/Workflow] - Exporting SAPCM-SEPT25_MIM.WFL_MIM_RecordLevelUsecase
 --------------------------------------------------
-[System/Pico Group] - Exporting EC_GROUP1
-[System/Pico Group] - Exporting EC_GROUP3
---------------------------------------------------
-[System/User] - Exporting sapcmuser14
---------------------------------------------------
-Export finished at 2025-10-12 08:01:18
+Export finished at 2025-10-18 22:42:16

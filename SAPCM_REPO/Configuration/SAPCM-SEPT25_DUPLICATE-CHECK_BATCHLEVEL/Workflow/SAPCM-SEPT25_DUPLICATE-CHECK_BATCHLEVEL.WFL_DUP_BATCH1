@@ -1,9 +1,9 @@
 {
-  "Key": "DR1760278439341",
-  "Name": "WFL_CombiningFiles_UsecaseList",
+  "Key": "DR1760727593245",
+  "Name": "WFL_DUP_BATCH1",
   "Type": "Workflow",
-  "Version": 6,
-  "Folder": "SAPCM-SEPT25_DATASTRUCTURES",
+  "Version": 10,
+  "Folder": "SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL",
   "Owner": "sapcmuser14",
   "Is Valid": true,
   "Access Groups -read -write -execute": [
@@ -38,25 +38,24 @@
   },
   "Data": {
     "auditLogOnCancelBatch": false,
-    "cancelBatchType": "Never abort",
-    "consecutiveCount": 2147483647,
+    "cancelBatchType": "Abort immediately",
+    "consecutiveCount": 0,
     "dynamicInstances": false,
-    "errorMap": [],
     "errorMimNames": [],
     "fieldTypes": [],
     "instances": [
       {
         "cellValues": [],
         "instanceId": 1,
-        "instanceName": "mywf1",
+        "instanceName": "workflow_1",
         "validType": "Valid",
         "$Version": 1.0
       }
     ],
-    "isErrorBatchTypeECS": true,
+    "isErrorBatchTypeECS": false,
     "nodes": [
       {
-        "Name": "Disk_1",
+        "Name": "COLL_DIR",
         "ID": 2108931552,
         "Classname": "com.digitalroute.wfc.diskinput.DiskAdvInputInsp",
         "Configuration": [
@@ -72,9 +71,9 @@
               "strategyCombinationClass": "com.digitalroute.misc.advcoll.impl.DefaultCollectionStrategy",
               "strategyConfigs": [
                 {
-                  "baseDir": "/opt/mz/SAPCM-SEPT25/DataStructure",
+                  "baseDir": "/opt/mz/SAPCM-SEPT25/DUPLICITY/BATCH",
                   "compType": "No Compression",
-                  "fileRegExp": "NetSysCons.*.csv",
+                  "fileRegExp": "Batch2",
                   "subfolders": false,
                   "$Type": "dr.DefaultFileInfoConfig",
                   "$Version": 10.0
@@ -140,14 +139,48 @@
           }
         ],
         "XYposition": {
-          "x": 200,
-          "y": 220,
+          "x": 110,
+          "y": 160,
           "$Version": 1.0
         },
         "$Version": 2.0
       },
       {
-        "Name": "Analysis_1",
+        "Name": "Dup_Batch_1",
+        "ID": 67658682,
+        "Classname": "com.digitalroute.wfc.dupbatch.DupBatchInsp",
+        "Configuration": [
+          {
+            "Type": 1,
+            "Classname": "com.digitalroute.wfc.dupbatch.DupBatchInsp",
+            "Data": {
+              "loggedMIM": [
+                "Workflow.Workflow Name"
+              ],
+              "mimBypass": false,
+              "mimMap": [],
+              "profile": {
+                "folder": "SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL",
+                "key": "DR1760726679510",
+                "name": "PRF_DUP_BATCH1",
+                "type": "Duplicate Batch Profile",
+                "$Version": 1.0
+              },
+              "$Type": "dr.DupBatchConfig",
+              "$Version": 11.0
+            },
+            "$Version": 1.0
+          }
+        ],
+        "XYposition": {
+          "x": 280,
+          "y": 160,
+          "$Version": 1.0
+        },
+        "$Version": 2.0
+      },
+      {
+        "Name": "BL",
         "ID": -1939312021,
         "Classname": "com.digitalroute.wfc.analysis.StuffyMapperInsp",
         "Configuration": [
@@ -155,40 +188,26 @@
             "Type": 1,
             "Classname": "com.digitalroute.wfc.analysis.StuffyMapperInsp",
             "Data": {
-              "sourceCode": "list<drudr> inputRec ;
-initialize{
-    inputRec = listCreate(drudr);
-}
+              "sourceCode": "boolean isFileExist;
+mimPublish(global,\"service\",string);
 beginBatch{
-    
+    isFileExist = false;
+    mimSet(\"service\",\"DATA\");
 }
 consume {
-    listAdd(inputRec,input);
+    debug(\"consume\");
+    udrRoute(input);
+    isFileExist = true;
 }
+
 drain{
-    
-    long filesLeft = (long) mimGet(\"Disk_1\", \"Source Files Left\");
-    if(filesLeft == 0){//ensures that all file records are stored in one list
-        for(drudr udr:inputRec){
-            if(instanceOf(udr,netInt))
-                udrRoute((netInt)udr);  
-                
-            else
-                udrRoute((systemCons_TI)udr);  
-        }
+    if(isFileExist == false){
+        debug(\"No file exist\");
     }
 }",
               "udrTypes": [
                 {
-                  "TypeName": "SAPCM-SEPT25_DATASTRUCTURES.UFL_Cons.netInt",
-                  "FormatName": "SAPCM-SEPT25_DATASTRUCTURES.UFL_Cons",
-                  "$Type": "dr.UltraClientInfo",
-                  "$Version": 1.0
-                },
-                {
-                  "TypeName": "SAPCM-SEPT25_DATASTRUCTURES.UFL_Cons.systemCons_TI",
-                  "FormatName": "SAPCM-SEPT25_DATASTRUCTURES.UFL_Cons",
-                  "$Type": "dr.UltraClientInfo",
+                  "typeName": "bytearray",
                   "$Version": 1.0
                 }
               ],
@@ -210,96 +229,14 @@ drain{
           }
         ],
         "XYposition": {
-          "x": 540,
-          "y": 220,
+          "x": 440,
+          "y": 160,
           "$Version": 1.0
         },
         "$Version": 2.0
       },
       {
-        "Name": "Decoder_1",
-        "ID": -1576094480,
-        "Classname": "com.digitalroute.wfc.ultra.UltraDecoderInsp",
-        "Configuration": [
-          {
-            "Type": 1,
-            "Classname": "com.digitalroute.wfc.ultra.UltraDecoderInsp",
-            "Data": {
-              "decoderName": "SAPCM-SEPT25_DATASTRUCTURES.UFL_Cons.consDec",
-              "doFullDecode": false,
-              "errorMode": 1,
-              "$Type": "dr.UltraDecoderData",
-              "$Version": 11.0
-            },
-            "$Version": 1.0
-          }
-        ],
-        "XYposition": {
-          "x": 370,
-          "y": 220,
-          "$Version": 1.0
-        },
-        "$Version": 2.0
-      },
-      {
-        "Name": "Encoder_1",
-        "ID": 552215182,
-        "Classname": "com.digitalroute.wfc.ultra.UltraEncoderInsp",
-        "Configuration": [
-          {
-            "Type": 1,
-            "Classname": "com.digitalroute.wfc.ultra.UltraEncoderInsp",
-            "Data": {
-              "encoderName": "SAPCM-SEPT25_DATASTRUCTURES.UFL_Cons.consEnc",
-              "skipEncoding": false,
-              "$Type": "dr.UltraEncoderData",
-              "$Version": 12.0
-            },
-            "$Version": 1.0
-          },
-          {
-            "Type": 0,
-            "Classname": "com.digitalroute.devkit.hidden.DRHeaderServiceInsp",
-            "Data": {
-              "entries": [],
-              "suppress": false,
-              "$Type": "dr.HeaderTrailerConfig",
-              "$Version": 10.0
-            },
-            "$Version": 1.0
-          },
-          {
-            "Type": 0,
-            "Classname": "com.digitalroute.devkit.hidden.DRTrailerServiceInsp",
-            "Data": {
-              "entries": [],
-              "suppress": false,
-              "$Type": "dr.HeaderTrailerConfig",
-              "$Version": 10.0
-            },
-            "$Version": 1.0
-          },
-          {
-            "Type": 0,
-            "Classname": "com.digitalroute.devkit.hidden.DRThreadBufferInsp",
-            "Data": {
-              "printStats": false,
-              "useOwnThread": false,
-              "$Type": "dr.DRThreadBufferConfig",
-              "$Version": 10.0
-            },
-            "$Version": 1.0
-          }
-        ],
-        "XYposition": {
-          "x": 720,
-          "y": 220,
-          "$Version": 1.0
-        },
-        "$Version": 2.0
-      },
-      {
-        "Name": "Disk_2",
+        "Name": "PROC_DIR",
         "ID": -853019564,
         "Classname": "com.digitalroute.wfc.diskoutput.DiskOutputInsp",
         "Configuration": [
@@ -311,8 +248,8 @@ drain{
               "command": "",
               "compType": "No Compression",
               "createEmpty": false,
-              "createNonExistingBaseDir": false,
-              "directory": "/opt/mz/SAPCM-SEPT25/DataStructure",
+              "createNonExistingBaseDir": true,
+              "directory": "/opt/mz/SAPCM-SEPT25/DUPLICITY/BATCH/PROC",
               "inputType": "ByteArray",
               "$Type": "dr.DiskOutputData",
               "$Version": 13.0
@@ -326,7 +263,7 @@ drain{
               "createNonExistDirectories": true,
               "entries": [
                 {
-                  "User entry": "CM_TotalCons_",
+                  "Mim entry": "COLL_DIR.Source Filename",
                   "Size": -1,
                   "Alignment": 1,
                   "Delimiter": false,
@@ -334,13 +271,6 @@ drain{
                 },
                 {
                   "Mim entry": "Workflow.Transaction ID",
-                  "Size": -1,
-                  "Alignment": 1,
-                  "Delimiter": false,
-                  "$Version": 3.0
-                },
-                {
-                  "User entry": ".collected",
                   "Size": -1,
                   "Alignment": 1,
                   "Delimiter": false,
@@ -355,8 +285,107 @@ drain{
           }
         ],
         "XYposition": {
-          "x": 870,
-          "y": 200,
+          "x": 590,
+          "y": 160,
+          "$Version": 1.0
+        },
+        "$Version": 2.0
+      },
+      {
+        "Name": "Archiving_1",
+        "ID": 1419015372,
+        "Classname": "com.digitalroute.wfc.archiving.ArchivingInsp",
+        "Configuration": [
+          {
+            "Type": 1,
+            "Classname": "com.digitalroute.wfc.archiving.ArchivingInsp",
+            "Data": {
+              "agentDirElements": [
+                "BL.service"
+              ],
+              "agentMIMElements": [
+                "Workflow.Workflow Name",
+                "COLL_DIR.Source Filename",
+                "COLL_DIR.Source Pathname",
+                "Workflow.Batch Start Time"
+              ],
+              "compression": "No Compression",
+              "createEmpty": false,
+              "inputType": "ByteArray",
+              "profile": {
+                "folder": "SAPCM-SEPT25_Archiving",
+                "key": "DR1760799709695",
+                "name": "PRF_ARCH_1",
+                "type": "Archive Profile",
+                "$Version": 1.0
+              },
+              "$Type": "dr.ArchivingData",
+              "$Version": 10.0
+            },
+            "$Version": 1.0
+          },
+          {
+            "Type": 0,
+            "Classname": "com.digitalroute.devkit.wf.DRFNTServiceInsp",
+            "Data": {
+              "createNonExistDirectories": true,
+              "entries": [
+                {
+                  "User entry": "ARCH_",
+                  "Size": -1,
+                  "Alignment": 1,
+                  "Delimiter": false,
+                  "$Version": 3.0
+                },
+                {
+                  "Mim entry": "COLL_DIR.Source Filename",
+                  "Size": -1,
+                  "Alignment": 1,
+                  "Delimiter": false,
+                  "$Version": 3.0
+                }
+              ],
+              "fNTListEnabled": true,
+              "$Type": "dr.DRFNTServiceConfig",
+              "$Version": 11.0
+            },
+            "$Version": 1.0
+          }
+        ],
+        "XYposition": {
+          "x": 240,
+          "y": 300,
+          "$Version": 1.0
+        },
+        "$Version": 2.0
+      },
+      {
+        "Name": "Encryption_1",
+        "ID": 46563312,
+        "Classname": "com.digitalroute.wfc.encryption.batch.agent.EncryptionBatchAgentInsp",
+        "Configuration": [
+          {
+            "Type": 1,
+            "Classname": "com.digitalroute.wfc.encryption.batch.agent.EncryptionBatchAgentInsp",
+            "Data": {
+              "encryptionProfile": {
+                "folder": "SAPCM-SEPT25_Archiving",
+                "key": "DR1760800898528",
+                "name": "PRF_ENC",
+                "type": "Encryption Profile",
+                "$Version": 1.0
+              },
+              "handleEmptyData": false,
+              "isEncryptionMode": true,
+              "$Type": "dr.EncryptionConfig",
+              "$Version": 30.0
+            },
+            "$Version": 1.0
+          }
+        ],
+        "XYposition": {
+          "x": 110,
+          "y": 290,
           "$Version": 1.0
         },
         "$Version": 2.0
@@ -364,21 +393,21 @@ drain{
     ],
     "routes": [
       {
-        "destinationId": -1576094480,
-        "id": -3,
-        "name": "r_2",
+        "destinationId": 67658682,
+        "id": -2,
+        "name": "toDupBatch",
         "realtimeMode": "Not set",
         "routeStyle": "Straight",
         "sourceId": 2108931552,
         "stroke": [
           {
-            "x": 230,
-            "y": 213,
+            "x": 140,
+            "y": 153,
             "$Version": 1.0
           },
           {
-            "x": 340,
-            "y": 213,
+            "x": 250,
+            "y": 153,
             "$Version": 1.0
           }
         ],
@@ -386,51 +415,20 @@ drain{
       },
       {
         "destinationId": -1939312021,
-        "id": -4,
-        "name": "r_3",
+        "id": -3,
+        "name": "toBL",
         "realtimeMode": "Not set",
         "routeStyle": "Straight",
-        "sourceId": -1576094480,
+        "sourceId": 67658682,
         "stroke": [
           {
-            "x": 400,
-            "y": 213,
+            "x": 310,
+            "y": 153,
             "$Version": 1.0
           },
           {
-            "x": 510,
-            "y": 213,
-            "$Version": 1.0
-          }
-        ],
-        "$Version": 1.0
-      },
-      {
-        "destinationId": 552215182,
-        "id": -6,
-        "name": "r_5",
-        "realtimeMode": "Not set",
-        "routeStyle": "Bezier",
-        "sourceId": -1939312021,
-        "stroke": [
-          {
-            "x": 570,
-            "y": 197,
-            "$Version": 1.0
-          },
-          {
-            "x": 608,
-            "y": 175,
-            "$Version": 1.0
-          },
-          {
-            "x": 646,
-            "y": 176,
-            "$Version": 1.0
-          },
-          {
-            "x": 690,
-            "y": 196,
+            "x": 410,
+            "y": 153,
             "$Version": 1.0
           }
         ],
@@ -438,30 +436,82 @@ drain{
       },
       {
         "destinationId": -853019564,
+        "id": -5,
+        "name": "toProc",
+        "realtimeMode": "Not set",
+        "routeStyle": "Straight",
+        "sourceId": -1939312021,
+        "stroke": [
+          {
+            "x": 470,
+            "y": 153,
+            "$Version": 1.0
+          },
+          {
+            "x": 561,
+            "y": 153,
+            "$Version": 1.0
+          }
+        ],
+        "$Version": 1.0
+      },
+      {
+        "destinationId": 46563312,
         "id": -7,
         "name": "r_6",
         "realtimeMode": "Not set",
         "routeStyle": "Bezier",
-        "sourceId": 552215182,
+        "sourceId": 2108931552,
         "stroke": [
           {
-            "x": 750,
-            "y": 201,
+            "x": 122,
+            "y": 179,
             "$Version": 1.0
           },
           {
-            "x": 779,
-            "y": 187,
+            "x": 135,
+            "y": 205,
             "$Version": 1.0
           },
           {
-            "x": 808,
-            "y": 183,
+            "x": 135,
+            "y": 231,
             "$Version": 1.0
           },
           {
-            "x": 841,
-            "y": 188,
+            "x": 122,
+            "y": 257,
+            "$Version": 1.0
+          }
+        ],
+        "$Version": 1.0
+      },
+      {
+        "destinationId": 1419015372,
+        "id": -8,
+        "name": "r_7",
+        "realtimeMode": "Not set",
+        "routeStyle": "Bezier",
+        "sourceId": 46563312,
+        "stroke": [
+          {
+            "x": 139,
+            "y": 272,
+            "$Version": 1.0
+          },
+          {
+            "x": 165,
+            "y": 262,
+            "$Version": 1.0
+          },
+          {
+            "x": 188,
+            "y": 264,
+            "$Version": 1.0
+          },
+          {
+            "x": 210,
+            "y": 276,
             "$Version": 1.0
           }
         ],

@@ -2,12 +2,12 @@
   "Key": "DR1758378388890",
   "Name": "UFL_SeqFormat",
   "Type": "Ultra Format",
-  "Version": 6,
+  "Version": 7,
   "Folder": "SAPCM-SEPT25_ADV-UFDL",
   "Owner": "sapcmuser14",
   "Is Valid": true,
   "Access Groups -read -write -execute": [
-    "Administrator",
+    "All",
     "Administrator",
     "Administrator"
   ],

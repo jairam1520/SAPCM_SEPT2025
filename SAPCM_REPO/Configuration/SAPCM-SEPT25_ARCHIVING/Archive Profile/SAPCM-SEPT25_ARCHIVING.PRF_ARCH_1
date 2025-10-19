@@ -1,0 +1,72 @@
+{
+  "Key": "DR1760799709695",
+  "Name": "PRF_ARCH_1",
+  "Type": "Archive Profile",
+  "Version": 6,
+  "Folder": "SAPCM-SEPT25_ARCHIVING",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "All",
+    "Administrator",
+    "Administrator"
+  ],
+  "Data": {
+    "Base directories": [
+      "/opt/mz/SAPCM-SEPT25/Archiving"
+    ],
+    "Switch policy": 2,
+    "Template tokens": [
+      {
+        "Special token": 5,
+        "$Version": 1.0
+      },
+      {
+        "Text": "TELCO",
+        "$Version": 1.0
+      },
+      {
+        "Special token": 5,
+        "$Version": 1.0
+      },
+      {
+        "Special token": 3,
+        "$Version": 1.0
+      },
+      {
+        "Special token": 5,
+        "$Version": 1.0
+      },
+      {
+        "Special token": 0,
+        "$Version": 1.0
+      },
+      {
+        "Special token": 5,
+        "$Version": 1.0
+      },
+      {
+        "Special token": 1,
+        "$Version": 1.0
+      },
+      {
+        "Special token": 5,
+        "$Version": 1.0
+      },
+      {
+        "Special token": 2,
+        "$Version": 1.0
+      }
+    ],
+    "Purge entry": 5,
+    "Keep files": false,
+    "ExtRef Version": 1.0,
+    "ExtRef Map": [],
+    "$Type": "dr.ArchiveConfig",
+    "$Version": 2.2
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1
+}

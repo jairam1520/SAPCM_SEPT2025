@@ -1,7 +1,0 @@
-{
-  "Name": "EC_GROUP1",
-  "Type": "ec",
-  "Colour": "#00bcd4",
-  "$Type": "com.digitalroute.transport.PicoGroupExporter$PicoGroupStorable",
-  "$Version": 2.0
-}
