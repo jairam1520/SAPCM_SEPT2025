@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<exportmultiplex category="Ultra_Format" ref_path="ultra_format[Internal]/storable[ultra_format]/storable[Data]">
+   <string name="Definition"><![CDATA[/*
+1|jai,mumbai
+2|madhu,nashik
+*/
+external PersonExt{
+    ascii id   : terminated_by(",");
+    ascii name :terminated_by(",");
+    ascii city :terminated_by("\n");
+};
+
+internal PersonInt{
+    int Id;
+    string Name;    
+    string City;
+};
+
+in_map iPerMap : external(PersonExt),internal(PersonInt){
+    e:id and i:Id;
+    e:name and i:Name;
+    e:city and i:City;
+};
+
+in_map iperMap1 : external(PersonExt),target_internal(Person_TI){automatic;};
+
+
+
+
+decoder personDec1 : in_map(iperMap1);
+decoder personDec : in_map(iPerMap);
+
+
+
+// 2025jai,32Mb
+// 2024jai,32Mb
+// 1999jai,32Mb
+external consExt{
+    ascii year: static_size(4);
+    ascii name:terminated_by(0x2C);
+    ascii usedMb : terminated_by(0xA);  
+};
+
+in_map consiMap : external(consExt),target_internal(cons_Ti){automatic;};
+decoder consDec : in_map(consiMap);
+
+/*
+Name,Dept
+Jai,IT
+Madhu,IT
+Prem,Testing
+*/
+
+internal Emp{
+    string Name;  
+    string Dept;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]></string>
+</exportmultiplex>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<exportmultiplex category="Ultra_Format" ref_path="ultra_format[Internal]/storable[ultra_format]/storable[Data]">
+   <string name="Definition"><![CDATA[//External format for activation record
+external ActExt {
+    ascii rectype : terminated_by(":"),external_only;
+    ascii bp : terminated_by(",");
+    ascii year : terminated_by("\n");
+};
+//External format for usage record
+external UsgExt{
+    ascii rectype : terminated_by(":"),external_only;
+    ascii bp : terminated_by(",");
+    ascii year : terminated_by(",");
+    ascii usgMb : terminated_by("\n");
+};
+//External format for termination record
+external TerExt{
+    ascii rectype : terminated_by(":"),external_only;
+    ascii bp : terminated_by(",");
+    ascii year : terminated_by("\n");
+};
+
+in_map acIMap : external(ActExt),target_internal(Act_TI){automatic;};
+in_map usgIMap : external(UsgExt),target_internal(Usg_TI){automatic;};
+in_map terIMap : external(TerExt),target_internal(Ter_TI),discard_output{automatic;};
+
+decoder actDec : in_map(acIMap);
+decoder UsgDec : in_map(usgIMap);
+decoder TerDec : in_map(terIMap);
+
+//total decoder
+decoder usgTotalDec{
+   decoder actDec ;//one rec of act
+   decoder UsgDec *;//one rec of usage
+   decoder TerDec;//one rec of ter
+};]]></string>
+</exportmultiplex>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<exportmultiplex category="Ultra_Format" ref_path="ultra_format[Internal]/storable[ultra_format]/storable[Data]">
+   <string name="Definition"><![CDATA[internal custOrd
+{
+    int orderId;
+    string custName;
+    string productName;
+    int quantity;
+    date ordDate;    
+};
+
+internal retiredServer{
+    string os;
+    string hostname;    
+};
+internal serverCons{
+    string os;
+    string usage;
+    string hostname;    
+};]]></string>
+</exportmultiplex>
