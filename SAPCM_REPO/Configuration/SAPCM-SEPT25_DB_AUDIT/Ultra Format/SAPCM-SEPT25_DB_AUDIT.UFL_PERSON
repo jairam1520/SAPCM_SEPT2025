@@ -1,0 +1,28 @@
+{
+  "Key": "DR1761465955923",
+  "Name": "UFL_PERSON",
+  "Type": "Ultra Format",
+  "Version": 2,
+  "Folder": "SAPCM-SEPT25_DB_AUDIT",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "All",
+    "Administrator",
+    "Administrator"
+  ],
+  "Data": {
+    "Definition": "internal Person{
+    string id;
+    string name;
+    string city;  
+    long checksum;
+};",
+    "$Type": "dr.UltraFormatConfig",
+    "$Version": 2.0
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1
+}

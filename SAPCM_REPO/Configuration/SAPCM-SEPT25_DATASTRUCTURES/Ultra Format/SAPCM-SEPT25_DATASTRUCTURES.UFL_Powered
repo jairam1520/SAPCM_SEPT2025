@@ -1,0 +1,91 @@
+{
+  "Key": "DR1760783442444",
+  "Name": "UFL_Powered",
+  "Type": "Ultra Format",
+  "Version": 6,
+  "Folder": "SAPCM-SEPT25_DATASTRUCTURES",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "All",
+    "Administrator",
+    "Administrator"
+  ],
+  "Data": {
+    "Definition": "/*
+Hostname,OS,CPU,Consumption,Powered
+Server01,Linux,Intel Xeon E5-2670,120.5,On
+Server01,Linux,Intel Xeon E5-2670,130.0,On
+Server01,Linux,Intel Xeon E5-2670,125.0,Off
+Server02,Windows Server 2019,Intel Xeon E5-2690,150.2,Off
+Server02,Windows Server 2019,Intel Xeon E5-2690,145.0,On
+Server03,Linux,AMD EPYC 7742,200.0,On
+Server03,Linux,AMD EPYC 7742,195.0,Off
+Server04,Windows Server 2016,Intel Xeon E3-1240,100.0,Off
+Server04,Windows Server 2016,Intel Xeon E3-1240,110.0,On
+Server05,Ubuntu,AMD EPYC 7302,140.0,Off
+Server05,Ubuntu,AMD EPYC 7302,135.5,On
+Server06,Linux,Intel Xeon Gold 6230,180.5,On
+Server06,Linux,Intel Xeon Gold 6230,175.0,Off
+Server07,Linux,Intel Xeon Platinum 8260,210.3,On
+Server07,Linux,Intel Xeon Platinum 8260,205.0,Off
+Server08,Windows Server 2019,AMD EPYC 7742,195.7,Off
+Server08,Windows Server 2019,AMD EPYC 7742,190.0,On
+Server09,Linux,Intel Xeon E5-2680,130.0,On
+Server09,Linux,Intel Xeon E5-2680,125.5,Off
+Server10,Ubuntu,Intel Xeon E5-2650,125.5,On
+Server10,Ubuntu,Intel Xeon E5-2650,120.0,Off
+*/
+external header : identified_by(strStartsWith(completeHeader,\"Hostname\")){
+\tascii completeHeader : terminated_by(0xA);
+};
+
+external UnPoweredExt{
+\tascii hostname : terminated_by(\",\");
+\tascii os : terminated_by(\",\");
+\tascii cpu : terminated_by(\",\");
+\tascii consumption : terminated_by(\",\");
+\tascii powered : terminated_by(\"\\n\");
+};
+
+in_map hIMap : external(header),target_internal(header_TI),discard_output{automatic;};
+in_map rIMap : external(UnPoweredExt),target_internal(UnPowered_TI){automatic;};
+
+decoder pDec : in_map(hIMap),in_map(rIMap);
+
+internal UnPoweredOut{
+    string hostname;
+    string totalConsumption;
+    int freq;  
+    string processMonth;  
+};
+xml_schema {
+<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>
+<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">
+\t<xs:element name=\"UnPoweredOutExt\">
+\t\t<xs:complexType>
+\t\t\t<xs:sequence>
+\t\t\t\t<xs:element name=\"hostname\" type=\"xs:string\"/>
+\t\t\t\t<xs:element name=\"totalConsumption\" type=\"xs:string\"/>
+\t\t\t\t<xs:element name=\"freq\" type=\"xs:integer\"/>
+                <xs:element name=\"processMonth\" type=\"xs:string\"/>
+\t\t\t</xs:sequence>
+\t\t</xs:complexType>
+\t</xs:element>
+</xs:schema>
+
+};
+out_map rOMap : external(UnPoweredOutExt),internal(UnPoweredOut){automatic;};
+
+encoder pEnc : out_map(rOMap);
+
+
+",
+    "$Type": "dr.UltraFormatConfig",
+    "$Version": 2.0
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1
+}

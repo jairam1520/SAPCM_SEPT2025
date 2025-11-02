@@ -1,0 +1,484 @@
+{
+  "Key": "DR1761460037327",
+  "Name": "WFL_STB_USECASE",
+  "Type": "Workflow",
+  "Version": 5,
+  "Folder": "SAPCM-SEPT25_DB_SHARED-TABLE",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "All",
+    "Administrator",
+    "Administrator"
+  ],
+  "Auxiliary Data": {
+    "Entries": [
+      {
+        "Key": "Type",
+        "Value": "Batch"
+      },
+      {
+        "Key": "Standalone",
+        "Value": "false"
+      },
+      {
+        "Key": "Count",
+        "Value": "3"
+      },
+      {
+        "Key": "Autostart",
+        "Value": "false"
+      },
+      {
+        "Key": "DynamicConfig",
+        "Value": "false"
+      }
+    ],
+    "$Version": 2.0
+  },
+  "Data": {
+    "auditLogOnCancelBatch": false,
+    "cancelBatchType": "Abort immediately",
+    "consecutiveCount": 0,
+    "dynamicInstances": false,
+    "errorMimNames": [],
+    "fieldTypes": [
+      {
+        "exportAlias": "",
+        "exportDescription": "",
+        "fieldInstanceType": "Instance",
+        "fieldName": "baseDir",
+        "nodeId": 2108931552,
+        "nodeName": "Disk_1",
+        "section": "Source",
+        "$Version": 1.0
+      },
+      {
+        "exportAlias": "",
+        "exportDescription": "",
+        "fieldInstanceType": "Instance",
+        "fieldName": "fileRegExp",
+        "nodeId": 2108931552,
+        "nodeName": "Disk_1",
+        "section": "Source",
+        "$Version": 1.0
+      },
+      {
+        "exportAlias": "",
+        "exportDescription": "",
+        "fieldInstanceType": "Instance",
+        "fieldName": "directory",
+        "nodeId": -853019564,
+        "nodeName": "Disk_2",
+        "section": "Disk",
+        "$Version": 1.0
+      }
+    ],
+    "instances": [
+      {
+        "cellValues": [
+          {
+            "type": "VALUE",
+            "value": {
+              "$Value": "/opt/mz/SAPCM-SEPT25/DB/STP",
+              "$Type": "string"
+            },
+            "$Version": 1.0
+          },
+          {
+            "type": "VALUE",
+            "value": {
+              "$Value": "call.*.csv",
+              "$Type": "string"
+            },
+            "$Version": 1.0
+          },
+          {
+            "type": "VALUE",
+            "value": {
+              "$Value": "/opt/mz/SAPCM-SEPT25/DB/STP/PROC",
+              "$Type": "string"
+            },
+            "$Version": 1.0
+          }
+        ],
+        "instanceId": 1,
+        "instanceName": "wfCall",
+        "validType": "Valid",
+        "$Version": 1.0
+      },
+      {
+        "cellValues": [
+          {
+            "type": "VALUE",
+            "value": {
+              "$Value": "/opt/mz/SAPCM-SEPT25/DB/STP",
+              "$Type": "string"
+            },
+            "$Version": 1.0
+          },
+          {
+            "type": "VALUE",
+            "value": {
+              "$Value": "sms.*.csv",
+              "$Type": "string"
+            },
+            "$Version": 1.0
+          },
+          {
+            "type": "VALUE",
+            "value": {
+              "$Value": "/opt/mz/SAPCM-SEPT25/DB/STP/PROC",
+              "$Type": "string"
+            },
+            "$Version": 1.0
+          }
+        ],
+        "instanceId": 2,
+        "instanceName": "wfSms",
+        "validType": "Valid",
+        "$Version": 1.0
+      },
+      {
+        "cellValues": [
+          {
+            "type": "VALUE",
+            "value": {
+              "$Value": "/opt/mz/SAPCM-SEPT25/DB/STP",
+              "$Type": "string"
+            },
+            "$Version": 1.0
+          },
+          {
+            "type": "VALUE",
+            "value": {
+              "$Value": "data.*.csv",
+              "$Type": "string"
+            },
+            "$Version": 1.0
+          },
+          {
+            "type": "VALUE",
+            "value": {
+              "$Value": "/opt/mz/SAPCM-SEPT25/DB/STP/PROC",
+              "$Type": "string"
+            },
+            "$Version": 1.0
+          }
+        ],
+        "instanceId": 3,
+        "instanceName": "wfData",
+        "validType": "Valid",
+        "$Version": 1.0
+      }
+    ],
+    "isErrorBatchTypeECS": false,
+    "nodes": [
+      {
+        "Name": "Disk_1",
+        "ID": 2108931552,
+        "Classname": "com.digitalroute.wfc.diskinput.DiskAdvInputInsp",
+        "Configuration": [
+          {
+            "Type": 1,
+            "Classname": "com.digitalroute.wfc.diskinput.DiskAdvInputInsp",
+            "Data": {
+              "routeFileRef": false,
+              "strategyClasses": [
+                "com.digitalroute.misc.advcoll.impl.DefaultFileInfo",
+                "com.digitalroute.misc.advcoll.impl.DefaultSourceFileHandling"
+              ],
+              "strategyCombinationClass": "com.digitalroute.misc.advcoll.impl.DefaultCollectionStrategy",
+              "strategyConfigs": [
+                {
+                  "baseDir": "ext",
+                  "compType": "No Compression",
+                  "fileRegExp": "ext",
+                  "subfolders": false,
+                  "$Type": "dr.DefaultFileInfoConfig",
+                  "$Version": 10.0
+                },
+                {
+                  "idleTime": 0,
+                  "moveBeforeRetrieval": false,
+                  "moveSuffix": "",
+                  "rbDirectory": "",
+                  "rbKeepInterval": -1,
+                  "rbRenamePrefix": "",
+                  "rbRenameSuffix": "",
+                  "rbReplace": "",
+                  "rbSearch": "",
+                  "rbType": "Ignore",
+                  "$Type": "dr.DefaultSourceFileHandlingConfig",
+                  "$Version": 10.0
+                }
+              ],
+              "$Type": "dr.DiskAdvInputData",
+              "$Version": 10.0
+            },
+            "$Version": 1.0
+          },
+          {
+            "Type": 0,
+            "Classname": "com.digitalroute.devkit.wf.DRFNSServiceInsp",
+            "Data": {
+              "enabled": false,
+              "nextSeqNo": {
+                "SeqNo": -1,
+                "SeqNoUpdate": 0,
+                "$Version": 2.0
+              },
+              "nextSeqNoValue": -1,
+              "seqNoChk": 0,
+              "seqNoLen": -1,
+              "shallWarnOnOutOfSequence": false,
+              "startPos": -1,
+              "wrapOnSeqNo": -1,
+              "wrapToSeqNo": -1,
+              "$Type": "dr.DRFNSServiceConfigExtension",
+              "$Version": 10.0
+            },
+            "$Version": 1.0
+          },
+          {
+            "Type": 0,
+            "Classname": "com.digitalroute.devkit.wf.DRFileInfoSortOrderServiceInsp",
+            "Data": {
+              "enabled": false,
+              "ignoreCase": false,
+              "length": 0,
+              "orderType": "Filename Value",
+              "patternType": "Position",
+              "sortOrder": "Ascending",
+              "sortType": "Alphanumeric",
+              "startPos": 0,
+              "$Type": "dr.DRFileInfoSortOrderServiceConfig",
+              "$Version": 10.0
+            },
+            "$Version": 1.0
+          }
+        ],
+        "XYposition": {
+          "x": 130,
+          "y": 190,
+          "$Version": 1.0
+        },
+        "$Version": 2.0
+      },
+      {
+        "Name": "Analysis_1",
+        "ID": -1939312021,
+        "Classname": "com.digitalroute.wfc.analysis.StuffyMapperInsp",
+        "Configuration": [
+          {
+            "Type": 1,
+            "Classname": "com.digitalroute.wfc.analysis.StuffyMapperInsp",
+            "Data": {
+              "sourceCode": "import apl.SAPCM-SEPT25_DB_SHARED-TABLE.APL_TELCO;
+
+initialize{
+    tableRefreshShared(\"SAPCM-SEPT25_DB_SHARED-TABLE.PRF_STP_DUP_MASTER_RULE\");
+    tbDupMasterRule = tableCreateShared(\"SAPCM-SEPT25_DB_SHARED-TABLE.PRF_STP_DUP_MASTER_RULE\");        
+}
+beginBatch{
+    
+    mpAudit = mapCreate(string,any);
+    duplicateCheckFlag = false;
+    string wfName = getWfName((string)mimGet(\"Workflow\",\"Workflow Name\"));
+    string serviceName = getService(wfName);
+    mapSet(mpAudit,\"WF_NAME\",wfName);
+    mapSet(mpAudit,\"SERVICE_NAME\",serviceName);
+    //check if the service needs to checked against duplicate
+    duplicateCheckFlag = checkDupFlag(tbDupMasterRule,mpAudit);
+    
+    cksumReset();
+}
+consume {
+    cksumUpdate(input);
+    baInput = input;
+}
+drain{
+    long checksum = cksumResult();
+    mapSet(mpAudit,\"CHECKSUM\",checksum);
+    if(duplicateCheckFlag == true){
+        table tbCollAdt = sqlPrepSelect(collAdtQuery ,checksum,(string)mapGet(mpAudit,\"WF_NAME\"),DB);
+        debug(\"tbCollAdt:\"+tbCollAdt);
+        if(tableRowCount(tbCollAdt) == 0){
+            udrRoute(baInput);
+        } else{
+            abort(\"Duplicate batch detected\");    
+        }   
+    } else{
+        udrRoute(baInput) ;   
+    }      
+}
+endBatch{
+    if(duplicateCheckFlag == true){
+        debug(collAdtMaintainQuery);
+        int i = sqlPrepUpdate(collAdtMaintainQuery,(long)mapGet(mpAudit,\"CHECKSUM\"),(string)mapGet(mpAudit,\"WF_NAME\"),DB);
+         debug(\"Rows inserted:\"+i);   
+    }
+}",
+              "udrTypes": [
+                {
+                  "typeName": "bytearray",
+                  "$Version": 1.0
+                }
+              ],
+              "$Type": "dr.StuffyMapperData",
+              "$Version": 10.0
+            },
+            "$Version": 1.0
+          },
+          {
+            "Type": 0,
+            "Classname": "com.digitalroute.devkit.hidden.DRThreadBufferInsp",
+            "Data": {
+              "printStats": false,
+              "useOwnThread": false,
+              "$Type": "dr.DRThreadBufferConfig",
+              "$Version": 10.0
+            },
+            "$Version": 1.0
+          }
+        ],
+        "XYposition": {
+          "x": 290,
+          "y": 190,
+          "$Version": 1.0
+        },
+        "$Version": 2.0
+      },
+      {
+        "Name": "Disk_2",
+        "ID": -853019564,
+        "Classname": "com.digitalroute.wfc.diskoutput.DiskOutputInsp",
+        "Configuration": [
+          {
+            "Type": 1,
+            "Classname": "com.digitalroute.wfc.diskoutput.DiskOutputInsp",
+            "Data": {
+              "arguments": "",
+              "command": "",
+              "compType": "No Compression",
+              "createEmpty": false,
+              "createNonExistingBaseDir": false,
+              "directory": "ext",
+              "inputType": "ByteArray",
+              "$Type": "dr.DiskOutputData",
+              "$Version": 13.0
+            },
+            "$Version": 1.0
+          },
+          {
+            "Type": 0,
+            "Classname": "com.digitalroute.devkit.wf.DRFNTServiceInsp",
+            "Data": {
+              "createNonExistDirectories": true,
+              "entries": [
+                {
+                  "User entry": "PROC_",
+                  "Size": -1,
+                  "Alignment": 1,
+                  "Delimiter": false,
+                  "$Version": 3.0
+                },
+                {
+                  "Mim entry": "Workflow.Batch Start Time",
+                  "Size": -1,
+                  "Alignment": 1,
+                  "Trailing separator": "_",
+                  "Date format": "ddMMyyyyHHmmssSS",
+                  "Delimiter": false,
+                  "$Version": 3.0
+                },
+                {
+                  "Mim entry": "Disk_1.Source Filename",
+                  "Size": -1,
+                  "Alignment": 1,
+                  "Delimiter": false,
+                  "$Version": 3.0
+                }
+              ],
+              "fNTListEnabled": true,
+              "$Type": "dr.DRFNTServiceConfig",
+              "$Version": 11.0
+            },
+            "$Version": 1.0
+          }
+        ],
+        "XYposition": {
+          "x": 430,
+          "y": 190,
+          "$Version": 1.0
+        },
+        "$Version": 2.0
+      }
+    ],
+    "routes": [
+      {
+        "destinationId": -1939312021,
+        "id": -4,
+        "name": "r_3",
+        "realtimeMode": "Not set",
+        "routeStyle": "Straight",
+        "sourceId": 2108931552,
+        "stroke": [
+          {
+            "x": 160,
+            "y": 183,
+            "$Version": 1.0
+          },
+          {
+            "x": 260,
+            "y": 183,
+            "$Version": 1.0
+          }
+        ],
+        "$Version": 1.0
+      },
+      {
+        "destinationId": -853019564,
+        "id": -5,
+        "name": "r_4",
+        "realtimeMode": "Not set",
+        "routeStyle": "Straight",
+        "sourceId": -1939312021,
+        "stroke": [
+          {
+            "x": 320,
+            "y": 183,
+            "$Version": 1.0
+          },
+          {
+            "x": 401,
+            "y": 183,
+            "$Version": 1.0
+          }
+        ],
+        "$Version": 1.0
+      }
+    ],
+    "services": [],
+    "templateValid": true,
+    "wfExecutionConfig": {
+      "debugType": "Event",
+      "executionSettings": {
+        "distributionType": "Round Robin",
+        "enabled": false,
+        "executionGroups": [],
+        "$Version": 1.0
+      },
+      "noOfFilesToKeep": 0,
+      "txnHandler": "Default Handler",
+      "$Version": 10.0
+    },
+    "wfIdCounter": 3,
+    "$Type": "dr.WorkflowBatchData",
+    "$Version": 1.0
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1
+}

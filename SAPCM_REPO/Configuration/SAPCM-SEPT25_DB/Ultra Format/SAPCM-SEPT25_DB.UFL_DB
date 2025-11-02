@@ -1,0 +1,40 @@
+{
+  "Key": "DR1761391390181",
+  "Name": "UFL_DB",
+  "Type": "Ultra Format",
+  "Version": 5,
+  "Folder": "SAPCM-SEPT25_DB",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "All",
+    "Administrator",
+    "Administrator"
+  ],
+  "Data": {
+    "Definition": "internal custOrd
+{
+    int orderId;
+    string custName;
+    string productName;
+    int quantity;
+    date ordDate;    
+};
+
+internal retiredServer{
+    string os;
+    string hostname;    
+};
+internal serverCons{
+    string os;
+    string usage;
+    string hostname;    
+};",
+    "$Type": "dr.UltraFormatConfig",
+    "$Version": 2.0
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1
+}

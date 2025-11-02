@@ -1,0 +1,52 @@
+{
+  "Key": "DR1758378388890",
+  "Name": "UFL_SeqFormat",
+  "Type": "Ultra Format",
+  "Version": 7,
+  "Folder": "SAPCM-SEPT25_ADV-UFDL",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "All",
+    "Administrator",
+    "Administrator"
+  ],
+  "Data": {
+    "Definition": "external SeqFormatExt : identified_by(recIdentifier == 0x84){
+    int recIdentifier : static_size(1);
+    int recLength : static_size(1);
+    ascii data : dynamic_size(recLength-2);
+};
+
+in_map iMap : external(SeqFormatExt),target_internal(SeqFormat_TI){automatic;};
+decoder seqDec : in_map(iMap);
+
+
+
+/*
+0xAD  1010 1101 (binary)
+Bit Block Definition:
+Bits 7–5 → Message Type = 101 = 5
+Bits 4–2 → Priority = 011 = 3
+Bits 1–0 → Status = 01 = 1
+
+*/
+external BitBlockExt{
+    int recIdentifier : static_size(1);
+    bit_block : static_size(1){
+        int messageType :   msb(7),lsb(5); 
+        int priority :   msb(4),lsb(2); 
+        int status :   msb(1),lsb(0);   
+    } ; 
+};
+
+in_map iMap1 : external(BitBlockExt),target_internal(BitBlock_TI){automatic;};
+decoder seqBitDec : in_map(iMap1);",
+    "$Type": "dr.UltraFormatConfig",
+    "$Version": 2.0
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1
+}

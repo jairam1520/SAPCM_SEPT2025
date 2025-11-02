@@ -1,0 +1,64 @@
+{
+  "Key": "DR1760271988161",
+  "Name": "UFL_Cons",
+  "Type": "Ultra Format",
+  "Version": 7,
+  "Folder": "SAPCM-SEPT25_DATASTRUCTURES",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "All",
+    "Administrator",
+    "Administrator"
+  ],
+  "Data": {
+    "Definition": "external systemCons : identified_by(consType == \"System\"){
+\tascii consType : terminated_by(\",\");
+\tascii hostname : terminated_by(\",\");
+\tascii cpuUsage : terminated_by(\",\");
+\tascii memUsage : terminated_by(\",\");
+\tascii diskUsed : terminated_by(\",\");
+\tascii osType : terminated_by(\"\\n\");
+};
+external networkCons: identified_by(consType == \"Network\"){
+\tascii consType : terminated_by(\",\");
+\tascii hostname : terminated_by(\",\");
+\tascii networkIn : terminated_by(\",\");
+\tascii networkOut : terminated_by(\",\");
+\tascii totalConsScore : terminated_by(\"\\n\");
+};
+ 
+internal networkFields{
+    string osType;    
+};
+
+internal netInt{
+    string osType; 
+    string consType;
+    string hostname;
+    string networkIn;
+    string networkOut;
+    string totalConsScore;
+    list<string> liCons;
+};
+
+in_map sysImap : external(systemCons),target_internal(systemCons_TI){automatic;};
+in_map netImap : external(networkCons),internal(netInt){automatic;};
+
+decoder consDec : in_map(sysImap),in_map(netImap);
+
+out_map sysOmap : external(systemCons),internal(systemCons_TI){automatic;};
+out_map netOmap : external(networkCons),internal(netInt){automatic;};
+
+encoder consEnc : out_map(sysOmap),out_map(netOmap);
+
+
+",
+    "$Type": "dr.UltraFormatConfig",
+    "$Version": 2.0
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1
+}

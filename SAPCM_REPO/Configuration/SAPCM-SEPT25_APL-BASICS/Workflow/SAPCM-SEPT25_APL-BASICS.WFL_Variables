@@ -1,0 +1,368 @@
+{
+  "Key": "DR1758873371058",
+  "Name": "WFL_Variables",
+  "Type": "Workflow",
+  "Version": 20,
+  "Folder": "SAPCM-SEPT25_APL-BASICS",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "All",
+    "Administrator",
+    "Administrator"
+  ],
+  "Auxiliary Data": {
+    "Entries": [
+      {
+        "Key": "Type",
+        "Value": "Batch"
+      },
+      {
+        "Key": "Standalone",
+        "Value": "false"
+      },
+      {
+        "Key": "Count",
+        "Value": "1"
+      },
+      {
+        "Key": "Autostart",
+        "Value": "false"
+      },
+      {
+        "Key": "DynamicConfig",
+        "Value": "false"
+      }
+    ],
+    "$Version": 2.0
+  },
+  "Data": {
+    "auditLogOnCancelBatch": false,
+    "cancelBatchType": "Abort immediately",
+    "consecutiveCount": 0,
+    "dynamicInstances": false,
+    "errorMimNames": [],
+    "fieldTypes": [],
+    "instances": [
+      {
+        "cellValues": [],
+        "instanceId": 1,
+        "instanceName": "workflow_1",
+        "validType": "Valid",
+        "$Version": 1.0
+      }
+    ],
+    "isErrorBatchTypeECS": false,
+    "nodes": [
+      {
+        "Name": "Disk_1",
+        "ID": 2108931552,
+        "Classname": "com.digitalroute.wfc.diskinput.DiskAdvInputInsp",
+        "Configuration": [
+          {
+            "Type": 1,
+            "Classname": "com.digitalroute.wfc.diskinput.DiskAdvInputInsp",
+            "Data": {
+              "routeFileRef": false,
+              "strategyClasses": [
+                "com.digitalroute.misc.advcoll.impl.DefaultFileInfo",
+                "com.digitalroute.misc.advcoll.impl.DefaultSourceFileHandling"
+              ],
+              "strategyCombinationClass": "com.digitalroute.misc.advcoll.impl.DefaultCollectionStrategy",
+              "strategyConfigs": [
+                {
+                  "baseDir": "/opt/mz/SAPCM-SEPT25/Decoding/",
+                  "compType": "No Compression",
+                  "fileRegExp": "Person.csv",
+                  "subfolders": false,
+                  "$Type": "dr.DefaultFileInfoConfig",
+                  "$Version": 10.0
+                },
+                {
+                  "idleTime": 0,
+                  "moveBeforeRetrieval": false,
+                  "moveSuffix": "",
+                  "rbDirectory": "",
+                  "rbKeepInterval": -1,
+                  "rbRenamePrefix": "",
+                  "rbRenameSuffix": "",
+                  "rbReplace": "",
+                  "rbSearch": "",
+                  "rbType": "Ignore",
+                  "$Type": "dr.DefaultSourceFileHandlingConfig",
+                  "$Version": 10.0
+                }
+              ],
+              "$Type": "dr.DiskAdvInputData",
+              "$Version": 10.0
+            },
+            "$Version": 1.0
+          },
+          {
+            "Type": 0,
+            "Classname": "com.digitalroute.devkit.wf.DRFNSServiceInsp",
+            "Data": {
+              "enabled": false,
+              "nextSeqNo": {
+                "SeqNo": -1,
+                "SeqNoUpdate": 0,
+                "$Version": 2.0
+              },
+              "nextSeqNoValue": -1,
+              "seqNoChk": 0,
+              "seqNoLen": -1,
+              "shallWarnOnOutOfSequence": false,
+              "startPos": -1,
+              "wrapOnSeqNo": -1,
+              "wrapToSeqNo": -1,
+              "$Type": "dr.DRFNSServiceConfigExtension",
+              "$Version": 10.0
+            },
+            "$Version": 1.0
+          },
+          {
+            "Type": 0,
+            "Classname": "com.digitalroute.devkit.wf.DRFileInfoSortOrderServiceInsp",
+            "Data": {
+              "enabled": false,
+              "ignoreCase": false,
+              "length": 0,
+              "orderType": "Filename Value",
+              "patternType": "Position",
+              "sortOrder": "Ascending",
+              "sortType": "Alphanumeric",
+              "startPos": 0,
+              "$Type": "dr.DRFileInfoSortOrderServiceConfig",
+              "$Version": 10.0
+            },
+            "$Version": 1.0
+          }
+        ],
+        "XYposition": {
+          "x": 100,
+          "y": 210,
+          "$Version": 1.0
+        },
+        "$Version": 2.0
+      },
+      {
+        "Name": "Decoder_1",
+        "ID": -1576094480,
+        "Classname": "com.digitalroute.wfc.ultra.UltraDecoderInsp",
+        "Configuration": [
+          {
+            "Type": 1,
+            "Classname": "com.digitalroute.wfc.ultra.UltraDecoderInsp",
+            "Data": {
+              "decoderName": "SAPCM-SEPT25_DECODING.UFL_Person.personDec1",
+              "doFullDecode": false,
+              "errorMode": 1,
+              "$Type": "dr.UltraDecoderData",
+              "$Version": 11.0
+            },
+            "$Version": 1.0
+          }
+        ],
+        "XYposition": {
+          "x": 250,
+          "y": 210,
+          "$Version": 1.0
+        },
+        "$Version": 2.0
+      },
+      {
+        "Name": "Analysis_1",
+        "ID": -1939312021,
+        "Classname": "com.digitalroute.wfc.analysis.StuffyMapperInsp",
+        "Configuration": [
+          {
+            "Type": 1,
+            "Classname": "com.digitalroute.wfc.analysis.StuffyMapperInsp",
+            "Data": {
+              "sourceCode": "import ultra.SAPCM-SEPT25_ADV-UFDL.UFL_Usage;
+import ultra.sapcc;
+import apl.SAPCM-SEPT25_APL-BASICS.APL_APL_Fundamentals;
+consume {
+    date d = dateCreateNow();
+    boolean valid = isRecordValid(input,d);
+    if(valid == true){
+        debug(input);
+    }else{
+        return;    
+    }
+    
+    sleep(100000);
+    switch(valid){
+        
+        case(true){
+            debug(\"valid record..\");    
+        }    
+        case(false){
+            debug(\"invalid record..\");
+        }
+        
+        
+    }
+    
+    for(int i = 0 ;i<5 ;i++){
+        if(i==2){
+            continue;
+        }  
+        debug(i);
+    }
+    
+}
+drain{
+    /*debug(\"COUNTRY:\"+COUNTRY);
+    
+    //local variables
+    //premitive
+    byte byteV = 127;
+    short shortV = 32767;
+    int intV = 2147483647;
+    long longV = 92233720368547;
+    
+    //non premitive
+    bigint bigIntV = 9223372036854733333333333333333;
+    
+    any anyNum = 1;
+    any anyStr = \"test\";
+    any anyFloat = 123.56;
+    
+    //custom udr type
+    //non premitive
+    Person_TI person = udrCreate(Person_TI);
+    Act_TI act = udrCreate(Act_TI);
+    
+    //non-premitive
+    date dateToday = dateCreateNow();
+    
+    list<int> intList = listCreate(int);
+    
+    CCCycleUDR cc = udrCreate(CCCycleUDR);
+    */
+    
+}",
+              "udrTypes": [
+                {
+                  "TypeName": "SAPCM-SEPT25_DECODING.UFL_Person.Person_TI",
+                  "FormatName": "SAPCM-SEPT25_DECODING.UFL_Person",
+                  "$Type": "dr.UltraClientInfo",
+                  "$Version": 1.0
+                }
+              ],
+              "$Type": "dr.StuffyMapperData",
+              "$Version": 10.0
+            },
+            "$Version": 1.0
+          },
+          {
+            "Type": 0,
+            "Classname": "com.digitalroute.devkit.hidden.DRThreadBufferInsp",
+            "Data": {
+              "printStats": false,
+              "useOwnThread": false,
+              "$Type": "dr.DRThreadBufferConfig",
+              "$Version": 10.0
+            },
+            "$Version": 1.0
+          }
+        ],
+        "XYposition": {
+          "x": 400,
+          "y": 200,
+          "$Version": 1.0
+        },
+        "$Version": 2.0
+      }
+    ],
+    "routes": [
+      {
+        "destinationId": -1576094480,
+        "id": -2,
+        "name": "r_1",
+        "realtimeMode": "Not set",
+        "routeStyle": "Bezier",
+        "sourceId": 2108931552,
+        "stroke": [
+          {
+            "x": 130,
+            "y": 189,
+            "$Version": 1.0
+          },
+          {
+            "x": 161,
+            "y": 176,
+            "$Version": 1.0
+          },
+          {
+            "x": 190,
+            "y": 177,
+            "$Version": 1.0
+          },
+          {
+            "x": 220,
+            "y": 191,
+            "$Version": 1.0
+          }
+        ],
+        "$Version": 1.0
+      },
+      {
+        "destinationId": -1939312021,
+        "id": -3,
+        "name": "r_2",
+        "realtimeMode": "Not set",
+        "routeStyle": "Bezier",
+        "sourceId": -1576094480,
+        "stroke": [
+          {
+            "x": 280,
+            "y": 190,
+            "$Version": 1.0
+          },
+          {
+            "x": 309,
+            "y": 176,
+            "$Version": 1.0
+          },
+          {
+            "x": 340,
+            "y": 175,
+            "$Version": 1.0
+          },
+          {
+            "x": 370,
+            "y": 185,
+            "$Version": 1.0
+          }
+        ],
+        "$Version": 1.0
+      }
+    ],
+    "services": [],
+    "templateValid": true,
+    "wfExecutionConfig": {
+      "debugType": "File",
+      "executionSettings": {
+        "distributionType": "Round Robin",
+        "enabled": true,
+        "executionGroups": [
+          "EC_GROUP3",
+          "EC_GROUP1"
+        ],
+        "$Version": 1.0
+      },
+      "noOfFilesToKeep": 2,
+      "txnHandler": "Default Handler",
+      "$Version": 10.0
+    },
+    "wfIdCounter": 1,
+    "$Type": "dr.WorkflowBatchData",
+    "$Version": 1.0
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1
+}

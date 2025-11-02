@@ -1,0 +1,235 @@
+{
+  "Key": "DR1760275201463",
+  "Name": "WFL_DS_Fundamentals",
+  "Type": "Workflow",
+  "Version": 16,
+  "Folder": "SAPCM-SEPT25_DATASTRUCTURES",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "All",
+    "Administrator",
+    "Administrator"
+  ],
+  "Auxiliary Data": {
+    "Entries": [
+      {
+        "Key": "Type",
+        "Value": "Realtime"
+      },
+      {
+        "Key": "Standalone",
+        "Value": "false"
+      },
+      {
+        "Key": "Count",
+        "Value": "1"
+      },
+      {
+        "Key": "Autostart",
+        "Value": "false"
+      },
+      {
+        "Key": "DynamicConfig",
+        "Value": "false"
+      }
+    ],
+    "$Version": 2.0
+  },
+  "Data": {
+    "dynamicInstances": false,
+    "errorMimNames": [],
+    "fieldTypes": [],
+    "instances": [
+      {
+        "cellValues": [],
+        "instanceId": 1,
+        "instanceName": "workflow_1",
+        "validType": "Valid",
+        "$Version": 1.0
+      }
+    ],
+    "nodes": [
+      {
+        "Name": "Pulse_1",
+        "ID": 33159177,
+        "Classname": "com.digitalroute.mz.pulse.agent.PulseCollectorAgentInspRT",
+        "Configuration": [
+          {
+            "Type": 1,
+            "Classname": "com.digitalroute.mz.pulse.agent.PulseCollectorAgentInspRT",
+            "Data": {
+              "center": 1.0,
+              "data": "",
+              "dataEntered": true,
+              "dataRandomData": false,
+              "dataRandomOrderSeq": false,
+              "dataRangeEnd": 10,
+              "dataRangeStart": 0,
+              "dataSequentialOrder": true,
+              "dataSequentialRange": false,
+              "dataSize": 1,
+              "dataUnit": "Bytes",
+              "intervalFixed": 1,
+              "intervalType": "Fixed",
+              "poissonRate": 1.0,
+              "rate": 1,
+              "start": 1,
+              "stop": 10,
+              "unit": "MINUTES",
+              "width": 1.0,
+              "$Type": "dr.PulseData",
+              "$Version": 10.0
+            },
+            "$Version": 1.0
+          }
+        ],
+        "XYposition": {
+          "x": 200,
+          "y": 180,
+          "$Version": 1.0
+        },
+        "$Version": 2.0
+      },
+      {
+        "Name": "Analysis_1",
+        "ID": -540133671,
+        "Classname": "com.digitalroute.wfc.analysis.AnalysisRealtimeInsp",
+        "Configuration": [
+          {
+            "Type": 1,
+            "Classname": "com.digitalroute.wfc.analysis.AnalysisRealtimeInsp",
+            "Data": {
+              "sourceCode": "consume {
+    //list
+    list<string> liNames = listCreate(string);
+    list<int> liNum = listCreate(int , 1,2,3,4,5);
+    
+    //adding data in list(end)
+    listAdd(liNames,\"Jai\");//0
+    listAdd(liNames, \"Madhu\");//1
+    
+    //adding data in between
+    listInsert(liNames ,1 , \"Sweetu\");
+    
+    //updating the list element
+    listSet(liNames , 0 , \"Ram\");
+    
+    //accessing data from list
+    string ele = listGet(liNames,1 );
+    debug(\"ele:\"+ele);
+    
+    //get the size of list
+    int size = listSize(liNames);
+    debug(\"size:\"+size);
+    //listClear(liNames);
+    
+    listSort(liNames,descending);
+    //debug(\"Names list:\"+liNames);
+    
+    //accessing list using loops
+    for(int i=0 ;i < listSize(liNames); i++){
+        debug(listGet(liNames,i));    
+    }
+    debug(\"-----------------\");
+    for(string ele1 : liNames){
+        if(ele1 == \"Ram\"){
+            debug(\"Got:\"+ele1);
+        }
+    }
+    
+    debug(\"-------------------\");
+    int idx = listFindIndex(liNames , string name , name == \"Raam\" );
+    debug(\"Ram is at position:\"+idx);
+    
+    debug(\"------------------------\");
+    for(int id : liNum){
+        debug(id);    
+    }
+}",
+              "udrTypes": [
+                {
+                  "typeName": "PulseUDR",
+                  "$Version": 1.0
+                }
+              ],
+              "$Type": "dr.StuffyMapperData",
+              "$Version": 10.0
+            },
+            "$Version": 1.0
+          }
+        ],
+        "XYposition": {
+          "x": 430,
+          "y": 180,
+          "$Version": 1.0
+        },
+        "$Version": 2.0
+      }
+    ],
+    "persistentData": {
+      "$Version": 10.0
+    },
+    "routes": [
+      {
+        "destinationId": -540133671,
+        "id": -2,
+        "name": "r_1",
+        "realtimeMode": "Not set",
+        "routeStyle": "Bezier",
+        "sourceId": 33159177,
+        "stroke": [
+          {
+            "x": 230,
+            "y": 164,
+            "$Version": 1.0
+          },
+          {
+            "x": 287,
+            "y": 148,
+            "$Version": 1.0
+          },
+          {
+            "x": 343,
+            "y": 148,
+            "$Version": 1.0
+          },
+          {
+            "x": 400,
+            "y": 164,
+            "$Version": 1.0
+          }
+        ],
+        "$Version": 1.0
+      }
+    ],
+    "services": [],
+    "templateValid": true,
+    "threadData": {
+      "countInterval": 1,
+      "queueSize": 1000,
+      "standalone": false,
+      "threads": 8,
+      "$Version": 10.0
+    },
+    "wfExecutionConfig": {
+      "debugType": "Event",
+      "executionSettings": {
+        "distributionType": "Round Robin",
+        "enabled": false,
+        "executionGroups": [],
+        "$Version": 1.0
+      },
+      "noOfFilesToKeep": 0,
+      "txnHandler": "Default Handler",
+      "$Version": 10.0
+    },
+    "wfIdCounter": 1,
+    "$Type": "dr.WorkflowRealtimeData",
+    "$Version": 1.0
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1
+}

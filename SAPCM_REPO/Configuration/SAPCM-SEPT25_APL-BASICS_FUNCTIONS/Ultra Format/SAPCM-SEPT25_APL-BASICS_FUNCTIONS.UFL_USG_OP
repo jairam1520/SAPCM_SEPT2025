@@ -1,0 +1,48 @@
+{
+  "Key": "DR1759584989055",
+  "Name": "UFL_USG_OP",
+  "Type": "Ultra Format",
+  "Version": 3,
+  "Folder": "SAPCM-SEPT25_APL-BASICS_FUNCTIONS",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "All",
+    "Administrator",
+    "Administrator"
+  ],
+  "Data": {
+    "Definition": "//Output structure
+/*
+SubscriberID,UsageType,StartTime,EndTime,Year,Month,DayOfWeek,MillisStart,CyclePeriod,PeakOrOffPeak,LeapYear
+1001,Voice,2025-09-30 23:55:00,2025-10-01 00:05:00,2025,9,2,1759253700000,2025-10-01 to 2025-10-31,Off-Peak,False
+1002,Data,2025-10-01 01:15:30,2025-10-01 01:17:30,2025,10,3,1759341330000,2025-10-01 to 2025-10-31,Off-Peak,False
+1003,SMS,2025-02-28 23:59:00,2025-03-01 00:00:02,2025,2,5,1740770940000,2025-02-01 to 2025-02-28,Off-Peak,False
+1004,Voice,2025-03-10 01:00:00,2025-03-10 01:05:00,2025,3,1,1741567800000,2025-03-01 to 2025-03-31,Off-Peak,False
+1005,Data,2025-10-02 14:30:00,2025-10-02 15:00:00,2025,10,4,1759485600000,2025-10-01 to 2025-10-31,Peak,False
+*/
+external usageRecOutExt{
+\tascii subsId : terminated_by(\",\");
+\tascii usageType : terminated_by(\",\");
+\tascii startTime : terminated_by(\",\");
+\tascii endTime : terminated_by(\",\");
+\tascii year : terminated_by(\",\");
+\tascii month : terminated_by(\",\");
+    ascii dayOfWeek : terminated_by(\",\");
+\tascii millisStart : terminated_by(\",\");
+\tascii cyclePeriod : terminated_by(\",\");
+\tascii peakOrOffpeak : terminated_by(\",\");
+\tascii leapyear : terminated_by(\"\\n\");
+};
+
+in_map uOIMap : external(usageRecOutExt),target_internal(usageOut_TI){automatic;};
+out_map uOOMap : external(usageRecOutExt),internal(usageOut_TI){automatic;};
+encoder uEnc : out_map(uOOMap);",
+    "$Type": "dr.UltraFormatConfig",
+    "$Version": 2.0
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1
+}

@@ -1,0 +1,54 @@
+{
+  "Key": "DR1758375549909",
+  "Name": "UFL_Usage",
+  "Type": "Ultra Format",
+  "Version": 3,
+  "Folder": "SAPCM-SEPT25_ADV-UFDL",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "All",
+    "Administrator",
+    "Administrator"
+  ],
+  "Data": {
+    "Definition": "/*
+A:BP01,2025
+U:BP01,2025,23Mb
+T:BP01,2025
+*/
+
+//External format for activation record
+external ActExt : identified_by(rectype == \"A\"){
+    ascii rectype : terminated_by(\":\"),external_only;
+    ascii bp : terminated_by(\",\");
+    ascii year : terminated_by(\"\\n\");
+};
+//External format for usage record
+external UsgExt:identified_by(rectype == \"U\"){
+    ascii rectype : terminated_by(\":\"),external_only;
+    ascii bp : terminated_by(\",\");
+    ascii year : terminated_by(\",\");
+    ascii usgMb : terminated_by(\"\\n\");
+};
+//External format for termination record
+external TerExt: identified_by(rectype == \"T\"){
+    ascii rectype : terminated_by(\":\"),external_only;
+    ascii bp : terminated_by(\",\");
+    ascii year : terminated_by(\"\\n\");
+};
+
+in_map acIMap : external(ActExt),target_internal(Act_TI){automatic;};
+in_map usgIMap : external(UsgExt),target_internal(Usg_TI){automatic;};
+in_map terIMap : external(TerExt),target_internal(Ter_TI){automatic;};
+
+decoder usgDec : in_map(acIMap),in_map(usgIMap),in_map(terIMap);
+",
+    "$Type": "dr.UltraFormatConfig",
+    "$Version": 2.0
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1
+}

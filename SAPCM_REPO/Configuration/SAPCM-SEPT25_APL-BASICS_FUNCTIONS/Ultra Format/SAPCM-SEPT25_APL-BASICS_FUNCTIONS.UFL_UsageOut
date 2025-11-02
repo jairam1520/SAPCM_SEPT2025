@@ -1,0 +1,49 @@
+{
+  "Key": "DR1759066279937",
+  "Name": "UFL_UsageOut",
+  "Type": "Ultra Format",
+  "Version": 3,
+  "Folder": "SAPCM-SEPT25_APL-BASICS_FUNCTIONS",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "All",
+    "Administrator",
+    "Administrator"
+  ],
+  "Data": {
+    "Definition": "/*
+MSISDN,IMSI,ServiceType,AccountID,FileName,BatchDate,PartnerDomain,Duration
+*/
+internal usageOut{
+\tstring MSISDN;
+\tstring IMSI;
+\tstring ServiceType;
+\tstring AccountID;
+\tstring FileName;
+\tstring BatchDate;
+\tstring PartnerDomain;
+\tint Duration;
+};
+
+external usageExt{
+    ascii MSISDN : terminated_by(\",\");
+    ascii IMSI : terminated_by(\",\");
+    ascii ServiceType : terminated_by(\",\");
+    ascii AccountID : terminated_by(\",\");
+    ascii FileName : terminated_by(\",\");
+    ascii BatchDate : terminated_by(\",\");
+    ascii PartnerDomain : terminated_by(\",\");
+    ascii Duration : terminated_by(\"\\n\");
+};
+
+out_map usgOMap : external(usageExt),internal(usageOut){automatic;};
+encoder usgEnc : out_map(usgOMap);",
+    "$Type": "dr.UltraFormatConfig",
+    "$Version": 2.0
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1
+}

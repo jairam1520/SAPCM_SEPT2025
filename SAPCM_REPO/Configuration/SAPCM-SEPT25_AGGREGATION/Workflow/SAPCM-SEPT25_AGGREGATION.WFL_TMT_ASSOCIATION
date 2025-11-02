@@ -1,0 +1,537 @@
+{
+  "Key": "DR1761923421076",
+  "Name": "WFL_TMT_ASSOCIATION",
+  "Type": "Workflow",
+  "Version": 14,
+  "Folder": "SAPCM-SEPT25_AGGREGATION",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "ZSAP_CM_ALL",
+    "ZSAP_CM_ALL",
+    "ZSAP_CM_ALL"
+  ],
+  "Auxiliary Data": {
+    "Entries": [
+      {
+        "Key": "Type",
+        "Value": "Batch"
+      },
+      {
+        "Key": "Standalone",
+        "Value": "false"
+      },
+      {
+        "Key": "Count",
+        "Value": "1"
+      },
+      {
+        "Key": "Autostart",
+        "Value": "false"
+      },
+      {
+        "Key": "DynamicConfig",
+        "Value": "false"
+      }
+    ],
+    "$Version": 2.0
+  },
+  "Data": {
+    "auditLogOnCancelBatch": false,
+    "cancelBatchType": "Abort immediately",
+    "consecutiveCount": 0,
+    "dynamicInstances": false,
+    "errorMimNames": [],
+    "fieldTypes": [],
+    "instances": [
+      {
+        "cellValues": [],
+        "instanceId": 1,
+        "instanceName": "workflow_1",
+        "validType": "Valid",
+        "$Version": 1.0
+      }
+    ],
+    "isErrorBatchTypeECS": false,
+    "nodes": [
+      {
+        "Name": "Disk_1",
+        "ID": 2108931552,
+        "Classname": "com.digitalroute.wfc.diskinput.DiskAdvInputInsp",
+        "Configuration": [
+          {
+            "Type": 1,
+            "Classname": "com.digitalroute.wfc.diskinput.DiskAdvInputInsp",
+            "Data": {
+              "routeFileRef": false,
+              "strategyClasses": [
+                "com.digitalroute.misc.advcoll.impl.DefaultFileInfo",
+                "com.digitalroute.misc.advcoll.impl.DefaultSourceFileHandling"
+              ],
+              "strategyCombinationClass": "com.digitalroute.misc.advcoll.impl.DefaultCollectionStrategy",
+              "strategyConfigs": [
+                {
+                  "baseDir": "/opt/mz/SAPCM-SEPT25/AGGREGATION/ASSOCIATION",
+                  "compType": "No Compression",
+                  "fileRegExp": "tmt_rec_seq.csv",
+                  "subfolders": false,
+                  "$Type": "dr.DefaultFileInfoConfig",
+                  "$Version": 10.0
+                },
+                {
+                  "idleTime": 0,
+                  "moveBeforeRetrieval": false,
+                  "moveSuffix": "",
+                  "rbDirectory": "",
+                  "rbKeepInterval": -1,
+                  "rbRenamePrefix": "",
+                  "rbRenameSuffix": "",
+                  "rbReplace": "",
+                  "rbSearch": "",
+                  "rbType": "Ignore",
+                  "$Type": "dr.DefaultSourceFileHandlingConfig",
+                  "$Version": 10.0
+                }
+              ],
+              "$Type": "dr.DiskAdvInputData",
+              "$Version": 10.0
+            },
+            "$Version": 1.0
+          },
+          {
+            "Type": 0,
+            "Classname": "com.digitalroute.devkit.wf.DRFNSServiceInsp",
+            "Data": {
+              "enabled": false,
+              "nextSeqNo": {
+                "SeqNo": -1,
+                "SeqNoUpdate": 0,
+                "$Version": 2.0
+              },
+              "nextSeqNoValue": -1,
+              "seqNoChk": 0,
+              "seqNoLen": -1,
+              "shallWarnOnOutOfSequence": false,
+              "startPos": -1,
+              "wrapOnSeqNo": -1,
+              "wrapToSeqNo": -1,
+              "$Type": "dr.DRFNSServiceConfigExtension",
+              "$Version": 10.0
+            },
+            "$Version": 1.0
+          },
+          {
+            "Type": 0,
+            "Classname": "com.digitalroute.devkit.wf.DRFileInfoSortOrderServiceInsp",
+            "Data": {
+              "enabled": false,
+              "ignoreCase": false,
+              "length": 0,
+              "orderType": "Filename Value",
+              "patternType": "Position",
+              "sortOrder": "Ascending",
+              "sortType": "Alphanumeric",
+              "startPos": 0,
+              "$Type": "dr.DRFileInfoSortOrderServiceConfig",
+              "$Version": 10.0
+            },
+            "$Version": 1.0
+          }
+        ],
+        "XYposition": {
+          "x": 50,
+          "y": 190,
+          "$Version": 1.0
+        },
+        "$Version": 2.0
+      },
+      {
+        "Name": "Decoder_1",
+        "ID": -1576094480,
+        "Classname": "com.digitalroute.wfc.ultra.UltraDecoderInsp",
+        "Configuration": [
+          {
+            "Type": 1,
+            "Classname": "com.digitalroute.wfc.ultra.UltraDecoderInsp",
+            "Data": {
+              "decoderName": "SAPCM-SEPT25_AGGREGATION.UFL_TMT.tmtRec",
+              "doFullDecode": false,
+              "errorMode": 1,
+              "$Type": "dr.UltraDecoderData",
+              "$Version": 11.0
+            },
+            "$Version": 1.0
+          }
+        ],
+        "XYposition": {
+          "x": 170,
+          "y": 190,
+          "$Version": 1.0
+        },
+        "$Version": 2.0
+      },
+      {
+        "Name": "Analysis_1",
+        "ID": -1939312021,
+        "Classname": "com.digitalroute.wfc.analysis.StuffyMapperInsp",
+        "Configuration": [
+          {
+            "Type": 1,
+            "Classname": "com.digitalroute.wfc.analysis.StuffyMapperInsp",
+            "Data": {
+              "sourceCode": "consume {
+    debug(input);
+    if(instanceOf(input,tmtStartTI)){
+        udrRoute((tmtStartTI)input);
+    }else if(instanceOf(input,tmtUsgTI)){
+        udrRoute((tmtUsgTI)input);
+    }
+}",
+              "udrTypes": [
+                {
+                  "TypeName": "SAPCM-SEPT25_AGGREGATION.UFL_TMT.tmtStartTI",
+                  "FormatName": "SAPCM-SEPT25_AGGREGATION.UFL_TMT",
+                  "$Type": "dr.UltraClientInfo",
+                  "$Version": 1.0
+                },
+                {
+                  "TypeName": "SAPCM-SEPT25_AGGREGATION.UFL_TMT.tmtUsgTI",
+                  "FormatName": "SAPCM-SEPT25_AGGREGATION.UFL_TMT",
+                  "$Type": "dr.UltraClientInfo",
+                  "$Version": 1.0
+                }
+              ],
+              "$Type": "dr.StuffyMapperData",
+              "$Version": 10.0
+            },
+            "$Version": 1.0
+          },
+          {
+            "Type": 0,
+            "Classname": "com.digitalroute.devkit.hidden.DRThreadBufferInsp",
+            "Data": {
+              "printStats": false,
+              "useOwnThread": false,
+              "$Type": "dr.DRThreadBufferConfig",
+              "$Version": 10.0
+            },
+            "$Version": 1.0
+          }
+        ],
+        "XYposition": {
+          "x": 290,
+          "y": 190,
+          "$Version": 1.0
+        },
+        "$Version": 2.0
+      },
+      {
+        "Name": "Aggregation_1",
+        "ID": 1271441448,
+        "Classname": "com.digitalroute.wfc.aggregation.AggregationInsp",
+        "Configuration": [
+          {
+            "Type": 1,
+            "Classname": "com.digitalroute.wfc.aggregation.AggregationInsp",
+            "Data": {
+              "commitCount": 1,
+              "commitTimeout": 1,
+              "defaultTimeout": -1,
+              "defragAfterNumberOfBatches": 1,
+              "defragEachBatchTimeLimit": 5,
+              "defragFileAgeLimit": 5,
+              "defragFileAgeLimit_TimeUnit": "MINUTES",
+              "defragTrigger": "None",
+              "intervalTimeout": 1,
+              "mainScript": "sessionInit{
+    //debug(input);
+    if(instanceOf(input,tmtStartTI)){
+        //New subscriber with START record
+        tmtStartTI st = (tmtStartTI)input;
+        session.SubscriberID = st.SubscriberID;
+        session.StartTime = st.StartTime;
+        session.Service = st.Service;
+        session.UsageAmount = \"0\";
+        
+        date dtStart;
+        if(strToDate(dtStart,st.StartTime,\"yyyy-MM-dd HH:mm:ss\")){
+            //add 30 min to start date
+            dateAddMinutes(dtStart,30);
+        }else{
+            //conversion failed so use current date, add 30 min to it
+            dtStart = dateCreateNow();
+            dateAddMinutes(dtStart,30);
+        }
+        sessionTimeout(session,dtStart);
+    }
+}
+consume {
+    if(instanceOf(input,tmtStartTI)){
+        //START record --> do nothing
+    }else if(instanceOf(input,tmtUsgTI)){
+        tmtUsgTI usg = (tmtUsgTI)input;
+       
+        //USAGE record
+        //check if session for its corresponding START exist
+        if(session != null && session.SubscriberID == usg.SubscriberID){
+            
+            //START record exist, check if USAGE is within 30 min of its START rec
+            date dtEnd;    
+            strToDate(dtEnd,usg.EndTime,\"yyyy-MM-dd HH:mm:ss\");
+            date dtStart;
+            strToDate(dtStart,session.StartTime,\"yyyy-MM-dd HH:mm:ss\");
+            session.EndTime = usg.EndTime;
+            
+            if(dateDiff(dtEnd,dtStart) <= 1800000 ){
+               
+                //USAGE arrived within 30min of START session so aggregate
+                double prevCons, currCons;
+                //debug(\"USG:\"+usg+\" SESSION:\"+session);
+                strToDouble(currCons,usg.UsageAmount);
+                strToDouble(prevCons,session.UsageAmount);
+                
+                session.UsageAmount =  (string)(prevCons + currCons); 
+                  
+            }else{
+                
+                //USAGE arrived post 30min of START session
+                
+                //consume the existing session data
+                tmtRecOut tmtOut = createOutRec(session);
+                if(tmtOut.UsageAmount != \"0\"){
+                    udrRoute(tmtOut);
+                }
+                
+                //update the session start time for further records
+                session.StartTime = usg.EndTime;
+                session.UsageAmount = usg.UsageAmount;
+                date dtUsgSt;
+                strToDate(dtUsgSt,session.StartTime);
+                dateAddMinutes(dtUsgSt,30);
+                sessionTimeout(session,dtUsgSt); 
+            }
+            
+        }else{
+            //USAGE record without START record, dont do anything just ignore
+        }
+    }
+
+}
+timeout{
+    tmtRecOut tmtOut = createOutRec(session);
+    //If START has no aggregated any USAGE record its UsageAmount is 0 which should not be routed
+    if(tmtOut.UsageAmount != \"0\"){
+        udrRoute(tmtOut);
+    }
+    sessionRemove(session);
+}
+tmtRecOut createOutRec(sessTmtRecSeq sess){
+    tmtRecOut out = udrCreate(tmtRecOut);
+    out.SubscriberID = sess.SubscriberID;
+    out.UsageAmount = sess.UsageAmount;
+    out.StartTime = sess.StartTime;
+    out.EndTime = sess.EndTime;
+    out.Service = sess.Service;
+    return out;
+}",
+              "noMatchBehaviour": 0,
+              "noStorageBehaviour": 0,
+              "nullTimeoutBehaviour": 1,
+              "profile": {
+                "dynamicParameters": [],
+                "folder": "SAPCM-SEPT25_AGGREGATION",
+                "key": "DR1761923072029",
+                "name": "PRF_AGG_TMT_3",
+                "type": "Aggregation Profile",
+                "$Version": 1.0
+              },
+              "readonly": false,
+              "timeoutDisable": false,
+              "$Type": "dr.AggregationConfig",
+              "$Version": 11.0
+            },
+            "$Version": 1.0
+          },
+          {
+            "Type": 0,
+            "Classname": "com.digitalroute.devkit.hidden.DRThreadBufferInsp",
+            "Data": {
+              "printStats": false,
+              "useOwnThread": false,
+              "$Type": "dr.DRThreadBufferConfig",
+              "$Version": 10.0
+            },
+            "$Version": 1.0
+          }
+        ],
+        "XYposition": {
+          "x": 420,
+          "y": 190,
+          "$Version": 1.0
+        },
+        "$Version": 2.0
+      },
+      {
+        "Name": "Analysis_2",
+        "ID": -1186562757,
+        "Classname": "com.digitalroute.wfc.analysis.StuffyMapperInsp",
+        "Configuration": [
+          {
+            "Type": 1,
+            "Classname": "com.digitalroute.wfc.analysis.StuffyMapperInsp",
+            "Data": {
+              "sourceCode": "consume {
+    debug(input);
+}",
+              "udrTypes": [
+                {
+                  "TypeName": "SAPCM-SEPT25_AGGREGATION.UFL_TMT.tmtRecOut",
+                  "FormatName": "SAPCM-SEPT25_AGGREGATION.UFL_TMT",
+                  "$Type": "dr.UltraClientInfo",
+                  "$Version": 1.0
+                }
+              ],
+              "$Type": "dr.StuffyMapperData",
+              "$Version": 10.0
+            },
+            "$Version": 1.0
+          },
+          {
+            "Type": 0,
+            "Classname": "com.digitalroute.devkit.hidden.DRThreadBufferInsp",
+            "Data": {
+              "printStats": false,
+              "useOwnThread": false,
+              "$Type": "dr.DRThreadBufferConfig",
+              "$Version": 10.0
+            },
+            "$Version": 1.0
+          }
+        ],
+        "XYposition": {
+          "x": 560,
+          "y": 190,
+          "$Version": 1.0
+        },
+        "$Version": 2.0
+      }
+    ],
+    "routes": [
+      {
+        "destinationId": -1576094480,
+        "id": -2,
+        "name": "r_1",
+        "realtimeMode": "Not set",
+        "routeStyle": "Straight",
+        "sourceId": 2108931552,
+        "stroke": [
+          {
+            "x": 80,
+            "y": 183,
+            "$Version": 1.0
+          },
+          {
+            "x": 140,
+            "y": 183,
+            "$Version": 1.0
+          }
+        ],
+        "$Version": 1.0
+      },
+      {
+        "destinationId": -1939312021,
+        "id": -3,
+        "name": "r_2",
+        "realtimeMode": "Not set",
+        "routeStyle": "Straight",
+        "sourceId": -1576094480,
+        "stroke": [
+          {
+            "x": 200,
+            "y": 183,
+            "$Version": 1.0
+          },
+          {
+            "x": 260,
+            "y": 183,
+            "$Version": 1.0
+          }
+        ],
+        "$Version": 1.0
+      },
+      {
+        "destinationId": 1271441448,
+        "id": -4,
+        "name": "r_3",
+        "realtimeMode": "Not set",
+        "routeStyle": "Straight",
+        "sourceId": -1939312021,
+        "stroke": [
+          {
+            "x": 320,
+            "y": 183,
+            "$Version": 1.0
+          },
+          {
+            "x": 390,
+            "y": 183,
+            "$Version": 1.0
+          }
+        ],
+        "$Version": 1.0
+      },
+      {
+        "destinationId": -1186562757,
+        "id": -5,
+        "name": "r_4",
+        "realtimeMode": "Not set",
+        "routeStyle": "Bezier",
+        "sourceId": 1271441448,
+        "stroke": [
+          {
+            "x": 450,
+            "y": 172,
+            "$Version": 1.0
+          },
+          {
+            "x": 477,
+            "y": 161,
+            "$Version": 1.0
+          },
+          {
+            "x": 502,
+            "y": 160,
+            "$Version": 1.0
+          },
+          {
+            "x": 530,
+            "y": 169,
+            "$Version": 1.0
+          }
+        ],
+        "$Version": 1.0
+      }
+    ],
+    "services": [],
+    "templateValid": true,
+    "wfExecutionConfig": {
+      "debugType": "Event",
+      "executionSettings": {
+        "distributionType": "Round Robin",
+        "enabled": false,
+        "executionGroups": [],
+        "$Version": 1.0
+      },
+      "noOfFilesToKeep": 0,
+      "txnHandler": "Default Handler",
+      "$Version": 10.0
+    },
+    "wfIdCounter": 1,
+    "$Type": "dr.WorkflowBatchData",
+    "$Version": 1.0
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1
+}

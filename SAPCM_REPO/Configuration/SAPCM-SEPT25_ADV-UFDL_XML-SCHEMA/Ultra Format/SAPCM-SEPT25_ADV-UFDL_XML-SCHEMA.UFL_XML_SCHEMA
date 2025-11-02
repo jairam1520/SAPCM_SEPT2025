@@ -1,0 +1,66 @@
+{
+  "Key": "DR1760780591264",
+  "Name": "UFL_XML_SCHEMA",
+  "Type": "Ultra Format",
+  "Version": 7,
+  "Folder": "SAPCM-SEPT25_ADV-UFDL_XML-SCHEMA",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "All",
+    "Administrator",
+    "Administrator"
+  ],
+  "Data": {
+    "Definition": "xml_schema {
+<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>
+<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">
+
+\t<xs:element name=\"UsageRecords\">
+\t\t<xs:complexType>
+\t\t\t<xs:sequence>
+\t\t\t\t<xs:element ref=\"UsageRecord\" maxOccurs=\"unbounded\" />
+                <xs:element name=\"Powered\" type=\"xs:string\" />
+\t\t\t</xs:sequence>
+\t\t</xs:complexType>
+\t</xs:element>
+  
+\t<xs:element name=\"UsageRecord\">
+\t\t<xs:complexType>
+\t\t\t<xs:sequence>
+\t\t\t\t<xs:element name=\"RecordID\" type=\"xs:integer\"/>
+\t\t\t\t<xs:element name=\"SubscriberID\" type=\"xs:integer\"/>
+\t\t\t\t<xs:element name=\"EventTime\" type=\"xs:string\"/>
+\t\t\t\t<xs:element name=\"UsageVolume\" type=\"xs:decimal\"/>
+\t\t\t</xs:sequence>
+\t\t</xs:complexType>
+\t</xs:element>
+
+</xs:schema>
+
+};
+internal UsageRecordsInt{
+    list<UsageRecInt> UsageRecord;
+    string Powered;
+};
+internal UsageRecInt{
+    long RecordID;
+    long SubscriberID;
+    string EventTime;
+    double UsageVolume;  
+};
+in_map iMap : external(UsageRecords),internal(UsageRecordsInt){
+    automatic{
+        UsageRecord :  using in_map iMap1;
+    }; 
+};
+in_map iMap1 : external(UsageRecord),internal(UsageRecInt){automatic;};
+decoder usgDec : in_map(iMap);",
+    "$Type": "dr.UltraFormatConfig",
+    "$Version": 2.0
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1
+}

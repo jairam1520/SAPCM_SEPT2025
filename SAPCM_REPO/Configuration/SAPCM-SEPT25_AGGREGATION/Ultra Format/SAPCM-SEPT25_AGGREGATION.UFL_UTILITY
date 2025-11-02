@@ -1,0 +1,47 @@
+{
+  "Key": "DR1761935961416",
+  "Name": "UFL_UTILITY",
+  "Type": "Ultra Format",
+  "Version": 2,
+  "Folder": "SAPCM-SEPT25_AGGREGATION",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "ZSAP_CM_ALL",
+    "ZSAP_CM_ALL",
+    "ZSAP_CM_ALL"
+  ],
+  "Data": {
+    "Definition": "external utilityUsgExt{
+\tascii Consumer_ID : terminated_by(\",\");
+\tascii Meter_ID : terminated_by(\",\");
+\tascii Consumption_kWh : terminated_by(\",\");
+\tascii Start_Time : terminated_by(\",\");
+\tascii End_Time : terminated_by(\",\");
+\tascii Tariff_Category : terminated_by(\",\");
+\tascii City : terminated_by(\"\\n\");
+};
+internal utilityUsg{
+\tstring Consumer_ID;
+\tstring Meter_ID;
+\tstring Consumption_kWh;
+\tstring Start_Time;
+\tstring End_Time;
+\tstring Tariff_Category;
+\tstring City;
+};
+
+in_map iMpa : external(utilityUsgExt),internal(utilityUsg){automatic;};
+decoder dec : in_map(iMpa);
+
+session sessUtility{
+\tutilityUsg rec;
+};",
+    "$Type": "dr.UltraFormatConfig",
+    "$Version": 2.0
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1
+}

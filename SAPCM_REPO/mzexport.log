@@ -1,4 +1,4 @@
-Export started at 2025-10-26 08:21:51
+Export started at 2025-11-01 23:21:52
 Output target is (SAPCM_SEPT2025 / main) /SAPCM_REPO
 --------------------------------------------------
 [Configuration/SAPCM-SEPT25_ADV-UFDL/Ultra Format] - Exporting SAPCM-SEPT25_ADV-UFDL.UFL_Elecusg
@@ -8,6 +8,22 @@ Output target is (SAPCM_SEPT2025 / main) /SAPCM_REPO
 [Configuration/SAPCM-SEPT25_ADV-UFDL/Ultra Format] - Exporting SAPCM-SEPT25_ADV-UFDL.UFL_UsgTotal
 --------------------------------------------------
 [Configuration/SAPCM-SEPT25_ADV-UFDL_XML-SCHEMA/Ultra Format] - Exporting SAPCM-SEPT25_ADV-UFDL_XML-SCHEMA.UFL_XML_SCHEMA
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_AGGREGATION/Aggregation Profile] - Exporting SAPCM-SEPT25_AGGREGATION.PRF_AGG_SQL_STORAGE
+[Configuration/SAPCM-SEPT25_AGGREGATION/Aggregation Profile] - Exporting SAPCM-SEPT25_AGGREGATION.PRF_AGG_TMT_1
+[Configuration/SAPCM-SEPT25_AGGREGATION/Aggregation Profile] - Exporting SAPCM-SEPT25_AGGREGATION.PRF_AGG_TMT_2
+[Configuration/SAPCM-SEPT25_AGGREGATION/Aggregation Profile] - Exporting SAPCM-SEPT25_AGGREGATION.PRF_AGG_TMT_3
+[Configuration/SAPCM-SEPT25_AGGREGATION/Aggregation Profile] - Exporting SAPCM-SEPT25_AGGREGATION.PRF_AGG_UTILITY
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_AGGREGATION/Ultra Format] - Exporting SAPCM-SEPT25_AGGREGATION.UFL_TMT
+[Configuration/SAPCM-SEPT25_AGGREGATION/Ultra Format] - Exporting SAPCM-SEPT25_AGGREGATION.UFL_UTILITY
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_AGGREGATION/Workflow] - Exporting SAPCM-SEPT25_AGGREGATION.WFL_AGG_BLOCKS
+[Configuration/SAPCM-SEPT25_AGGREGATION/Workflow] - Exporting SAPCM-SEPT25_AGGREGATION.WFL_AGG_SESSION_FLUSH
+[Configuration/SAPCM-SEPT25_AGGREGATION/Workflow] - Exporting SAPCM-SEPT25_AGGREGATION.WFL_TMT_AGG1
+[Configuration/SAPCM-SEPT25_AGGREGATION/Workflow] - Exporting SAPCM-SEPT25_AGGREGATION.WFL_TMT_AGG2
+[Configuration/SAPCM-SEPT25_AGGREGATION/Workflow] - Exporting SAPCM-SEPT25_AGGREGATION.WFL_TMT_AGG_DUP_RM
+[Configuration/SAPCM-SEPT25_AGGREGATION/Workflow] - Exporting SAPCM-SEPT25_AGGREGATION.WFL_TMT_ASSOCIATION
 --------------------------------------------------
 [Configuration/SAPCM-SEPT25_APL-BASICS/APL Code] - Exporting SAPCM-SEPT25_APL-BASICS.APL_APL_Fundamentals
 --------------------------------------------------
@@ -67,6 +83,7 @@ Output target is (SAPCM_SEPT2025 / main) /SAPCM_REPO
 [Configuration/SAPCM-SEPT25_DB_SQL-AGENT/Workflow] - Exporting SAPCM-SEPT25_DB_SQL-AGENT.WFL_SQL_COLL
 --------------------------------------------------
 [Configuration/SAPCM-SEPT25_DB_TASK-WF/Workflow] - Exporting SAPCM-SEPT25_DB_TASK-WF.WFL_TSK_SQL
+[Configuration/SAPCM-SEPT25_DB_TASK-WF/Workflow] - Exporting SAPCM-SEPT25_DB_TASK-WF.WFL_TSK_SQL1
 --------------------------------------------------
 [Configuration/SAPCM-SEPT25_DECODING/Ultra Format] - Exporting SAPCM-SEPT25_DECODING.UFL_Person
 --------------------------------------------------
@@ -99,4 +116,6 @@ Output target is (SAPCM_SEPT2025 / main) /SAPCM_REPO
 [Configuration/SAPCM-SEPT25_MIM/Workflow] - Exporting SAPCM-SEPT25_MIM.WFL_MIM_FilenameUsecase
 [Configuration/SAPCM-SEPT25_MIM/Workflow] - Exporting SAPCM-SEPT25_MIM.WFL_MIM_RecordLevelUsecase
 --------------------------------------------------
-Export finished at 2025-10-26 08:21:54
+[Configuration/SAPCM-SEPT25_REDIS/Redis Profile] - Exporting SAPCM-SEPT25_REDIS.PRF_DB_REDIS
+--------------------------------------------------
+Export finished at 2025-11-01 23:21:54

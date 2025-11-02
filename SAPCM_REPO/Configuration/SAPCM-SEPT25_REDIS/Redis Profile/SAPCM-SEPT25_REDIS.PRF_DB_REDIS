@@ -1,0 +1,45 @@
+{
+  "Key": "DR1761894162325",
+  "Name": "PRF_DB_REDIS",
+  "Type": "Redis Profile",
+  "Version": 1,
+  "Folder": "SAPCM-SEPT25_REDIS",
+  "Owner": "sapcmuser14",
+  "Is Valid": true,
+  "Access Groups -read -write -execute": [
+    "ZSAP_CM_ALL",
+    "ZSAP_CM_ALL",
+    "ZSAP_CM_ALL"
+  ],
+  "Data": {
+    "HOST": "192.168.2.100",
+    "PORT": 6379,
+    "DB_PASSWORD": "DR-4-017BB0B8FB061C1876D43DD75468AA40",
+    "MAX_RETRIES": 30,
+    "RETRY_INTERVAL": 5,
+    "OPER_TIMEOUT": 1000,
+    "Advanced Properties": "# Properties controlling Redis storage can be customized here.
+# Please read the user documentation before changing these properties.
+
+
+# Redis connection timeout ms. Default value is 2000.
+mz.redis.connection.timeout 2000
+
+# Time in seconds before the Redis connection is reset unconditionally. Default value is 300.
+mz.redis.connection.time.limit 300
+
+# Time in seconds before the Redis connection is reset in case of topology changes. Default value is 10.
+mz.redis.topology.time.limit 10
+
+",
+    "ExtRef Version": 1.0,
+    "ExtRef Map": [],
+    "$Type": "dr.RedisProfileConfig",
+    "$Version": 3.0
+  },
+  "documentation": "",
+  "Is Dry Run": false,
+  "$Type": "dr.Configuration",
+  "$Version": 10.1,
+  "Comment": ""
+}
