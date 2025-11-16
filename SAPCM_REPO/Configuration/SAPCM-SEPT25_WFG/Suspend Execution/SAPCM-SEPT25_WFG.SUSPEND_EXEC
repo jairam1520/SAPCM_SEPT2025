@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<suspendExecution category="Internal">
+   <storable name="suspendExecution" storable-id="dr.Configuration" ver="10.1">
+      <array classname="java.lang.String" name="Access Groups -read -write -execute" size="3">
+         <string name="0" value="ZSAP_CM_ALL"/>
+         <string name="1" value="ZSAP_CM_ALL"/>
+         <string name="2" value="ZSAP_CM_ALL"/>
+      </array>
+      <storable name="Auxiliary Data" null="true"/>
+      <storable name="Data" storable-id="dr.SuspendExecutionConfig" ver="1.0">
+         <list classname="java.util.ArrayList" name="enableActions">
+            <storable name="0" storable-id="dr.EnableAction" ver="1.0">
+               <boolean name="enable" value="false"/>
+               <long name="timestamp" value="1763344680000"/>
+            </storable>
+         </list>
+         <list classname="java.util.LinkedList" name="groupKeys">
+            <storable name="0" storable-id="dr.GroupId" ver="1.0">
+               <string name="key" value="DR1763183961338"/>
+               <string name="name" value="SAPCM-SEPT25_WFG.WFG_TEST"/>
+            </storable>
+         </list>
+         <list classname="java.util.LinkedList" name="workflowKeys"/>
+      </storable>
+      <set name="Dynamic Parameters" null="true"/>
+      <string name="Folder" value="SAPCM-SEPT25_WFG"/>
+      <boolean name="Is Dirty" value="false"/>
+      <boolean name="Is Dry Run" value="false"/>
+      <boolean name="Is Encrypted" value="false"/>
+      <boolean name="Is Locked" value="false"/>
+      <boolean name="Is Valid" value="true"/>
+      <string name="Key" value="DR1763186601352"/>
+      <string name="Modified By" value="sapcmuser14"/>
+      <long name="Modified Date" value="1763301456881"/>
+      <string name="Name" value="SUSPEND_EXEC"/>
+      <string name="Owner" value="sapcmuser14"/>
+      <string name="Type" value="Suspend Execution"/>
+      <int name="Version" value="4"/>
+      <string name="documentation" value=""/>
+   </storable>
+</suspendExecution>

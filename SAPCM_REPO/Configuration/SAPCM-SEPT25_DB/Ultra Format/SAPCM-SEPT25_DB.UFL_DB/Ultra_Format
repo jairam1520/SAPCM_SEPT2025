@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<exportmultiplex category="Ultra_Format" ref_path="ultra_format[Internal]/storable[ultra_format]/storable[Data]">
+   <string name="Definition"><![CDATA[internal custOrd
+{
+    string orderId;
+    string custName;
+    string productName;
+    string quantity;
+    string ordDate; 
+    string isFilter;   
+};
+external custOrdExt{
+    ascii orderId : terminated_by(",");
+    ascii custName: terminated_by(",");
+    ascii productName: terminated_by(",");
+    ascii quantity: terminated_by(",");
+    ascii ordDate : terminated_by("\n");
+};
+in_map iMap : external(custOrdExt),internal(custOrd){automatic;};
+decoder cDec : in_map(iMap);
+out_map oMap : external(custOrdExt),internal(custOrd){automatic;};
+encoder cEnc : out_map(oMap);
+
+
+external custOrdOutExt{
+    ascii orderId : terminated_by(",");
+    ascii custName: terminated_by(",");
+    ascii productName: terminated_by(",");
+    ascii quantity: terminated_by(",");
+    ascii ordDate : terminated_by(",");
+    ascii isFilter : terminated_by("\n");
+};
+in_map iMap2 : external(custOrdOutExt),internal(custOrd){automatic;};
+decoder cDec2 : in_map(iMap2);
+out_map oMap2 : external(custOrdOutExt),internal(custOrd){automatic;};
+encoder cEncOut : out_map(oMap2);
+internal retiredServer{
+    string os;
+    string hostname;    
+};
+internal serverCons{
+    string os;
+    string usage;
+    string hostname;    
+};]]></string>
+</exportmultiplex>

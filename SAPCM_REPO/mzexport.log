@@ -1,4 +1,4 @@
-Export started at 2025-11-01 23:21:52
+Export started at 2025-11-16 07:29:44
 Output target is (SAPCM_SEPT2025 / main) /SAPCM_REPO
 --------------------------------------------------
 [Configuration/SAPCM-SEPT25_ADV-UFDL/Ultra Format] - Exporting SAPCM-SEPT25_ADV-UFDL.UFL_Elecusg
@@ -107,7 +107,33 @@ Output target is (SAPCM_SEPT2025 / main) /SAPCM_REPO
 [Configuration/SAPCM-SEPT25_DUPLICATE-CHECK_UDRLEVEL/Workflow] - Exporting SAPCM-SEPT25_DUPLICATE-CHECK_UDRLEVEL.WFL_DUP_UDR_3
 [Configuration/SAPCM-SEPT25_DUPLICATE-CHECK_UDRLEVEL/Workflow] - Exporting SAPCM-SEPT25_DUPLICATE-CHECK_UDRLEVEL.WFL_DUP_UDR_4
 --------------------------------------------------
+[Configuration/SAPCM-SEPT25_ECS/Duplicate Batch Profile] - Exporting SAPCM-SEPT25_ECS.PRF_DUP_BATCH_PERSON
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_ECS/Ultra Format] - Exporting SAPCM-SEPT25_ECS.UFL_PERSON
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_ECS_COLL/Workflow] - Exporting SAPCM-SEPT25_ECS_COLL.WFL_ECS_COLL_DUP_BATCH
+[Configuration/SAPCM-SEPT25_ECS_COLL/Workflow] - Exporting SAPCM-SEPT25_ECS_COLL.WFL_ECS_COLL_TEST
+[Configuration/SAPCM-SEPT25_ECS_COLL/Workflow] - Exporting SAPCM-SEPT25_ECS_COLL.WFL_ECS_UDR_COLL
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_ECS_FWD/Workflow] - Exporting SAPCM-SEPT25_ECS_FWD.WFL_DUP_BATCH_ECS_FWD
+[Configuration/SAPCM-SEPT25_ECS_FWD/Workflow] - Exporting SAPCM-SEPT25_ECS_FWD.WFL_ECS_UDR_FWD
+[Configuration/SAPCM-SEPT25_ECS_FWD/Workflow] - Exporting SAPCM-SEPT25_ECS_FWD.WFL_ERR_BATCH_ECS_FWD
+[Configuration/SAPCM-SEPT25_ECS_FWD/Workflow] - Exporting SAPCM-SEPT25_ECS_FWD.WFL_ESC_FWD_TEST
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_EXT-REF/External Reference Profile] - Exporting SAPCM-SEPT25_EXT-REF.PRF_Extref_API
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_FS/File System Profile] - Exporting SAPCM-SEPT25_FS.FS_GITHUB
+--------------------------------------------------
 [Configuration/SAPCM-SEPT25_FUNC-BLOCKS/Workflow] - Exporting SAPCM-SEPT25_FUNC-BLOCKS.WFL_FunctionBlocks
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_IWF/Inter Workflow Profile] - Exporting SAPCM-SEPT25_IWF.PRF_IWF
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_IWF_JMS/JMS Profile] - Exporting SAPCM-SEPT25_IWF_JMS.PRF_JMS_1
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_IWF_JMS/Ultra Format] - Exporting SAPCM-SEPT25_IWF_JMS.UFL_COnsumption
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_IWF_JMS/Workflow] - Exporting SAPCM-SEPT25_IWF_JMS.WFL_JSM_COLL
+[Configuration/SAPCM-SEPT25_IWF_JMS/Workflow] - Exporting SAPCM-SEPT25_IWF_JMS.WFL_Processing_Batch
 --------------------------------------------------
 [Configuration/SAPCM-SEPT25_MIM/Ultra Format] - Exporting SAPCM-SEPT25_MIM.UFL_BILLING
 [Configuration/SAPCM-SEPT25_MIM/Ultra Format] - Exporting SAPCM-SEPT25_MIM.UFL_Consg
@@ -116,6 +142,63 @@ Output target is (SAPCM_SEPT2025 / main) /SAPCM_REPO
 [Configuration/SAPCM-SEPT25_MIM/Workflow] - Exporting SAPCM-SEPT25_MIM.WFL_MIM_FilenameUsecase
 [Configuration/SAPCM-SEPT25_MIM/Workflow] - Exporting SAPCM-SEPT25_MIM.WFL_MIM_RecordLevelUsecase
 --------------------------------------------------
+[Configuration/SAPCM-SEPT25_MZ-TAGGED-FORMAT/Workflow] - Exporting SAPCM-SEPT25_MZ-TAGGED-FORMAT.WFL_COLL_TEST
+--------------------------------------------------
 [Configuration/SAPCM-SEPT25_REDIS/Redis Profile] - Exporting SAPCM-SEPT25_REDIS.PRF_DB_REDIS
 --------------------------------------------------
-Export finished at 2025-11-01 23:21:54
+[Configuration/SAPCM-SEPT25_RT_API/Ultra Format] - Exporting SAPCM-SEPT25_RT_API.UFL_HTTPD
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_RT_API/Workflow] - Exporting SAPCM-SEPT25_RT_API.WFL_API_BP_ONBOARD
+[Configuration/SAPCM-SEPT25_RT_API/Workflow] - Exporting SAPCM-SEPT25_RT_API.WFL_BP_FETCH-DEL
+[Configuration/SAPCM-SEPT25_RT_API/Workflow] - Exporting SAPCM-SEPT25_RT_API.WFL_HTTP2_API_DEMO
+[Configuration/SAPCM-SEPT25_RT_API/Workflow] - Exporting SAPCM-SEPT25_RT_API.WFL_HTTPD_API_DEMO
+[Configuration/SAPCM-SEPT25_RT_API/Workflow] - Exporting SAPCM-SEPT25_RT_API.WFL_Loadbalancer
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_RT_FUNDAMENTAL/Ultra Format] - Exporting SAPCM-SEPT25_RT_FUNDAMENTAL.UFL_Record
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_RT_FUNDAMENTAL/Workflow] - Exporting SAPCM-SEPT25_RT_FUNDAMENTAL.WFL_RT_TEST
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_RT_OPEN-API/Open API Profile] - Exporting SAPCM-SEPT25_RT_OPEN-API.PRF_OPEN_API_TODO
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_RT_REST/REST Server Profile Deprecated] - Exporting SAPCM-SEPT25_RT_REST.PRF_REST_TODO
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_RT_REST/Workflow] - Exporting SAPCM-SEPT25_RT_REST.WFL_TODO_REST_SERVER
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_RT_SAPCC/Ultra Format] - Exporting SAPCM-SEPT25_RT_SAPCC.UFL_MT_SYNC
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_RT_SAPCC/Workflow] - Exporting SAPCM-SEPT25_RT_SAPCC.WFL_CCWS_CATALOG
+[Configuration/SAPCM-SEPT25_RT_SAPCC/Workflow] - Exporting SAPCM-SEPT25_RT_SAPCC.WFL_SAPCC_OL
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_RT_TCP/Ultra Format] - Exporting SAPCM-SEPT25_RT_TCP.UFL_TCP_TEST
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_RT_TCP/Workflow] - Exporting SAPCM-SEPT25_RT_TCP.WFL_TCP_COLL
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_S4HANA/SAP RFC Profile] - Exporting SAPCM-SEPT25_S4HANA.PRF_RFC_BAPI_BUPA_CENTRAL_GETDETAIL
+[Configuration/SAPCM-SEPT25_S4HANA/SAP RFC Profile] - Exporting SAPCM-SEPT25_S4HANA.PRF_RFC_BIT_CREATE
+[Configuration/SAPCM-SEPT25_S4HANA/SAP RFC Profile] - Exporting SAPCM-SEPT25_S4HANA.PRF_RFC_CIT_CREATE_API
+[Configuration/SAPCM-SEPT25_S4HANA/SAP RFC Profile] - Exporting SAPCM-SEPT25_S4HANA.PRF_RFC_CREATE_BP
+[Configuration/SAPCM-SEPT25_S4HANA/SAP RFC Profile] - Exporting SAPCM-SEPT25_S4HANA.PRF_RFC_READ-TABLE
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_S4HANA/Ultra Format] - Exporting SAPCM-SEPT25_S4HANA.UFL_CIT_CONS
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_S4HANA/Workflow] - Exporting SAPCM-SEPT25_S4HANA.WFL_CIT_CREATE
+[Configuration/SAPCM-SEPT25_S4HANA/Workflow] - Exporting SAPCM-SEPT25_S4HANA.WFL_CIT_PROCESS
+[Configuration/SAPCM-SEPT25_S4HANA/Workflow] - Exporting SAPCM-SEPT25_S4HANA.WFL_RFC_GET_BP_DETAIL
+[Configuration/SAPCM-SEPT25_S4HANA/Workflow] - Exporting SAPCM-SEPT25_S4HANA.WFL_TABLE_READ_RFC
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_SYSLOG/Workflow] - Exporting SAPCM-SEPT25_SYSLOG.WFL_Read_Syslog
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_WFG/Suspend Execution] - Exporting SAPCM-SEPT25_WFG.SUSPEND_EXEC
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_WFG/Workflow] - Exporting SAPCM-SEPT25_WFG.WFL_Collection
+[Configuration/SAPCM-SEPT25_WFG/Workflow] - Exporting SAPCM-SEPT25_WFG.WFL_Forwarding
+[Configuration/SAPCM-SEPT25_WFG/Workflow] - Exporting SAPCM-SEPT25_WFG.WFL_Processing
+--------------------------------------------------
+[Configuration/SAPCM-SEPT25_WFG/Workflow Group] - Exporting SAPCM-SEPT25_WFG.WFG_Collection
+[Configuration/SAPCM-SEPT25_WFG/Workflow Group] - Exporting SAPCM-SEPT25_WFG.WFG_RT_HTTP2
+[Configuration/SAPCM-SEPT25_WFG/Workflow Group] - Exporting SAPCM-SEPT25_WFG.WFG_TEST
+--------------------------------------------------
+[Configuration/SAPCMSEPT25CC/WS Profile] - Exporting SAPCMSEPT25CC.CATALOG
+[Configuration/SAPCMSEPT25CC/WS Profile] - Exporting SAPCMSEPT25CC.PRF_WS_CHARGING
+--------------------------------------------------
+Export finished at 2025-11-16 07:29:51

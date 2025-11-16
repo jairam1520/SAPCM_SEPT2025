@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<exportmultiplex category="Ultra_Format" ref_path="ultra_format[Internal]/storable[ultra_format]/storable[Data]">
+   <string name="Definition"><![CDATA[xml_schema {
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="UsageRecords">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="UsageRecord" maxOccurs="unbounded" />
+                <xs:element name="Powered" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+  
+	<xs:element name="UsageRecord">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="RecordID" type="xs:integer"/>
+				<xs:element name="SubscriberID" type="xs:integer"/>
+				<xs:element name="EventTime" type="xs:string"/>
+				<xs:element name="UsageVolume" type="xs:decimal"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>
+
+};
+internal UsageRecordsInt{
+    list<UsageRecInt> UsageRecord;
+    string Powered;
+};
+internal UsageRecInt{
+    long RecordID;
+    long SubscriberID;
+    string EventTime;
+    double UsageVolume;  
+};
+in_map iMap : external(UsageRecords),internal(UsageRecordsInt){
+    automatic{
+        UsageRecord :  using in_map iMap1;
+    }; 
+};
+in_map iMap1 : external(UsageRecord),internal(UsageRecInt){automatic;};
+decoder usgDec : in_map(iMap);]]></string>
+</exportmultiplex>

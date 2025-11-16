@@ -1,0 +1,2396 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<rfc_profile category="Internal">
+   <storable name="rfc_profile" storable-id="dr.Configuration" ver="10.1">
+      <array classname="java.lang.String" name="Access Groups -read -write -execute" size="3">
+         <string name="0" value="ZSAP_CM_ALL"/>
+         <string name="1" value="ZSAP_CM_ALL"/>
+         <string name="2" value="ZSAP_CM_ALL"/>
+      </array>
+      <storable name="Auxiliary Data" null="true"/>
+      <set name="Dynamic Parameters" null="true"/>
+      <string name="Folder" value="SAPCM-SEPT25_S4HANA"/>
+      <boolean name="Is Dirty" value="false"/>
+      <boolean name="Is Dry Run" value="false"/>
+      <boolean name="Is Encrypted" value="false"/>
+      <boolean name="Is Locked" value="false"/>
+      <boolean name="Is Valid" value="true"/>
+      <string name="Key" value="DR1762070646970"/>
+      <string name="Modified By" value="sapcmuser14"/>
+      <long name="Modified Date" value="1763019280766"/>
+      <string name="Name" value="PRF_RFC_CIT_CREATE_API"/>
+      <string name="Owner" value="sapcmuser14"/>
+      <string name="Type" value="SAP RFC Profile"/>
+      <int name="Version" value="18"/>
+      <storable classname="com.digitalroute.mz.rfc.profile.RfcProfileData" name="Data" ver="1.4">
+         <string name="CLIENT" value="500"/>
+         <string name="CONFIGHASH" value="1046067536"/>
+         <string name="DEST" null="true"/>
+         <boolean name="ENABLE_LOADBALANCE" value="false"/>
+         <boolean name="ENABLE_SNC_MODE" value="false"/>
+         <boolean name="ENABLE_SNC_SSO" value="false"/>
+         <map classname="java.util.HashMap" name="ExtRef Map" size="0"/>
+         <string name="ExtRef Profile" null="true"/>
+         <float name="ExtRef Version" value="1.0"/>
+         <array classname="java.lang.String" name="FUNCTIONS" size="1">
+            <string name="0" value="/1FC/ZINT_CIT_CREATE_API"/>
+         </array>
+         <string name="GROUPNAME" value=""/>
+         <string name="HOST" value="SAPS4HANA.EXPERTSOFT.IN"/>
+         <string name="MESSAGESERVERHOST" value=""/>
+         <int name="MESSAGESERVERPORT" value="0"/>
+         <storable name="PASSWORD" storable-id="dr.DRSecret" ver="1.0">
+            <password name="password" value="DR-4-EC990FA8D6B1F4F8E948389EC8DA1F99"/>
+            <string name="secrets_alias" value=""/>
+            <storable name="secrets_profile" null="true"/>
+         </storable>
+         <list classname="java.util.ArrayList" name="RFCDATA">
+            <storable classname="com.digitalroute.mz.rfc.profile.RfcDataStructure" name="0" ver="1.1">
+               <string name="Name" value="/1FC/ZINT_CIT_CREATE_API"/>
+               <list classname="java.util.ArrayList" name="RfcFieldInfo">
+                  <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="0" ver="1.1">
+                     <string name="NAME" value="context"/>
+                     <string name="ORIGINAL_NAME" value="context"/>
+                     <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                        <boolean name="IsPrimitive" value="true"/>
+                        <byte name="PrimitiveType" value="101"/>
+                     </storable>
+                  </storable>
+               </list>
+               <list classname="java.util.ArrayList" name="childField">
+                  <storable classname="com.digitalroute.mz.rfc.profile.RfcDataStructure" name="0" ver="1.1">
+                     <string name="Name" value="importParams"/>
+                     <list classname="java.util.ArrayList" name="RfcFieldInfo">
+                        <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="0" ver="1.1">
+                           <string name="NAME" value="I_EXTERNAL_LOG"/>
+                           <string name="ORIGINAL_NAME" value="I_EXTERNAL_LOG"/>
+                           <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                              <boolean name="IsPrimitive" value="true"/>
+                              <byte name="PrimitiveType" value="9"/>
+                           </storable>
+                        </storable>
+                        <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="1" ver="1.1">
+                           <string name="NAME" value="I_EXT_LOGNUMBER"/>
+                           <string name="ORIGINAL_NAME" value="I_EXT_LOGNUMBER"/>
+                           <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                              <boolean name="IsPrimitive" value="true"/>
+                              <byte name="PrimitiveType" value="9"/>
+                           </storable>
+                        </storable>
+                        <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="2" ver="1.1">
+                           <string name="NAME" value="I_FIRST_CALL"/>
+                           <string name="ORIGINAL_NAME" value="I_FIRST_CALL"/>
+                           <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                              <boolean name="IsPrimitive" value="true"/>
+                              <byte name="PrimitiveType" value="9"/>
+                           </storable>
+                        </storable>
+                        <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="3" ver="1.1">
+                           <string name="NAME" value="I_LAST_CALL"/>
+                           <string name="ORIGINAL_NAME" value="I_LAST_CALL"/>
+                           <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                              <boolean name="IsPrimitive" value="true"/>
+                              <byte name="PrimitiveType" value="9"/>
+                           </storable>
+                        </storable>
+                        <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="4" ver="1.1">
+                           <string name="NAME" value="I_MANDT"/>
+                           <string name="ORIGINAL_NAME" value="I_MANDT"/>
+                           <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                              <boolean name="IsPrimitive" value="true"/>
+                              <byte name="PrimitiveType" value="9"/>
+                           </storable>
+                        </storable>
+                        <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="5" ver="1.1">
+                           <string name="NAME" value="I_MAX_PROBCL"/>
+                           <string name="ORIGINAL_NAME" value="I_MAX_PROBCL"/>
+                           <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                              <boolean name="IsPrimitive" value="true"/>
+                              <byte name="PrimitiveType" value="9"/>
+                           </storable>
+                        </storable>
+                        <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="6" ver="1.1">
+                           <string name="NAME" value="I_NO_COMMIT_WORK"/>
+                           <string name="ORIGINAL_NAME" value="I_NO_COMMIT_WORK"/>
+                           <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                              <boolean name="IsPrimitive" value="true"/>
+                              <byte name="PrimitiveType" value="9"/>
+                           </storable>
+                        </storable>
+                        <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="7" ver="1.1">
+                           <string name="NAME" value="I_NO_SUMMARY_MSG"/>
+                           <string name="ORIGINAL_NAME" value="I_NO_SUMMARY_MSG"/>
+                           <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                              <boolean name="IsPrimitive" value="true"/>
+                              <byte name="PrimitiveType" value="9"/>
+                           </storable>
+                        </storable>
+                        <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="8" ver="1.1">
+                           <string name="NAME" value="I_TEST"/>
+                           <string name="ORIGINAL_NAME" value="I_TEST"/>
+                           <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                              <boolean name="IsPrimitive" value="true"/>
+                              <byte name="PrimitiveType" value="9"/>
+                           </storable>
+                        </storable>
+                        <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="9" ver="1.1">
+                           <string name="NAME" value="I_UNRATED"/>
+                           <string name="ORIGINAL_NAME" value="I_UNRATED"/>
+                           <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                              <boolean name="IsPrimitive" value="true"/>
+                              <byte name="PrimitiveType" value="9"/>
+                           </storable>
+                        </storable>
+                     </list>
+                     <list classname="java.util.ArrayList" name="childField">
+                        <storable classname="com.digitalroute.mz.rfc.profile.RfcDataStructure" name="0" ver="1.1">
+                           <string name="Name" value="IT_ADD_PARAMS"/>
+                           <list classname="java.util.ArrayList" name="RfcFieldInfo">
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="0" ver="1.1">
+                                 <string name="NAME" value="NAME"/>
+                                 <string name="ORIGINAL_NAME" value="NAME"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="1" ver="1.1">
+                                 <string name="NAME" value="VALUE"/>
+                                 <string name="ORIGINAL_NAME" value="VALUE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                           </list>
+                           <list classname="java.util.ArrayList" name="childField"/>
+                           <boolean name="isParent" value="false"/>
+                           <boolean name="isTable" value="true"/>
+                           <string name="sanitizedName" value="IT_ADD_PARAMS"/>
+                           <string name="udrName" value="FKKBIX_ADD_PARAM_TAB"/>
+                        </storable>
+                     </list>
+                     <boolean name="isParent" value="false"/>
+                     <boolean name="isTable" value="false"/>
+                     <string name="sanitizedName" null="true"/>
+                     <string name="udrName" value="importParams_/1FC/ZINT_CIT_CREATE_API"/>
+                  </storable>
+                  <storable classname="com.digitalroute.mz.rfc.profile.RfcDataStructure" name="1" ver="1.1">
+                     <string name="Name" value="tableParams"/>
+                     <list classname="java.util.ArrayList" name="RfcFieldInfo"/>
+                     <list classname="java.util.ArrayList" name="childField">
+                        <storable classname="com.digitalroute.mz.rfc.profile.RfcDataStructure" name="0" ver="1.1">
+                           <string name="Name" value="ET_CIT0_RETURN"/>
+                           <list classname="java.util.ArrayList" name="RfcFieldInfo">
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="0" ver="1.1">
+                                 <string name="NAME" value="MANDT"/>
+                                 <string name="ORIGINAL_NAME" value="MANDT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="1" ver="1.1">
+                                 <string name="NAME" value="CITIDTYPE"/>
+                                 <string name="ORIGINAL_NAME" value="CITIDTYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="10" ver="1.1">
+                                 <string name="NAME" value="SUBAP"/>
+                                 <string name="ORIGINAL_NAME" value="SUBAP"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="11" ver="1.1">
+                                 <string name="NAME" value="APPLK"/>
+                                 <string name="ORIGINAL_NAME" value="APPLK"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="12" ver="1.1">
+                                 <string name="NAME" value="VKONT"/>
+                                 <string name="ORIGINAL_NAME" value="VKONT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="13" ver="1.1">
+                                 <string name="NAME" value="GPART_RATING"/>
+                                 <string name="ORIGINAL_NAME" value="GPART_RATING"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="14" ver="1.1">
+                                 <string name="NAME" value="VKONT_RATING"/>
+                                 <string name="ORIGINAL_NAME" value="VKONT_RATING"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="15" ver="1.1">
+                                 <string name="NAME" value="MDCAT_RATING"/>
+                                 <string name="ORIGINAL_NAME" value="MDCAT_RATING"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="16" ver="1.1">
+                                 <string name="NAME" value="KEYPP"/>
+                                 <string name="ORIGINAL_NAME" value="KEYPP"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="4"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="17" ver="1.1">
+                                 <string name="NAME" value="CONSUMDATE"/>
+                                 <string name="ORIGINAL_NAME" value="CONSUMDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="18" ver="1.1">
+                                 <string name="NAME" value="CIT_QUANTITY"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_QUANTITY"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="6"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="19" ver="1.1">
+                                 <string name="NAME" value="CIT_QTY_UNIT"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_QTY_UNIT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="2" ver="1.1">
+                                 <string name="NAME" value="CITID"/>
+                                 <string name="ORIGINAL_NAME" value="CITID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="20" ver="1.1">
+                                 <string name="NAME" value="CIT_QTY_GROUP"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_QTY_GROUP"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="21" ver="1.1">
+                                 <string name="NAME" value="CITPACKUUID"/>
+                                 <string name="ORIGINAL_NAME" value="CITPACKUUID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="false"/>
+                                    <byte name="PrimitiveType" value="0"/>
+                                    <string name="TypeName" value="bytearray"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="22" ver="1.1">
+                                 <string name="NAME" value="CITPACKNUM"/>
+                                 <string name="ORIGINAL_NAME" value="CITPACKNUM"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="2"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="23" ver="1.1">
+                                 <string name="NAME" value="CITPACKCNO"/>
+                                 <string name="ORIGINAL_NAME" value="CITPACKCNO"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="4"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="24" ver="1.1">
+                                 <string name="NAME" value="RATE_BASEDATE"/>
+                                 <string name="ORIGINAL_NAME" value="RATE_BASEDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="25" ver="1.1">
+                                 <string name="NAME" value="RATE_FIRST"/>
+                                 <string name="ORIGINAL_NAME" value="RATE_FIRST"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="26" ver="1.1">
+                                 <string name="NAME" value="CITSTATUS"/>
+                                 <string name="ORIGINAL_NAME" value="CITSTATUS"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="27" ver="1.1">
+                                 <string name="NAME" value="CITCAT"/>
+                                 <string name="ORIGINAL_NAME" value="CITCAT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="28" ver="1.1">
+                                 <string name="NAME" value="CITTYPE"/>
+                                 <string name="ORIGINAL_NAME" value="CITTYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="29" ver="1.1">
+                                 <string name="NAME" value="CITDATE"/>
+                                 <string name="ORIGINAL_NAME" value="CITDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="3" ver="1.1">
+                                 <string name="NAME" value="CITUUID"/>
+                                 <string name="ORIGINAL_NAME" value="CITUUID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="false"/>
+                                    <byte name="PrimitiveType" value="0"/>
+                                    <string name="TypeName" value="bytearray"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="30" ver="1.1">
+                                 <string name="NAME" value="CITTIME"/>
+                                 <string name="ORIGINAL_NAME" value="CITTIME"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="31" ver="1.1">
+                                 <string name="NAME" value="CITCRDATE"/>
+                                 <string name="ORIGINAL_NAME" value="CITCRDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="32" ver="1.1">
+                                 <string name="NAME" value="CITCRTIME"/>
+                                 <string name="ORIGINAL_NAME" value="CITCRTIME"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="33" ver="1.1">
+                                 <string name="NAME" value="CITCRMODE"/>
+                                 <string name="ORIGINAL_NAME" value="CITCRMODE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="34" ver="1.1">
+                                 <string name="NAME" value="CHHIST"/>
+                                 <string name="ORIGINAL_NAME" value="CHHIST"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="35" ver="1.1">
+                                 <string name="NAME" value="RATING_TYPE"/>
+                                 <string name="ORIGINAL_NAME" value="RATING_TYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="36" ver="1.1">
+                                 <string name="NAME" value="RATINGCNT"/>
+                                 <string name="ORIGINAL_NAME" value="RATINGCNT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="1"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="37" ver="1.1">
+                                 <string name="NAME" value="SIMULATED"/>
+                                 <string name="ORIGINAL_NAME" value="SIMULATED"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="38" ver="1.1">
+                                 <string name="NAME" value="EXCHIST"/>
+                                 <string name="ORIGINAL_NAME" value="EXCHIST"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="39" ver="1.1">
+                                 <string name="NAME" value="ACCESS_USERID_TYPE"/>
+                                 <string name="ORIGINAL_NAME" value="ACCESS_USERID_TYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="4" ver="1.1">
+                                 <string name="NAME" value="ACCESS_USERID"/>
+                                 <string name="ORIGINAL_NAME" value="ACCESS_USERID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="40" ver="1.1">
+                                 <string name="NAME" value="CITDATE_FROM"/>
+                                 <string name="ORIGINAL_NAME" value="CITDATE_FROM"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="41" ver="1.1">
+                                 <string name="NAME" value="CITDATE_TO"/>
+                                 <string name="ORIGINAL_NAME" value="CITDATE_TO"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="42" ver="1.1">
+                                 <string name="NAME" value="CITTIME_FROM"/>
+                                 <string name="ORIGINAL_NAME" value="CITTIME_FROM"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="43" ver="1.1">
+                                 <string name="NAME" value="CITTIME_TO"/>
+                                 <string name="ORIGINAL_NAME" value="CITTIME_TO"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="44" ver="1.1">
+                                 <string name="NAME" value="CIT_AMOUNT"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_AMOUNT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="6"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="45" ver="1.1">
+                                 <string name="NAME" value="CIT_CURR"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_CURR"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="46" ver="1.1">
+                                 <string name="NAME" value="SERVICE_TYPE"/>
+                                 <string name="ORIGINAL_NAME" value="SERVICE_TYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="47" ver="1.1">
+                                 <string name="NAME" value="CITDATAPACKID"/>
+                                 <string name="ORIGINAL_NAME" value="CITDATAPACKID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="false"/>
+                                    <byte name="PrimitiveType" value="0"/>
+                                    <string name="TypeName" value="bytearray"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="48" ver="1.1">
+                                 <string name="NAME" value="CITFIELDSCHEMA"/>
+                                 <string name="ORIGINAL_NAME" value="CITFIELDSCHEMA"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="49" ver="1.1">
+                                 <string name="NAME" value="PCARD_GUID32"/>
+                                 <string name="ORIGINAL_NAME" value="PCARD_GUID32"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="5" ver="1.1">
+                                 <string name="NAME" value="ACCESS_SERVICEID"/>
+                                 <string name="ORIGINAL_NAME" value="ACCESS_SERVICEID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="50" ver="1.1">
+                                 <string name="NAME" value="PYREF"/>
+                                 <string name="ORIGINAL_NAME" value="PYREF"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="51" ver="1.1">
+                                 <string name="NAME" value="ALLOW_DEF_ID"/>
+                                 <string name="ORIGINAL_NAME" value="ALLOW_DEF_ID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="52" ver="1.1">
+                                 <string name="NAME" value="ALLOW_START_DATE"/>
+                                 <string name="ORIGINAL_NAME" value="ALLOW_START_DATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="6" ver="1.1">
+                                 <string name="NAME" value="GPART"/>
+                                 <string name="ORIGINAL_NAME" value="GPART"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="7" ver="1.1">
+                                 <string name="NAME" value="VTPID"/>
+                                 <string name="ORIGINAL_NAME" value="VTPID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="false"/>
+                                    <byte name="PrimitiveType" value="0"/>
+                                    <string name="TypeName" value="bytearray"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="8" ver="1.1">
+                                 <string name="NAME" value="VTREF"/>
+                                 <string name="ORIGINAL_NAME" value="VTREF"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="9" ver="1.1">
+                                 <string name="NAME" value="VTPOS"/>
+                                 <string name="ORIGINAL_NAME" value="VTPOS"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="4"/>
+                                 </storable>
+                              </storable>
+                           </list>
+                           <list classname="java.util.ArrayList" name="childField"/>
+                           <boolean name="isParent" value="false"/>
+                           <boolean name="isTable" value="true"/>
+                           <string name="sanitizedName" value="ET_CIT0_RETURN"/>
+                           <string name="udrName" value="/1FC/0ZINT0"/>
+                        </storable>
+                        <storable classname="com.digitalroute.mz.rfc.profile.RfcDataStructure" name="1" ver="1.1">
+                           <string name="Name" value="ET_CIT2_RETURN"/>
+                           <list classname="java.util.ArrayList" name="RfcFieldInfo">
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="0" ver="1.1">
+                                 <string name="NAME" value="MANDT"/>
+                                 <string name="ORIGINAL_NAME" value="MANDT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="1" ver="1.1">
+                                 <string name="NAME" value="CITIDTYPE"/>
+                                 <string name="ORIGINAL_NAME" value="CITIDTYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="10" ver="1.1">
+                                 <string name="NAME" value="SUBAP"/>
+                                 <string name="ORIGINAL_NAME" value="SUBAP"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="11" ver="1.1">
+                                 <string name="NAME" value="APPLK"/>
+                                 <string name="ORIGINAL_NAME" value="APPLK"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="12" ver="1.1">
+                                 <string name="NAME" value="VKONT"/>
+                                 <string name="ORIGINAL_NAME" value="VKONT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="13" ver="1.1">
+                                 <string name="NAME" value="ALTMD_ORIG"/>
+                                 <string name="ORIGINAL_NAME" value="ALTMD_ORIG"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="14" ver="1.1">
+                                 <string name="NAME" value="GPART_ORIG"/>
+                                 <string name="ORIGINAL_NAME" value="GPART_ORIG"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="15" ver="1.1">
+                                 <string name="NAME" value="VKONT_ORIG"/>
+                                 <string name="ORIGINAL_NAME" value="VKONT_ORIG"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="16" ver="1.1">
+                                 <string name="NAME" value="KEYPP"/>
+                                 <string name="ORIGINAL_NAME" value="KEYPP"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="4"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="17" ver="1.1">
+                                 <string name="NAME" value="CONSUMDATE"/>
+                                 <string name="ORIGINAL_NAME" value="CONSUMDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="18" ver="1.1">
+                                 <string name="NAME" value="CIT_QUANTITY"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_QUANTITY"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="6"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="19" ver="1.1">
+                                 <string name="NAME" value="CIT_QTY_UNIT"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_QTY_UNIT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="2" ver="1.1">
+                                 <string name="NAME" value="CITID"/>
+                                 <string name="ORIGINAL_NAME" value="CITID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="20" ver="1.1">
+                                 <string name="NAME" value="CIT_QTY_GROUP"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_QTY_GROUP"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="21" ver="1.1">
+                                 <string name="NAME" value="CITPACKUUID"/>
+                                 <string name="ORIGINAL_NAME" value="CITPACKUUID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="false"/>
+                                    <byte name="PrimitiveType" value="0"/>
+                                    <string name="TypeName" value="bytearray"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="22" ver="1.1">
+                                 <string name="NAME" value="CITPACKNUM"/>
+                                 <string name="ORIGINAL_NAME" value="CITPACKNUM"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="2"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="23" ver="1.1">
+                                 <string name="NAME" value="CITPACKCNO"/>
+                                 <string name="ORIGINAL_NAME" value="CITPACKCNO"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="4"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="24" ver="1.1">
+                                 <string name="NAME" value="RATE_BASEDATE"/>
+                                 <string name="ORIGINAL_NAME" value="RATE_BASEDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="25" ver="1.1">
+                                 <string name="NAME" value="RATE_FIRST"/>
+                                 <string name="ORIGINAL_NAME" value="RATE_FIRST"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="26" ver="1.1">
+                                 <string name="NAME" value="CITSTATUS"/>
+                                 <string name="ORIGINAL_NAME" value="CITSTATUS"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="27" ver="1.1">
+                                 <string name="NAME" value="CITCAT"/>
+                                 <string name="ORIGINAL_NAME" value="CITCAT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="28" ver="1.1">
+                                 <string name="NAME" value="CITTYPE"/>
+                                 <string name="ORIGINAL_NAME" value="CITTYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="29" ver="1.1">
+                                 <string name="NAME" value="CITDATE"/>
+                                 <string name="ORIGINAL_NAME" value="CITDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="3" ver="1.1">
+                                 <string name="NAME" value="CITUUID"/>
+                                 <string name="ORIGINAL_NAME" value="CITUUID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="false"/>
+                                    <byte name="PrimitiveType" value="0"/>
+                                    <string name="TypeName" value="bytearray"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="30" ver="1.1">
+                                 <string name="NAME" value="CITTIME"/>
+                                 <string name="ORIGINAL_NAME" value="CITTIME"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="31" ver="1.1">
+                                 <string name="NAME" value="CITCRDATE"/>
+                                 <string name="ORIGINAL_NAME" value="CITCRDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="32" ver="1.1">
+                                 <string name="NAME" value="CITCRTIME"/>
+                                 <string name="ORIGINAL_NAME" value="CITCRTIME"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="33" ver="1.1">
+                                 <string name="NAME" value="CITCRMODE"/>
+                                 <string name="ORIGINAL_NAME" value="CITCRMODE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="34" ver="1.1">
+                                 <string name="NAME" value="CITTRDATE"/>
+                                 <string name="ORIGINAL_NAME" value="CITTRDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="35" ver="1.1">
+                                 <string name="NAME" value="CITTRTIME"/>
+                                 <string name="ORIGINAL_NAME" value="CITTRTIME"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="36" ver="1.1">
+                                 <string name="NAME" value="CHHIST"/>
+                                 <string name="ORIGINAL_NAME" value="CHHIST"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="37" ver="1.1">
+                                 <string name="NAME" value="RATING_TYPE"/>
+                                 <string name="ORIGINAL_NAME" value="RATING_TYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="38" ver="1.1">
+                                 <string name="NAME" value="RATINGID_PRE"/>
+                                 <string name="ORIGINAL_NAME" value="RATINGID_PRE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="14"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="39" ver="1.1">
+                                 <string name="NAME" value="RATINGCNT"/>
+                                 <string name="ORIGINAL_NAME" value="RATINGCNT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="1"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="4" ver="1.1">
+                                 <string name="NAME" value="ACCESS_USERID"/>
+                                 <string name="ORIGINAL_NAME" value="ACCESS_USERID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="40" ver="1.1">
+                                 <string name="NAME" value="SIMULATED"/>
+                                 <string name="ORIGINAL_NAME" value="SIMULATED"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="41" ver="1.1">
+                                 <string name="NAME" value="EXCHIST"/>
+                                 <string name="ORIGINAL_NAME" value="EXCHIST"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="42" ver="1.1">
+                                 <string name="NAME" value="ACCESS_USERID_TYPE"/>
+                                 <string name="ORIGINAL_NAME" value="ACCESS_USERID_TYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="43" ver="1.1">
+                                 <string name="NAME" value="CITDATE_FROM"/>
+                                 <string name="ORIGINAL_NAME" value="CITDATE_FROM"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="44" ver="1.1">
+                                 <string name="NAME" value="CITDATE_TO"/>
+                                 <string name="ORIGINAL_NAME" value="CITDATE_TO"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="45" ver="1.1">
+                                 <string name="NAME" value="CITTIME_FROM"/>
+                                 <string name="ORIGINAL_NAME" value="CITTIME_FROM"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="46" ver="1.1">
+                                 <string name="NAME" value="CITTIME_TO"/>
+                                 <string name="ORIGINAL_NAME" value="CITTIME_TO"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="47" ver="1.1">
+                                 <string name="NAME" value="CIT_AMOUNT"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_AMOUNT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="6"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="48" ver="1.1">
+                                 <string name="NAME" value="CIT_CURR"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_CURR"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="49" ver="1.1">
+                                 <string name="NAME" value="SERVICE_TYPE"/>
+                                 <string name="ORIGINAL_NAME" value="SERVICE_TYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="5" ver="1.1">
+                                 <string name="NAME" value="ACCESS_SERVICEID"/>
+                                 <string name="ORIGINAL_NAME" value="ACCESS_SERVICEID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="50" ver="1.1">
+                                 <string name="NAME" value="CITDATAPACKID"/>
+                                 <string name="ORIGINAL_NAME" value="CITDATAPACKID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="false"/>
+                                    <byte name="PrimitiveType" value="0"/>
+                                    <string name="TypeName" value="bytearray"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="51" ver="1.1">
+                                 <string name="NAME" value="CITFIELDSCHEMA"/>
+                                 <string name="ORIGINAL_NAME" value="CITFIELDSCHEMA"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="52" ver="1.1">
+                                 <string name="NAME" value="PCARD_GUID32"/>
+                                 <string name="ORIGINAL_NAME" value="PCARD_GUID32"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="53" ver="1.1">
+                                 <string name="NAME" value="PYREF"/>
+                                 <string name="ORIGINAL_NAME" value="PYREF"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="54" ver="1.1">
+                                 <string name="NAME" value="ALLOW_DEF_ID"/>
+                                 <string name="ORIGINAL_NAME" value="ALLOW_DEF_ID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="55" ver="1.1">
+                                 <string name="NAME" value="ALLOW_START_DATE"/>
+                                 <string name="ORIGINAL_NAME" value="ALLOW_START_DATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="6" ver="1.1">
+                                 <string name="NAME" value="GPART"/>
+                                 <string name="ORIGINAL_NAME" value="GPART"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="7" ver="1.1">
+                                 <string name="NAME" value="VTPID"/>
+                                 <string name="ORIGINAL_NAME" value="VTPID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="false"/>
+                                    <byte name="PrimitiveType" value="0"/>
+                                    <string name="TypeName" value="bytearray"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="8" ver="1.1">
+                                 <string name="NAME" value="VTREF"/>
+                                 <string name="ORIGINAL_NAME" value="VTREF"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="9" ver="1.1">
+                                 <string name="NAME" value="VTPOS"/>
+                                 <string name="ORIGINAL_NAME" value="VTPOS"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="4"/>
+                                 </storable>
+                              </storable>
+                           </list>
+                           <list classname="java.util.ArrayList" name="childField"/>
+                           <boolean name="isParent" value="false"/>
+                           <boolean name="isTable" value="true"/>
+                           <string name="sanitizedName" value="ET_CIT2_RETURN"/>
+                           <string name="udrName" value="/1FC/0ZINT2"/>
+                        </storable>
+                        <storable classname="com.digitalroute.mz.rfc.profile.RfcDataStructure" name="2" ver="1.1">
+                           <string name="Name" value="ET_CIT4_RETURN"/>
+                           <list classname="java.util.ArrayList" name="RfcFieldInfo">
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="0" ver="1.1">
+                                 <string name="NAME" value="MANDT"/>
+                                 <string name="ORIGINAL_NAME" value="MANDT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="1" ver="1.1">
+                                 <string name="NAME" value="CITIDTYPE"/>
+                                 <string name="ORIGINAL_NAME" value="CITIDTYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="10" ver="1.1">
+                                 <string name="NAME" value="SUBAP"/>
+                                 <string name="ORIGINAL_NAME" value="SUBAP"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="11" ver="1.1">
+                                 <string name="NAME" value="APPLK"/>
+                                 <string name="ORIGINAL_NAME" value="APPLK"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="12" ver="1.1">
+                                 <string name="NAME" value="VKONT"/>
+                                 <string name="ORIGINAL_NAME" value="VKONT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="13" ver="1.1">
+                                 <string name="NAME" value="ALTMD_ORIG"/>
+                                 <string name="ORIGINAL_NAME" value="ALTMD_ORIG"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="14" ver="1.1">
+                                 <string name="NAME" value="GPART_ORIG"/>
+                                 <string name="ORIGINAL_NAME" value="GPART_ORIG"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="15" ver="1.1">
+                                 <string name="NAME" value="VKONT_ORIG"/>
+                                 <string name="ORIGINAL_NAME" value="VKONT_ORIG"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="16" ver="1.1">
+                                 <string name="NAME" value="KEYPP"/>
+                                 <string name="ORIGINAL_NAME" value="KEYPP"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="4"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="17" ver="1.1">
+                                 <string name="NAME" value="CONSUMDATE"/>
+                                 <string name="ORIGINAL_NAME" value="CONSUMDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="18" ver="1.1">
+                                 <string name="NAME" value="CIT_QUANTITY"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_QUANTITY"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="6"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="19" ver="1.1">
+                                 <string name="NAME" value="CIT_QTY_UNIT"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_QTY_UNIT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="2" ver="1.1">
+                                 <string name="NAME" value="CITID"/>
+                                 <string name="ORIGINAL_NAME" value="CITID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="20" ver="1.1">
+                                 <string name="NAME" value="CIT_QTY_GROUP"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_QTY_GROUP"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="21" ver="1.1">
+                                 <string name="NAME" value="CITPACKUUID"/>
+                                 <string name="ORIGINAL_NAME" value="CITPACKUUID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="false"/>
+                                    <byte name="PrimitiveType" value="0"/>
+                                    <string name="TypeName" value="bytearray"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="22" ver="1.1">
+                                 <string name="NAME" value="CITPACKNUM"/>
+                                 <string name="ORIGINAL_NAME" value="CITPACKNUM"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="2"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="23" ver="1.1">
+                                 <string name="NAME" value="CITPACKCNO"/>
+                                 <string name="ORIGINAL_NAME" value="CITPACKCNO"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="4"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="24" ver="1.1">
+                                 <string name="NAME" value="RATE_BASEDATE"/>
+                                 <string name="ORIGINAL_NAME" value="RATE_BASEDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="25" ver="1.1">
+                                 <string name="NAME" value="RATE_FIRST"/>
+                                 <string name="ORIGINAL_NAME" value="RATE_FIRST"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="26" ver="1.1">
+                                 <string name="NAME" value="CITSTATUS"/>
+                                 <string name="ORIGINAL_NAME" value="CITSTATUS"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="27" ver="1.1">
+                                 <string name="NAME" value="CITCAT"/>
+                                 <string name="ORIGINAL_NAME" value="CITCAT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="28" ver="1.1">
+                                 <string name="NAME" value="CITTYPE"/>
+                                 <string name="ORIGINAL_NAME" value="CITTYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="29" ver="1.1">
+                                 <string name="NAME" value="CITDATE"/>
+                                 <string name="ORIGINAL_NAME" value="CITDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="3" ver="1.1">
+                                 <string name="NAME" value="CITUUID"/>
+                                 <string name="ORIGINAL_NAME" value="CITUUID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="false"/>
+                                    <byte name="PrimitiveType" value="0"/>
+                                    <string name="TypeName" value="bytearray"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="30" ver="1.1">
+                                 <string name="NAME" value="CITTIME"/>
+                                 <string name="ORIGINAL_NAME" value="CITTIME"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="31" ver="1.1">
+                                 <string name="NAME" value="CITCRDATE"/>
+                                 <string name="ORIGINAL_NAME" value="CITCRDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="32" ver="1.1">
+                                 <string name="NAME" value="CITCRTIME"/>
+                                 <string name="ORIGINAL_NAME" value="CITCRTIME"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="33" ver="1.1">
+                                 <string name="NAME" value="CITCRMODE"/>
+                                 <string name="ORIGINAL_NAME" value="CITCRMODE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="34" ver="1.1">
+                                 <string name="NAME" value="CITDATAPACKID"/>
+                                 <string name="ORIGINAL_NAME" value="CITDATAPACKID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="false"/>
+                                    <byte name="PrimitiveType" value="0"/>
+                                    <string name="TypeName" value="bytearray"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="35" ver="1.1">
+                                 <string name="NAME" value="CITTRDATE"/>
+                                 <string name="ORIGINAL_NAME" value="CITTRDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="36" ver="1.1">
+                                 <string name="NAME" value="CITTRTIME"/>
+                                 <string name="ORIGINAL_NAME" value="CITTRTIME"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="37" ver="1.1">
+                                 <string name="NAME" value="CHHIST"/>
+                                 <string name="ORIGINAL_NAME" value="CHHIST"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="38" ver="1.1">
+                                 <string name="NAME" value="RATING_GROUP"/>
+                                 <string name="ORIGINAL_NAME" value="RATING_GROUP"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="39" ver="1.1">
+                                 <string name="NAME" value="RATING_TYPE"/>
+                                 <string name="ORIGINAL_NAME" value="RATING_TYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="4" ver="1.1">
+                                 <string name="NAME" value="ACCESS_USERID"/>
+                                 <string name="ORIGINAL_NAME" value="ACCESS_USERID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="40" ver="1.1">
+                                 <string name="NAME" value="RATINGID"/>
+                                 <string name="ORIGINAL_NAME" value="RATINGID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="14"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="41" ver="1.1">
+                                 <string name="NAME" value="RATINGID_PRE"/>
+                                 <string name="ORIGINAL_NAME" value="RATINGID_PRE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="14"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="42" ver="1.1">
+                                 <string name="NAME" value="RATINGRUNNO"/>
+                                 <string name="ORIGINAL_NAME" value="RATINGRUNNO"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="43" ver="1.1">
+                                 <string name="NAME" value="RATINGCNT"/>
+                                 <string name="ORIGINAL_NAME" value="RATINGCNT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="1"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="44" ver="1.1">
+                                 <string name="NAME" value="SIMULATED"/>
+                                 <string name="ORIGINAL_NAME" value="SIMULATED"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="45" ver="1.1">
+                                 <string name="NAME" value="EXCHIST"/>
+                                 <string name="ORIGINAL_NAME" value="EXCHIST"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="46" ver="1.1">
+                                 <string name="NAME" value="SRCTAID"/>
+                                 <string name="ORIGINAL_NAME" value="SRCTAID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="47" ver="1.1">
+                                 <string name="NAME" value="SRCTASUBID"/>
+                                 <string name="ORIGINAL_NAME" value="SRCTASUBID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="48" ver="1.1">
+                                 <string name="NAME" value="SRCTATYPE"/>
+                                 <string name="ORIGINAL_NAME" value="SRCTATYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="49" ver="1.1">
+                                 <string name="NAME" value="NO_BIT"/>
+                                 <string name="ORIGINAL_NAME" value="NO_BIT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="5" ver="1.1">
+                                 <string name="NAME" value="ACCESS_SERVICEID"/>
+                                 <string name="ORIGINAL_NAME" value="ACCESS_SERVICEID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="50" ver="1.1">
+                                 <string name="NAME" value="RATINGDATE"/>
+                                 <string name="ORIGINAL_NAME" value="RATINGDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="51" ver="1.1">
+                                 <string name="NAME" value="RATINGREVERSED"/>
+                                 <string name="ORIGINAL_NAME" value="RATINGREVERSED"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="52" ver="1.1">
+                                 <string name="NAME" value="RATINGREVDATE"/>
+                                 <string name="ORIGINAL_NAME" value="RATINGREVDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="53" ver="1.1">
+                                 <string name="NAME" value="RATINGREVREASON"/>
+                                 <string name="ORIGINAL_NAME" value="RATINGREVREASON"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="54" ver="1.1">
+                                 <string name="NAME" value="CITERROR"/>
+                                 <string name="ORIGINAL_NAME" value="CITERROR"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="55" ver="1.1">
+                                 <string name="NAME" value="CITFIELDSCHEMA"/>
+                                 <string name="ORIGINAL_NAME" value="CITFIELDSCHEMA"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="56" ver="1.1">
+                                 <string name="NAME" value="ACCESS_USERID_TYPE"/>
+                                 <string name="ORIGINAL_NAME" value="ACCESS_USERID_TYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="57" ver="1.1">
+                                 <string name="NAME" value="CITDATE_FROM"/>
+                                 <string name="ORIGINAL_NAME" value="CITDATE_FROM"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="58" ver="1.1">
+                                 <string name="NAME" value="CITDATE_TO"/>
+                                 <string name="ORIGINAL_NAME" value="CITDATE_TO"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="59" ver="1.1">
+                                 <string name="NAME" value="CITTIME_FROM"/>
+                                 <string name="ORIGINAL_NAME" value="CITTIME_FROM"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="6" ver="1.1">
+                                 <string name="NAME" value="GPART"/>
+                                 <string name="ORIGINAL_NAME" value="GPART"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="60" ver="1.1">
+                                 <string name="NAME" value="CITTIME_TO"/>
+                                 <string name="ORIGINAL_NAME" value="CITTIME_TO"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="61" ver="1.1">
+                                 <string name="NAME" value="CIT_AMOUNT"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_AMOUNT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="6"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="62" ver="1.1">
+                                 <string name="NAME" value="CIT_CURR"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_CURR"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="63" ver="1.1">
+                                 <string name="NAME" value="SERVICE_TYPE"/>
+                                 <string name="ORIGINAL_NAME" value="SERVICE_TYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="64" ver="1.1">
+                                 <string name="NAME" value="PCARD_GUID32"/>
+                                 <string name="ORIGINAL_NAME" value="PCARD_GUID32"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="65" ver="1.1">
+                                 <string name="NAME" value="PYREF"/>
+                                 <string name="ORIGINAL_NAME" value="PYREF"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="66" ver="1.1">
+                                 <string name="NAME" value="ALLOW_DEF_ID"/>
+                                 <string name="ORIGINAL_NAME" value="ALLOW_DEF_ID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="67" ver="1.1">
+                                 <string name="NAME" value="ALLOW_START_DATE"/>
+                                 <string name="ORIGINAL_NAME" value="ALLOW_START_DATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="7" ver="1.1">
+                                 <string name="NAME" value="VTPID"/>
+                                 <string name="ORIGINAL_NAME" value="VTPID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="false"/>
+                                    <byte name="PrimitiveType" value="0"/>
+                                    <string name="TypeName" value="bytearray"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="8" ver="1.1">
+                                 <string name="NAME" value="VTREF"/>
+                                 <string name="ORIGINAL_NAME" value="VTREF"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="9" ver="1.1">
+                                 <string name="NAME" value="VTPOS"/>
+                                 <string name="ORIGINAL_NAME" value="VTPOS"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="4"/>
+                                 </storable>
+                              </storable>
+                           </list>
+                           <list classname="java.util.ArrayList" name="childField"/>
+                           <boolean name="isParent" value="false"/>
+                           <boolean name="isTable" value="true"/>
+                           <string name="sanitizedName" value="ET_CIT4_RETURN"/>
+                           <string name="udrName" value="/1FC/0ZINT400"/>
+                        </storable>
+                        <storable classname="com.digitalroute.mz.rfc.profile.RfcDataStructure" name="3" ver="1.1">
+                           <string name="Name" value="ET_CIT_ERROR"/>
+                           <list classname="java.util.ArrayList" name="RfcFieldInfo">
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="0" ver="1.1">
+                                 <string name="NAME" value="CITIDTYPE"/>
+                                 <string name="ORIGINAL_NAME" value="CITIDTYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="1" ver="1.1">
+                                 <string name="NAME" value="CITID"/>
+                                 <string name="ORIGINAL_NAME" value="CITID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="10" ver="1.1">
+                                 <string name="NAME" value="VKONT_RATING"/>
+                                 <string name="ORIGINAL_NAME" value="VKONT_RATING"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="11" ver="1.1">
+                                 <string name="NAME" value="MDCAT_RATING"/>
+                                 <string name="ORIGINAL_NAME" value="MDCAT_RATING"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="12" ver="1.1">
+                                 <string name="NAME" value="CONSUMDATE"/>
+                                 <string name="ORIGINAL_NAME" value="CONSUMDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="13" ver="1.1">
+                                 <string name="NAME" value="CIT_QUANTITY"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_QUANTITY"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="6"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="14" ver="1.1">
+                                 <string name="NAME" value="CIT_QTY_UNIT"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_QTY_UNIT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="15" ver="1.1">
+                                 <string name="NAME" value="CIT_QTY_GROUP"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_QTY_GROUP"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="16" ver="1.1">
+                                 <string name="NAME" value="RATE_BASEDATE"/>
+                                 <string name="ORIGINAL_NAME" value="RATE_BASEDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="17" ver="1.1">
+                                 <string name="NAME" value="RATE_FIRST"/>
+                                 <string name="ORIGINAL_NAME" value="RATE_FIRST"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="18" ver="1.1">
+                                 <string name="NAME" value="CITTYPE"/>
+                                 <string name="ORIGINAL_NAME" value="CITTYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="19" ver="1.1">
+                                 <string name="NAME" value="CITDATE"/>
+                                 <string name="ORIGINAL_NAME" value="CITDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="2" ver="1.1">
+                                 <string name="NAME" value="ACCESS_USERID"/>
+                                 <string name="ORIGINAL_NAME" value="ACCESS_USERID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="20" ver="1.1">
+                                 <string name="NAME" value="CITTIME"/>
+                                 <string name="ORIGINAL_NAME" value="CITTIME"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="21" ver="1.1">
+                                 <string name="NAME" value="RATING_TYPE"/>
+                                 <string name="ORIGINAL_NAME" value="RATING_TYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="22" ver="1.1">
+                                 <string name="NAME" value="SIMULATED"/>
+                                 <string name="ORIGINAL_NAME" value="SIMULATED"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="23" ver="1.1">
+                                 <string name="NAME" value="SRCTAID"/>
+                                 <string name="ORIGINAL_NAME" value="SRCTAID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="24" ver="1.1">
+                                 <string name="NAME" value="SRCTATYPE"/>
+                                 <string name="ORIGINAL_NAME" value="SRCTATYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="25" ver="1.1">
+                                 <string name="NAME" value="RATINGDATE"/>
+                                 <string name="ORIGINAL_NAME" value="RATINGDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="26" ver="1.1">
+                                 <string name="NAME" value="ACCESS_USERID_TYPE"/>
+                                 <string name="ORIGINAL_NAME" value="ACCESS_USERID_TYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="27" ver="1.1">
+                                 <string name="NAME" value="CITDATE_FROM"/>
+                                 <string name="ORIGINAL_NAME" value="CITDATE_FROM"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="28" ver="1.1">
+                                 <string name="NAME" value="CITDATE_TO"/>
+                                 <string name="ORIGINAL_NAME" value="CITDATE_TO"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="29" ver="1.1">
+                                 <string name="NAME" value="CITTIME_FROM"/>
+                                 <string name="ORIGINAL_NAME" value="CITTIME_FROM"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="3" ver="1.1">
+                                 <string name="NAME" value="ACCESS_SERVICEID"/>
+                                 <string name="ORIGINAL_NAME" value="ACCESS_SERVICEID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="30" ver="1.1">
+                                 <string name="NAME" value="CITTIME_TO"/>
+                                 <string name="ORIGINAL_NAME" value="CITTIME_TO"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="31" ver="1.1">
+                                 <string name="NAME" value="CIT_AMOUNT"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_AMOUNT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="6"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="32" ver="1.1">
+                                 <string name="NAME" value="CIT_CURR"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_CURR"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="33" ver="1.1">
+                                 <string name="NAME" value="SERVICE_TYPE"/>
+                                 <string name="ORIGINAL_NAME" value="SERVICE_TYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="34" ver="1.1">
+                                 <string name="NAME" value="CONTRACTITEMID"/>
+                                 <string name="ORIGINAL_NAME" value="CONTRACTITEMID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="35" ver="1.1">
+                                 <string name="NAME" value="CITFIELDSCHEMA"/>
+                                 <string name="ORIGINAL_NAME" value="CITFIELDSCHEMA"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="36" ver="1.1">
+                                 <string name="NAME" value="PCARD_GUID32"/>
+                                 <string name="ORIGINAL_NAME" value="PCARD_GUID32"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="37" ver="1.1">
+                                 <string name="NAME" value="PYREF"/>
+                                 <string name="ORIGINAL_NAME" value="PYREF"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="38" ver="1.1">
+                                 <string name="NAME" value="ALLOW_DEF_ID"/>
+                                 <string name="ORIGINAL_NAME" value="ALLOW_DEF_ID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="39" ver="1.1">
+                                 <string name="NAME" value="ALLOW_START_DATE"/>
+                                 <string name="ORIGINAL_NAME" value="ALLOW_START_DATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="4" ver="1.1">
+                                 <string name="NAME" value="GPART"/>
+                                 <string name="ORIGINAL_NAME" value="GPART"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="5" ver="1.1">
+                                 <string name="NAME" value="VTREF"/>
+                                 <string name="ORIGINAL_NAME" value="VTREF"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="6" ver="1.1">
+                                 <string name="NAME" value="VTPOS"/>
+                                 <string name="ORIGINAL_NAME" value="VTPOS"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="4"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="7" ver="1.1">
+                                 <string name="NAME" value="SUBAP"/>
+                                 <string name="ORIGINAL_NAME" value="SUBAP"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="8" ver="1.1">
+                                 <string name="NAME" value="VKONT"/>
+                                 <string name="ORIGINAL_NAME" value="VKONT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="9" ver="1.1">
+                                 <string name="NAME" value="GPART_RATING"/>
+                                 <string name="ORIGINAL_NAME" value="GPART_RATING"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                           </list>
+                           <list classname="java.util.ArrayList" name="childField"/>
+                           <boolean name="isParent" value="false"/>
+                           <boolean name="isTable" value="true"/>
+                           <string name="sanitizedName" value="ET_CIT_ERROR"/>
+                           <string name="udrName" value="/1FC/1ZINT_API"/>
+                        </storable>
+                        <storable classname="com.digitalroute.mz.rfc.profile.RfcDataStructure" name="4" ver="1.1">
+                           <string name="Name" value="ET_MESSAGES"/>
+                           <list classname="java.util.ArrayList" name="RfcFieldInfo">
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="0" ver="1.1">
+                                 <string name="NAME" value="MSGID"/>
+                                 <string name="ORIGINAL_NAME" value="MSGID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="1" ver="1.1">
+                                 <string name="NAME" value="MSGTY"/>
+                                 <string name="ORIGINAL_NAME" value="MSGTY"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="2" ver="1.1">
+                                 <string name="NAME" value="MSGNO"/>
+                                 <string name="ORIGINAL_NAME" value="MSGNO"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="4"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="3" ver="1.1">
+                                 <string name="NAME" value="MSGV1"/>
+                                 <string name="ORIGINAL_NAME" value="MSGV1"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="4" ver="1.1">
+                                 <string name="NAME" value="MSGV2"/>
+                                 <string name="ORIGINAL_NAME" value="MSGV2"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="5" ver="1.1">
+                                 <string name="NAME" value="MSGV3"/>
+                                 <string name="ORIGINAL_NAME" value="MSGV3"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="6" ver="1.1">
+                                 <string name="NAME" value="MSGV4"/>
+                                 <string name="ORIGINAL_NAME" value="MSGV4"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="7" ver="1.1">
+                                 <string name="NAME" value="MSGTX"/>
+                                 <string name="ORIGINAL_NAME" value="MSGTX"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                           </list>
+                           <list classname="java.util.ArrayList" name="childField"/>
+                           <boolean name="isParent" value="false"/>
+                           <boolean name="isTable" value="true"/>
+                           <string name="sanitizedName" value="ET_MESSAGES"/>
+                           <string name="udrName" value="FKKBIX_API_MSG"/>
+                        </storable>
+                        <storable classname="com.digitalroute.mz.rfc.profile.RfcDataStructure" name="5" ver="1.1">
+                           <string name="Name" value="IT_CIT"/>
+                           <list classname="java.util.ArrayList" name="RfcFieldInfo">
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="0" ver="1.1">
+                                 <string name="NAME" value="CITIDTYPE"/>
+                                 <string name="ORIGINAL_NAME" value="CITIDTYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="1" ver="1.1">
+                                 <string name="NAME" value="CITID"/>
+                                 <string name="ORIGINAL_NAME" value="CITID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="10" ver="1.1">
+                                 <string name="NAME" value="VKONT_RATING"/>
+                                 <string name="ORIGINAL_NAME" value="VKONT_RATING"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="11" ver="1.1">
+                                 <string name="NAME" value="MDCAT_RATING"/>
+                                 <string name="ORIGINAL_NAME" value="MDCAT_RATING"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="12" ver="1.1">
+                                 <string name="NAME" value="CONSUMDATE"/>
+                                 <string name="ORIGINAL_NAME" value="CONSUMDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="13" ver="1.1">
+                                 <string name="NAME" value="CIT_QUANTITY"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_QUANTITY"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="6"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="14" ver="1.1">
+                                 <string name="NAME" value="CIT_QTY_UNIT"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_QTY_UNIT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="15" ver="1.1">
+                                 <string name="NAME" value="CIT_QTY_GROUP"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_QTY_GROUP"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="16" ver="1.1">
+                                 <string name="NAME" value="RATE_BASEDATE"/>
+                                 <string name="ORIGINAL_NAME" value="RATE_BASEDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="17" ver="1.1">
+                                 <string name="NAME" value="RATE_FIRST"/>
+                                 <string name="ORIGINAL_NAME" value="RATE_FIRST"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="18" ver="1.1">
+                                 <string name="NAME" value="CITTYPE"/>
+                                 <string name="ORIGINAL_NAME" value="CITTYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="19" ver="1.1">
+                                 <string name="NAME" value="CITDATE"/>
+                                 <string name="ORIGINAL_NAME" value="CITDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="2" ver="1.1">
+                                 <string name="NAME" value="ACCESS_USERID"/>
+                                 <string name="ORIGINAL_NAME" value="ACCESS_USERID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="20" ver="1.1">
+                                 <string name="NAME" value="CITTIME"/>
+                                 <string name="ORIGINAL_NAME" value="CITTIME"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="21" ver="1.1">
+                                 <string name="NAME" value="RATING_TYPE"/>
+                                 <string name="ORIGINAL_NAME" value="RATING_TYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="22" ver="1.1">
+                                 <string name="NAME" value="SIMULATED"/>
+                                 <string name="ORIGINAL_NAME" value="SIMULATED"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="23" ver="1.1">
+                                 <string name="NAME" value="SRCTAID"/>
+                                 <string name="ORIGINAL_NAME" value="SRCTAID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="24" ver="1.1">
+                                 <string name="NAME" value="SRCTATYPE"/>
+                                 <string name="ORIGINAL_NAME" value="SRCTATYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="25" ver="1.1">
+                                 <string name="NAME" value="RATINGDATE"/>
+                                 <string name="ORIGINAL_NAME" value="RATINGDATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="26" ver="1.1">
+                                 <string name="NAME" value="ACCESS_USERID_TYPE"/>
+                                 <string name="ORIGINAL_NAME" value="ACCESS_USERID_TYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="27" ver="1.1">
+                                 <string name="NAME" value="CITDATE_FROM"/>
+                                 <string name="ORIGINAL_NAME" value="CITDATE_FROM"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="28" ver="1.1">
+                                 <string name="NAME" value="CITDATE_TO"/>
+                                 <string name="ORIGINAL_NAME" value="CITDATE_TO"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="29" ver="1.1">
+                                 <string name="NAME" value="CITTIME_FROM"/>
+                                 <string name="ORIGINAL_NAME" value="CITTIME_FROM"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="3" ver="1.1">
+                                 <string name="NAME" value="ACCESS_SERVICEID"/>
+                                 <string name="ORIGINAL_NAME" value="ACCESS_SERVICEID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="30" ver="1.1">
+                                 <string name="NAME" value="CITTIME_TO"/>
+                                 <string name="ORIGINAL_NAME" value="CITTIME_TO"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="11"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="31" ver="1.1">
+                                 <string name="NAME" value="CIT_AMOUNT"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_AMOUNT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="6"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="32" ver="1.1">
+                                 <string name="NAME" value="CIT_CURR"/>
+                                 <string name="ORIGINAL_NAME" value="CIT_CURR"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="33" ver="1.1">
+                                 <string name="NAME" value="SERVICE_TYPE"/>
+                                 <string name="ORIGINAL_NAME" value="SERVICE_TYPE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="34" ver="1.1">
+                                 <string name="NAME" value="CONTRACTITEMID"/>
+                                 <string name="ORIGINAL_NAME" value="CONTRACTITEMID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="35" ver="1.1">
+                                 <string name="NAME" value="CITFIELDSCHEMA"/>
+                                 <string name="ORIGINAL_NAME" value="CITFIELDSCHEMA"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="36" ver="1.1">
+                                 <string name="NAME" value="PCARD_GUID32"/>
+                                 <string name="ORIGINAL_NAME" value="PCARD_GUID32"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="37" ver="1.1">
+                                 <string name="NAME" value="PYREF"/>
+                                 <string name="ORIGINAL_NAME" value="PYREF"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="38" ver="1.1">
+                                 <string name="NAME" value="ALLOW_DEF_ID"/>
+                                 <string name="ORIGINAL_NAME" value="ALLOW_DEF_ID"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="39" ver="1.1">
+                                 <string name="NAME" value="ALLOW_START_DATE"/>
+                                 <string name="ORIGINAL_NAME" value="ALLOW_START_DATE"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="4" ver="1.1">
+                                 <string name="NAME" value="GPART"/>
+                                 <string name="ORIGINAL_NAME" value="GPART"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="5" ver="1.1">
+                                 <string name="NAME" value="VTREF"/>
+                                 <string name="ORIGINAL_NAME" value="VTREF"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="6" ver="1.1">
+                                 <string name="NAME" value="VTPOS"/>
+                                 <string name="ORIGINAL_NAME" value="VTPOS"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="4"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="7" ver="1.1">
+                                 <string name="NAME" value="SUBAP"/>
+                                 <string name="ORIGINAL_NAME" value="SUBAP"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="8" ver="1.1">
+                                 <string name="NAME" value="VKONT"/>
+                                 <string name="ORIGINAL_NAME" value="VKONT"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                              <storable classname="com.digitalroute.mz.rfc.profile.RfcFieldInfo" name="9" ver="1.1">
+                                 <string name="NAME" value="GPART_RATING"/>
+                                 <string name="ORIGINAL_NAME" value="GPART_RATING"/>
+                                 <storable name="TYPE" storable-id="dr.DRUDRType" ver="1.0">
+                                    <boolean name="IsPrimitive" value="true"/>
+                                    <byte name="PrimitiveType" value="9"/>
+                                 </storable>
+                              </storable>
+                           </list>
+                           <list classname="java.util.ArrayList" name="childField"/>
+                           <boolean name="isParent" value="false"/>
+                           <boolean name="isTable" value="true"/>
+                           <string name="sanitizedName" value="IT_CIT"/>
+                           <string name="udrName" value="/1FC/1ZINT_API"/>
+                        </storable>
+                     </list>
+                     <boolean name="isParent" value="false"/>
+                     <boolean name="isTable" value="false"/>
+                     <string name="sanitizedName" null="true"/>
+                     <string name="udrName" value="tableParams_/1FC/ZINT_CIT_CREATE_API"/>
+                  </storable>
+               </list>
+               <boolean name="isParent" value="true"/>
+               <boolean name="isTable" value="false"/>
+               <string name="sanitizedName" value="/1FC/ZINT_CIT_CREATE_API"/>
+               <string name="udrName" null="true"/>
+            </storable>
+         </list>
+         <string name="SNC_LIB_PATH" value=""/>
+         <int name="SNC_LVL_PROTECTION" value="3"/>
+         <string name="SNC_NAME" value=""/>
+         <string name="SNC_PARTNER_NAME" value="p:CN=S4HANA.ESTSERVERS.COM"/>
+         <int name="SYSTEM" value="0"/>
+         <string name="SYSTEMID" value=""/>
+         <string name="USERNAME" value="S4BRIMUSER5"/>
+      </storable>
+      <string name="documentation" value=""/>
+   </storable>
+</rfc_profile>

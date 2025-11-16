@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<exportmultiplex category="Template" ref_path="workflow_data[Internal]/storable[workflow_data]/storable[Data]">
+   <storable name="Audit Profile" storable-id="dr.WfAuditProfileData" ver="2.1">
+      <storable name="Profile" storable-id="dr.DRConfiguration" ver="2.0">
+         <set name="Dynamic Parameters" null="true"/>
+         <string name="Folder" value="SAPCM-SEPT25_DB_AUDIT"/>
+         <string name="Key" value="DR1761465155291"/>
+         <string name="Name" value="PRF_ADT_COLL1"/>
+         <string name="Type" value="Audit Profile"/>
+      </storable>
+      <array classname="com.digitalroute.wf.audit.WfAuditTableData" name="Tables" size="1">
+         <storable name="0" storable-id="dr.WfAuditTableData" ver="1.0">
+            <array classname="com.digitalroute.wf.audit.WfAuditColumnData" name="Columns" size="6">
+               <storable name="0" storable-id="dr.WfAuditColumnData" ver="1.0">
+                  <int name="Assignment type" value="2"/>
+                  <string name="Column name" value="inputfilename"/>
+                  <string name="MIM resource" value="COLL_DIR.Source Filename"/>
+               </storable>
+               <storable name="1" storable-id="dr.WfAuditColumnData" ver="1.0">
+                  <int name="Assignment type" value="2"/>
+                  <string name="Column name" value="inputpath"/>
+                  <string name="MIM resource" value="COLL_DIR.Source Pathname"/>
+               </storable>
+               <storable name="2" storable-id="dr.WfAuditColumnData" ver="1.0">
+                  <int name="Assignment type" value="2"/>
+                  <string name="Column name" value="outputfilename"/>
+                  <string name="MIM resource" value="PROC_DIR.Target Filename"/>
+               </storable>
+               <storable name="3" storable-id="dr.WfAuditColumnData" ver="1.0">
+                  <int name="Assignment type" value="2"/>
+                  <string name="Column name" value="processstarttime"/>
+                  <string name="MIM resource" value="Workflow.Batch Start Time"/>
+               </storable>
+               <storable name="4" storable-id="dr.WfAuditColumnData" ver="1.0">
+                  <int name="Assignment type" value="3"/>
+                  <string name="Column name" value="tranxid"/>
+                  <string name="MIM resource" null="true"/>
+               </storable>
+               <storable name="5" storable-id="dr.WfAuditColumnData" ver="1.0">
+                  <int name="Assignment type" value="2"/>
+                  <string name="Column name" value="workflowname"/>
+                  <string name="MIM resource" value="Workflow.Workflow Name"/>
+               </storable>
+            </array>
+            <string name="Table name" value="public.tb_collection_audit"/>
+         </storable>
+      </array>
+   </storable>
+   <int name="Cancel batch count" value="2147483647"/>
+   <int name="Cancel batch type" value="1"/>
+   <list classname="java.util.ArrayList" name="Comments"/>
+   <storable name="Data Veracity Profile" null="true"/>
+   <storable name="Error UDR type name" null="true"/>
+   <boolean name="Error batch type" value="true"/>
+   <string name="Error code" null="true"/>
+   <map classname="java.util.HashMap" name="Error map" size="0"/>
+   <storable name="Execution Config" storable-id="dr.WorkflowExecutionConfig" ver="10.0">
+      <enum name="debugType" storable-id="dr.DebugType" value="EVENT"/>
+      <storable name="executionSettings" storable-id="dr.ExecutionSettings" ver="11.0">
+         <boolean name="enabled" value="false"/>
+         <storable name="kafka" null="true"/>
+      </storable>
+      <int name="noOfFilesToKeep" value="0"/>
+      <string name="throughputMIM" null="true"/>
+      <string name="txnHandler" value="Default Handler"/>
+   </storable>
+   <list classname="java.util.ArrayList" name="Field Types"/>
+   <boolean name="Log On CB" value="false"/>
+   <list classname="java.util.ArrayList" name="Logged error MIM"/>
+   <list classname="java.util.ArrayList" name="Nodes">
+      <storable name="0" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname" value="com.digitalroute.wfc.diskinput.DiskAdvInputInsp"/>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="3">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.wfc.diskinput.DiskAdvInputInsp"/>
+               <storable name="Data" storable-id="dr.DiskAdvInputData" ver="10.0">
+                  <string name="collectionStrategyName" null="true"/>
+                  <boolean name="routeFileRef" value="false"/>
+                  <array classname="java.lang.String" name="strategyClasses" size="2">
+                     <string name="0" value="com.digitalroute.misc.advcoll.impl.DefaultFileInfo"/>
+                     <string name="1"><![CDATA[com.digitalroute.misc.advcoll.impl.DefaultSourceFileHandling]]></string>
+                  </array>
+                  <string name="strategyCombinationClass"><![CDATA[com.digitalroute.misc.advcoll.impl.DefaultCollectionStrategy]]></string>
+                  <array classname="java.lang.Object" name="strategyConfigs" size="2">
+                     <storable name="0" storable-id="dr.DefaultFileInfoConfig" ver="10.0">
+                        <string name="baseDir" value="/opt/mz/SAPCM-SEPT25/DUPLICITY/BATCH"/>
+                        <enum name="compType" storable-id="dr.CompressionType" value="NONE"/>
+                        <string name="fileRegExp" value="Batch.*"/>
+                        <boolean name="subfolders" value="false"/>
+                     </storable>
+                     <storable name="1" storable-id="dr.DefaultSourceFileHandlingConfig" ver="10.0">
+                        <int name="idleTime" value="0"/>
+                        <boolean name="moveBeforeRetrieval" value="false"/>
+                        <string name="moveSuffix" value=""/>
+                        <string name="rbDirectory" value=""/>
+                        <int name="rbKeepInterval" value="-1"/>
+                        <string name="rbRenamePrefix" value=""/>
+                        <string name="rbRenameSuffix" value=""/>
+                        <string name="rbReplace" value=""/>
+                        <string name="rbSearch" value=""/>
+                        <enum name="rbType" storable-id="dr.RetrievalType" value="IGNORE"/>
+                     </storable>
+                  </array>
+               </storable>
+            </storable>
+            <storable name="1" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.devkit.wf.DRFNSServiceInsp"/>
+               <storable name="Data" storable-id="dr.DRFNSServiceConfigExtension" ver="10.0">
+                  <boolean name="enabled" value="false"/>
+                  <storable name="nextSeqNo" storable-id="dr.SequenceNumberFieldValue" ver="2.0">
+                     <long name="SeqNo" value="-1"/>
+                     <long name="SeqNoUpdate" value="0"/>
+                  </storable>
+                  <long name="nextSeqNoValue" value="-1"/>
+                  <long name="seqNoChk" value="0"/>
+                  <int name="seqNoLen" value="-1"/>
+                  <boolean name="shallWarnOnOutOfSequence" value="false"/>
+                  <int name="startPos" value="-1"/>
+                  <long name="wrapOnSeqNo" value="-1"/>
+                  <long name="wrapToSeqNo" value="-1"/>
+               </storable>
+            </storable>
+            <storable name="2" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname"><![CDATA[com.digitalroute.devkit.wf.DRFileInfoSortOrderServiceInsp]]></string>
+               <storable name="Data" storable-id="dr.DRFileInfoSortOrderServiceConfig" ver="10.0">
+                  <boolean name="enabled" value="false"/>
+                  <boolean name="ignoreCase" value="false"/>
+                  <int name="length" value="0"/>
+                  <enum name="orderType" storable-id="dr.DRFileOrderType" value="FILENAME_VALUE"/>
+                  <enum name="patternType" storable-id="dr.DRFilenamePatternSelection" value="POSITION"/>
+                  <string name="regExp" null="true"/>
+                  <enum name="sortOrder" storable-id="dr.DRSortOrder" value="ASCENDING"/>
+                  <enum name="sortType" storable-id="dr.DRFilenameSortType" value="ALPHANUMERIC"/>
+                  <int name="startPos" value="0"/>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="COLL_DIR"/>
+      </storable>
+      <storable name="1" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname" value="com.digitalroute.wfc.dupbatch.DupBatchInsp"/>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.wfc.dupbatch.DupBatchInsp"/>
+               <storable name="Data" storable-id="dr.DupBatchConfig" ver="11.0">
+                  <array classname="java.lang.String" name="loggedMIM" size="4">
+                     <string name="0" value="Workflow.Workflow Name"/>
+                     <string name="1" value="Workflow.Batch Start Time"/>
+                     <string name="2" value="COLL_DIR.Source Filename"/>
+                     <string name="3" value="COLL_DIR.Source Pathname"/>
+                  </array>
+                  <boolean name="mimBypass" value="false"/>
+                  <array classname="com.digitalroute.devkit.misc.DRNameValue" name="mimMap" size="1">
+                     <storable name="0" storable-id="dr.DRNameValue" ver="1.0">
+                        <string name="Name" value="filename"/>
+                        <string name="Value" value="COLL_DIR.Source Filename"/>
+                     </storable>
+                  </array>
+                  <storable name="profile" storable-id="dr.DRConfiguration" ver="2.0">
+                     <set name="Dynamic Parameters" null="true"/>
+                     <string name="Folder" value="SAPCM-SEPT25_DUPLICATE-CHECK_BATCHLEVEL"/>
+                     <string name="Key" value="DR1760727805784"/>
+                     <string name="Name" value="PRF_DUP_BATCH2"/>
+                     <string name="Type" value="Duplicate Batch Profile"/>
+                  </storable>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="Dup_Batch_1"/>
+      </storable>
+      <storable name="2" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname" value="com.digitalroute.wfc.analysis.StuffyMapperInsp"/>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="2">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.wfc.analysis.StuffyMapperInsp"/>
+               <storable name="Data" storable-id="dr.StuffyMapperData" ver="10.0">
+                  <string name="sourceCode"><![CDATA[boolean isFileExist;
+beginBatch{
+    isFileExist = false;
+}
+consume {
+    udrRoute(input);
+    isFileExist = true;
+}
+
+drain{
+    if(isFileExist == false){
+        debug("No file exist");
+    }
+}]]></string>
+                  <array classname="com.digitalroute.devkit.drudr.DRTypeInfo" name="udrTypes" size="1">
+                     <storable name="0" storable-id="dr.DRTypeInfo" ver="1.0">
+                        <string name="TypeName" value="bytearray"/>
+                     </storable>
+                  </array>
+               </storable>
+            </storable>
+            <storable name="1" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.devkit.hidden.DRThreadBufferInsp"/>
+               <storable name="Data" storable-id="dr.DRThreadBufferConfig" ver="10.0">
+                  <boolean name="printStats" value="false"/>
+                  <boolean name="useOwnThread" value="false"/>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="BL"/>
+      </storable>
+      <storable name="3" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname" value="com.digitalroute.wfc.diskoutput.DiskOutputInsp"/>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="2">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.wfc.diskoutput.DiskOutputInsp"/>
+               <storable name="Data" storable-id="dr.DiskOutputData" ver="13.0">
+                  <string name="arguments" value=""/>
+                  <string name="command" value=""/>
+                  <enum name="compType" storable-id="dr.CompressionType" value="NONE"/>
+                  <boolean name="createEmpty" value="false"/>
+                  <boolean name="createNonExistingBaseDir" value="true"/>
+                  <string name="directory" value="/opt/mz/SAPCM-SEPT25/DUPLICITY/BATCH/PROC"/>
+                  <enum name="inputType" storable-id="dr.InputType" value="ByteArray"/>
+               </storable>
+            </storable>
+            <storable name="1" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.devkit.wf.DRFNTServiceInsp"/>
+               <storable name="Data" storable-id="dr.DRFNTServiceConfig" ver="11.0">
+                  <boolean name="createNonExistDirectories" value="true"/>
+                  <array classname="com.digitalroute.devkit.hidden.DRFNTServiceEntry" name="entries" size="3">
+                     <storable name="0" storable-id="dr.DRFNTServiceEntry" ver="3.0">
+                        <int name="Alignment" value="1"/>
+                        <string name="Date format" null="true"/>
+                        <boolean name="Delimiter" value="false"/>
+                        <string name="Mim entry" null="true"/>
+                        <string name="Pad" null="true"/>
+                        <int name="Size" value="-1"/>
+                        <string name="Trailing separator" value="_"/>
+                        <string name="User entry" value="CM"/>
+                     </storable>
+                     <storable name="1" storable-id="dr.DRFNTServiceEntry" ver="3.0">
+                        <int name="Alignment" value="1"/>
+                        <string name="Date format" value="ddMMyyyyHHmmssSS"/>
+                        <boolean name="Delimiter" value="false"/>
+                        <string name="Mim entry" value="Workflow.Batch Start Time"/>
+                        <string name="Pad" null="true"/>
+                        <int name="Size" value="-1"/>
+                        <string name="Trailing separator" value="_"/>
+                        <string name="User entry" null="true"/>
+                     </storable>
+                     <storable name="2" storable-id="dr.DRFNTServiceEntry" ver="3.0">
+                        <int name="Alignment" value="1"/>
+                        <string name="Date format" null="true"/>
+                        <boolean name="Delimiter" value="false"/>
+                        <string name="Mim entry" value="COLL_DIR.Source Filename"/>
+                        <string name="Pad" null="true"/>
+                        <int name="Size" value="-1"/>
+                        <string name="Trailing separator" null="true"/>
+                        <string name="User entry" null="true"/>
+                     </storable>
+                  </array>
+                  <boolean name="fNTListEnabled" value="true"/>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="PROC_DIR"/>
+      </storable>
+   </list>
+   <list classname="java.util.ArrayList" name="Routes">
+      <storable name="0" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="toDupBatch"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+      <storable name="1" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="toBL"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+      <storable name="2" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="toProc"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+   </list>
+   <list classname="java.util.ArrayList" name="Service"/>
+   <boolean name="Template Valid" value="true"/>
+</exportmultiplex>

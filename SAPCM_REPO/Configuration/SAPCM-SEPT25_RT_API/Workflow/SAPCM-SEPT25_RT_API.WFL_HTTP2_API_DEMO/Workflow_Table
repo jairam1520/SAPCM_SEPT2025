@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<exportmultiplex category="Workflow_Table" ref_path="workflow_data[Internal]/storable[workflow_data]/storable[Data]">
+   <storable name="InstanceTable" storable-id="dr.WorkflowInstanceTableData" ver="10.0">
+      <list classname="java.util.ArrayList" name="Workflow_Table">
+         <storable name="0" storable-id="dr.WorkflowInstanceData" ver="2.0">
+            <list classname="java.util.ArrayList" name="Fields">
+               <storable name="0" storable-id="dr.WfInstanceCell" ver="1.0">
+                  <int name="NodeId" value="608952228"/>
+                  <string name="NodeName" value="HTTP2_Server_1"/>
+                  <string name="QName" value="Http2 - Port"/>
+                  <enum classname="com.digitalroute.wf.FieldValue$Type" name="Type" value="EXTREF"/>
+                  <object name="Value">
+                     <string name="Object Internal" value="LK_HTTP_CLIENT_PORT1"/>
+                  </object>
+               </storable>
+            </list>
+            <long name="ID" value="1"/>
+            <string name="Name" value="workflow_1"/>
+            <enum name="Valid Type" storable-id="dr.ValidType" value="VALID"/>
+            <string name="Validation Error" null="true"/>
+         </storable>
+         <storable name="1" storable-id="dr.WorkflowInstanceData" ver="2.0">
+            <list classname="java.util.ArrayList" name="Fields">
+               <storable name="0" storable-id="dr.WfInstanceCell" ver="1.0">
+                  <int name="NodeId" value="608952228"/>
+                  <string name="NodeName" value="HTTP2_Server_1"/>
+                  <string name="QName" value="Http2 - Port"/>
+                  <enum classname="com.digitalroute.wf.FieldValue$Type" name="Type" value="VALUE"/>
+                  <object name="Value">
+                     <int name="Object Internal" value="8096"/>
+                  </object>
+               </storable>
+            </list>
+            <long name="ID" value="2"/>
+            <string name="Name" value="workflow_2"/>
+            <enum name="Valid Type" storable-id="dr.ValidType" value="VALID"/>
+            <string name="Validation Error" null="true"/>
+         </storable>
+         <storable name="2" storable-id="dr.WorkflowInstanceData" ver="2.0">
+            <list classname="java.util.ArrayList" name="Fields">
+               <storable name="0" storable-id="dr.WfInstanceCell" ver="1.0">
+                  <int name="NodeId" value="608952228"/>
+                  <string name="NodeName" value="HTTP2_Server_1"/>
+                  <string name="QName" value="Http2 - Port"/>
+                  <enum classname="com.digitalroute.wf.FieldValue$Type" name="Type" value="VALUE"/>
+                  <object name="Value">
+                     <int name="Object Internal" value="8097"/>
+                  </object>
+               </storable>
+            </list>
+            <long name="ID" value="3"/>
+            <string name="Name" value="workflow_3"/>
+            <enum name="Valid Type" storable-id="dr.ValidType" value="VALID"/>
+            <string name="Validation Error" null="true"/>
+         </storable>
+      </list>
+   </storable>
+   <long name="Workflow ID Counter" value="3"/>
+</exportmultiplex>

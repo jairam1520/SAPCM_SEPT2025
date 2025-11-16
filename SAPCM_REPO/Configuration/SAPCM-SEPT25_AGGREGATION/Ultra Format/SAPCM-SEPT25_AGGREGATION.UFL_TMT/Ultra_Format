@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<exportmultiplex category="Ultra_Format" ref_path="ultra_format[Internal]/storable[ultra_format]/storable[Data]">
+   <string name="Definition"><![CDATA[internal tmtUsage{
+	string Record_ID;
+	string Subscriber_ID;
+	string Service_Type;
+	string Usage_Type;
+	string Usage_Amount;
+	string Unit;
+	string Start_Time;
+	string End_Time;
+	string Cell_ID;
+	string Location;
+};
+
+session sessTmt{
+    string sessionId;
+    tmtUsage udr;
+};
+
+internal tmtUsageOut{
+    string Subscriber_ID;
+    string Usage_Amount;
+};
+/* structures for association example */
+/*
+START record
+START,90001,2025-10-25 10:00:00,Voice
+*/
+external tmtStartExt: identified_by(RecordType == "START"){
+	ascii RecordType : terminated_by(",");
+	ascii SubscriberID : terminated_by(",");
+	ascii StartTime : terminated_by(",");
+	ascii Service : terminated_by("\n");
+	
+};
+
+in_map tmtSImap : external(tmtStartExt),target_internal(tmtStartTI){automatic;};
+
+/*
+USAGE record
+USAGE,90001,180,2025-10-25 10:03:00,Success
+*/
+external tmtUsgExt : identified_by(RecordType == "USAGE"){
+	ascii RecordType : terminated_by(",");
+	ascii SubscriberID : terminated_by(",");
+	ascii UsageAmount : terminated_by(",");
+	ascii EndTime : terminated_by(",");
+	ascii Result : terminated_by("\n");
+};
+
+in_map tmtUImap : external(tmtUsgExt),target_internal(tmtUsgTI){automatic;};
+
+decoder tmtRec : in_map(tmtSImap),in_map(tmtUImap);
+
+session sessTmtRecSeq{
+    string  SubscriberID;
+    string  UsageAmount;
+    string  StartTime;
+    string  EndTime;
+    string  Service;
+};
+
+internal tmtRecOut{
+    string  SubscriberID;
+    string  UsageAmount;
+    string  StartTime;
+    string  EndTime;
+    string  Service;
+};]]></string>
+</exportmultiplex>

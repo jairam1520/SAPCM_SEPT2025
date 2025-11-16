@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<exportmultiplex category="Template" ref_path="workflow_data[Internal]/storable[workflow_data]/storable[Data]">
+   <list classname="java.util.ArrayList" name="Comments"/>
+   <storable name="Execution Config" storable-id="dr.WorkflowExecutionConfig" ver="10.0">
+      <enum name="debugType" storable-id="dr.DebugType" value="EVENT"/>
+      <storable name="executionSettings" storable-id="dr.ExecutionSettings" ver="11.0">
+         <boolean name="enabled" value="false"/>
+         <storable name="kafka" null="true"/>
+      </storable>
+      <int name="noOfFilesToKeep" value="0"/>
+      <string name="throughputMIM" null="true"/>
+      <string name="txnHandler" value="Default Handler"/>
+   </storable>
+   <list classname="java.util.ArrayList" name="Field Types"/>
+   <list classname="java.util.ArrayList" name="Logged error MIM"/>
+   <list classname="java.util.ArrayList" name="Nodes">
+      <storable name="0" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname"><![CDATA[com.digitalroute.mz.pulse.agent.PulseCollectorAgentInspRT]]></string>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname"><![CDATA[com.digitalroute.mz.pulse.agent.PulseCollectorAgentInspRT]]></string>
+               <storable name="Data" storable-id="dr.PulseData" ver="10.0">
+                  <double name="center" value="1.0"/>
+                  <string name="data" value=""/>
+                  <boolean name="dataEntered" value="true"/>
+                  <boolean name="dataRandomData" value="false"/>
+                  <boolean name="dataRandomOrderSeq" value="false"/>
+                  <int name="dataRangeEnd" value="10"/>
+                  <int name="dataRangeStart" value="0"/>
+                  <boolean name="dataSequentialOrder" value="true"/>
+                  <boolean name="dataSequentialRange" value="false"/>
+                  <int name="dataSize" value="1"/>
+                  <enum name="dataUnit" storable-id="dr.PulseDataSizeUnit" value="Bytes"/>
+                  <long name="intervalFixed" value="1"/>
+                  <string name="intervalType" value="Fixed"/>
+                  <double name="poissonRate" value="1.0"/>
+                  <long name="rate" value="1"/>
+                  <long name="start" value="1"/>
+                  <long name="stop" value="10"/>
+                  <enum name="unit" storable-id="dr.PulseTimeUnit" value="MICROSECONDS"/>
+                  <double name="width" value="1.0"/>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="Pulse_1"/>
+      </storable>
+      <storable name="1" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname" value="com.digitalroute.wfc.analysis.AnalysisRealtimeInsp"/>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.wfc.analysis.AnalysisRealtimeInsp"/>
+               <storable name="Data" storable-id="dr.StuffyMapperData" ver="10.0">
+                  <string name="sourceCode"><![CDATA[import ultra.SAPCM-SEPT25_RT_FUNDAMENTAL.UFL_Record;
+//global constants
+int recSeqNum=1;
+date currTime;
+mimPublish(global,"currTime",long);
+consume {
+    Record rec = udrCreate(Record);
+    rec.seqNum = recSeqNum;
+    rec.data = "Test dummy data";
+    
+    //updating the global variable
+    incRecSqeNumber();
+    mimSet("currTime",dateCreateNowMilliseconds());
+    if(recSeqNum % 5 == 0){
+        sleep(3000);
+    }
+    debug(rec);
+    udrRoute(rec);
+    
+}
+
+synchronized void incRecSqeNumber(){
+    recSeqNum = recSeqNum+1;   
+}]]></string>
+                  <array classname="com.digitalroute.devkit.drudr.DRTypeInfo" name="udrTypes" size="1">
+                     <storable name="0" storable-id="dr.DRTypeInfo" ver="1.0">
+                        <string name="TypeName" value="PulseUDR"/>
+                     </storable>
+                  </array>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="Analysis_1"/>
+      </storable>
+      <storable name="2" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname"><![CDATA[com.digitalroute.wfc.ultra.UltraEncoderRealtimeInsp]]></string>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname"><![CDATA[com.digitalroute.wfc.ultra.UltraEncoderRealtimeInsp]]></string>
+               <storable name="Data" storable-id="dr.UltraEncoderData" ver="12.0">
+                  <storable name="encoderConfig" null="true"/>
+                  <string name="encoderName" value="SAPCM-SEPT25_RT_FUNDAMENTAL.UFL_Record.rEnc"/>
+                  <boolean name="skipEncoding" value="false"/>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="Encoder_1"/>
+      </storable>
+      <storable name="3" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname"><![CDATA[com.digitalroute.batchrt.forw.disk.BatchForwRtDiskInsp]]></string>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="2">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname"><![CDATA[com.digitalroute.batchrt.forw.disk.BatchForwRtDiskInsp]]></string>
+               <storable name="Data" storable-id="dr.batchforwrt.BatchForwRtBaseData" ver="20.0">
+                  <storable name="agentData" storable-id="dr.DiskOutputData" ver="13.0">
+                     <string name="arguments" value=""/>
+                     <string name="command" value=""/>
+                     <enum name="compType" storable-id="dr.CompressionType" value="NONE"/>
+                     <boolean name="createEmpty" value="false"/>
+                     <boolean name="createNonExistingBaseDir" value="false"/>
+                     <string name="directory" value="/opt/mz/SAPCM-SEPT25/RT/FUNDAMENTAL"/>
+                     <enum name="inputType" storable-id="dr.InputType" value="ByteArray"/>
+                  </storable>
+                  <int name="closingCriteriaByteCount" value="0"/>
+                  <int name="closingCriteriaDuration" value="10"/>
+                  <int name="closingCriteriaUdrCount" value="5"/>
+               </storable>
+            </storable>
+            <storable name="1" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.devkit.wf.DRFNTServiceInsp"/>
+               <storable name="Data" storable-id="dr.DRFNTServiceConfig" ver="11.0">
+                  <boolean name="createNonExistDirectories" value="true"/>
+                  <array classname="com.digitalroute.devkit.hidden.DRFNTServiceEntry" name="entries" size="3">
+                     <storable name="0" storable-id="dr.DRFNTServiceEntry" ver="3.0">
+                        <int name="Alignment" value="1"/>
+                        <string name="Date format" null="true"/>
+                        <boolean name="Delimiter" value="false"/>
+                        <string name="Mim entry" null="true"/>
+                        <string name="Pad" null="true"/>
+                        <int name="Size" value="-1"/>
+                        <string name="Trailing separator" value="_"/>
+                        <string name="User entry" value="CM"/>
+                     </storable>
+                     <storable name="1" storable-id="dr.DRFNTServiceEntry" ver="3.0">
+                        <int name="Alignment" value="1"/>
+                        <string name="Date format" null="true"/>
+                        <boolean name="Delimiter" value="false"/>
+                        <string name="Mim entry" value="Analysis_1.currTime"/>
+                        <string name="Pad" null="true"/>
+                        <int name="Size" value="-1"/>
+                        <string name="Trailing separator" null="true"/>
+                        <string name="User entry" null="true"/>
+                     </storable>
+                     <storable name="2" storable-id="dr.DRFNTServiceEntry" ver="3.0">
+                        <int name="Alignment" value="1"/>
+                        <string name="Date format" null="true"/>
+                        <boolean name="Delimiter" value="false"/>
+                        <string name="Mim entry" null="true"/>
+                        <string name="Pad" null="true"/>
+                        <int name="Size" value="-1"/>
+                        <string name="Trailing separator" null="true"/>
+                        <string name="User entry" value=".csv"/>
+                     </storable>
+                  </array>
+                  <boolean name="fNTListEnabled" value="true"/>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="Disk_1"/>
+      </storable>
+   </list>
+   <storable name="Persistent" storable-id="dr.WorkflowPersistentConfig" ver="10.0">
+      <string name="persistentInspector" null="true"/>
+      <storable name="persistentStorageConfig" null="true"/>
+      <string name="persistentTimeoutHandler" null="true"/>
+   </storable>
+   <list classname="java.util.ArrayList" name="Routes">
+      <storable name="0" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="r_1"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+      <storable name="1" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="r_2"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+      <storable name="2" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="r_3"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+   </list>
+   <list classname="java.util.ArrayList" name="Service"/>
+   <boolean name="Template Valid" value="true"/>
+   <storable name="Thread data" storable-id="dr.WorkflowExecutionRealtimeConfig" ver="10.0">
+      <int name="countInterval" value="1"/>
+      <int name="queueSize" value="1000"/>
+      <string name="queueStrategy" null="true"/>
+      <string name="queueWorkerStrategy" null="true"/>
+      <boolean name="standalone" value="false"/>
+      <int name="threads" value="8"/>
+   </storable>
+</exportmultiplex>

@@ -1,0 +1,2183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<webservices_profile category="Internal">
+   <storable name="webservices_profile" storable-id="dr.Configuration" ver="10.1">
+      <array classname="java.lang.String" name="Access Groups -read -write -execute" size="3">
+         <string name="0" value="ZSAP_CM_ALL"/>
+         <string name="1" value="ZSAP_CM_ALL"/>
+         <string name="2" value="ZSAP_CM_ALL"/>
+      </array>
+      <storable name="Auxiliary Data" null="true"/>
+      <storable name="Data" storable-id="dr.WSProfileConfig" ver="311.0">
+         <boolean name="2-way Authentication" value="false"/>
+         <string name="Binding name" value="CatalogServicesPortBinding"/>
+         <boolean name="Desktop Validation" value="false"/>
+         <boolean name="Disable Underscore Binding Mode" value="false"/>
+         <boolean name="Disable Wrapper Style" value="false"/>
+         <boolean name="Enable Big Decimal" value="false"/>
+         <boolean name="Enable JAAS" value="false"/>
+         <boolean name="Enable Username Token" value="true"/>
+         <boolean name="Enable WS Addressing" value="false"/>
+         <boolean name="Enforce RM" value="false"/>
+         <string name="JAAS Module" value=""/>
+         <string name="JAAS Properties" value=""/>
+         <string name="Max Enum Members" value="256"/>
+         <boolean name="Populate OriginalData Field" value="false"/>
+         <string name="Port type" value="CatalogServices"/>
+         <boolean name="Process Implicit SOAP Headers" value="false"/>
+         <string name="RM Store" value=""/>
+         <string name="Schema Bindings" value=""/>
+         <boolean name="Schema Validation" value="true"/>
+         <boolean name="Security Enabled" value="true"/>
+         <storable name="Security Profile TLS" null="true"/>
+         <storable name="Security Settings" storable-id="dr.SecuritySettings" ver="3.1">
+            <boolean name="ENABLE_WS_SECURITY_BINARY_TOKEN" value="false"/>
+            <boolean name="ENABLE_WS_SECURITY_ENCRYPTION" value="false"/>
+            <boolean name="ENABLE_WS_SECURITY_SIGNING" value="false"/>
+            <boolean name="ENABLE_WS_SECURITY_TIMESTAMP" value="false"/>
+            <password name="KEY_PASSWORD" value="DR-4-017BB0B8FB061C1876D43DD75468AA40"/>
+            <string name="KEY_STORE_ALIAS" value=""/>
+            <bytearray name="KEY_STORE_CONTENT"><![CDATA[`
+]]></bytearray>
+            <string name="KEY_STORE_FILE" value=""/>
+            <password name="KEY_STORE_PWD" value="DR-4-017BB0B8FB061C1876D43DD75468AA40"/>
+            <storable name="SecurityProfile WEB" null="true"/>
+            <boolean name="USE_REQ_CERT" value="false"/>
+         </storable>
+         <string name="Service Port name" value="catalogPort"/>
+         <boolean name="Simple Mode Enabled" value="false"/>
+         <string name="TLS keystore file" value=""/>
+         <bytearray name="TLS keystore file content"><![CDATA[`
+]]></bytearray>
+         <password name="TLS keystore password" value="DR-4-017BB0B8FB061C1876D43DD75468AA40"/>
+         <password name="Username Token Password" value="DR-4-EC990FA8D6B1F4F8E948389EC8DA1F99"/>
+         <string name="Username Token Username" value="CM_CC_WS"/>
+         <list classname="java.util.LinkedList" name="concatenationFilePathList"/>
+         <string name="helper_class" value="ws.DR1762844012892.CATALOG.WSHelperImpl"/>
+         <list classname="java.util.LinkedList" name="includeFiles">
+            <storable name="0" storable-id="dr.WSDLIncludeFileStoreable" ver="2.1">
+               <string name="fileContent" quoted="true"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>\u000d
+<xs:schema targetNamespace="http://mappingtable.ws.highdeal.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://mappingtable.ws.highdeal.com/" xmlns:core="http://schema.ws.highdeal.com/">
+  <xs:import namespace="http://schema.ws.highdeal.com/" schemaLocation="catalog_1.xsd"/>
+  <xs:complexType name="MappingTableClass">
+    <xs:sequence>
+      <xs:element name="id" type="core:String256"/>
+      <xs:element name="owner" type="core:String256"/>
+      <xs:element minOccurs="0" name="description" type="core:String2000"/>
+      <xs:element maxOccurs="4" minOccurs="1" name="inputColumn" type="tns:MappingTableClassInputColumn"/>
+      <xs:element maxOccurs="15" minOccurs="0" name="outputColumn" type="tns:MappingTableClassOutputColumn"/>
+      <!--0 is possible-->
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalInfo" type="core:AdditionalInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="MappingTableClassColumn">
+    <xs:sequence>
+      <xs:element name="name" type="core:String256"/>
+      <xs:element minOccurs="0" name="description" type="core:String2000"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MappingTableClassInputColumn">
+    <xs:complexContent>
+      <xs:extension base="tns:MappingTableClassColumn">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element name="string" nillable="true" type="core:String256"/>
+            <xs:element name="currency" nillable="true" type="core:String256"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MappingTableClassOutputColumn">
+    <xs:complexContent>
+      <xs:extension base="tns:MappingTableClassColumn">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element name="string" nillable="true" type="core:String256"/>
+            <xs:element name="number" nillable="true" type="core:Decimal28_6"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MappingTable">
+    <xs:sequence>
+      <xs:element name="id" type="core:String256"/>
+      <xs:element name="mappingTableClassId" type="core:String256"/>
+      <xs:element name="owner" type="core:String256"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalInfo" type="core:AdditionalInfo"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="row" type="tns:MappingTableRow"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MappingTableRow">
+    <xs:sequence>
+      <xs:element name="id" type="core:String256"/>
+      <xs:element name="start" type="core:Date"/>
+      <xs:element name="end" type="core:Date"/>
+      <xs:element maxOccurs="unbounded" name="column" type="tns:MappingTableColumn"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MappingTableColumn">
+    <xs:sequence>
+      <xs:element name="name" type="core:String256"/>
+      <xs:choice>
+        <xs:element name="string" type="core:String2000"/>
+        <xs:element name="currency" type="core:String2000"/>
+        <xs:element name="number" type="core:Decimal28_6"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></string>
+               <string name="filePathSequence" value="catalog_1_2_3_4_5_6.xsd"/>
+            </storable>
+            <storable name="1" storable-id="dr.WSDLIncludeFileStoreable" ver="2.1">
+               <string name="fileContent" quoted="true"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>\u000d
+<xs:schema targetNamespace="http://mappingtable.v3.ws.highdeal.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mappingTableV0="http://mappingtable.ws.highdeal.com/" xmlns:core="http://schema.ws.highdeal.com/">
+  <xs:import namespace="http://schema.ws.highdeal.com/" schemaLocation="catalog_1.xsd"/>
+  <xs:import namespace="http://mappingtable.ws.highdeal.com/" schemaLocation="catalog_1_2_3_4_5_6.xsd"/>
+  <xs:complexType name="MappingTable">
+    <xs:complexContent>
+      <xs:extension base="core:CatalogTable">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="row" type="mappingTableV0:MappingTableRow"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MappingTableClass">
+    <xs:complexContent>
+      <xs:extension base="core:CatalogObject">
+        <xs:sequence>
+          <xs:element maxOccurs="100" minOccurs="1" name="inputColumn" type="mappingTableV0:MappingTableClassInputColumn"/>
+          <xs:element maxOccurs="100" minOccurs="0" name="outputColumn" type="mappingTableV0:MappingTableClassOutputColumn"/>
+          <!--0 is possible-->
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>]]></string>
+               <string name="filePathSequence" value="catalog_1_2_3_4_5_6_7_8_9_10_11_12_13.xsd"/>
+            </storable>
+            <storable name="10" storable-id="dr.WSDLIncludeFileStoreable" ver="2.1">
+               <string name="fileContent" quoted="true"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>\u000d
+<xs:schema targetNamespace="http://chargeplan.ws.highdeal.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://chargeplan.ws.highdeal.com/" xmlns:planclasselements="http://planclasselements.ws.highdeal.com/" xmlns:core="http://schema.ws.highdeal.com/">
+  <xs:import namespace="http://schema.ws.highdeal.com/" schemaLocation="catalog_1.xsd"/>
+  <xs:import namespace="http://planclasselements.ws.highdeal.com/" schemaLocation="catalog_1_2_3.xsd"/>
+  <xs:complexType name="ChargePlanClassUserTechnicalIdentifier">
+    <xs:complexContent>
+      <xs:extension base="planclasselements:UserTechnicalIdentifier">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="1" name="serviceTechnicalIdentifier" type="tns:ServiceTechnicalIdentifier"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ServiceTechnicalIdentifier">
+    <xs:sequence>
+      <xs:element name="name" type="core:String256"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChargePlanClass">
+    <xs:complexContent>
+      <xs:extension base="planclasselements:Description">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="planclasselements:Parameter"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="counter" type="planclasselements:Counter"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="accountAssignment" type="planclasselements:TypedAccountAssignment"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="userTechnicalIdentifier" type="tns:ChargePlanClassUserTechnicalIdentifier"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>]]></string>
+               <string name="filePathSequence" value="catalog_1_2_3_4.xsd"/>
+            </storable>
+            <storable name="11" storable-id="dr.WSDLIncludeFileStoreable" ver="2.1">
+               <string name="fileContent" quoted="true"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>\u000d
+<xs:schema targetNamespace="http://schema.catalog.v2.ws.highdeal.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schema.catalog.v2.ws.highdeal.com/" xmlns:rangetablev2="http://rangetable.v2.ws.highdeal.com/" xmlns:core="http://schema.ws.highdeal.com/" xmlns:catalogv1="http://schema.catalog.v1.ws.highdeal.com/" xmlns:catalog="http://schema.catalog.ws.highdeal.com/">
+  <xs:import namespace="http://schema.ws.highdeal.com/" schemaLocation="catalog_1.xsd"/>
+  <xs:import namespace="http://schema.catalog.ws.highdeal.com/" schemaLocation="catalog_1_2.xsd"/>
+  <xs:import namespace="http://schema.catalog.v1.ws.highdeal.com/" schemaLocation="catalog_1_2_3_4_5_6_7_8_9.xsd"/>
+  <xs:import namespace="http://rangetable.v2.ws.highdeal.com/" schemaLocation="catalog_1_2_3_4_5_6_7_8_9_10_11_12.xsd"/>
+  <!--Charge Plan-->
+  <!--<xs:element name="chargePlanClassFindRequest" type="catalog:FindChargePlanClassRequest"/>
+  <xs:element name="chargePlanClassFindResponse" type="catalog:FindChargePlanClassResponse"/>
+  <xs:element name="chargePlanClassDescriptionFindRequest" type="catalog:FindChargePlanClassRequest"/>
+  <xs:element name="chargePlanClassDescriptionFindResponse" type="catalog:FindChargePlanClassDescriptionResponse"/>
+  
+  <xs:element name="refillPlanClassFindRequest" type="catalog:RefillPlanClassFindRequest"/>
+  <xs:element name="refillPlanClassFindResponse" type="catalog:RefillPlanClassFindResponse"/>
+  <xs:element name="refillPlanClassDescriptionFindRequest" type="catalog:RefillPlanClassFindRequest"/>
+  <xs:element name="refillPlanClassDescriptionFindResponse" type="catalog:RefillPlanClassDescriptionFindResponse"/>
+  
+  <xs:element name="mappingTableClassFindRequest" type="catalog:FindMappingTableClassRequest"/>
+  <xs:element name="mappingTableClassFindResponse" type="catalogv1:FindMappingTableClassResponse"/>
+  <xs:element name="mappingTableCreateRequest" type="catalog:CreateMappingTableRequest"/>
+  <xs:element name="mappingTableCreateResponse" type="catalog:MappingTableOperationResponse"/>
+  <xs:element name="mappingTableMaintainRequest" type="catalog:MaintainMappingTableRequest"/>
+  <xs:element name="mappingTableMaintainResponse" type="catalog:MappingTableOperationResponse"/>
+  <xs:element name="mappingTableCancelRequest" type="catalog:CancelMappingTableRequest"/>
+  <xs:element name="mappingTableCancelResponse" type="catalog:MappingTableOperationResponse"/>
+  <xs:element name="mappingTableFindRequest" type="catalog:FindMappingTableRequest"/>
+  <xs:element name="mappingTableFindResponse" type="catalog:FindMappingTableResponse"/>
+  <xs:element name="mappingTableRowMaintainRequest" type="catalog:MaintainMappingTableRowRequest"/>
+  <xs:element name="mappingTableRowMaintainResponse" type="catalog:MappingTableRowOperationResponse"/>
+  <xs:element name="mappingTableRowMaintainBundleRequest" type="catalogv1:MaintainMappingTableRowBundleRequest"/>
+  <xs:element name="mappingTableRowMaintainBundleResponse" type="catalogv1:MaintainMappingTableRowBundleResponse"/>
+  <xs:element name="mappingTableRowCancelRequest" type="catalog:CancelMappingTableRowRequest"/>
+  <xs:element name="mappingTableRowCancelResponse" type="catalog:MappingTableRowOperationResponse"/>
+  <xs:element name="mappingTableRowCancelBundleRequest" type="catalogv1:CancelMappingTableRowBundleRequest"/>
+  <xs:element name="mappingTableRowCancelBundleResponse" type="catalogv1:CancelMappingTableRowBundleResponse"/>
+  
+  <xs:element name="rangeTableClassFindRequest" type="catalog:FindRangeTableClassRequest"/>
+  <xs:element name="rangeTableClassFindResponse" type="tns:FindRangeTableClassResponse"/>
+  <xs:element name="rangeTableMaintainRequest" type="tns:MaintainRangeTableRequest"/>
+  <xs:element name="rangeTableMaintainResponse" type="catalog:RangeTableOperationResponse"/>
+  <xs:element name="rangeTableCancelRequest" type="catalog:CancelRangeTableRequest"/>
+  <xs:element name="rangeTableCancelResponse" type="catalog:RangeTableOperationResponse"/>
+  <xs:element name="rangeTableFindRequest" type="catalog:FindRangeTableRequest"/>
+  <xs:element name="rangeTableFindResponse" type="tns:FindRangeTableResponse"/>
+  
+  <xs:element name="monitoringPlanClassFindRequest" type="catalog:FindMonitoringPlanClassRequest"/>
+  <xs:element name="monitoringPlanClassFindResponse" type="catalog:FindMonitoringPlanClassResponse"/>
+  <xs:element name="monitoringPlanClassDescriptionFindRequest" type="catalog:FindMonitoringPlanClassRequest"/>
+  <xs:element name="monitoringPlanClassDescriptionFindResponse" type="catalog:FindMonitoringPlanClassDescriptionResponse"/>-->
+  <xs:complexType name="FindRangeTableClassResponse">
+    <xs:complexContent>
+      <xs:extension base="core:SearchResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="rangeTableClass" type="rangetablev2:RangeTableClass"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MaintainRangeTableRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="date" type="core:Date"/>
+      <xs:element name="id" type="core:String256"/>
+      <xs:element minOccurs="0" name="description" type="core:String2000"/>
+      <xs:element name="rangeTableClassId" type="core:String256"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalInfo" type="core:AdditionalInfo"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="row" type="rangetablev2:RangeTableRow"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FindRangeTableResponse">
+    <xs:complexContent>
+      <xs:extension base="core:SearchResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="rangeTable" type="rangetablev2:RangeTable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>]]></string>
+               <string name="filePathSequence" value="catalog_1_2_3_4_5_6_7_8_9_10_11.xsd"/>
+            </storable>
+            <storable name="12" storable-id="dr.WSDLIncludeFileStoreable" ver="2.1">
+               <string name="fileContent" quoted="true"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>\u000d
+<xs:schema targetNamespace="http://rangetable.ws.highdeal.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://rangetable.ws.highdeal.com/" xmlns:core="http://schema.ws.highdeal.com/">
+  <xs:import namespace="http://schema.ws.highdeal.com/" schemaLocation="catalog_1.xsd"/>
+  <xs:complexType name="RangeTableClass">
+    <xs:sequence>
+      <xs:element name="id" type="core:String256"/>
+      <xs:element minOccurs="0" name="description" type="core:String2000"/>
+      <xs:element name="rangeUpperBound" type="tns:RangeBound"/>
+      <xs:element name="lastRange" type="tns:LastRange"/>
+      <xs:element maxOccurs="15" minOccurs="1" name="outputColumn" type="tns:RangeTableClassOutputColumn"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalInfo" type="core:AdditionalInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="RangeBound">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="exclusive"/>
+      <xs:enumeration value="inclusive"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LastRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="bounded"/>
+      <xs:enumeration value="unbounded"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType abstract="true" name="RangeTableClassColumn">
+    <xs:sequence>
+      <xs:element name="name" type="core:String256"/>
+      <xs:element minOccurs="0" name="description" type="core:String2000"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RangeTableClassOutputColumn">
+    <xs:complexContent>
+      <xs:extension base="tns:RangeTableClassColumn">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element name="string" nillable="true" type="core:String256"/>
+            <xs:element name="number" nillable="true" type="tns:RangeTableClassDecimalOutputColumn"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RangeTableClassDecimalOutputColumn">
+    <xs:simpleContent>
+      <xs:extension base="core:Decimal28_6">
+        <xs:attribute default="single" name="computationMode" type="tns:ComputationMode"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="ComputationMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="single"/>
+      <xs:enumeration value="cumulative"/>
+      <xs:enumeration value="rangeSizeCumulative"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="RangeTable">
+    <xs:sequence>
+      <xs:element name="id" type="core:String256"/>
+      <xs:element minOccurs="0" name="description" type="core:String2000"/>
+      <xs:element name="rangeTableClassId" type="core:String256"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalInfo" type="core:AdditionalInfo"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="revisions" type="tns:RangeTableRevision"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RangeTableRevision">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="validityStartDate" type="core:Date"/>
+      <xs:element minOccurs="0" name="validityEndDate" type="core:Date"/>
+      <xs:element maxOccurs="unbounded" name="row" type="tns:RangeTableRow"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RangeTableRow">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="upperBound" type="core:PositiveDecimal28_6"/>
+        <xs:element name="unbounded" nillable="true"/>
+      </xs:choice>
+      <xs:element maxOccurs="15" name="column" type="tns:RangeTableColumn"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RangeTableColumn">
+    <xs:sequence>
+      <xs:element name="name" type="core:String256"/>
+      <xs:choice>
+        <xs:element name="string" type="core:String2000"/>
+        <xs:element name="number" type="core:Decimal28_6"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></string>
+               <string name="filePathSequence" value="catalog_1_2_3_4_5_6_7.xsd"/>
+            </storable>
+            <storable name="13" storable-id="dr.WSDLIncludeFileStoreable" ver="2.1">
+               <string name="fileContent" quoted="true"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>\u000d
+<xs:schema targetNamespace="http://monitoringplan.ws.highdeal.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://monitoringplan.ws.highdeal.com/" xmlns:planclasselements="http://planclasselements.ws.highdeal.com/" xmlns:core="http://schema.ws.highdeal.com/">
+  <xs:import namespace="http://schema.ws.highdeal.com/" schemaLocation="catalog_1.xsd"/>
+  <xs:import namespace="http://planclasselements.ws.highdeal.com/" schemaLocation="catalog_1_2_3.xsd"/>
+  <xs:complexType name="SpendingStatusDescription">
+    <xs:sequence>
+      <xs:element name="name" type="core:String256"/>
+      <xs:element minOccurs="0" name="description" type="core:String2000"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MonitoringPlanClass">
+    <xs:complexContent>
+      <xs:extension base="planclasselements:Description">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="counter" type="planclasselements:Counter"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="spendingStatusDescription" type="tns:SpendingStatusDescription"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="userTechnicalIdentifier" type="planclasselements:UserTechnicalIdentifier"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>]]></string>
+               <string name="filePathSequence" value="catalog_1_2_3_4_5_6_7_8.xsd"/>
+            </storable>
+            <storable name="14" storable-id="dr.WSDLIncludeFileStoreable" ver="2.1">
+               <string name="fileContent" quoted="true"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>\u000d
+<xs:schema targetNamespace="http://mappingtable.v1.ws.highdeal.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://mappingtable.v1.ws.highdeal.com/" xmlns:mappingtable="http://mappingtable.ws.highdeal.com/" xmlns:core="http://schema.ws.highdeal.com/">
+  <xs:import namespace="http://schema.ws.highdeal.com/" schemaLocation="catalog_1.xsd"/>
+  <xs:import namespace="http://mappingtable.ws.highdeal.com/" schemaLocation="catalog_1_2_3_4_5_6.xsd"/>
+  <xs:complexType name="MappingTableClass">
+    <xs:sequence>
+      <xs:element name="id" type="core:String256"/>
+      <xs:element name="owner" type="core:String256"/>
+      <xs:element minOccurs="0" name="description" type="core:String2000"/>
+      <xs:element maxOccurs="100" minOccurs="1" name="inputColumn" type="mappingtable:MappingTableClassInputColumn"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="outputColumn" type="mappingtable:MappingTableClassOutputColumn"/>
+      <!--0 is possible-->
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalInfo" type="core:AdditionalInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></string>
+               <string name="filePathSequence" value="catalog_1_2_3_4_5_6_7_8_9_10.xsd"/>
+            </storable>
+            <storable name="15" storable-id="dr.WSDLIncludeFileStoreable" ver="2.1">
+               <string name="fileContent"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" 
+            xmlns:ds="http://www.w3.org/2000/09/xmldsig#" 
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" 
+            xmlns="http://schemas.xmlsoap.org/ws/2002/04/secext" 
+            xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+            elementFormDefault="qualified" 
+            attributeFormDefault="unqualified" 
+            version="0.2">
+    
+    <xsd:element name="Security"> 
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="UsernameToken">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Username" type="xsd:string"/>
+                            <xsd:element name="Password" type="xsd:string"/>
+                            <xsd:element name="Nonce" type="xsd:string"/>
+                            <xsd:element name="Created" type="xsd:string"/>
+                        </xsd:sequence>
+                        <xsd:attribute name="Id" type="xsd:ID"/>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>]]></string>
+               <string name="filePathSequence" value="wsse41.xsd"/>
+            </storable>
+            <storable name="2" storable-id="dr.WSDLIncludeFileStoreable" ver="2.1">
+               <string name="fileContent" quoted="true"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>\u000d
+<xs:schema targetNamespace="http://schema.ws.highdeal.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schema.ws.highdeal.com/">
+  <xs:complexType name="MassResponse">
+    <xs:complexContent>
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="0" name="failures" type="tns:Integer">
+            <xs:annotation>
+              <xs:documentation>The number of erroneous single operations due to a business error. Check the error stack (category, message, cause).</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Response">
+    <xs:sequence>
+      <xs:element name="status" type="tns:ResponseStatus"/>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+      <xs:element minOccurs="0" name="error" type="tns:Failure"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ResponseStatus">
+    <xs:restriction base="tns:String256">
+      <xs:enumeration value="return"/>
+      <xs:enumeration value="error"/>
+      <xs:enumeration value="inProgress"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Failure">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="category" type="tns:FailureCategory"/>
+      <!--should be minOccurs="1"-->
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+      <xs:element minOccurs="0" name="cause" type="tns:FailureCause">
+        <xs:annotation>
+          <xs:documentation>Consult the SAP CC Error Code Reference documentation for more information. Consider also the causedBy element.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="causedBy" type="tns:FailureCause"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="FailureCategory">
+    <xs:restriction base="tns:String256">
+      <xs:enumeration value="alreadyExists"/>
+      <xs:enumeration value="doesNotExist"/>
+      <xs:enumeration value="invalid"/>
+      <xs:enumeration value="prerequisiteMissing"/>
+      <xs:enumeration value="incompatibleConfiguration"/>
+      <xs:enumeration value="illegalState"/>
+      <xs:enumeration value="temporaryIllegalState"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="FailureCause">
+    <xs:sequence>
+      <xs:element name="module" type="xs:string"/>
+      <xs:element name="code" type="xs:int"/>
+      <xs:element name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NullableDate">
+    <xs:complexContent>
+      <xs:extension base="tns:NullableFlag">
+        <xs:sequence>
+          <xs:element name="value" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="NullableString">
+    <xs:complexContent>
+      <xs:extension base="tns:NullableFlag">
+        <xs:sequence>
+          <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="NullableFlag">
+    <xs:attribute name="undef" type="xs:boolean"/>
+  </xs:complexType>
+  <xs:complexType name="AdditionalInfo">
+    <xs:sequence>
+      <xs:element name="name" type="tns:String256"/>
+      <xs:element minOccurs="0" name="description" type="tns:String2000"/>
+      <xs:choice>
+        <xs:element name="string" type="tns:String2000"/>
+        <xs:element name="date" type="tns:Date"/>
+        <xs:element name="number" type="tns:Decimal28_6"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <!--Search Filter-->
+  <xs:complexType name="SearchFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="searchWindow" type="tns:SearchFilterWindow"/>
+      <xs:element default="false" minOccurs="0" name="totalCountRequired" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SearchFilterWindow">
+    <xs:annotation>
+      <xs:documentation>The settings to enable reference-based pagination of search results in response. Several operation requests are necessary to retrieve the complete results.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="windowSize" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>The maximum number of results expected in the operation response. The SAP CC system returns a subset of the matching result set.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="fromUniqueId" type="tns:String256">
+        <xs:annotation>
+          <xs:documentation>The reference to start pagination from. When omitted in the first search operation request, the beginning of the result set is returned
+            by the SAP CC system.
+            When set in an operation request, it must be equal to the lastUniqueId element in the previous operation response.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SearchResponse">
+    <xs:complexContent>
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="totalCount" type="xs:int">
+            <xs:annotation>
+              <xs:documentation>The number of remaining objects in the set after the current page found by the SAP CC system. This includes the number of objects in the current set.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="lastUniqueId" type="tns:String256">
+            <xs:annotation>
+              <xs:documentation>The reference of the last element in case of pagination. Set up the fromUniqueId element in the next search operation request with this reference value.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="StringAttributeDescription">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="enumeration" type="tns:StringEnumeration"/>
+        <xs:element name="pattern" type="tns:String256"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DateAttributeDescription">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="enumeration" type="tns:DateEnumeration"/>
+        <xs:element name="range" type="tns:DateRange"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NumberAttributeDescription">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="enumeration" type="tns:NumberEnumeration"/>
+        <xs:element name="range" type="tns:NumberRange"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AdditionalAttributeDescription">
+    <xs:sequence>
+      <xs:element name="name" type="tns:String256"/>
+      <xs:choice>
+        <xs:element name="pattern" type="tns:String256"/>
+        <xs:element name="stringEnumeration" type="tns:StringEnumeration"/>
+        <xs:element name="numberEnumeration" type="tns:NumberEnumeration"/>
+        <xs:element name="dateEnumeration" type="tns:DateEnumeration"/>
+        <xs:element name="numberRange" type="tns:NumberRange"/>
+        <xs:element name="dateRange" type="tns:DateRange"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StringEnumeration">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="value" type="tns:String2000"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DateEnumeration">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="value" type="tns:Date"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NumberEnumeration">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="value" type="tns:Decimal28_6"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DateRange">
+    <xs:sequence>
+      <xs:element maxOccurs="1" name="min" type="tns:DateBoundary"/>
+      <xs:element maxOccurs="1" name="max" type="tns:DateBoundary"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DateBoundary">
+    <xs:simpleContent>
+      <xs:extension base="tns:Date">
+        <xs:attribute default="true" name="included" type="xs:boolean"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="NumberRange">
+    <xs:sequence>
+      <xs:element maxOccurs="1" name="min" type="tns:NumberBoundary"/>
+      <xs:element maxOccurs="1" name="max" type="tns:NumberBoundary"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NumberBoundary">
+    <xs:simpleContent>
+      <xs:extension base="tns:Decimal28_6">
+        <xs:attribute default="true" name="included" type="xs:boolean"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="IntegerRange">
+    <xs:sequence>
+      <xs:element maxOccurs="1" name="min" type="tns:IntegerBoundary"/>
+      <xs:element maxOccurs="1" name="max" type="tns:IntegerBoundary"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IntegerBoundary">
+    <xs:simpleContent>
+      <xs:extension base="tns:Integer22">
+        <xs:attribute default="true" name="included" type="xs:boolean"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="SearchOrderType">
+    <xs:restriction base="tns:String256">
+      <xs:enumeration value="asc"/>
+      <xs:enumeration value="desc"/>
+      <xs:enumeration value="noOrder"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SearchFilterType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="boolean"/>
+      <xs:enumeration value="number"/>
+      <xs:enumeration value="string"/>
+      <xs:enumeration value="date"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--SAP CC base types-->
+  <xs:simpleType name="Decimal28_6">
+    <xs:restriction base="xs:decimal">
+      <xs:maxInclusive value="9999999999999999999999.999999"/>
+      <xs:minInclusive value="-9999999999999999999999.999999"/>
+      <xs:totalDigits value="28"/>
+      <xs:fractionDigits value="6"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Long">
+    <xs:restriction base="xs:long">
+      <xs:maxInclusive value="9223372036854775807"/>
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Integer">
+    <xs:restriction base="xs:int">
+      <xs:maxInclusive value="2147483647"/>
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Integer22">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="22"/>
+      <xs:fractionDigits value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PositiveDecimal28_6">
+    <xs:restriction base="tns:Decimal28_6">
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CurrencyCode">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="5"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Amount">
+    <xs:simpleContent>
+      <xs:extension base="tns:Decimal28_6">
+        <xs:attribute name="currencyCode" type="tns:CurrencyCode"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="PositiveAmount">
+    <xs:simpleContent>
+      <xs:extension base="tns:PositiveDecimal28_6">
+        <xs:attribute name="currencyCode" type="tns:CurrencyCode"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="String256">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NotEmptyString256">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="String2000">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2000"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Date">
+    <xs:restriction base="xs:dateTime">
+      <xs:pattern value="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CountryCode">
+    <xs:restriction base="xs:string">
+      <xs:length value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Empty">
+    <xs:restriction base="xs:string">
+      <xs:length value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType abstract="true" name="CatalogObject">
+    <xs:sequence>
+      <xs:element name="id" type="tns:String256"/>
+      <xs:element minOccurs="0" name="description" type="tns:String2000"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalInfo" type="tns:AdditionalInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="Table">
+    <xs:complexContent>
+      <xs:extension base="tns:CatalogObject">
+        <xs:sequence>
+          <xs:element name="tableClassId" type="tns:String256"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="CatalogTable">
+    <xs:complexContent>
+      <xs:extension base="tns:Table">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="agreementId" type="tns:String256"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CatalogSearchFilter">
+    <xs:complexContent>
+      <xs:extension base="tns:SearchFilter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="tns:StringAttributeDescription"/>
+          <xs:element minOccurs="0" name="description" type="tns:StringAttributeDescription"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalInfo" type="tns:AdditionalAttributeDescription"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TableSearchFilter">
+    <xs:complexContent>
+      <xs:extension base="tns:CatalogSearchFilter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="tableClassId" type="tns:StringAttributeDescription"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CatalogTableSearchFilter">
+    <xs:complexContent>
+      <xs:extension base="tns:TableSearchFilter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="agreementId" type="tns:StringAttributeDescription"/>
+          <xs:element default="catalog" minOccurs="0" name="tableScope" type="tns:TableScope"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="TableScope">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="agreement"/>
+      <xs:enumeration value="both"/>
+      <xs:enumeration value="catalog"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></string>
+               <string name="filePathSequence" value="catalog_1.xsd"/>
+            </storable>
+            <storable name="3" storable-id="dr.WSDLIncludeFileStoreable" ver="2.1">
+               <string name="fileContent" quoted="true"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>\u000d
+<xs:schema targetNamespace="http://rangetable.v2.ws.highdeal.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://rangetable.v2.ws.highdeal.com/" xmlns:rangetable="http://rangetable.ws.highdeal.com/" xmlns:core="http://schema.ws.highdeal.com/">
+  <xs:import namespace="http://schema.ws.highdeal.com/" schemaLocation="catalog_1.xsd"/>
+  <xs:import namespace="http://rangetable.ws.highdeal.com/" schemaLocation="catalog_1_2_3_4_5_6_7.xsd"/>
+  <xs:complexType name="RangeTableClass">
+    <xs:complexContent>
+      <xs:extension base="rangetable:RangeTableClass">
+        <xs:sequence>
+          <xs:element maxOccurs="5" minOccurs="0" name="inputColumn" type="tns:RangeTableClassInputColumn"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RangeTableClassInputColumn">
+    <xs:complexContent>
+      <xs:extension base="rangetable:RangeTableClassColumn"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RangeTable">
+    <xs:sequence>
+      <xs:element name="id" type="core:String256"/>
+      <xs:element minOccurs="0" name="description" type="core:String2000"/>
+      <xs:element name="rangeTableClassId" type="core:String256"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalInfo" type="core:AdditionalInfo"/>
+      <xs:element maxOccurs="unbounded" name="revisions" type="tns:RangeTableRevision"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RangeTableRow">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="upperBound" type="core:PositiveDecimal28_6"/>
+        <xs:element name="unbounded" nillable="true"/>
+      </xs:choice>
+      <xs:element maxOccurs="20" name="column" type="rangetable:RangeTableColumn"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RangeTableRevision">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="validityStartDate" type="core:Date"/>
+      <xs:element minOccurs="0" name="validityEndDate" type="core:Date"/>
+      <xs:element maxOccurs="unbounded" name="row" type="tns:RangeTableRow"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></string>
+               <string name="filePathSequence" value="catalog_1_2_3_4_5_6_7_8_9_10_11_12.xsd"/>
+            </storable>
+            <storable name="4" storable-id="dr.WSDLIncludeFileStoreable" ver="2.1">
+               <string name="fileContent" quoted="true"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>\u000d
+<xs:schema targetNamespace="http://schema.catalog.v3.ws.highdeal.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schema.catalog.v3.ws.highdeal.com/" xmlns:rangetableV3="http://rangetable.v3.ws.highdeal.com/" xmlns:rangetableV2="http://rangetable.v2.ws.highdeal.com/" xmlns:mappingtableV3="http://mappingtable.v3.ws.highdeal.com/" xmlns:mappingtable="http://mappingtable.ws.highdeal.com/" xmlns:core="http://schema.ws.highdeal.com/" xmlns:catalogV1="http://schema.catalog.v1.ws.highdeal.com/" xmlns:catalog="http://schema.catalog.ws.highdeal.com/">
+  <xs:import namespace="http://schema.ws.highdeal.com/" schemaLocation="catalog_1.xsd"/>
+  <xs:import namespace="http://schema.catalog.ws.highdeal.com/" schemaLocation="catalog_1_2.xsd"/>
+  <xs:import namespace="http://schema.catalog.v1.ws.highdeal.com/" schemaLocation="catalog_1_2_3_4_5_6_7_8_9.xsd"/>
+  <xs:import namespace="http://schema.catalog.v2.ws.highdeal.com/" schemaLocation="catalog_1_2_3_4_5_6_7_8_9_10_11.xsd"/>
+  <xs:import namespace="http://mappingtable.ws.highdeal.com/" schemaLocation="catalog_1_2_3_4_5_6.xsd"/>
+  <xs:import namespace="http://mappingtable.v3.ws.highdeal.com/" schemaLocation="catalog_1_2_3_4_5_6_7_8_9_10_11_12_13.xsd"/>
+  <xs:import namespace="http://rangetable.v2.ws.highdeal.com/" schemaLocation="catalog_1_2_3_4_5_6_7_8_9_10_11_12.xsd"/>
+  <xs:import namespace="http://rangetable.v3.ws.highdeal.com/" schemaLocation="catalog_1_2_3_4_5_6_7_8_9_10_11_12_13_14.xsd"/>
+  <!--Charge Plan-->
+  <xs:element name="chargePlanClassFindRequest" type="catalog:FindChargePlanClassRequest"/>
+  <xs:element name="chargePlanClassFindResponse" type="catalog:FindChargePlanClassResponse"/>
+  <xs:element name="chargePlanClassDescriptionFindRequest" type="catalog:FindChargePlanClassRequest"/>
+  <xs:element name="chargePlanClassDescriptionFindResponse" type="catalog:FindChargePlanClassDescriptionResponse"/>
+  <!--Refill Plan-->
+  <xs:element name="refillPlanClassFindRequest" type="catalog:RefillPlanClassFindRequest"/>
+  <xs:element name="refillPlanClassFindResponse" type="catalog:RefillPlanClassFindResponse"/>
+  <xs:element name="refillPlanClassDescriptionFindRequest" type="catalog:RefillPlanClassFindRequest"/>
+  <xs:element name="refillPlanClassDescriptionFindResponse" type="catalog:RefillPlanClassDescriptionFindResponse"/>
+  <!--Mapping Table-->
+  <xs:element name="mappingTableClassFindRequest" type="tns:FindMappingTableClassRequest"/>
+  <xs:element name="mappingTableClassFindResponse" type="tns:FindMappingTableClassResponse"/>
+  <xs:element name="mappingTableCreateRequest" type="catalog:CreateMappingTableRequest"/>
+  <xs:element name="mappingTableCreateResponse" type="catalog:MappingTableOperationResponse"/>
+  <xs:element name="mappingTableMaintainRequest" type="tns:MaintainMappingTableRequest"/>
+  <xs:element name="mappingTableMaintainResponse" type="catalog:MappingTableOperationResponse"/>
+  <xs:element name="mappingTableCancelRequest" type="catalog:CancelMappingTableRequest"/>
+  <xs:element name="mappingTableCancelResponse" type="catalog:MappingTableOperationResponse"/>
+  <xs:element name="mappingTableFindRequest" type="tns:FindMappingTableRequest"/>
+  <xs:element name="mappingTableFindResponse" type="tns:FindMappingTableResponse"/>
+  <xs:element name="mappingTableRowMaintainRequest" type="catalog:MaintainMappingTableRowRequest"/>
+  <xs:element name="mappingTableRowMaintainResponse" type="catalog:MappingTableRowOperationResponse"/>
+  <xs:element name="mappingTableRowMaintainBundleRequest" type="tns:MaintainMappingTableRowBundleRequest"/>
+  <xs:element name="mappingTableRowMaintainBundleResponse" type="tns:MaintainMappingTableRowBundleResponse"/>
+  <xs:element name="mappingTableRowCancelRequest" type="catalog:CancelMappingTableRowRequest"/>
+  <xs:element name="mappingTableRowCancelResponse" type="catalog:MappingTableRowOperationResponse"/>
+  <xs:element name="mappingTableRowCancelBundleRequest" type="tns:CancelMappingTableRowBundleRequest"/>
+  <xs:element name="mappingTableRowCancelBundleResponse" type="tns:CancelMappingTableRowBundleResponse"/>
+  <xs:complexType name="FindMappingTableClassRequest">
+    <xs:sequence>
+      <xs:element name="mappingTableClassSearchFilter" type="core:CatalogSearchFilter"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FindMappingTableClassResponse">
+    <xs:complexContent>
+      <xs:extension base="core:SearchResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="mappingTableClass" type="mappingtableV3:MappingTableClass"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MaintainMappingTableRequest">
+    <xs:complexContent>
+      <xs:extension base="core:CatalogTable">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="row" type="mappingtable:MappingTableRow"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FindMappingTableRequest">
+    <xs:sequence>
+      <xs:element name="mappingTableSearchFilter" type="core:CatalogTableSearchFilter"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FindMappingTableResponse">
+    <xs:complexContent>
+      <xs:extension base="core:SearchResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="mappingTable" type="mappingtableV3:MappingTable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MaintainMappingTableRowBundleRequest">
+    <xs:sequence>
+      <xs:element maxOccurs="1000" ref="tns:mappingTableRowMaintainRequest"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MaintainMappingTableRowBundleResponse">
+    <xs:complexContent>
+      <xs:extension base="core:Response">
+        <xs:sequence>
+          <xs:element maxOccurs="1000" minOccurs="0" ref="tns:mappingTableRowMaintainResponse"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CancelMappingTableRowBundleRequest">
+    <xs:sequence>
+      <xs:element maxOccurs="1000" ref="tns:mappingTableRowCancelRequest"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CancelMappingTableRowBundleResponse">
+    <xs:complexContent>
+      <xs:extension base="core:Response">
+        <xs:sequence>
+          <xs:element maxOccurs="1000" minOccurs="0" ref="tns:mappingTableRowCancelResponse"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Range Table-->
+  <xs:element name="rangeTableClassFindRequest" type="tns:FindRangeTableClassRequest"/>
+  <xs:element name="rangeTableClassFindResponse" type="tns:FindRangeTableClassResponse"/>
+  <xs:element name="rangeTableMaintainRequest" type="tns:MaintainRangeTableRequest"/>
+  <xs:element name="rangeTableMaintainResponse" type="catalog:RangeTableOperationResponse"/>
+  <xs:element name="rangeTableCancelRequest" type="catalog:CancelRangeTableRequest"/>
+  <xs:element name="rangeTableCancelResponse" type="catalog:RangeTableOperationResponse"/>
+  <xs:element name="rangeTableFindRequest" type="tns:FindRangeTableRequest"/>
+  <xs:element name="rangeTableFindResponse" type="tns:FindRangeTableResponse"/>
+  <xs:element name="rangeTableRangeSetMaintainRequest" type="tns:MaintainRangeTableRangeSetRequest"/>
+  <xs:element name="rangeTableRangeSetMaintainResponse" type="catalog:RangeTableOperationResponse"/>
+  <xs:element name="rangeTableRangeSetCancelRequest" type="tns:CancelRangeTableRangeSetRequest"/>
+  <xs:element name="rangeTableRangeSetCancelResponse" type="catalog:RangeTableOperationResponse"/>
+  <xs:complexType name="FindRangeTableClassRequest">
+    <xs:sequence>
+      <xs:element name="rangeTableClassSearchFilter" type="core:CatalogSearchFilter"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FindRangeTableClassResponse">
+    <xs:complexContent>
+      <xs:extension base="core:SearchResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="rangeTableClass" type="rangetableV3:RangeTableClass"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FindRangeTableRequest">
+    <xs:sequence>
+      <xs:element name="rangeTableSearchFilter" type="core:CatalogTableSearchFilter"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FindRangeTableResponse">
+    <xs:complexContent>
+      <xs:extension base="core:SearchResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="rangeTable" type="rangetableV3:RangeTable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MaintainRangeTableRequest">
+    <xs:complexContent>
+      <xs:extension base="core:CatalogTable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="date" type="core:Date"/>
+          <xs:element maxOccurs="unbounded" name="rangeSet" type="rangetableV3:RangeTableRangeSet"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MaintainRangeTableRangeSetRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="date" type="core:Date"/>
+      <xs:element name="rangeTableId" type="core:String256"/>
+      <xs:element maxOccurs="unbounded" name="rangeSet" type="rangetableV3:RangeTableRangeSet"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CancelRangeTableRangeSetRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="date" type="core:Date"/>
+      <xs:element name="rangeTableId" type="core:String256"/>
+      <xs:element maxOccurs="unbounded" name="rangeSetKey" type="rangetableV3:RangeTableRangeSetKey"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--Monitoring Plan Class-->
+  <xs:element name="monitoringPlanClassFindRequest" type="catalog:FindMonitoringPlanClassRequest"/>
+  <xs:element name="monitoringPlanClassFindResponse" type="catalog:FindMonitoringPlanClassResponse"/>
+  <xs:element name="monitoringPlanClassDescriptionFindRequest" type="catalog:FindMonitoringPlanClassRequest"/>
+  <xs:element name="monitoringPlanClassDescriptionFindResponse" type="catalog:FindMonitoringPlanClassDescriptionResponse"/>
+</xs:schema>]]></string>
+               <string name="filePathSequence" value="catalog.xsd"/>
+            </storable>
+            <storable name="5" storable-id="dr.WSDLIncludeFileStoreable" ver="2.1">
+               <string name="fileContent" quoted="true"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>\u000d
+<xs:schema targetNamespace="http://planclasselements.ws.highdeal.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://planclasselements.ws.highdeal.com/" xmlns:core="http://schema.ws.highdeal.com/">
+  <xs:import namespace="http://schema.ws.highdeal.com/" schemaLocation="catalog_1.xsd"/>
+  <xs:complexType name="Description">
+    <xs:sequence>
+      <xs:element name="id" type="core:String256"/>
+      <xs:element name="owner" type="core:String256"/>
+      <xs:element minOccurs="0" name="status" type="tns:Status"/>
+      <xs:element minOccurs="0" name="description" type="core:String2000"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalInfo" type="core:AdditionalInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="Status">
+    <xs:restriction base="core:String256">
+      <xs:enumeration value="open"/>
+      <xs:enumeration value="released"/>
+      <xs:enumeration value="obsolete"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Parameter">
+    <xs:sequence>
+      <xs:element name="name" type="core:String256"/>
+      <xs:element minOccurs="0" name="description" type="core:String2000"/>
+      <xs:choice>
+        <xs:element name="string" nillable="true" type="core:String2000"/>
+        <xs:element name="date" nillable="true" type="core:Date"/>
+        <xs:element name="number" nillable="true" type="core:Decimal28_6"/>
+      </xs:choice>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalInfo" type="core:AdditionalInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Counter">
+    <xs:sequence>
+      <xs:element name="name" type="core:String256"/>
+      <xs:element minOccurs="0" name="description" type="core:String2000"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AccountAssignment">
+    <xs:sequence>
+      <xs:element name="name" type="core:String256"/>
+      <xs:element minOccurs="0" name="description" type="core:String2000"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TypedAccountAssignment">
+    <xs:complexContent>
+      <xs:extension base="tns:AccountAssignment">
+        <xs:sequence>
+          <xs:element name="type" type="tns:AccountType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="AccountType">
+    <xs:restriction base="core:String256">
+      <xs:enumeration value="postpaid"/>
+      <xs:enumeration value="prepaid"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="UserTechnicalIdentifier">
+    <xs:sequence>
+      <xs:element name="name" type="core:String256"/>
+      <xs:element minOccurs="0" name="description" type="core:String2000"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></string>
+               <string name="filePathSequence" value="catalog_1_2_3.xsd"/>
+            </storable>
+            <storable name="6" storable-id="dr.WSDLIncludeFileStoreable" ver="2.1">
+               <string name="fileContent" quoted="true"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>\u000d
+<xs:schema targetNamespace="http://schema.catalog.v1.ws.highdeal.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schema.catalog.v1.ws.highdeal.com/" xmlns:mappingtable="http://mappingtable.v1.ws.highdeal.com/" xmlns:core="http://schema.ws.highdeal.com/" xmlns:catalog="http://schema.catalog.ws.highdeal.com/">
+  <xs:import namespace="http://schema.ws.highdeal.com/" schemaLocation="catalog_1.xsd"/>
+  <xs:import namespace="http://schema.catalog.ws.highdeal.com/" schemaLocation="catalog_1_2.xsd"/>
+  <xs:import namespace="http://mappingtable.v1.ws.highdeal.com/" schemaLocation="catalog_1_2_3_4_5_6_7_8_9_10.xsd"/>
+  <!--Charge Plan-->
+  <!--<xs:element name="chargePlanClassFindRequest" type="catalog:FindChargePlanClassRequest"/>
+  <xs:element name="chargePlanClassFindResponse" type="catalog:FindChargePlanClassResponse"/>
+  <xs:element name="chargePlanClassDescriptionFindRequest" type="catalog:FindChargePlanClassRequest"/>
+  <xs:element name="chargePlanClassDescriptionFindResponse" type="catalog:FindChargePlanClassDescriptionResponse"/>
+  
+  <xs:element name="refillPlanClassFindRequest" type="catalog:RefillPlanClassFindRequest"/>
+  <xs:element name="refillPlanClassFindResponse" type="catalog:RefillPlanClassFindResponse"/>
+  <xs:element name="refillPlanClassDescriptionFindRequest" type="catalog:RefillPlanClassFindRequest"/>
+  <xs:element name="refillPlanClassDescriptionFindResponse" type="catalog:RefillPlanClassDescriptionFindResponse"/>
+  \u000d
+  <xs:element name="mappingTableClassFindRequest" type="catalog:FindMappingTableClassRequest"/>
+  <xs:element name="mappingTableClassFindResponse" type="tns:FindMappingTableClassResponse"/>
+  <xs:element name="mappingTableCreateRequest" type="catalog:CreateMappingTableRequest"/>
+  <xs:element name="mappingTableCreateResponse" type="catalog:MappingTableOperationResponse"/>
+  <xs:element name="mappingTableMaintainRequest" type="catalog:MaintainMappingTableRequest"/>
+  <xs:element name="mappingTableMaintainResponse" type="catalog:MappingTableOperationResponse"/>
+  <xs:element name="mappingTableCancelRequest" type="catalog:CancelMappingTableRequest"/>
+  <xs:element name="mappingTableCancelResponse" type="catalog:MappingTableOperationResponse"/>
+  <xs:element name="mappingTableFindRequest" type="catalog:FindMappingTableRequest"/>
+  <xs:element name="mappingTableFindResponse" type="catalog:FindMappingTableResponse"/>
+  <xs:element name="mappingTableRowMaintainRequest" type="catalog:MaintainMappingTableRowRequest"/>
+  <xs:element name="mappingTableRowMaintainResponse" type="catalog:MappingTableRowOperationResponse"/>
+  <xs:element name="mappingTableRowMaintainBundleRequest" type="tns:MaintainMappingTableRowBundleRequest"/>
+  <xs:element name="mappingTableRowMaintainBundleResponse" type="tns:MaintainMappingTableRowBundleResponse"/>
+  <xs:element name="mappingTableRowCancelRequest" type="catalog:CancelMappingTableRowRequest"/>
+  <xs:element name="mappingTableRowCancelResponse" type="catalog:MappingTableRowOperationResponse"/>
+  <xs:element name="mappingTableRowCancelBundleRequest" type="tns:CancelMappingTableRowBundleRequest"/>
+  <xs:element name="mappingTableRowCancelBundleResponse" type="tns:CancelMappingTableRowBundleResponse"/>-->
+  <!--<xs:complexType name="FindMappingTableClassResponse">
+    <xs:complexContent>
+      <xs:extension base="core:SearchResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="mappingTableClass" type="mappingtable:MappingTableClass"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>-->
+  <!--
+  <xs:element name="rangeTableClassFindRequest" type="catalog:FindRangeTableClassRequest"/>
+  <xs:element name="rangeTableClassFindResponse" type="catalog:FindRangeTableClassResponse"/>
+  <xs:element name="rangeTableMaintainRequest" type="catalog:MaintainRangeTableRequest"/>
+  <xs:element name="rangeTableMaintainResponse" type="catalog:RangeTableOperationResponse"/>
+  <xs:element name="rangeTableCancelRequest" type="catalog:CancelRangeTableRequest"/>
+  <xs:element name="rangeTableCancelResponse" type="catalog:RangeTableOperationResponse"/>
+  <xs:element name="rangeTableFindRequest" type="catalog:FindRangeTableRequest"/>
+  <xs:element name="rangeTableFindResponse" type="catalog:FindRangeTableResponse"/>
+  
+  <xs:element name="monitoringPlanClassFindRequest" type="catalog:FindMonitoringPlanClassRequest"/>
+  <xs:element name="monitoringPlanClassFindResponse" type="catalog:FindMonitoringPlanClassResponse"/>
+  <xs:element name="monitoringPlanClassDescriptionFindRequest" type="catalog:FindMonitoringPlanClassRequest"/>
+  <xs:element name="monitoringPlanClassDescriptionFindResponse" type="catalog:FindMonitoringPlanClassDescriptionResponse"/>-->
+  <!--Mapping Table Bundle operations-->
+  <!--<xs:complexType name="MaintainMappingTableRowBundleRequest">
+    <xs:sequence>
+      <xs:element maxOccurs="1000" minOccurs="1" ref="tns:mappingTableRowMaintainRequest"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MaintainMappingTableRowBundleResponse">
+    <xs:complexContent>
+      <xs:extension base="core:Response">
+        <xs:sequence>
+          <xs:element maxOccurs="1000" minOccurs="0" ref="tns:mappingTableRowMaintainResponse"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CancelMappingTableRowBundleRequest">
+    <xs:sequence>
+      <xs:element maxOccurs="1000" minOccurs="1" ref="tns:mappingTableRowCancelRequest"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CancelMappingTableRowBundleResponse">
+    <xs:complexContent>
+      <xs:extension base="core:Response">
+        <xs:sequence>
+          <xs:element maxOccurs="1000" minOccurs="0" ref="tns:mappingTableRowCancelResponse"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>-->
+</xs:schema>]]></string>
+               <string name="filePathSequence" value="catalog_1_2_3_4_5_6_7_8_9.xsd"/>
+            </storable>
+            <storable name="7" storable-id="dr.WSDLIncludeFileStoreable" ver="2.1">
+               <string name="fileContent" quoted="true"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>\u000d
+<xs:schema targetNamespace="http://rangetable.v3.ws.highdeal.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://rangetable.v3.ws.highdeal.com/" xmlns:rangetableV2="http://rangetable.v2.ws.highdeal.com/" xmlns:rangetableV0="http://rangetable.ws.highdeal.com/" xmlns:core="http://schema.ws.highdeal.com/">
+  <xs:import namespace="http://schema.ws.highdeal.com/" schemaLocation="catalog_1.xsd"/>
+  <xs:import namespace="http://rangetable.ws.highdeal.com/" schemaLocation="catalog_1_2_3_4_5_6_7.xsd"/>
+  <xs:import namespace="http://rangetable.v2.ws.highdeal.com/" schemaLocation="catalog_1_2_3_4_5_6_7_8_9_10_11_12.xsd"/>
+  <xs:complexType name="RangeTable">
+    <xs:complexContent>
+      <xs:extension base="core:CatalogTable">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="revisions" type="tns:RangeTableRevision"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RangeTableRevision">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="validityStartDate" type="core:Date"/>
+      <xs:element minOccurs="0" name="validityEndDate" type="core:Date"/>
+      <xs:element maxOccurs="unbounded" name="rangeSet" type="tns:RangeTableRangeSet"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RangeTableClass">
+    <xs:complexContent>
+      <xs:extension base="core:CatalogObject">
+        <xs:sequence>
+          <xs:element name="rangeUpperBound" type="rangetableV0:RangeBound"/>
+          <xs:element name="lastRange" type="rangetableV0:LastRange"/>
+          <xs:element maxOccurs="100" minOccurs="1" name="outputColumn" type="rangetableV0:RangeTableClassOutputColumn"/>
+          <xs:element maxOccurs="100" minOccurs="0" name="inputColumn" type="rangetableV2:RangeTableClassInputColumn"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RangeTableInputColumn">
+    <xs:sequence>
+      <xs:element name="name" type="core:String256"/>
+      <xs:element name="value" type="core:String256"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RangeTableRange">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="upperBound" type="core:PositiveDecimal28_6"/>
+        <xs:element name="unbounded" nillable="true"/>
+      </xs:choice>
+      <xs:element maxOccurs="100" name="outputColumn" type="rangetableV0:RangeTableColumn"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RangeTableRangeSetKey">
+    <xs:sequence>
+      <xs:element maxOccurs="100" name="inputColumn" type="tns:RangeTableInputColumn"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RangeTableRangeSet">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="rangeSetKey" type="tns:RangeTableRangeSetKey"/>
+      <xs:element maxOccurs="unbounded" name="range" type="tns:RangeTableRange"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></string>
+               <string name="filePathSequence" value="catalog_1_2_3_4_5_6_7_8_9_10_11_12_13_14.xsd"/>
+            </storable>
+            <storable name="8" storable-id="dr.WSDLIncludeFileStoreable" ver="2.1">
+               <string name="fileContent" quoted="true"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>\u000d
+<xs:schema targetNamespace="http://refillplan.ws.highdeal.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://refillplan.ws.highdeal.com/" xmlns:planclasselements="http://planclasselements.ws.highdeal.com/" xmlns:core="http://schema.ws.highdeal.com/">
+  <xs:import namespace="http://schema.ws.highdeal.com/" schemaLocation="catalog_1.xsd"/>
+  <xs:import namespace="http://planclasselements.ws.highdeal.com/" schemaLocation="catalog_1_2_3.xsd"/>
+  <xs:complexType name="RefillPlanClass">
+    <xs:complexContent>
+      <xs:extension base="planclasselements:Description">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="planclasselements:Parameter"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="counter" type="planclasselements:Counter"/>
+          <xs:element name="accountAssignment" type="planclasselements:AccountAssignment"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="userTechnicalIdentifier" type="planclasselements:UserTechnicalIdentifier"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>]]></string>
+               <string name="filePathSequence" value="catalog_1_2_3_4_5.xsd"/>
+            </storable>
+            <storable name="9" storable-id="dr.WSDLIncludeFileStoreable" ver="2.1">
+               <string name="fileContent" quoted="true"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>\u000d
+<xs:schema targetNamespace="http://schema.catalog.ws.highdeal.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schema.catalog.ws.highdeal.com/" xmlns:refillplan="http://refillplan.ws.highdeal.com/" xmlns:rangetable="http://rangetable.ws.highdeal.com/" xmlns:planclasselements="http://planclasselements.ws.highdeal.com/" xmlns:monitoringplan="http://monitoringplan.ws.highdeal.com/" xmlns:mappingtable="http://mappingtable.ws.highdeal.com/" xmlns:core="http://schema.ws.highdeal.com/" xmlns:chargeplan="http://chargeplan.ws.highdeal.com/">
+  <xs:import namespace="http://schema.ws.highdeal.com/" schemaLocation="catalog_1.xsd"/>
+  <xs:import namespace="http://planclasselements.ws.highdeal.com/" schemaLocation="catalog_1_2_3.xsd"/>
+  <xs:import namespace="http://chargeplan.ws.highdeal.com/" schemaLocation="catalog_1_2_3_4.xsd"/>
+  <xs:import namespace="http://refillplan.ws.highdeal.com/" schemaLocation="catalog_1_2_3_4_5.xsd"/>
+  <xs:import namespace="http://mappingtable.ws.highdeal.com/" schemaLocation="catalog_1_2_3_4_5_6.xsd"/>
+  <xs:import namespace="http://rangetable.ws.highdeal.com/" schemaLocation="catalog_1_2_3_4_5_6_7.xsd"/>
+  <xs:import namespace="http://monitoringplan.ws.highdeal.com/" schemaLocation="catalog_1_2_3_4_5_6_7_8.xsd"/>
+  <!--Charge Plan-->
+ <!-- <xs:element name="chargePlanClassFindRequest" type="tns:FindChargePlanClassRequest"/>
+  <xs:element name="chargePlanClassFindResponse" type="tns:FindChargePlanClassResponse"/>
+  <xs:element name="chargePlanClassDescriptionFindRequest" type="tns:FindChargePlanClassRequest"/>
+  <xs:element name="chargePlanClassDescriptionFindResponse" type="tns:FindChargePlanClassDescriptionResponse"/> -->
+  <xs:complexType name="FindChargePlanClassResponse">
+    <xs:complexContent>
+      <xs:extension base="core:SearchResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="chargePlanClass" type="chargeplan:ChargePlanClass"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FindChargePlanClassRequest">
+    <xs:sequence>
+      <xs:element name="chargePlanClassSearchFilter" type="tns:ChargePlanClassSearchFilter"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FindChargePlanClassDescriptionResponse">
+    <xs:complexContent>
+      <xs:extension base="core:SearchResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="chargePlanClassDescription" type="planclasselements:Description"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ChargePlanClassSearchFilter">
+    <xs:complexContent>
+      <xs:extension base="core:SearchFilter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="core:StringAttributeDescription"/>
+          <xs:element minOccurs="0" name="description" type="core:StringAttributeDescription"/>
+          <xs:element minOccurs="0" name="status" type="planclasselements:Status"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalInfo" type="core:AdditionalAttributeDescription"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Refill Plan-->
+  <!--<xs:element name="refillPlanClassFindRequest" type="tns:RefillPlanClassFindRequest"/>
+  <xs:element name="refillPlanClassFindResponse" type="tns:RefillPlanClassFindResponse"/>
+  <xs:element name="refillPlanClassDescriptionFindRequest" type="tns:RefillPlanClassFindRequest"/>
+  <xs:element name="refillPlanClassDescriptionFindResponse" type="tns:RefillPlanClassDescriptionFindResponse"/>-->
+  <xs:complexType name="RefillPlanClassFindResponse">
+    <xs:complexContent>
+      <xs:extension base="core:SearchResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="refillPlanClass" type="refillplan:RefillPlanClass"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RefillPlanClassFindRequest">
+    <xs:sequence>
+      <xs:element name="refillPlanClassSearchFilter" type="tns:RefillPlanClassSearchFilter"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RefillPlanClassDescriptionFindResponse">
+    <xs:complexContent>
+      <xs:extension base="core:SearchResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="refillPlanClassDescription" type="planclasselements:Description"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RefillPlanClassSearchFilter">
+    <xs:complexContent>
+      <xs:extension base="core:SearchFilter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="core:StringAttributeDescription"/>
+          <xs:element minOccurs="0" name="description" type="core:StringAttributeDescription"/>
+          <xs:element minOccurs="0" name="status" type="planclasselements:Status"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalInfo" type="core:AdditionalAttributeDescription"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Mapping Table-->
+  <!--<xs:element name="mappingTableClassFindRequest" type="tns:FindMappingTableClassRequest"/>
+  <xs:element name="mappingTableClassFindResponse" type="tns:FindMappingTableClassResponse"/>
+  <xs:element name="mappingTableCreateRequest" type="tns:CreateMappingTableRequest"/>
+  <xs:element name="mappingTableCreateResponse" type="tns:MappingTableOperationResponse"/>
+  <xs:element name="mappingTableMaintainRequest" type="tns:MaintainMappingTableRequest"/>
+  <xs:element name="mappingTableMaintainResponse" type="tns:MappingTableOperationResponse"/>
+  <xs:element name="mappingTableCancelRequest" type="tns:CancelMappingTableRequest"/>
+  <xs:element name="mappingTableCancelResponse" type="tns:MappingTableOperationResponse"/>
+  <xs:element name="mappingTableFindRequest" type="tns:FindMappingTableRequest"/>
+  <xs:element name="mappingTableFindResponse" type="tns:FindMappingTableResponse"/>
+  <xs:element name="mappingTableRowMaintainRequest" type="tns:MaintainMappingTableRowRequest"/>
+  <xs:element name="mappingTableRowMaintainResponse" type="tns:MappingTableRowOperationResponse"/>
+  <xs:element name="mappingTableRowCancelRequest" type="tns:CancelMappingTableRowRequest"/>
+  <xs:element name="mappingTableRowCancelResponse" type="tns:MappingTableRowOperationResponse"/>-->
+  <xs:complexType name="MappingTableOperationResponse">
+    <xs:complexContent>
+      <xs:extension base="core:Response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="core:String256"/>
+          <xs:element minOccurs="0" name="reference" type="core:String256"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MappingTableRowOperationResponse">
+    <xs:complexContent>
+      <xs:extension base="core:Response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="mappingTableId" type="core:String256"/>
+          <xs:element minOccurs="0" name="reference" type="core:String256"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FindMappingTableClassRequest">
+    <xs:sequence>
+      <xs:element name="mappingTableClassSearchFilter" type="tns:MappingTableClassSearchFilter"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MappingTableClassSearchFilter">
+    <xs:complexContent>
+      <xs:extension base="core:SearchFilter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="core:StringAttributeDescription"/>
+          <xs:element minOccurs="0" name="description" type="core:StringAttributeDescription"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalInfo" type="core:AdditionalAttributeDescription"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FindMappingTableClassResponse">
+    <xs:complexContent>
+      <xs:extension base="core:SearchResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="mappingTableClass" type="mappingtable:MappingTableClass"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CreateMappingTableRequest">
+    <xs:sequence>
+      <xs:element name="id" type="core:String256"/>
+      <xs:element name="mappingTableClassId" type="core:String256"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalInfo" type="core:AdditionalInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MaintainMappingTableRequest">
+    <xs:sequence>
+      <xs:element name="id" type="core:String256"/>
+      <xs:element name="mappingTableClassId" type="core:String256"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalInfo" type="core:AdditionalInfo"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="row" type="mappingtable:MappingTableRow"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CancelMappingTableRequest">
+    <xs:sequence>
+      <xs:element name="id" type="core:String256"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FindMappingTableRequest">
+    <xs:sequence>
+      <xs:element name="mappingTableSearchFilter" type="tns:MappingTableSearchFilter"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MappingTableSearchFilter">
+    <xs:complexContent>
+      <xs:extension base="core:SearchFilter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="core:StringAttributeDescription"/>
+          <xs:element minOccurs="0" name="mappingTableClassId" type="core:StringAttributeDescription"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalInfo" type="core:AdditionalAttributeDescription"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FindMappingTableResponse">
+    <xs:complexContent>
+      <xs:extension base="core:SearchResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="mappingTable" type="mappingtable:MappingTable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MaintainMappingTableRowRequest">
+    <xs:sequence>
+      <xs:element name="mappingTableId" type="core:String256"/>
+      <xs:element maxOccurs="unbounded" name="row" type="mappingtable:MappingTableRow"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CancelMappingTableRowRequest">
+    <xs:sequence>
+      <xs:element name="mappingTableId" type="core:String256"/>
+      <xs:element maxOccurs="unbounded" name="id" type="core:String256"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--Range Table-->
+ <!-- <xs:element name="rangeTableClassFindRequest" type="tns:FindRangeTableClassRequest"/>
+  <xs:element name="rangeTableClassFindResponse" type="tns:FindRangeTableClassResponse"/>
+  <xs:element name="rangeTableMaintainRequest" type="tns:MaintainRangeTableRequest"/>
+  <xs:element name="rangeTableMaintainResponse" type="tns:RangeTableOperationResponse"/>
+  <xs:element name="rangeTableCancelRequest" type="tns:CancelRangeTableRequest"/>
+  <xs:element name="rangeTableCancelResponse" type="tns:RangeTableOperationResponse"/>
+  <xs:element name="rangeTableFindRequest" type="tns:FindRangeTableRequest"/>
+  <xs:element name="rangeTableFindResponse" type="tns:FindRangeTableResponse"/>-->
+  <xs:complexType name="RangeTableOperationResponse">
+    <xs:complexContent>
+      <xs:extension base="core:Response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="core:String256"/>
+          <xs:element minOccurs="0" name="reference" type="core:String256"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FindRangeTableClassRequest">
+    <xs:sequence>
+      <xs:element name="rangeTableClassSearchFilter" type="tns:RangeTableClassSearchFilter"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RangeTableClassSearchFilter">
+    <xs:complexContent>
+      <xs:extension base="core:SearchFilter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="core:StringAttributeDescription"/>
+          <xs:element minOccurs="0" name="description" type="core:StringAttributeDescription"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalInfo" type="core:AdditionalAttributeDescription"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FindRangeTableClassResponse">
+    <xs:complexContent>
+      <xs:extension base="core:SearchResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="rangeTableClass" type="rangetable:RangeTableClass"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MaintainRangeTableRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="date" type="core:Date"/>
+      <!--at creation time start date is not required-->
+      <xs:element name="id" type="core:String256"/>
+      <xs:element minOccurs="0" name="description" type="core:String2000"/>
+      <xs:element name="rangeTableClassId" type="core:String256"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalInfo" type="core:AdditionalInfo"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="row" type="rangetable:RangeTableRow"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CancelRangeTableRequest">
+    <xs:sequence>
+      <xs:element name="id" type="core:String256"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FindRangeTableRequest">
+    <xs:sequence>
+      <xs:element name="rangeTableSearchFilter" type="tns:RangeTableSearchFilter"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RangeTableSearchFilter">
+    <xs:complexContent>
+      <xs:extension base="core:SearchFilter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="core:StringAttributeDescription"/>
+          <xs:element minOccurs="0" name="description" type="core:StringAttributeDescription"/>
+          <xs:element minOccurs="0" name="rangeTableClassId" type="core:StringAttributeDescription"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalInfo" type="core:AdditionalAttributeDescription"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FindRangeTableResponse">
+    <xs:complexContent>
+      <xs:extension base="core:SearchResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="rangeTable" type="rangetable:RangeTable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Monitoring Plan Class-->
+ <!-- <xs:element name="monitoringPlanClassFindRequest" type="tns:FindMonitoringPlanClassRequest"/>
+  <xs:element name="monitoringPlanClassFindResponse" type="tns:FindMonitoringPlanClassResponse"/>
+  <xs:element name="monitoringPlanClassDescriptionFindRequest" type="tns:FindMonitoringPlanClassRequest"/>
+  <xs:element name="monitoringPlanClassDescriptionFindResponse" type="tns:FindMonitoringPlanClassDescriptionResponse"/>-->
+  <xs:complexType name="FindMonitoringPlanClassRequest">
+    <xs:sequence>
+      <xs:element name="monitoringPlanClassSearchFilter" type="tns:MonitoringPlanClassSearchFilter"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MonitoringPlanClassSearchFilter">
+    <xs:complexContent>
+      <xs:extension base="core:SearchFilter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="core:StringAttributeDescription"/>
+          <xs:element minOccurs="0" name="description" type="core:StringAttributeDescription"/>
+          <xs:element minOccurs="0" name="status" type="planclasselements:Status"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalInfo" type="core:AdditionalAttributeDescription"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FindMonitoringPlanClassResponse">
+    <xs:complexContent>
+      <xs:extension base="core:SearchResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="monitoringPlanClass" type="monitoringplan:MonitoringPlanClass"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FindMonitoringPlanClassDescriptionResponse">
+    <xs:complexContent>
+      <xs:extension base="core:SearchResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="monitoringPlanClassDescription" type="planclasselements:Description"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>]]></string>
+               <string name="filePathSequence" value="catalog_1_2.xsd"/>
+            </storable>
+         </list>
+         <string name="inputAndOutputTypeName"><![CDATA[ws.DR1762844012892.CATALOG.udr.AbstractCatalogServicesWSCycle]]></string>
+         <string name="properties"><![CDATA[# Advanced XML binding options can be customized here. If the properties are commented out, default values are used.
+
+#Enable JAXB Simple Binding Mode
+# When true, XSD Schemas of loaded WSDL files are compiled into Java code using the experimental "Simple and better binding mode". This is necessary for some complex types, for instance when duplicate element names are used within the same complex type.
+enable_JAXB_simple_binding false
+
+#Disable JAXWS Wrapper style Mode
+# When true, the cycle UDR will contain request and response parameters that wrap all the arguments in request and response UDRs.
+disable_JAXWS_wrapper_mode false
+
+#Enable Processing Of Implicit Soap Header
+# When true, any SOAP headers defined in the binding section of WSDL files are compiled into Java code. This is necessary in order to manipulate the SOAP headers in outgoing Web Service requests. 
+enable_processing_of_implicit_SOAP_header false
+
+#Disable Underscore Binding Mode
+# When false, underscore binding mode is true, JAXB will not strip underscore from the element names when converting a WSDL file to Java.
+disable_under_score_binding false
+
+#Populate originaldata field
+# When true the OriginalData field in the WSCycleUDR will be populated with the content of the SOAP request
+populate_originaldata_field false
+
+#Max enum members
+# Sets the value for the typesafeEnumMaxMembers jaxb global variable which controls the maximum number of allowed enum members
+max_enum_members 256
+
+#Schema level bindings
+# Sets the jaxb schema level bindings per xsd file. The format is [filename.xsd]:package=[packageSuffix],[transformationType]-prefix=prefix,suffix=suffix;
+schema_level_bindings 
+
+#Global bindings
+# Sets the jaxb global bindings per xsd file. The format is property=value;
+global_bindings localScoping=nested
+
+#Enable fault stack trace in response
+# When true stack trace information will be available in error responses
+fault_stack_trace_enabled false
+
+#Allow HEAD
+# When true HTTP method HEAD is allowed
+allow_head false
+
+#Jetty Accept Queue Size
+# Size of the Jetty ServerConnector request queue, set to 0 to disable queue
+jetty_accept_queue_size 0
+
+#Enable Big Decimal
+# Enable the use of BigDecimal as internal type for decimal
+enable_big_decimal false
+
+]]></string>
+         <boolean name="singleWSDLFile" value="true"/>
+         <string name="transport" value="HTTP"/>
+         <map classname="java.util.HashMap" name="typeNamespaceToPrefixMap" size="1">
+            <string name="key_0" value="http://schema.catalog.v3.ws.highdeal.com/"/>
+            <string name="value_0" value="schema"/>
+         </map>
+         <string name="unique_name" value="com.digitalroute.ws.ws1762843748860"/>
+         <string name="wsdlFileContent" quoted="true"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>\u000d
+<definitions name="catalog" targetNamespace="http://catalog.v3.ws.highdeal.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:tns="http://catalog.v3.ws.highdeal.com/" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:schema="http://schema.catalog.v3.ws.highdeal.com/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+  <types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" \u000d
+		xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" \u000d
+	    xmlns:tns="http://catalog.v3.ws.highdeal.com/"\u000d
+		xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" \u000d
+		xmlns:schema="http://schema.catalog.v3.ws.highdeal.com/"\u000d
+		xmlns="http://schemas.xmlsoap.org/wsdl/">
+      <xsd:import namespace="http://schema.catalog.v3.ws.highdeal.com/" schemaLocation="catalog.xsd"/>\u000d
+	  <xsd:import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="wsse41.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="monitoringPlanClassFindResponse">\u000d
+  <part element="schema:rangeTableRangeSetMaintainRequest" name="parameters"/>
+  </message>
+  <message name="mappingTableCancelRequest">\u000d
+  <!--<part element="wsse:Security" name="request_header"/>-->
+    <part element="schema:mappingTableCancelRequest" name="parameters"/>
+  </message>
+  <message name="mappingTableRowMaintainResponse">
+    <part element="schema:mappingTableRowMaintainResponse" name="parameters"/>
+  </message>
+  <message name="rangeTableMaintainResponse">
+    <part element="schema:rangeTableMaintainResponse" name="parameters"/>
+  </message>
+  <message name="rangeTableRangeSetCancelResponse">
+    <part element="schema:rangeTableRangeSetCancelResponse" name="parameters"/>
+  </message>
+  <message name="rangeTableClassFindResponse">
+    <part element="schema:rangeTableClassFindResponse" name="parameters"/>
+  </message>
+  <message name="mappingTableCreateRequest">\u000d
+  <!--<part element="wsse:Security" name="request_header"/>-->
+    <part element="schema:mappingTableCreateRequest" name="parameters"/>
+  </message>
+  <message name="chargePlanClassDescriptionFindRequest">\u000d
+  <!--<part element="wsse:Security" name="request_header"/>-->
+    <part element="schema:chargePlanClassDescriptionFindRequest" name="parameters"/>
+  </message>
+  <message name="refillPlanClassDescriptionFindRequest">\u000d
+  <!--<part element="wsse:Security" name="request_header"/>-->
+    <part element="schema:refillPlanClassDescriptionFindRequest" name="parameters"/>
+  </message>
+  <message name="mappingTableRowMaintainRequest">\u000d
+  <!--<part element="wsse:Security" name="request_header"/>-->
+    <part element="schema:mappingTableRowMaintainRequest" name="parameters"/>
+  </message>
+  <message name="rangeTableRangeSetMaintainRequest">\u000d
+  <!--<part element="wsse:Security" name="request_header"/>-->
+    <part element="schema:rangeTableRangeSetMaintainRequest" name="parameters"/>
+  </message>
+  <message name="mappingTableCancelResponse">
+    <part element="schema:mappingTableCancelResponse" name="parameters"/>
+  </message>
+  <message name="rangeTableMaintainRequest">\u000d
+  <!--<part element="wsse:Security" name="request_header"/>-->
+    <part element="schema:rangeTableMaintainRequest" name="parameters"/>
+  </message>
+  <message name="chargePlanClassDescriptionFindResponse">\u000d
+  <!--<part element="wsse:Security" name="request_header"/>-->
+    <part element="schema:chargePlanClassDescriptionFindResponse" name="parameters"/>
+  </message>
+  <message name="refillPlanClassDescriptionFindResponse">
+    <part element="schema:refillPlanClassDescriptionFindResponse" name="parameters"/>
+  </message>
+  <message name="mappingTableRowCancelRequest">\u000d
+  <!--<part element="wsse:Security" name="request_header"/>-->
+    <part element="schema:mappingTableRowCancelRequest" name="parameters"/>
+  </message>
+  <message name="mappingTableClassFindRequest">\u000d
+  <!--<part element="wsse:Security" name="request_header"/>-->
+    <part element="schema:mappingTableClassFindRequest" name="parameters"/>
+  </message>
+  <message name="rangeTableCancelResponse">
+    <part element="schema:rangeTableCancelResponse" name="parameters"/>
+  </message>
+  <message name="monitoringPlanClassFindRequest">\u000d
+  <!--<part element="wsse:Security" name="request_header"/>-->
+    <part element="schema:monitoringPlanClassFindRequest" name="parameters"/>
+  </message>
+  <message name="refillPlanClassFindResponse">
+    <part element="schema:refillPlanClassFindResponse" name="parameters"/>
+  </message>
+  <message name="mappingTableRowCancelBundleRequest">\u000d
+  <!--<part element="wsse:Security" name="request_header"/>-->
+    <part element="schema:mappingTableRowCancelBundleRequest" name="parameters"/>
+  </message>
+  <message name="chargePlanClassFindResponse">
+    <part element="schema:chargePlanClassFindResponse" name="parameters"/>
+  </message>
+  <message name="mappingTableRowMaintainBundleResponse">
+    <part element="schema:mappingTableRowMaintainBundleResponse" name="parameters"/>
+  </message>
+  <message name="monitoringPlanClassDescriptionFindResponse">
+    <part element="schema:monitoringPlanClassDescriptionFindResponse" name="parameters"/>
+  </message>
+  <message name="mappingTableFindResponse">
+    <part element="schema:mappingTableFindResponse" name="parameters"/>
+  </message>
+  <message name="mappingTableRowCancelBundleResponse">
+    <part element="schema:mappingTableRowCancelBundleResponse" name="parameters"/>
+  </message>
+  <message name="rangeTableRangeSetCancelRequest">\u000d
+  <!--<part element="wsse:Security" name="request_header"/>-->
+    <part element="schema:rangeTableRangeSetCancelRequest" name="parameters"/>
+  </message>
+  <message name="monitoringPlanClassDescriptionFindRequest">\u000d
+  <!--<part element="wsse:Security" name="request_header"/>-->
+    <part element="schema:monitoringPlanClassDescriptionFindRequest" name="parameters"/>
+  </message>
+  <message name="mappingTableClassFindResponse">
+    <part element="schema:mappingTableClassFindResponse" name="parameters"/>
+  </message>
+  <message name="mappingTableRowMaintainBundleRequest">\u000d
+  <!--<part element="wsse:Security" name="request_header"/>-->
+    <part element="schema:mappingTableRowMaintainBundleRequest" name="parameters"/>
+  </message>
+  <message name="mappingTableRowCancelResponse">
+    <part element="schema:mappingTableRowCancelResponse" name="parameters"/>
+  </message>
+  <message name="rangeTableCancelRequest">\u000d
+  <!--<part element="wsse:Security" name="request_header"/>-->
+    <part element="schema:rangeTableCancelRequest" name="parameters"/>
+  </message>
+  <message name="rangeTableRangeSetMaintainResponse">
+    <part element="schema:rangeTableRangeSetMaintainResponse" name="parameters"/>
+  </message>
+  <message name="refillPlanClassFindRequest">\u000d
+  <!--<part element="wsse:Security" name="request_header"/>-->
+    <part element="schema:refillPlanClassFindRequest" name="parameters"/>
+  </message>
+  <message name="mappingTableFindRequest">\u000d
+  <!--<part element="wsse:Security" name="request_header"/>-->
+    <part element="schema:mappingTableFindRequest" name="parameters"/>
+  </message>
+  <message name="rangeTableFindRequest">\u000d
+  <!--<part element="wsse:Security" name="request_header"/>-->
+    <part element="schema:rangeTableFindRequest" name="parameters"/>
+  </message>
+  <message name="chargePlanClassFindRequest">\u000d
+  <!--<part element="wsse:Security" name="request_header"/> -->
+    <part element="schema:chargePlanClassFindRequest" name="parameters"/>
+  </message>
+  <message name="mappingTableCreateResponse">
+    <part element="schema:mappingTableCreateResponse" name="parameters"/>
+  </message>
+  <message name="rangeTableClassFindRequest">\u000d
+  <!--<part element="wsse:Security" name="request_header"/>-->
+    <part element="schema:rangeTableClassFindRequest" name="parameters"/>
+  </message>
+  <message name="mappingTableMaintainResponse">
+    <part element="schema:mappingTableMaintainResponse" name="parameters"/>
+  </message>
+  <message name="rangeTableFindResponse">
+    <part element="schema:rangeTableFindResponse" name="parameters"/>
+  </message>
+  <message name="mappingTableMaintainRequest">\u000d
+  <!--<part element="wsse:Security" name="request_header"/>-->
+    <part element="schema:mappingTableMaintainRequest" name="parameters"/>
+  </message>
+  <portType name="CatalogServices">
+    <operation name="chargePlanClassFind">
+      <input message="tns:chargePlanClassFindRequest"/>
+      <output message="tns:chargePlanClassFindResponse"/>
+    </operation>
+    <operation name="chargePlanClassDescriptionFind">
+      <input message="tns:chargePlanClassDescriptionFindRequest"/>
+      <output message="tns:chargePlanClassDescriptionFindResponse"/>
+    </operation>
+    <operation name="refillPlanClassFind">
+      <input message="tns:refillPlanClassFindRequest"/>
+      <output message="tns:refillPlanClassFindResponse"/>
+    </operation>
+    <operation name="refillPlanClassDescriptionFind">
+      <input message="tns:refillPlanClassDescriptionFindRequest"/>
+      <output message="tns:refillPlanClassDescriptionFindResponse"/>
+    </operation>
+    <operation name="mappingTableClassFind">
+      <input message="tns:mappingTableClassFindRequest"/>
+      <output message="tns:mappingTableClassFindResponse"/>
+    </operation>
+    <operation name="mappingTableCreate">
+      <input message="tns:mappingTableCreateRequest"/>
+      <output message="tns:mappingTableCreateResponse"/>
+    </operation>
+    <operation name="mappingTableMaintain">
+      <input message="tns:mappingTableMaintainRequest"/>
+      <output message="tns:mappingTableMaintainResponse"/>
+    </operation>
+    <operation name="mappingTableCancel">
+      <input message="tns:mappingTableCancelRequest"/>
+      <output message="tns:mappingTableCancelResponse"/>
+    </operation>
+    <operation name="mappingTableFind">
+      <input message="tns:mappingTableFindRequest"/>
+      <output message="tns:mappingTableFindResponse"/>
+    </operation>
+    <operation name="mappingTableRowMaintain">
+      <input message="tns:mappingTableRowMaintainRequest"/>
+      <output message="tns:mappingTableRowMaintainResponse"/>
+    </operation>
+    <operation name="mappingTableRowCancel">
+      <input message="tns:mappingTableRowCancelRequest"/>
+      <output message="tns:mappingTableRowCancelResponse"/>
+    </operation>
+    <operation name="mappingTableRowMaintainBundle">
+      <input message="tns:mappingTableRowMaintainBundleRequest"/>
+      <output message="tns:mappingTableRowMaintainBundleResponse"/>
+    </operation>
+    <operation name="mappingTableRowCancelBundle">
+      <input message="tns:mappingTableRowCancelBundleRequest"/>
+      <output message="tns:mappingTableRowCancelBundleResponse"/>
+    </operation>
+    <operation name="rangeTableClassFind">
+      <input message="tns:rangeTableClassFindRequest"/>
+      <output message="tns:rangeTableClassFindResponse"/>
+    </operation>
+    <operation name="rangeTableMaintain">
+      <input message="tns:rangeTableMaintainRequest"/>
+      <output message="tns:rangeTableMaintainResponse"/>
+    </operation>
+    <operation name="rangeTableCancel">
+      <input message="tns:rangeTableCancelRequest"/>
+      <output message="tns:rangeTableCancelResponse"/>
+    </operation>
+    <operation name="rangeTableFind">
+      <input message="tns:rangeTableFindRequest"/>
+      <output message="tns:rangeTableFindResponse"/>
+    </operation>
+    <operation name="rangeTableRangeSetMaintain">
+      <input message="tns:rangeTableRangeSetMaintainRequest"/>
+      <output message="tns:rangeTableRangeSetMaintainResponse"/>
+    </operation>
+    <operation name="rangeTableRangeSetCancel">
+      <input message="tns:rangeTableRangeSetCancelRequest"/>
+      <output message="tns:rangeTableRangeSetCancelResponse"/>
+    </operation>
+    <operation name="monitoringPlanClassFind">
+      <input message="tns:monitoringPlanClassFindRequest"/>
+      <output message="tns:monitoringPlanClassFindResponse"/>
+    </operation>
+    <operation name="monitoringPlanClassDescriptionFind">
+      <input message="tns:monitoringPlanClassDescriptionFindRequest"/>
+      <output message="tns:monitoringPlanClassDescriptionFindResponse"/>
+    </operation>
+  </portType>
+  <binding name="CatalogServicesPortBinding" type="tns:CatalogServices">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="chargePlanClassFind">
+      <soap:operation soapAction=""/>
+      <input>\u000d
+	  <!--<soap:header message="tns:chargePlanClassFindRequest" part="request_header" use="literal" />-->
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="chargePlanClassDescriptionFind">
+      <soap:operation soapAction=""/>
+      <input>\u000d
+	  <!--<soap:header message="tns:chargePlanClassDescriptionFindRequest" part="request_header" use="literal" />-->
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="refillPlanClassFind">
+      <soap:operation soapAction=""/>
+      <input>\u000d
+	  <!--<soap:header message="tns:refillPlanClassFindRequest" part="request_header" use="literal" />-->
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="refillPlanClassDescriptionFind">
+      <soap:operation soapAction=""/>
+      <input>\u000d
+	  <!--<soap:header message="tns:refillPlanClassDescriptionFindRequest" part="request_header" use="literal" />-->
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="mappingTableClassFind">
+      <soap:operation soapAction=""/>
+      <input>
+        <!--<soap:header message="tns:mappingTableClassFindRequest" part="request_header" use="literal" />-->\u000d
+      <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="mappingTableCreate">
+      <soap:operation soapAction=""/>
+      <input>
+      <!--<soap:header message="tns:mappingTableCreateRequest" part="request_header" use="literal" />-->\u000d
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="mappingTableMaintain">
+      <soap:operation soapAction=""/>
+      <input>
+      <!--<soap:header message="tns:mappingTableMaintainRequest" part="request_header" use="literal" />-->\u000d
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="mappingTableCancel">
+      <soap:operation soapAction=""/>
+      <input>
+      <!--<soap:header message="tns:mappingTableCancelRequest" part="request_header" use="literal" />-->\u000d
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="mappingTableFind">
+      <soap:operation soapAction=""/>
+      <input>
+      <!--<soap:header message="tns:mappingTableFindRequest" part="request_header" use="literal" />-->\u000d
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="mappingTableRowMaintain">
+      <soap:operation soapAction=""/>
+      <input>
+      <!--<soap:header message="tns:mappingTableRowMaintainRequest" part="request_header" use="literal" />-->\u000d
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="mappingTableRowMaintainBundle">
+      <soap:operation soapAction=""/>
+      <input>
+      <!--<soap:header message="tns:mappingTableRowMaintainBundleRequest" part="request_header" use="literal" />-->\u000d
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="mappingTableRowCancel">
+      <soap:operation soapAction=""/>
+      <input>
+      <!--<soap:header message="tns:mappingTableRowCancelRequest" part="request_header" use="literal" />-->\u000d
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="mappingTableRowCancelBundle">
+      <soap:operation soapAction=""/>
+      <input>
+      <!--<soap:header message="tns:mappingTableRowCancelBundleRequest" part="request_header" use="literal" />-->\u000d
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="rangeTableClassFind">
+      <soap:operation soapAction=""/>
+      <input>
+      <!--<soap:header message="tns:rangeTableClassFindRequest" part="request_header" use="literal" />-->\u000d
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="rangeTableMaintain">
+      <soap:operation soapAction=""/>
+      <input>
+      <!--<soap:header message="tns:rangeTableMaintainRequest" part="request_header" use="literal" />-->\u000d
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="rangeTableCancel">
+      <soap:operation soapAction=""/>
+      <input>
+      <!--<soap:header message="tns:rangeTableCancelRequest" part="request_header" use="literal" />-->\u000d
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="rangeTableFind">
+      <soap:operation soapAction=""/>
+      <input>
+      <!--<soap:header message="tns:rangeTableFindRequest" part="request_header" use="literal" />-->\u000d
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="rangeTableRangeSetMaintain">
+      <soap:operation soapAction=""/>
+      <input>
+      <!--<soap:header message="tns:rangeTableRangeSetMaintainRequest" part="request_header" use="literal" />-->\u000d
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="rangeTableRangeSetCancel">
+      <soap:operation soapAction=""/>
+      <input>
+      <!--<soap:header message="tns:rangeTableRangeSetCancelRequest" part="request_header" use="literal" />-->\u000d
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="monitoringPlanClassFind">
+      <soap:operation soapAction=""/>
+      <input>
+      <!--<soap:header message="tns:monitoringPlanClassFindRequest" part="request_header" use="literal" />-->\u000d
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="monitoringPlanClassDescriptionFind">
+      <soap:operation soapAction=""/>
+      <input>
+      <!--<soap:header message="tns:monitoringPlanClassDescriptionFindRequest" part="request_header" use="literal" />-->\u000d
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="catalog">
+    <port binding="tns:CatalogServicesPortBinding" name="catalogPort">
+      <soap:address location="http://s4cc2023:9081/v3/catalog?wsdl"/>
+    </port>
+  </service>
+</definitions>]]></string>
+         <string name="wsdlFileName" value="catalog_1.wsdl"/>
+         <string name="wsdl_file" value=""/>
+      </storable>
+      <set name="Dynamic Parameters" null="true"/>
+      <string name="Folder" value="SAPCMSEPT25CC"/>
+      <boolean name="Is Dirty" value="false"/>
+      <boolean name="Is Dry Run" value="false"/>
+      <boolean name="Is Encrypted" value="false"/>
+      <boolean name="Is Locked" value="false"/>
+      <boolean name="Is Valid" value="true"/>
+      <string name="Key" value="DR1762844012892"/>
+      <string name="Modified By" value="sapcmuser14"/>
+      <long name="Modified Date" value="1762815375038"/>
+      <string name="Name" value="CATALOG"/>
+      <string name="Owner" value="sapcmuser14"/>
+      <string name="Type" value="WS Profile"/>
+      <int name="Version" value="6"/>
+      <string name="documentation" value=""/>
+   </storable>
+</webservices_profile>

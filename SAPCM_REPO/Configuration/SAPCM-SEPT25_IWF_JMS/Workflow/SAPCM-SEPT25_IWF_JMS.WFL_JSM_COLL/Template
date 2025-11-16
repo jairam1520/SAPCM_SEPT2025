@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<exportmultiplex category="Template" ref_path="workflow_data[Internal]/storable[workflow_data]/storable[Data]">
+   <list classname="java.util.ArrayList" name="Comments"/>
+   <storable name="Execution Config" storable-id="dr.WorkflowExecutionConfig" ver="10.0">
+      <enum name="debugType" storable-id="dr.DebugType" value="EVENT"/>
+      <storable name="executionSettings" storable-id="dr.ExecutionSettings" ver="11.0">
+         <boolean name="enabled" value="false"/>
+         <storable name="kafka" null="true"/>
+      </storable>
+      <int name="noOfFilesToKeep" value="0"/>
+      <string name="throughputMIM" null="true"/>
+      <string name="txnHandler" value="Default Handler"/>
+   </storable>
+   <list classname="java.util.ArrayList" name="Field Types"/>
+   <list classname="java.util.ArrayList" name="Logged error MIM"/>
+   <list classname="java.util.ArrayList" name="Nodes">
+      <storable name="0" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname" value="com.digitalroute.wfc.jmsagent.col.JMSColInsp"/>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.wfc.jmsagent.col.JMSColInsp"/>
+               <storable name="Data" storable-id="dr.JMSColData" ver="10.0">
+                  <string name="durableID" value=""/>
+                  <string name="durableName" value=""/>
+                  <boolean name="enablePreAcknowledge" value="false"/>
+                  <password name="password" value="DR-4-45956A0C71DAF51A658156F9D215746B"/>
+                  <string name="preAcknowledgeRoute" null="true"/>
+                  <storable name="profile" storable-id="dr.DRConfiguration" ver="2.0">
+                     <set name="Dynamic Parameters" null="true"/>
+                     <string name="Folder" value="SAPCM-SEPT25_IWF_JMS"/>
+                     <string name="Key" value="DR1763193506412"/>
+                     <string name="Name" value="PRF_JMS_1"/>
+                     <string name="Type" value="JMS Profile"/>
+                  </storable>
+                  <boolean name="useDurable" value="false"/>
+                  <string name="userName" value="admin"/>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="JMS_Collector_1"/>
+      </storable>
+      <storable name="1" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname" value="com.digitalroute.wfc.analysis.AnalysisRealtimeInsp"/>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.wfc.analysis.AnalysisRealtimeInsp"/>
+               <storable name="Data" storable-id="dr.StuffyMapperData" ver="10.0">
+                  <string name="sourceCode"><![CDATA[consume {
+    debug(input);
+    bytearray ba;
+    strToBA(ba,(string)input.Request);
+    udrRoute(ba);
+}]]></string>
+                  <array classname="com.digitalroute.devkit.drudr.DRTypeInfo" name="udrTypes" size="1">
+                     <storable name="0" storable-id="dr.DRTypeInfo" ver="1.0">
+                        <string name="TypeName" value="JMSCycle"/>
+                     </storable>
+                  </array>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="Analysis_1"/>
+      </storable>
+      <storable name="2" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname" value="com.digitalroute.wfc.interwf.InterWFOutputRTInsp"/>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.wfc.interwf.InterWFOutputRTInsp"/>
+               <storable name="Data" storable-id="dr.InterWFOutputRTData" ver="11.0">
+                  <int name="byteCount" value="-1"/>
+                  <boolean name="enableWorkerThread" value="true"/>
+                  <boolean name="includeOutstanding" value="false"/>
+                  <array classname="com.digitalroute.devkit.misc.DRNameValue" name="myMIMs" size="0"/>
+                  <storable name="profile" storable-id="dr.DRConfiguration" ver="2.0">
+                     <set name="Dynamic Parameters" null="true"/>
+                     <string name="Folder" value="SAPCM-SEPT25_IWF"/>
+                     <string name="Key" value="DR1763197987315"/>
+                     <string name="Name" value="PRF_IWF"/>
+                     <string name="Type" value="Inter Workflow Profile"/>
+                  </storable>
+                  <int name="queueSize" value="10000"/>
+                  <boolean name="sendResponseUdr" value="false"/>
+                  <string name="streamId" value="default"/>
+                  <int name="timeout" value="10"/>
+                  <int name="udrCount" value="1000"/>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="Inter_Workflow_1"/>
+      </storable>
+   </list>
+   <storable name="Persistent" storable-id="dr.WorkflowPersistentConfig" ver="10.0">
+      <string name="persistentInspector" null="true"/>
+      <storable name="persistentStorageConfig" null="true"/>
+      <string name="persistentTimeoutHandler" null="true"/>
+   </storable>
+   <list classname="java.util.ArrayList" name="Routes">
+      <storable name="0" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="r_1"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+      <storable name="1" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="r_2"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+   </list>
+   <list classname="java.util.ArrayList" name="Service"/>
+   <boolean name="Template Valid" value="true"/>
+   <storable name="Thread data" storable-id="dr.WorkflowExecutionRealtimeConfig" ver="10.0">
+      <int name="countInterval" value="1"/>
+      <int name="queueSize" value="1000"/>
+      <string name="queueStrategy" null="true"/>
+      <string name="queueWorkerStrategy" null="true"/>
+      <boolean name="standalone" value="false"/>
+      <int name="threads" value="8"/>
+   </storable>
+</exportmultiplex>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<exportmultiplex category="Template" ref_path="workflow_data[Internal]/storable[workflow_data]/storable[Data]">
+   <list classname="java.util.ArrayList" name="Comments"/>
+   <storable name="Execution Config" storable-id="dr.WorkflowExecutionConfig" ver="10.0">
+      <enum name="debugType" storable-id="dr.DebugType" value="EVENT"/>
+      <storable name="executionSettings" storable-id="dr.ExecutionSettings" ver="11.0">
+         <boolean name="enabled" value="false"/>
+         <storable name="kafka" null="true"/>
+      </storable>
+      <int name="noOfFilesToKeep" value="0"/>
+      <string name="throughputMIM" null="true"/>
+      <string name="txnHandler" value="Default Handler"/>
+   </storable>
+   <list classname="java.util.ArrayList" name="Field Types"/>
+   <list classname="java.util.ArrayList" name="Logged error MIM"/>
+   <list classname="java.util.ArrayList" name="Nodes">
+      <storable name="0" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname"><![CDATA[com.digitalroute.mz.pulse.agent.PulseCollectorAgentInspRT]]></string>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname"><![CDATA[com.digitalroute.mz.pulse.agent.PulseCollectorAgentInspRT]]></string>
+               <storable name="Data" storable-id="dr.PulseData" ver="10.0">
+                  <double name="center" value="1.0"/>
+                  <string name="data" value=""/>
+                  <boolean name="dataEntered" value="true"/>
+                  <boolean name="dataRandomData" value="false"/>
+                  <boolean name="dataRandomOrderSeq" value="false"/>
+                  <int name="dataRangeEnd" value="10"/>
+                  <int name="dataRangeStart" value="0"/>
+                  <boolean name="dataSequentialOrder" value="true"/>
+                  <boolean name="dataSequentialRange" value="false"/>
+                  <int name="dataSize" value="1"/>
+                  <enum name="dataUnit" storable-id="dr.PulseDataSizeUnit" value="Bytes"/>
+                  <long name="intervalFixed" value="1"/>
+                  <string name="intervalType" value="Fixed"/>
+                  <double name="poissonRate" value="1.0"/>
+                  <long name="rate" value="1"/>
+                  <long name="start" value="1"/>
+                  <long name="stop" value="10"/>
+                  <enum name="unit" storable-id="dr.PulseTimeUnit" value="HOURS"/>
+                  <double name="width" value="1.0"/>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="Pulse_1"/>
+      </storable>
+      <storable name="1" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname" value="com.digitalroute.wfc.analysis.AnalysisRealtimeInsp"/>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.wfc.analysis.AnalysisRealtimeInsp"/>
+               <storable name="Data" storable-id="dr.StuffyMapperData" ver="10.0">
+                  <string name="sourceCode"><![CDATA[import ultra.ws.SAPCMSEPT25CC.CATALOG.cycles;
+import ultra.SAPCM-SEPT25_RT_SAPCC.UFL_MT_SYNC;
+WSCycle_mappingTableRowMaintain createWSMaintain(){
+    WSCycle_mappingTableRowMaintain udr = udrCreate(WSCycle_mappingTableRowMaintain);
+    udr.param = udrCreate(MaintainMappingTableRowRequest);
+    udr.param.mappingTableId = "MT_RATING_MODEL";
+    udr.param.row = listCreate(MappingTableRow);
+    return udr;
+}
+consume {
+    if(instanceOf(input,PulseUDR)){
+        
+        list<tbRatingModel> rows = getRows();
+        debug("rows:"+rows);
+        WSCycle_mappingTableRowMaintain ws = createWSMaintain();
+        for(tbRatingModel row : rows){
+            if(row.op == "M"){
+               addRowToInsert(ws,row);
+            }
+        }
+        if(listSize(ws.param.row) > 0){
+            udrRoute(ws);
+            debug("WS Req:"+ws);
+        }
+    }else if(instanceOf(input,WSCycle_mappingTableRowMaintain)){
+        //respose
+        WSCycle_mappingTableRowMaintain wsRes = (WSCycle_mappingTableRowMaintain)input;
+        if(wsRes.response.error != null){
+            logError("Mapping table row maintain failed");
+        }else{
+            string idList;
+            debug("Response:"+input);  
+            for(int i=0;i<listSize(wsRes.param.row);i++){
+                MappingTableRow row = listGet(wsRes.param.row,i);
+                if(i==0){
+                    idList = "'"+row.id+"'";    
+                }else{  
+                    idList = idList + ",'"+row.id+"'";
+                }
+            }
+            debug("idList:"+idList);
+            string q = "update TB_RATING_MODEL set STATUS='S' where id in("+idList+");";
+            debug("query:"+q);
+            int i = sqlExec("SAPCM-SEPT25_DB.PRF_DB_POSTGRES1",q);
+            debug("i:"+i);
+            if(i<=0){
+                logError("DB insertion failed for :"+idList);    
+            }else{
+                debug("Insertion success");    
+            }
+        }
+          
+    }
+}
+list<tbRatingModel> getRows(){
+    list<tbRatingModel> liOut = listCreate(tbRatingModel);
+    string query = "select * from TB_RATING_MODEL where status='N'" ;
+    table tb = tableCreate("SAPCM-SEPT25_DB.PRF_DB_POSTGRES1", query);
+    
+    if(tb!= null && tableRowCount(tb)>0){
+        for(int i=0; i<tableRowCount(tb) ;i++ ){
+            tbRatingModel row = udrCreate(tbRatingModel);
+            row.id = (int) tableGet(tb,i,"ID");
+            row.bp = (string)tableGet(tb,i,"BP");
+            row.rModel = (string)tableGet(tb,i,"RMODEL");
+            row.op = (string)tableGet(tb,i,"OPERATION"); 
+            row.status =   (string)tableGet(tb,i,"STATUS");
+            listAdd(liOut,row);
+        }
+    }
+    return liOut;  
+}
+void addRowToInsert(WSCycle_mappingTableRowMaintain ws,tbRatingModel row){
+    MappingTableRow r1 = udrCreate(MappingTableRow);
+    r1.column = listCreate(MappingTableColumn);
+    MappingTableColumn c1 = udrCreate(MappingTableColumn);
+    c1.name = "BP";
+    c1.string_ = row.bp;
+    MappingTableColumn c2 = udrCreate(MappingTableColumn);
+    c2.name = "RMODEL";
+    c2.string_ = row.rModel;
+    listAdd(r1.column , c1);
+    listAdd(r1.column , c2);
+    listAdd(ws.param.row, r1);
+    
+    date start = dateCreateNow();
+    r1.id = (string)row.id;
+    r1.start = start;
+    date end = dateCreateCopy(start);
+    dateAddMonths(end,1);
+    r1.end = end;
+}]]></string>
+                  <array classname="com.digitalroute.devkit.drudr.DRTypeInfo" name="udrTypes" size="2">
+                     <storable name="0" storable-id="dr.DRTypeInfo" ver="1.0">
+                        <string name="TypeName"><![CDATA[ws.SAPCMSEPT25CC.CATALOG.cycles.AbstractCatalogServicesWSCycle]]></string>
+                     </storable>
+                     <storable name="1" storable-id="dr.DRTypeInfo" ver="1.0">
+                        <string name="TypeName" value="PulseUDR"/>
+                     </storable>
+                  </array>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="Analysis_1"/>
+      </storable>
+      <storable name="2" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname" value="com.digitalroute.wfc.ws.WSForwarderInsp"/>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.wfc.ws.WSForwarderInsp"/>
+               <storable name="Data" storable-id="dr.WSForwarderData" ver="11.0">
+                  <boolean name="cdataSupport" value="false"/>
+                  <boolean name="enableBasicAuthentication" value="false"/>
+                  <boolean name="enableRouteRawXML" value="false"/>
+                  <string name="httpAddress" value="http://s4cc2023:9081/v3/catalog"/>
+                  <password name="httpPassword" value="DR-4-EC990FA8D6B1F4F8E948389EC8DA1F99"/>
+                  <string name="httpUsername" value="CM_CC_WS"/>
+                  <storable name="profile" storable-id="dr.DRConfiguration" ver="2.0">
+                     <set name="Dynamic Parameters" null="true"/>
+                     <string name="Folder" value="SAPCMSEPT25CC"/>
+                     <string name="Key" value="DR1762844012892"/>
+                     <string name="Name" value="CATALOG"/>
+                     <string name="Type" value="WS Profile"/>
+                  </storable>
+                  <string name="routeRawXMLTo" value="r_3"/>
+                  <int name="serverTimeout" value="3000"/>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="Web_Service_Request_1"/>
+      </storable>
+   </list>
+   <storable name="Persistent" storable-id="dr.WorkflowPersistentConfig" ver="10.0">
+      <string name="persistentInspector" null="true"/>
+      <storable name="persistentStorageConfig" null="true"/>
+      <string name="persistentTimeoutHandler" null="true"/>
+   </storable>
+   <list classname="java.util.ArrayList" name="Routes">
+      <storable name="0" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="r_1"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+      <storable name="1" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="r_3"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+      <storable name="2" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="r_4"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+   </list>
+   <list classname="java.util.ArrayList" name="Service"/>
+   <boolean name="Template Valid" value="true"/>
+   <storable name="Thread data" storable-id="dr.WorkflowExecutionRealtimeConfig" ver="10.0">
+      <int name="countInterval" value="1"/>
+      <int name="queueSize" value="1000"/>
+      <string name="queueStrategy" null="true"/>
+      <string name="queueWorkerStrategy" null="true"/>
+      <boolean name="standalone" value="false"/>
+      <int name="threads" value="8"/>
+   </storable>
+</exportmultiplex>

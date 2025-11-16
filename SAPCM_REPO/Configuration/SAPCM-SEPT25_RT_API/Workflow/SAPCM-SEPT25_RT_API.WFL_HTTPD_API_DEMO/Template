@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<exportmultiplex category="Template" ref_path="workflow_data[Internal]/storable[workflow_data]/storable[Data]">
+   <list classname="java.util.ArrayList" name="Comments"/>
+   <storable name="Execution Config" storable-id="dr.WorkflowExecutionConfig" ver="10.0">
+      <enum name="debugType" storable-id="dr.DebugType" value="EVENT"/>
+      <storable name="executionSettings" storable-id="dr.ExecutionSettings" ver="11.0">
+         <boolean name="enabled" value="false"/>
+         <storable name="kafka" null="true"/>
+      </storable>
+      <int name="noOfFilesToKeep" value="0"/>
+      <string name="throughputMIM" null="true"/>
+      <string name="txnHandler" value="Default Handler"/>
+   </storable>
+   <list classname="java.util.ArrayList" name="Field Types"/>
+   <list classname="java.util.ArrayList" name="Logged error MIM"/>
+   <list classname="java.util.ArrayList" name="Nodes">
+      <storable name="0" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname" value="com.digitalroute.wfc.http.HttpdInsp"/>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.wfc.http.HttpdInsp"/>
+               <storable name="Data" storable-id="dr.HttpdData" ver="30.0">
+                  <string name="characterEncoding" value="Default"/>
+                  <int name="clientTimeout" value="10"/>
+                  <int name="gzipLevel" value="7"/>
+                  <string name="host" value="saps4hana"/>
+                  <boolean name="isTwoWayAuth" value="false"/>
+                  <string name="keystore" null="true"/>
+                  <password name="passphrase" value="DR-4-017BB0B8FB061C1876D43DD75468AA40"/>
+                  <int name="port" value="8093"/>
+                  <int name="receivers" value="0"/>
+                  <storable name="securityProfile" null="true"/>
+                  <int name="serverTimeout" value="0"/>
+                  <string name="transport" value="Netty3"/>
+                  <string name="twoWayTruststore" null="true"/>
+                  <password name="twoWayTsPassphrase" value="DR-4-017BB0B8FB061C1876D43DD75468AA40"/>
+                  <storable name="udrType" storable-id="dr.UltraClientInfo" ver="1.0">
+                     <string name="FormatName" value="SAPCM-SEPT25_RT_API.UFL_HTTPD"/>
+                     <string name="TypeName" value="SAPCM-SEPT25_RT_API.UFL_HTTPD.MYHTTPD"/>
+                  </storable>
+                  <boolean name="useSSL" value="false"/>
+                  <boolean name="useSecurityProfile" value="false"/>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="HTTPD_Deprecated_1"/>
+      </storable>
+      <storable name="1" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname" value="com.digitalroute.wfc.analysis.AnalysisRealtimeInsp"/>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.wfc.analysis.AnalysisRealtimeInsp"/>
+               <storable name="Data" storable-id="dr.StuffyMapperData" ver="10.0">
+                  <string name="sourceCode"><![CDATA[consume {
+    //debug();
+    MYHTTPD httpd = (MYHTTPD)input;
+    debug("Request:"+httpd);
+    //use info from client data and send back the response
+    
+    map<any,any> header = httpd.httpHeaders;
+    
+    string username = (string)mapGet(header,"username");
+    string password = (string)mapGet(header,"password");
+    
+    if(username != "Jai" || password != "Jai"){
+        httpd.response = "Incorrect username or password ";
+        httpd.responseStatusCode = "400";
+        httpd.processTime = dateCreateNow();
+        httpd.responseType = "text/plain";
+        debug("response:"+httpd);
+        udrRoute(httpd);
+        return;
+    }
+    
+    
+    //converting string to udr
+    data d = udrCreate(data);
+    debug("Before decode:"+d);
+    jsonDecodeUdr(httpd.content,d);
+    debug("After decode:"+d);
+    
+    if(httpd.query == "/check"){
+        httpd.response = "Hello "+d.name+" ! how are you doing?";
+        httpd.responseStatusCode = "200 OK";
+        bytearray ba;
+        strToBA(ba,httpd.response);
+        httpd.responseBinary = ba;
+    }else{
+        httpd.response = "Incorrect query used!!";
+        httpd.responseStatusCode = "400";
+    }
+    httpd.processTime = dateCreateNow();
+    httpd.responseType = "text/plain";
+    debug("response:"+httpd);
+    udrRoute(httpd);
+}]]></string>
+                  <array classname="com.digitalroute.devkit.drudr.DRTypeInfo" name="udrTypes" size="1">
+                     <storable name="0" storable-id="dr.UltraClientInfo" ver="1.0">
+                        <string name="FormatName" value="SAPCM-SEPT25_RT_API.UFL_HTTPD"/>
+                        <string name="TypeName" value="SAPCM-SEPT25_RT_API.UFL_HTTPD.MYHTTPD"/>
+                     </storable>
+                  </array>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="Analysis_1"/>
+      </storable>
+   </list>
+   <storable name="Persistent" storable-id="dr.WorkflowPersistentConfig" ver="10.0">
+      <string name="persistentInspector" null="true"/>
+      <storable name="persistentStorageConfig" null="true"/>
+      <string name="persistentTimeoutHandler" null="true"/>
+   </storable>
+   <list classname="java.util.ArrayList" name="Routes">
+      <storable name="0" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="r_1"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+      <storable name="1" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="r_2"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+   </list>
+   <list classname="java.util.ArrayList" name="Service"/>
+   <boolean name="Template Valid" value="true"/>
+   <storable name="Thread data" storable-id="dr.WorkflowExecutionRealtimeConfig" ver="10.0">
+      <int name="countInterval" value="1"/>
+      <int name="queueSize" value="1000"/>
+      <string name="queueStrategy" null="true"/>
+      <string name="queueWorkerStrategy" null="true"/>
+      <boolean name="standalone" value="false"/>
+      <int name="threads" value="8"/>
+   </storable>
+</exportmultiplex>

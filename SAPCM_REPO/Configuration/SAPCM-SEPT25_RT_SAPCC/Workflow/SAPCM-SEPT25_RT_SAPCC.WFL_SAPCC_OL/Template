@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<exportmultiplex category="Template" ref_path="workflow_data[Internal]/storable[workflow_data]/storable[Data]">
+   <list classname="java.util.ArrayList" name="Comments"/>
+   <storable name="Execution Config" storable-id="dr.WorkflowExecutionConfig" ver="10.0">
+      <enum name="debugType" storable-id="dr.DebugType" value="EVENT"/>
+      <storable name="executionSettings" storable-id="dr.ExecutionSettings" ver="11.0">
+         <boolean name="enabled" value="false"/>
+         <storable name="kafka" null="true"/>
+      </storable>
+      <int name="noOfFilesToKeep" value="0"/>
+      <string name="throughputMIM" null="true"/>
+      <string name="txnHandler" value="Default Handler"/>
+   </storable>
+   <list classname="java.util.ArrayList" name="Field Types"/>
+   <list classname="java.util.ArrayList" name="Logged error MIM"/>
+   <list classname="java.util.ArrayList" name="Nodes">
+      <storable name="0" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname"><![CDATA[com.digitalroute.mz.pulse.agent.PulseCollectorAgentInspRT]]></string>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname"><![CDATA[com.digitalroute.mz.pulse.agent.PulseCollectorAgentInspRT]]></string>
+               <storable name="Data" storable-id="dr.PulseData" ver="10.0">
+                  <double name="center" value="1.0"/>
+                  <string name="data" value=""/>
+                  <boolean name="dataEntered" value="true"/>
+                  <boolean name="dataRandomData" value="false"/>
+                  <boolean name="dataRandomOrderSeq" value="false"/>
+                  <int name="dataRangeEnd" value="10"/>
+                  <int name="dataRangeStart" value="0"/>
+                  <boolean name="dataSequentialOrder" value="true"/>
+                  <boolean name="dataSequentialRange" value="false"/>
+                  <int name="dataSize" value="1"/>
+                  <enum name="dataUnit" storable-id="dr.PulseDataSizeUnit" value="Bytes"/>
+                  <long name="intervalFixed" value="1"/>
+                  <string name="intervalType" value="Fixed"/>
+                  <double name="poissonRate" value="1.0"/>
+                  <long name="rate" value="1"/>
+                  <long name="start" value="1"/>
+                  <long name="stop" value="10"/>
+                  <enum name="unit" storable-id="dr.PulseTimeUnit" value="SECONDS"/>
+                  <double name="width" value="1.0"/>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="Pulse_1"/>
+      </storable>
+      <storable name="1" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname" value="com.digitalroute.wfc.analysis.AnalysisRealtimeInsp"/>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.wfc.analysis.AnalysisRealtimeInsp"/>
+               <storable name="Data" storable-id="dr.StuffyMapperData" ver="10.0">
+                  <string name="sourceCode"><![CDATA[import ultra.sapcc;
+consume {
+    debug("Input:"+input);
+    CCCycleUDR cc = udrCreate(CCCycleUDR);
+    ChargeUDR chargeUdr = udrCreate(ChargeUDR);
+    chargeUdr.chargeableItemName = "ZCOS";
+    chargeUdr.chargeExecutionContext = udrCreate(ChargeExecutionContextUDR);
+    chargeUdr.chargeExecutionContext.resultChargedItemReturned = true;
+    chargeUdr.chargeExecutionContext.resultNotificationReturned = true;
+    chargeUdr.consumptionDate = dateCreateNow();
+    chargeUdr.serviceId = "TEST";
+    chargeUdr.userId = "12345";
+    list<PropertyUDR> li = listCreate(PropertyUDR);
+    createStrProp("VTPOS", "", li);
+    createStrProp("VKONT", "203", li);
+    createStrProp("GPART_RATING", "", li);
+    createStrProp("VKONT_RATING", "", li);
+    createStrProp("MDCAT_RATING", "", li);
+    createStrProp("CIT_QTY_UNIT", "", li);
+    createStrProp("CIT_QTY_GROUP", "", li);
+    createStrProp("CITYTYPE", "", li);
+    createStrProp("CITTIME", "", li);
+    createStrProp("RATING_TYPE", "", li);
+    createStrProp("SIMULATED", "", li);
+    createStrProp("RELTYPE_PRIMARY", "", li);
+    createStrProp("CITFIELDSCHEMA", "", li);
+    createStrProp("ACCESS_USERID_TYPE", "", li);
+    createStrProp("BITPKNO_PRIMARY", "", li);
+    createStrProp("BITPKID_PRIMARY", "", li);
+    createStrProp("CITTIME_FROM", "", li);
+    createStrProp("CITTIME_TO", "", li);
+    createStrProp("CIT_CURR", "INR", li);
+    createStrProp("GPART_PRIMARY", "", li);
+    createStrProp("SERVICE_TYPE", "", li);
+    createStrProp("SRCTADID_PRIMARY", "", li);
+    createStrProp("SRCTATY_PRIMARY", "", li);
+    createStrProp("SUBAP_PRIMARY", "", li);
+    createStrProp("VKONT_PRIMARY", "BP02", li);
+    createStrProp("VTREF_PRIMARY", "", li);
+    createStrProp("CALLED_PARTY", "", li);
+    createStrProp("PCARD_GUID32", "", li);
+    createStrProp("PT_PRODUCT_CAT", "", li);
+    createStrProp("PYREF", "", li);
+    createStrProp("ALLOW_DEF_ID", "", li);
+    createStrProp("CRDRS", "", li);
+    createStrProp("PY_CHANNEL", "", li);
+    createStrProp("TULOC", "", li);
+    createStrProp("TUMTH", "", li);
+    
+    // Date properties
+    createDtProp("RATE_BASEDATE", dateCreateNow(), li);
+    createDtProp("RATE_FIRST", dateCreateNow(), li);
+    createDtProp("CITDATE", dateCreateNow(), li);
+    createDtProp("CITDATE_FROM", dateCreateNow(), li);
+    createDtProp("CITDATE_TO", dateCreateNow(), li);
+    //createDtProp("ALLOW_START_DATE", dateNow(), li);
+    
+    // Number (double) properties
+    createDbProp("CIT_QUANTITY", 10, li);
+    createDbProp("CIT_AMOUNT", 0.0, li);
+    chargeUdr.ciPropertyList = li;
+    debug("CC REQ:"+cc);
+    udrRoute(cc);
+    
+    
+}
+void createStrProp(string name,string value,list<PropertyUDR> li){
+    PropertyUDR p = udrCreate(PropertyUDR);
+    p.name = name;
+    p.value = value;
+    listAdd(li,p);
+}
+void createDtProp(string name,date value,list<PropertyUDR> li){
+    PropertyUDR p = udrCreate(PropertyUDR);
+    p.name = name;
+    p.value = value;
+    listAdd(li,p);
+}
+void createDbProp(string name,double value,list<PropertyUDR> li){
+    PropertyUDR p = udrCreate(PropertyUDR);
+    p.name = name;
+    p.value = value;
+    listAdd(li,p);
+}]]></string>
+                  <array classname="com.digitalroute.devkit.drudr.DRTypeInfo" name="udrTypes" size="2">
+                     <storable name="0" storable-id="dr.DRTypeInfo" ver="1.0">
+                        <string name="TypeName" value="sapcc.CCCycleUDR"/>
+                     </storable>
+                     <storable name="1" storable-id="dr.DRTypeInfo" ver="1.0">
+                        <string name="TypeName" value="PulseUDR"/>
+                     </storable>
+                  </array>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="Analysis_1"/>
+      </storable>
+      <storable name="2" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname"><![CDATA[com.digitalroute.mediationZoneIntegration.agent.online.SAPCCOnlineProcessorInsp]]></string>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname"><![CDATA[com.digitalroute.mediationZoneIntegration.agent.online.SAPCCOnlineProcessorInsp]]></string>
+               <storable classname="com.digitalroute.mediationZoneIntegration.agent.online.VersionSafeSAPCCOnlineProcessorConfig" name="Data" ver="10.0">
+                  <boolean name="apiAuthentication" value="false"/>
+                  <boolean name="convertStr" value="false"/>
+                  <boolean name="enableDebug" value="false"/>
+                  <boolean name="enableGlobalEvent" value="false"/>
+                  <boolean name="enableRARListener" value="false"/>
+                  <boolean name="enableSecuredConnection" value="false"/>
+                  <boolean name="enableSpendingStatusMonitoring" value="false"/>
+                  <boolean name="enableSpotEvent" value="false"/>
+                  <int name="expectedAvgLatency" value="1"/>
+                  <boolean name="flowControlEnabled" value="true"/>
+                  <int name="frequency" value="1000"/>
+                  <string name="host" null="true"/>
+                  <string name="hosts" value="S4CC2023.EXPERTSOFT.IN:2000"/>
+                  <password name="keystorePassword" value="DR-4-017BB0B8FB061C1876D43DD75468AA40"/>
+                  <string name="keystorePath" value=""/>
+                  <boolean name="latencyControllerEnable" value="false"/>
+                  <password name="password" value="DR-4-017BB0B8FB061C1876D43DD75468AA40"/>
+                  <int name="port" value="0"/>
+                  <int name="queueSize" value="0"/>
+                  <int name="queueSizeToNotify" value="0"/>
+                  <int name="rARListenerId" value="1"/>
+                  <enum classname="com.digitalroute.mediationZoneIntegration.connection.types.ResultType" name="sessionCleanupTransactionSetToReturn" value="noTransaction"/>
+                  <enum classname="com.digitalroute.mediationZoneIntegration.connection.types.ResolutionMode" name="sessionResolution" value="cancel"/>
+                  <long name="sessionTTL" value="300"/>
+                  <int name="spendingStatusMonitoringDefaultListenerId" value="1"/>
+                  <int name="spendingStatusMonitoringListenerId" value="1"/>
+                  <int name="spendingStatusMonitoringSessionDefaultTTL" value="86400"/>
+                  <int name="timeout" value="3000"/>
+                  <enum classname="com.digitalroute.mediationZoneIntegration.connection.types.ResultType" name="transactionSetToReturn" value="noTransaction"/>
+                  <string name="username" value=""/>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="SAP_CC_Online_1"/>
+      </storable>
+   </list>
+   <storable name="Persistent" storable-id="dr.WorkflowPersistentConfig" ver="10.0">
+      <string name="persistentInspector" null="true"/>
+      <storable name="persistentStorageConfig" null="true"/>
+      <string name="persistentTimeoutHandler" null="true"/>
+   </storable>
+   <list classname="java.util.ArrayList" name="Routes">
+      <storable name="0" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="r_1"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+      <storable name="1" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="r_2"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+      <storable name="2" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="r_3"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+   </list>
+   <list classname="java.util.ArrayList" name="Service"/>
+   <boolean name="Template Valid" value="true"/>
+   <storable name="Thread data" storable-id="dr.WorkflowExecutionRealtimeConfig" ver="10.0">
+      <int name="countInterval" value="1"/>
+      <int name="queueSize" value="1000"/>
+      <string name="queueStrategy" null="true"/>
+      <string name="queueWorkerStrategy" null="true"/>
+      <boolean name="standalone" value="false"/>
+      <int name="threads" value="8"/>
+   </storable>
+</exportmultiplex>

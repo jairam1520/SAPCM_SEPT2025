@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<interwf category="Internal">
+   <storable name="interwf" storable-id="dr.Configuration" ver="10.1">
+      <array classname="java.lang.String" name="Access Groups -read -write -execute" size="3">
+         <string name="0" value="ZSAP_CM_ALL"/>
+         <string name="1" value="ZSAP_CM_ALL"/>
+         <string name="2" value="ZSAP_CM_ALL"/>
+      </array>
+      <storable name="Auxiliary Data" null="true"/>
+      <storable name="Data" storable-id="dr.StorageAreaData" ver="7.0">
+         <boolean name="Compressed" value="false"/>
+         <storable name="DB Profile DR Configuration" null="true"/>
+         <storable name="Database Profile" null="true"/>
+         <map classname="java.util.HashMap" name="ExtRef Map" size="0"/>
+         <string name="ExtRef Profile" null="true"/>
+         <float name="ExtRef Version" value="1.0"/>
+         <string name="Key" null="true"/>
+         <int name="Max number of batches" value="0"/>
+         <long name="Max number of bytes" value="0"/>
+         <string name="Pico group name" null="true"/>
+         <array name="Published MIMs" null="true"/>
+         <string name="Root directory" value="/opt/mz/SAPCM-SEPT25/IWF/storage"/>
+         <string name="Storage Type" value="File Storage"/>
+         <int name="Version" value="0"/>
+      </storable>
+      <set name="Dynamic Parameters" null="true"/>
+      <string name="Folder" value="SAPCM-SEPT25_IWF"/>
+      <boolean name="Is Dirty" value="false"/>
+      <boolean name="Is Dry Run" value="false"/>
+      <boolean name="Is Encrypted" value="false"/>
+      <boolean name="Is Locked" value="false"/>
+      <boolean name="Is Valid" value="true"/>
+      <string name="Key" value="DR1763197987315"/>
+      <string name="Modified By" value="sapcmuser14"/>
+      <long name="Modified Date" value="1763197987319"/>
+      <string name="Name" value="PRF_IWF"/>
+      <string name="Owner" value="sapcmuser14"/>
+      <string name="Type" value="Inter Workflow Profile"/>
+      <int name="Version" value="1"/>
+      <string name="documentation" value=""/>
+   </storable>
+</interwf>

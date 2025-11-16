@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<exportmultiplex category="Ultra_Format" ref_path="ultra_format[Internal]/storable[ultra_format]/storable[Data]">
+   <string name="Definition"><![CDATA[external systemCons : identified_by(consType == "System"){
+	ascii consType : terminated_by(",");
+	ascii hostname : terminated_by(",");
+	ascii cpuUsage : terminated_by(",");
+	ascii memUsage : terminated_by(",");
+	ascii diskUsed : terminated_by(",");
+	ascii osType : terminated_by("\n");
+};
+external networkCons: identified_by(consType == "Network"){
+	ascii consType : terminated_by(",");
+	ascii hostname : terminated_by(",");
+	ascii networkIn : terminated_by(",");
+	ascii networkOut : terminated_by(",");
+	ascii totalConsScore : terminated_by("\n");
+};
+ 
+internal networkFields{
+    string osType;    
+};
+
+internal netInt{
+    string osType; 
+    string consType;
+    string hostname;
+    string networkIn;
+    string networkOut;
+    string totalConsScore;
+    list<string> liCons;
+};
+
+in_map sysImap : external(systemCons),target_internal(systemCons_TI){automatic;};
+in_map netImap : external(networkCons),internal(netInt){automatic;};
+
+decoder consDec : in_map(sysImap),in_map(netImap);
+
+out_map sysOmap : external(systemCons),internal(systemCons_TI){automatic;};
+out_map netOmap : external(networkCons),internal(netInt){automatic;};
+
+encoder consEnc : out_map(sysOmap),out_map(netOmap);
+
+
+]]></string>
+</exportmultiplex>

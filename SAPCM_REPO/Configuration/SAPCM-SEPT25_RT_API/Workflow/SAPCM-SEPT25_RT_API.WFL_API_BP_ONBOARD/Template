@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<exportmultiplex category="Template" ref_path="workflow_data[Internal]/storable[workflow_data]/storable[Data]">
+   <list classname="java.util.ArrayList" name="Comments"/>
+   <storable name="Execution Config" storable-id="dr.WorkflowExecutionConfig" ver="10.0">
+      <enum name="debugType" storable-id="dr.DebugType" value="EVENT"/>
+      <storable name="executionSettings" storable-id="dr.ExecutionSettings" ver="11.0">
+         <boolean name="enabled" value="false"/>
+         <storable name="kafka" null="true"/>
+      </storable>
+      <int name="noOfFilesToKeep" value="0"/>
+      <string name="throughputMIM" null="true"/>
+      <string name="txnHandler" value="Default Handler"/>
+   </storable>
+   <list classname="java.util.ArrayList" name="Field Types"/>
+   <list classname="java.util.ArrayList" name="Logged error MIM"/>
+   <list classname="java.util.ArrayList" name="Nodes">
+      <storable name="0" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname" value="com.digitalroute.wfc.http.HttpdInsp"/>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.wfc.http.HttpdInsp"/>
+               <storable name="Data" storable-id="dr.HttpdData" ver="30.0">
+                  <string name="characterEncoding" value="Default"/>
+                  <int name="clientTimeout" value="10"/>
+                  <int name="gzipLevel" value="7"/>
+                  <string name="host" value="192.168.2.100"/>
+                  <boolean name="isTwoWayAuth" value="false"/>
+                  <string name="keystore" null="true"/>
+                  <password name="passphrase" value="DR-4-017BB0B8FB061C1876D43DD75468AA40"/>
+                  <int name="port" value="8081"/>
+                  <int name="receivers" value="0"/>
+                  <storable name="securityProfile" null="true"/>
+                  <int name="serverTimeout" value="0"/>
+                  <string name="transport" value="Netty3"/>
+                  <string name="twoWayTruststore" null="true"/>
+                  <password name="twoWayTsPassphrase" value="DR-4-017BB0B8FB061C1876D43DD75468AA40"/>
+                  <storable name="udrType" storable-id="dr.UltraClientInfo" ver="1.0">
+                     <string name="FormatName" value="SAPCM-SEPT25_RT_API.UFL_HTTPD"/>
+                     <string name="TypeName" value="SAPCM-SEPT25_RT_API.UFL_HTTPD.MYHTTPD"/>
+                  </storable>
+                  <boolean name="useSSL" value="false"/>
+                  <boolean name="useSecurityProfile" value="false"/>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="HTTPD_Deprecated_1"/>
+      </storable>
+      <storable name="1" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname" value="com.digitalroute.wfc.analysis.AnalysisRealtimeInsp"/>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.wfc.analysis.AnalysisRealtimeInsp"/>
+               <storable name="Data" storable-id="dr.StuffyMapperData" ver="10.0">
+                  <string name="sourceCode"><![CDATA[import ultra.SAP_RFC.SAPCM-SEPT25_S4HANA.PRF_RFC_CREATE_BP.subUdr;
+consume {
+    if(instanceOf(input,MYHTTPD)){
+        MYHTTPD httpd = (MYHTTPD)input;
+        
+        // Handle CORS preflight (OPTIONS)
+        if (httpd.requestMethod == "OPTIONS") {
+            debug("Handling CORS preflight request");
+        
+            httpd.responseStatusCode = "200 OK";
+            httpd.contentType = "text/plain";
+            httpd.responseType = "text/plain";
+            httpd.response = "";
+            setHeader(httpd);
+            
+            // Send preflight response
+            udrRoute(httpd, "httpResp");
+            return;
+        }
+
+        
+        debug("Input request:"+httpd);
+        string content = httpd.content;
+        
+        
+        //decode the stringified json
+        BusinessPartner bp = udrCreate(BusinessPartner); 
+        jsonDecodeUdr(content,bp);
+        debug("Decoded data:"+bp);
+        
+        //create rfc request from input
+        BAPI_BUPA_CREATE_FROM_DATA_UDR rfc = udrCreate(BAPI_BUPA_CREATE_FROM_DATA_UDR);
+        rfc.context = httpd;
+        createRfcBPcreateFromIp(rfc,bp); 
+        udrRoute(rfc,"rfc");
+        
+        //commit the rfc to save data in S4
+        BAPI_TRANSACTION_COMMIT_UDR commit_rfc = udrCreate(BAPI_TRANSACTION_COMMIT_UDR);
+        commit_rfc.importParams = udrCreate(importParams_BAPI_TRANSACTION_COMMIT );
+        commit_rfc.importParams.WAIT = "X";
+        udrRoute(commit_rfc,"rfc"); 
+        
+        
+    }else if(instanceOf(input,BAPI_BUPA_CREATE_FROM_DATA_UDR)){
+         //typecast the rfc structure
+         BAPI_BUPA_CREATE_FROM_DATA_UDR rfcRes = (BAPI_BUPA_CREATE_FROM_DATA_UDR)input;
+         debug("RFC resp:"+rfcRes);
+         //extract the raw http request
+         MYHTTPD httpd = (MYHTTPD)rfcRes.context;
+         //create success response for http request
+         if(rfcRes.exportParams.BUSINESSPARTNER != null && rfcRes.exportParams.BUSINESSPARTNER != ""){
+             string bpCreated = rfcRes.exportParams.BUSINESSPARTNER;
+             response resp = createResponseUdr(bpCreated,"BP creation success",true,200); 
+             //attach the response in desired format
+             httpd.response = jsonEncodeUdr(resp);
+             httpd.responseStatusCode = "200";
+             
+         }else{
+             list<BAPIRET2> liRet = rfcRes.tableParams.RETURN;
+             string errMsg = listGet(liRet,0).MESSAGE;
+             response resp = createResponseUdr("",errMsg,false,400); 
+             //attach the response in desired format
+             httpd.response = jsonEncodeUdr(resp);
+             httpd.responseStatusCode = "400";
+         }
+         //debug("Response:"+httpd);
+         httpd.contentType = "application/json";
+         httpd.responseType = "application/json";
+         setHeader(httpd);
+         udrRoute(httpd,"httpResp");
+         
+        
+    }else if(instanceOf(input,RfcErrorUDR)){
+        //typecast input to rfc error structure
+        RfcErrorUDR rfcErr = (RfcErrorUDR)input;
+        debug(rfcErr);
+        //fetch the rfc request
+        BAPI_BUPA_CREATE_FROM_DATA_UDR rfcReq = (BAPI_BUPA_CREATE_FROM_DATA_UDR)rfcErr.inputUDR;
+        //extract the raw http request
+        MYHTTPD httpd = (MYHTTPD)rfcReq.context;
+        //attach the response in desired format
+        response errResp = createResponseUdr("",rfcErr.errorMessage,false,400);
+        httpd.response = jsonEncodeUdr(errResp);
+        httpd.responseStatusCode = "400";
+        httpd.contentType = "application/json";
+        httpd.responseType = "application/json";
+        setHeader(httpd);
+        debug("Response:"+httpd);
+        udrRoute(httpd,"httpResp");    
+    }
+}
+void createRfcBPcreateFromIp(BAPI_BUPA_CREATE_FROM_DATA_UDR rfc , BusinessPartner bp){
+        
+        rfc.importParams = udrCreate(importParams_BAPI_BUPA_CREATE_FROM_DATA);
+        rfc.importParams.CENTRALDATAPERSON = udrCreate(BAPIBUS1006_CENTRAL_PERSON);
+        rfc.importParams.ADDRESSDATA = udrCreate(BAPIBUS1006_ADDRESS);
+        // Set Partner Category (1=Person, as used in your logs)
+        rfc.importParams.PARTNERCATEGORY = "1";
+
+        // Set Partner Group (e.g., 0001, critical for number assignment)
+        rfc.importParams.PARTNERGROUP = "0001";
+        
+        // Populate Person Data (FIRSTNAME and LASTNAME are mandatory for PARTNERCATEGORY '1')
+        rfc.importParams.CENTRALDATAPERSON.FIRSTNAME = bp.fName;
+        rfc.importParams.CENTRALDATAPERSON.LASTNAME = bp.lName;
+        
+        // Populate Address Data
+        rfc.importParams.ADDRESSDATA.COUNTRY = bp.country;
+        rfc.importParams.ADDRESSDATA.CITY = bp.city;
+        // CRITICAL FIX: Ensure the correct field name (POSTL_CODE, not POSTL_COD1)
+        rfc.importParams.ADDRESSDATA.POSTL_COD1 = bp.zip;
+        rfc.isTwoPhaseCommit = true;
+        debug(rfc);
+}
+response createResponseUdr(string bp,string message,boolean isSuccess,int code){
+    response res = udrCreate(response);
+    res.businessPartner = bp;
+    res.message = message;
+    res.success = isSuccess;
+    res.responseCode = code;
+    return res;
+}
+void setHeader(MYHTTPD httpd){
+    // Always add CORS headers (for browser POST response)
+    map<string, string> cors = mapCreate(string, string);
+    mapSet(cors, "Access-Control-Allow-Origin", "*");
+    mapSet(cors, "Access-Control-Allow-Methods", "POST, OPTIONS");
+    mapSet(cors, "Access-Control-Allow-Headers", "Content-Type");
+    mapSet(cors, "Access-Control-Max-Age", "3600");
+    httpd.httpResponseHeaders = cors;    
+}]]></string>
+                  <array classname="com.digitalroute.devkit.drudr.DRTypeInfo" name="udrTypes" size="4">
+                     <storable name="0" storable-id="dr.DRTypeInfo" ver="1.0">
+                        <string name="TypeName"><![CDATA[SAP_RFC.SAPCM-SEPT25_S4HANA.PRF_RFC_CREATE_BP.BAPI_BUPA_CREATE_FROM_DATA_UDR]]></string>
+                     </storable>
+                     <storable name="1" storable-id="dr.DRTypeInfo" ver="1.0">
+                        <string name="TypeName"><![CDATA[SAP_RFC.SAPCM-SEPT25_S4HANA.PRF_RFC_CREATE_BP.BAPI_TRANSACTION_COMMIT_UDR]]></string>
+                     </storable>
+                     <storable name="2" storable-id="dr.UltraClientInfo" ver="1.0">
+                        <string name="FormatName" value="SAPCM-SEPT25_RT_API.UFL_HTTPD"/>
+                        <string name="TypeName" value="SAPCM-SEPT25_RT_API.UFL_HTTPD.MYHTTPD"/>
+                     </storable>
+                     <storable name="3" storable-id="dr.DRTypeInfo" ver="1.0">
+                        <string name="TypeName" value="RfcErrorUDR"/>
+                     </storable>
+                  </array>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="Analysis_1"/>
+      </storable>
+      <storable name="2" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname" value="com.digitalroute.rfc.agent.SAPJCoRFCAgentInsp"/>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.rfc.agent.SAPJCoRFCAgentInsp"/>
+               <storable name="Data" storable-id="rfc.agent.contract" ver="10.0">
+                  <int name="cacheExpiry" value="120"/>
+                  <int name="cacheSize" value="1000"/>
+                  <boolean name="enableConnectionPool" value="true"/>
+                  <boolean name="enableImmediateStop" value="true"/>
+                  <int name="executorSize" value="5"/>
+                  <int name="jCoPeakLimit" value="10"/>
+                  <int name="jCoPoolCapacity" value="2"/>
+                  <int name="queueSize" value="1000"/>
+                  <storable name="rfcProfile" storable-id="dr.DRConfiguration" ver="2.0">
+                     <set name="Dynamic Parameters" null="true"/>
+                     <string name="Folder" value="SAPCM-SEPT25_S4HANA"/>
+                     <string name="Key" value="DR1762534378210"/>
+                     <string name="Name" value="PRF_RFC_CREATE_BP"/>
+                     <string name="Type" value="SAP RFC Profile"/>
+                  </storable>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="SAP_RFC_Processor_1"/>
+      </storable>
+   </list>
+   <storable name="Persistent" storable-id="dr.WorkflowPersistentConfig" ver="10.0">
+      <string name="persistentInspector" null="true"/>
+      <storable name="persistentStorageConfig" null="true"/>
+      <string name="persistentTimeoutHandler" null="true"/>
+   </storable>
+   <list classname="java.util.ArrayList" name="Routes">
+      <storable name="0" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="httpReq"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+      <storable name="1" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="rfc"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+      <storable name="2" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="r_3"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+      <storable name="3" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="httpResp"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+   </list>
+   <list classname="java.util.ArrayList" name="Service"/>
+   <boolean name="Template Valid" value="true"/>
+   <storable name="Thread data" storable-id="dr.WorkflowExecutionRealtimeConfig" ver="10.0">
+      <int name="countInterval" value="1"/>
+      <int name="queueSize" value="1000"/>
+      <string name="queueStrategy" null="true"/>
+      <string name="queueWorkerStrategy" null="true"/>
+      <boolean name="standalone" value="false"/>
+      <int name="threads" value="8"/>
+   </storable>
+</exportmultiplex>

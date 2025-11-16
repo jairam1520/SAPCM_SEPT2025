@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<exportmultiplex category="Template" ref_path="workflow_data[Internal]/storable[workflow_data]/storable[Data]">
+   <list classname="java.util.ArrayList" name="Comments"/>
+   <storable name="Execution Config" storable-id="dr.WorkflowExecutionConfig" ver="10.0">
+      <enum name="debugType" storable-id="dr.DebugType" value="EVENT"/>
+      <storable name="executionSettings" storable-id="dr.ExecutionSettings" ver="11.0">
+         <boolean name="enabled" value="false"/>
+         <storable name="kafka" null="true"/>
+      </storable>
+      <int name="noOfFilesToKeep" value="0"/>
+      <string name="throughputMIM" null="true"/>
+      <string name="txnHandler" value="Default Handler"/>
+   </storable>
+   <list classname="java.util.ArrayList" name="Field Types"/>
+   <list classname="java.util.ArrayList" name="Logged error MIM"/>
+   <list classname="java.util.ArrayList" name="Nodes">
+      <storable name="0" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname" value="com.digitalroute.wfc.analysis.AnalysisRealtimeInsp"/>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.wfc.analysis.AnalysisRealtimeInsp"/>
+               <storable name="Data" storable-id="dr.StuffyMapperData" ver="10.0">
+                  <string name="sourceCode"><![CDATA[import ultra.SAP_RFC.SAPCM-SEPT25_S4HANA.PRF_RFC_BAPI_BUPA_CENTRAL_GETDETAIL.subUdr;
+import ultra.SAP_RFC.SAPCM-SEPT25_S4HANA.PRF_RFC_CIT_CREATE_API.subUdr;
+consume {
+    if(instanceOf(input,citCons_TI)){
+        citCons_TI rawCons = (citCons_TI)input;
+        if(rawCons.bp != null){
+            //check if BP exist
+            BAPI_BUPA_CENTRAL_GETDETAIL_UDR rfc = udrCreate(BAPI_BUPA_CENTRAL_GETDETAIL_UDR);
+            rfc.importParams = udrCreate(importParams_BAPI_BUPA_CENTRAL_GETDETAIL);
+            rfc.importParams.BUSINESSPARTNER = rawCons.bp;
+            rfc.context = rawCons;
+            debug("Checking BP:"+rawCons.bp);
+            udrRoute(rfc,"checkBP");
+        }        
+    }else if(instanceOf(input,BAPI_BUPA_CENTRAL_GETDETAIL_UDR)){
+        //got check BP response
+        BAPI_BUPA_CENTRAL_GETDETAIL_UDR cBpResp = (BAPI_BUPA_CENTRAL_GETDETAIL_UDR)input;
+        citCons_TI rawCons = (citCons_TI)cBpResp.context;
+        
+        if(cBpResp.tableParams.RETURN != null && listSize(cBpResp.tableParams.RETURN) > 0){
+            debug("BP dont exist.");
+        }else{
+            
+             //BP Exist load cit
+             _1FC_ZINT_CIT_CREATE_API_UDR rfc = udrCreate(_1FC_ZINT_CIT_CREATE_API_UDR);
+            rfc.isTwoPhaseCommit = true;
+            debug("BP exist.");
+            // --- Import Parameters ---
+            rfc.importParams = udrCreate(importParams__1FC_ZINT_CIT_CREATE_API);
+            rfc.importParams.I_UNRATED = "X";
+            rfc.importParams.I_MANDT = "500";
+            rfc.importParams.I_FIRST_CALL = "X";
+            rfc.importParams.I_LAST_CALL = "X";
+            rfc.importParams.I_MAX_PROBCL = "2";
+    
+            // --- Table Parameters (input) ---
+            rfc.tableParams = udrCreate(tableParams__1FC_ZINT_CIT_CREATE_API);
+            rfc.tableParams.IT_CIT = listCreate(_1FC_1ZINT_API);
+            rfc.tableParams.ET_CIT0_RETURN = listCreate(_1FC_0ZINT0);
+            rfc.tableParams.ET_CIT2_RETURN = listCreate(_1FC_0ZINT2);
+            rfc.tableParams.ET_CIT4_RETURN = listCreate(_1FC_0ZINT400);
+            rfc.tableParams.ET_MESSAGES = listCreate(FKKBIX_API_MSG);
+    
+       
+    
+            // Create CIT record
+            _1FC_1ZINT_API cit = udrCreate(_1FC_1ZINT_API);
+            
+            cit.CITID        = "ZINT_" + rawCons.consDate;
+            cit.CITIDTYPE    = "ZINN";
+            cit.CONSUMDATE   = rawCons.consDate;
+            cit.GPART        = rawCons.bp;
+            cit.VKONT        = rawCons.ca;
+            cit.VTPOS        = 0;
+            double citQty;
+            strToDouble(citQty,rawCons.quantity);
+            cit.CIT_CURR = "INR";
+            cit.CIT_QUANTITY = citQty;
+            listAdd(rfc.tableParams.IT_CIT, cit);
+    
+            debug("Loading CIT.");
+            udrRoute(rfc,"loadCit");
+                
+        }
+    }else if(instanceOf(input,_1FC_ZINT_CIT_CREATE_API_UDR)){
+        debug("CIT CREATION RESPONSE: "+input);
+    }else if(instanceOf(input,RfcErrorUDR)) {
+        debug("RFC Error:"+input);    
+    }
+     
+    
+}]]></string>
+                  <array classname="com.digitalroute.devkit.drudr.DRTypeInfo" name="udrTypes" size="4">
+                     <storable name="0" storable-id="dr.DRTypeInfo" ver="1.0">
+                        <string name="TypeName"><![CDATA[SAP_RFC.SAPCM-SEPT25_S4HANA.PRF_RFC_CIT_CREATE_API._1FC_ZINT_CIT_CREATE_API_UDR]]></string>
+                     </storable>
+                     <storable name="1" storable-id="dr.DRTypeInfo" ver="1.0">
+                        <string name="TypeName"><![CDATA[SAP_RFC.SAPCM-SEPT25_S4HANA.PRF_RFC_BAPI_BUPA_CENTRAL_GETDETAIL.BAPI_BUPA_CENTRAL_GETDETAIL_UDR]]></string>
+                     </storable>
+                     <storable name="2" storable-id="dr.UltraClientInfo" ver="1.0">
+                        <string name="FormatName" value="SAPCM-SEPT25_S4HANA.UFL_CIT_CONS"/>
+                        <string name="TypeName" value="SAPCM-SEPT25_S4HANA.UFL_CIT_CONS.citCons_TI"/>
+                     </storable>
+                     <storable name="3" storable-id="dr.DRTypeInfo" ver="1.0">
+                        <string name="TypeName" value="RfcErrorUDR"/>
+                     </storable>
+                  </array>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="Analysis_1"/>
+      </storable>
+      <storable name="1" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname" value="com.digitalroute.rfc.agent.SAPJCoRFCAgentInsp"/>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.rfc.agent.SAPJCoRFCAgentInsp"/>
+               <storable name="Data" storable-id="rfc.agent.contract" ver="10.0">
+                  <int name="cacheExpiry" value="120"/>
+                  <int name="cacheSize" value="1000"/>
+                  <boolean name="enableConnectionPool" value="false"/>
+                  <boolean name="enableImmediateStop" value="false"/>
+                  <int name="executorSize" value="5"/>
+                  <int name="jCoPeakLimit" value="10"/>
+                  <int name="jCoPoolCapacity" value="2"/>
+                  <int name="queueSize" value="1000"/>
+                  <storable name="rfcProfile" storable-id="dr.DRConfiguration" ver="2.0">
+                     <set name="Dynamic Parameters" null="true"/>
+                     <string name="Folder" value="SAPCM-SEPT25_S4HANA"/>
+                     <string name="Key" value="DR1762071613242"/>
+                     <string name="Name" value="PRF_RFC_BAPI_BUPA_CENTRAL_GETDETAIL"/>
+                     <string name="Type" value="SAP RFC Profile"/>
+                  </storable>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="SAP_RFC_Processor_1"/>
+      </storable>
+      <storable name="2" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname" value="com.digitalroute.rfc.agent.SAPJCoRFCAgentInsp"/>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.rfc.agent.SAPJCoRFCAgentInsp"/>
+               <storable name="Data" storable-id="rfc.agent.contract" ver="10.0">
+                  <int name="cacheExpiry" value="120"/>
+                  <int name="cacheSize" value="1000"/>
+                  <boolean name="enableConnectionPool" value="false"/>
+                  <boolean name="enableImmediateStop" value="false"/>
+                  <int name="executorSize" value="5"/>
+                  <int name="jCoPeakLimit" value="10"/>
+                  <int name="jCoPoolCapacity" value="2"/>
+                  <int name="queueSize" value="1000"/>
+                  <storable name="rfcProfile" storable-id="dr.DRConfiguration" ver="2.0">
+                     <set name="Dynamic Parameters" null="true"/>
+                     <string name="Folder" value="SAPCM-SEPT25_S4HANA"/>
+                     <string name="Key" value="DR1762070646970"/>
+                     <string name="Name" value="PRF_RFC_CIT_CREATE_API"/>
+                     <string name="Type" value="SAP RFC Profile"/>
+                  </storable>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="SAP_RFC_Processor_2"/>
+      </storable>
+      <storable name="3" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname"><![CDATA[com.digitalroute.mz.pulse.agent.PulseCollectorAgentInspRT]]></string>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname"><![CDATA[com.digitalroute.mz.pulse.agent.PulseCollectorAgentInspRT]]></string>
+               <storable name="Data" storable-id="dr.PulseData" ver="10.0">
+                  <double name="center" value="1.0"/>
+                  <string name="data" value=""/>
+                  <boolean name="dataEntered" value="true"/>
+                  <boolean name="dataRandomData" value="false"/>
+                  <boolean name="dataRandomOrderSeq" value="false"/>
+                  <int name="dataRangeEnd" value="10"/>
+                  <int name="dataRangeStart" value="0"/>
+                  <boolean name="dataSequentialOrder" value="true"/>
+                  <boolean name="dataSequentialRange" value="false"/>
+                  <int name="dataSize" value="1"/>
+                  <enum name="dataUnit" storable-id="dr.PulseDataSizeUnit" value="Bytes"/>
+                  <long name="intervalFixed" value="1"/>
+                  <string name="intervalType" value="Fixed"/>
+                  <double name="poissonRate" value="1.0"/>
+                  <long name="rate" value="1"/>
+                  <long name="start" value="1"/>
+                  <long name="stop" value="10"/>
+                  <enum name="unit" storable-id="dr.PulseTimeUnit" value="HOURS"/>
+                  <double name="width" value="1.0"/>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="Pulse_1"/>
+      </storable>
+      <storable name="4" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname" value="com.digitalroute.wfc.analysis.AnalysisRealtimeInsp"/>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.wfc.analysis.AnalysisRealtimeInsp"/>
+               <storable name="Data" storable-id="dr.StuffyMapperData" ver="10.0">
+                  <string name="sourceCode"><![CDATA[import ultra.SAPCM-SEPT25_S4HANA.UFL_CIT_CONS;
+consume {
+    list<string> files = fileListFiles("/opt/mz/SAPCM-SEPT25/S4");
+    debug("files:"+files);
+    if(files != null && listSize(files)>0){
+        for(string f : files){
+            bytearray ba = readFileBinary("/opt/mz/SAPCM-SEPT25/S4/"+f);
+            list<citCons_TI> recList = listCreate(citCons_TI);
+            string error = udrDecode("SAPCM-SEPT25_S4HANA.UFL_CIT_CONS.dec" ,recList ,ba )  ;
+            if(error == null){
+                for(citCons_TI ip : recList){
+                    debug("ip:"+ip);
+                    udrRoute(ip);    
+                }    
+            }  
+        }    
+    }
+}]]></string>
+                  <array classname="com.digitalroute.devkit.drudr.DRTypeInfo" name="udrTypes" size="1">
+                     <storable name="0" storable-id="dr.DRTypeInfo" ver="1.0">
+                        <string name="TypeName" value="PulseUDR"/>
+                     </storable>
+                  </array>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="Analysis_2"/>
+      </storable>
+   </list>
+   <storable name="Persistent" storable-id="dr.WorkflowPersistentConfig" ver="10.0">
+      <string name="persistentInspector" null="true"/>
+      <storable name="persistentStorageConfig" null="true"/>
+      <string name="persistentTimeoutHandler" null="true"/>
+   </storable>
+   <list classname="java.util.ArrayList" name="Routes">
+      <storable name="0" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="checkBP"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+      <storable name="1" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="r_3"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+      <storable name="2" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="loadCit"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+      <storable name="3" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="r_5"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+      <storable name="4" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="r_6"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+      <storable name="5" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="r_7"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+   </list>
+   <list classname="java.util.ArrayList" name="Service"/>
+   <boolean name="Template Valid" value="true"/>
+   <storable name="Thread data" storable-id="dr.WorkflowExecutionRealtimeConfig" ver="10.0">
+      <int name="countInterval" value="1"/>
+      <int name="queueSize" value="1000"/>
+      <string name="queueStrategy" null="true"/>
+      <string name="queueWorkerStrategy" null="true"/>
+      <boolean name="standalone" value="false"/>
+      <int name="threads" value="8"/>
+   </storable>
+</exportmultiplex>

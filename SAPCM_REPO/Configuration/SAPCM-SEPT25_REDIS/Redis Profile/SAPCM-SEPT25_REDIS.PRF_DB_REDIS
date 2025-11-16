@@ -1,24 +1,14 @@
-{
-  "Key": "DR1761894162325",
-  "Name": "PRF_DB_REDIS",
-  "Type": "Redis Profile",
-  "Version": 1,
-  "Folder": "SAPCM-SEPT25_REDIS",
-  "Owner": "sapcmuser14",
-  "Is Valid": true,
-  "Access Groups -read -write -execute": [
-    "ZSAP_CM_ALL",
-    "ZSAP_CM_ALL",
-    "ZSAP_CM_ALL"
-  ],
-  "Data": {
-    "HOST": "192.168.2.100",
-    "PORT": 6379,
-    "DB_PASSWORD": "DR-4-017BB0B8FB061C1876D43DD75468AA40",
-    "MAX_RETRIES": 30,
-    "RETRY_INTERVAL": 5,
-    "OPER_TIMEOUT": 1000,
-    "Advanced Properties": "# Properties controlling Redis storage can be customized here.
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<redis_profile category="Internal">
+   <storable name="redis_profile" storable-id="dr.Configuration" ver="10.1">
+      <array classname="java.lang.String" name="Access Groups -read -write -execute" size="3">
+         <string name="0" value="ZSAP_CM_ALL"/>
+         <string name="1" value="ZSAP_CM_ALL"/>
+         <string name="2" value="ZSAP_CM_ALL"/>
+      </array>
+      <storable name="Auxiliary Data" null="true"/>
+      <storable name="Data" storable-id="dr.RedisProfileConfig" ver="3.0">
+         <string name="Advanced Properties"><![CDATA[# Properties controlling Redis storage can be customized here.
 # Please read the user documentation before changing these properties.
 
 
@@ -31,15 +21,31 @@ mz.redis.connection.time.limit 300
 # Time in seconds before the Redis connection is reset in case of topology changes. Default value is 10.
 mz.redis.topology.time.limit 10
 
-",
-    "ExtRef Version": 1.0,
-    "ExtRef Map": [],
-    "$Type": "dr.RedisProfileConfig",
-    "$Version": 3.0
-  },
-  "documentation": "",
-  "Is Dry Run": false,
-  "$Type": "dr.Configuration",
-  "$Version": 10.1,
-  "Comment": ""
-}
+]]></string>
+         <password name="DB_PASSWORD" value="DR-4-017BB0B8FB061C1876D43DD75468AA40"/>
+         <map classname="java.util.HashMap" name="ExtRef Map" size="0"/>
+         <string name="ExtRef Profile" null="true"/>
+         <float name="ExtRef Version" value="1.0"/>
+         <string name="HOST" value="192.168.2.100"/>
+         <int name="MAX_RETRIES" value="30"/>
+         <int name="OPER_TIMEOUT" value="1000"/>
+         <int name="PORT" value="6379"/>
+         <int name="RETRY_INTERVAL" value="5"/>
+      </storable>
+      <set name="Dynamic Parameters" null="true"/>
+      <string name="Folder" value="SAPCM-SEPT25_REDIS"/>
+      <boolean name="Is Dirty" value="false"/>
+      <boolean name="Is Dry Run" value="false"/>
+      <boolean name="Is Encrypted" value="false"/>
+      <boolean name="Is Locked" value="false"/>
+      <boolean name="Is Valid" value="true"/>
+      <string name="Key" value="DR1761894162325"/>
+      <string name="Modified By" value="sapcmuser14"/>
+      <long name="Modified Date" value="1761865362325"/>
+      <string name="Name" value="PRF_DB_REDIS"/>
+      <string name="Owner" value="sapcmuser14"/>
+      <string name="Type" value="Redis Profile"/>
+      <int name="Version" value="1"/>
+      <string name="documentation" value=""/>
+   </storable>
+</redis_profile>
