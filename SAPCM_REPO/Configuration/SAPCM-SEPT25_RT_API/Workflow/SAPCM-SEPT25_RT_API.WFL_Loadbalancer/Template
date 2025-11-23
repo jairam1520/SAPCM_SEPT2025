@@ -83,29 +83,24 @@
                   <string name="sourceCode"><![CDATA[boolean i = false;
 consume {
     if(instanceOf(input,RequestCycle)){
-        debug("Input:"+input);
-        if(input.context == null){
-            RequestCycle ip = udrClone((RequestCycle)input);
-            debug("Request received..");
-            if(i == false){
-                ip.clientPort = 8095; 
-                toggle(true);
-            }else{
-                 toggle(false);
-                 ip.clientPort = 8096; 
-            }   
-            ip.clientHost = "192.168.2.100";
-            ip.context = input;
-            udrRoute(ip,"r_5");
+        debug("Req in:"+input);
+        
+        RequestCycle reqOut = udrCreate(RequestCycle);
+        if(i == false){
+            reqOut.port = "8097"; 
+            toggle(true);
         }else{
-            debug("Response received..");
-            RequestCycle res = (RequestCycle)input;
-            RequestCycle req = (RequestCycle)res.context;
-            
-            req.response = res.response;
-            udrRoute(req,"r_6");
-            
-        }
+            toggle(false);
+            reqOut.port = "8096"; 
+        }  
+        reqOut.body = input.body; 
+        reqOut.host = "192.168.2.100";
+        reqOut.method = input.method; 
+        reqOut.context = input;
+        debug("Req out:"+reqOut);
+        
+        udrRoute(reqOut,"r_5");
+        
         
     }
 }
@@ -203,6 +198,32 @@ synchronized void toggle(boolean val){
          </array>
          <string name="Name" value="HTTP2_Client_1"/>
       </storable>
+      <storable name="3" storable-id="dr.WfNode" ver="2.0">
+         <string name="Classname" value="com.digitalroute.wfc.analysis.AnalysisRealtimeInsp"/>
+         <array classname="com.digitalroute.wf.WfNodeConfig" name="Configuration" size="1">
+            <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
+               <string name="Classname" value="com.digitalroute.wfc.analysis.AnalysisRealtimeInsp"/>
+               <storable name="Data" storable-id="dr.StuffyMapperData" ver="10.0">
+                  <string name="sourceCode"><![CDATA[consume {
+    if(instanceOf(input,RequestCycle)){
+        debug("Response in:"+input);
+        
+        RequestCycle httpRes = (RequestCycle)input.context;
+        httpRes.response = input.response;
+        debug("Response out:"+httpRes);
+        udrRoute(httpRes);
+    }
+}]]></string>
+                  <array classname="com.digitalroute.devkit.drudr.DRTypeInfo" name="udrTypes" size="1">
+                     <storable name="0" storable-id="dr.DRTypeInfo" ver="1.0">
+                        <string name="TypeName" value="http.RequestCycle"/>
+                     </storable>
+                  </array>
+               </storable>
+            </storable>
+         </array>
+         <string name="Name" value="Analysis_2"/>
+      </storable>
    </list>
    <storable name="Persistent" storable-id="dr.WorkflowPersistentConfig" ver="10.0">
       <string name="persistentInspector" null="true"/>
@@ -215,15 +236,15 @@ synchronized void toggle(boolean val){
          <int name="Realtime mode" value="0"/>
       </storable>
       <storable name="1" storable-id="dr.WfRoute" ver="2.0">
-         <string name="Name" value="r_3"/>
-         <int name="Realtime mode" value="0"/>
-      </storable>
-      <storable name="2" storable-id="dr.WfRoute" ver="2.0">
          <string name="Name" value="r_5"/>
          <int name="Realtime mode" value="0"/>
       </storable>
-      <storable name="3" storable-id="dr.WfRoute" ver="2.0">
+      <storable name="2" storable-id="dr.WfRoute" ver="2.0">
          <string name="Name" value="r_6"/>
+         <int name="Realtime mode" value="0"/>
+      </storable>
+      <storable name="3" storable-id="dr.WfRoute" ver="2.0">
+         <string name="Name" value="r_8"/>
          <int name="Realtime mode" value="0"/>
       </storable>
    </list>

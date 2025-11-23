@@ -238,11 +238,11 @@
       <boolean name="Is Valid" value="true"/>
       <string name="Key" value="DR1760866318238"/>
       <string name="Modified By" value="sapcmuser14"/>
-      <long name="Modified Date" value="1760854194851"/>
+      <long name="Modified Date" value="1763393232714"/>
       <string name="Name" value="WFL_DUP_UDR_2"/>
       <string name="Owner" value="sapcmuser14"/>
       <string name="Type" value="Workflow"/>
-      <int name="Version" value="4"/>
+      <int name="Version" value="7"/>
       <string name="documentation" value=""/>
    </storable>
 </workflow_data>

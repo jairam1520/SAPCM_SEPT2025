@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<exportmultiplex category="Ultra_Format" ref_path="ultra_format[Internal]/storable[ultra_format]/storable[Data]">
+   <string name="Definition"><![CDATA[internal WFBActionUDR : extends_class( "com.digitalroute.workflowbridge.transport.ultra.WfbActionUDR" ) {
+  int type;
+  ascii action;
+};
+external my_input sequential {
+  // field definitions
+  ascii myId : int(base10),terminated_by(",");
+  ascii text : terminated_by(0xa);
+};
+// Decoder mapping
+in_map inputMap :external( my_input ),target_internal( my_internal_TI ) { automatic;};
+decoder myDecoder : in_map( inputMap );
+]]></string>
+</exportmultiplex>

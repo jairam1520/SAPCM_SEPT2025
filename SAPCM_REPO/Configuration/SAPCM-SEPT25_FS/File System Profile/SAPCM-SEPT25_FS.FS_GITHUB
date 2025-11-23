@@ -32,7 +32,7 @@
       <boolean name="Is Dirty" value="false"/>
       <boolean name="Is Dry Run" value="false"/>
       <boolean name="Is Encrypted" value="false"/>
-      <boolean name="Is Locked" value="false"/>
+      <boolean name="Is Locked" value="true"/>
       <boolean name="Is Valid" value="true"/>
       <string name="Key" value="DR1759124353261"/>
       <string name="Modified By" value="sapcmuser14"/>

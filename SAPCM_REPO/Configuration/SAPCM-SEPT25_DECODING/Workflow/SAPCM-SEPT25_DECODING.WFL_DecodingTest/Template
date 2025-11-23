@@ -33,26 +33,26 @@
                   <boolean name="routeFileRef" value="false"/>
                   <array classname="java.lang.String" name="strategyClasses" size="2">
                      <string name="0" value="com.digitalroute.misc.advcoll.impl.DefaultFileInfo"/>
-                     <string name="1"><![CDATA[com.digitalroute.misc.advcoll.impl.DefaultSourceFileHandling]]></string>
+                     <string name="1"><![CDATA[com.digitalroute.wfc.collstrat.ctrlfile.CtrlFileStrategy]]></string>
                   </array>
-                  <string name="strategyCombinationClass"><![CDATA[com.digitalroute.misc.advcoll.impl.DefaultCollectionStrategy]]></string>
+                  <string name="strategyCombinationClass"><![CDATA[com.digitalroute.wfc.collstrat.ctrlfile.CtrlFileStrategyCombination]]></string>
                   <array classname="java.lang.Object" name="strategyConfigs" size="2">
                      <storable name="0" storable-id="dr.DefaultFileInfoConfig" ver="10.0">
                         <string name="baseDir" value="/opt/mz/SAPCM-SEPT25/Decoding/"/>
                         <enum name="compType" storable-id="dr.CompressionType" value="NONE"/>
-                        <string name="fileRegExp" value="Person.csv"/>
+                        <string name="fileRegExp" value="Person.*"/>
                         <boolean name="subfolders" value="false"/>
                      </storable>
-                     <storable name="1" storable-id="dr.DefaultSourceFileHandlingConfig" ver="10.0">
+                     <storable name="1" storable-id="dr.CtrlFileStrategyData" ver="10.0">
+                        <string name="extensionName" value="ctrl"/>
+                        <enum name="extensionPosition" storable-id="dr.CtrlFilePosition" value="SUFFIX"/>
+                        <string name="extensionToReplace" value="csv"/>
                         <int name="idleTime" value="0"/>
                         <boolean name="moveBeforeRetrieval" value="false"/>
-                        <string name="moveSuffix" value=""/>
                         <string name="rbDirectory" value=""/>
                         <int name="rbKeepInterval" value="-1"/>
                         <string name="rbRenamePrefix" value=""/>
                         <string name="rbRenameSuffix" value=""/>
-                        <string name="rbReplace" value=""/>
-                        <string name="rbSearch" value=""/>
                         <enum name="rbType" storable-id="dr.RetrievalType" value="IGNORE"/>
                      </storable>
                   </array>
@@ -98,10 +98,17 @@
             <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
                <string name="Classname" value="com.digitalroute.wfc.analysis.StuffyMapperInsp"/>
                <storable name="Data" storable-id="dr.StuffyMapperData" ver="10.0">
-                  <string name="sourceCode"><![CDATA[consume {
-    //input.city = "Jaipur";
+                  <string name="sourceCode"><![CDATA[boolean isFileExist = false;
+consume {
     debug(input);
-
+    isFileExist = true;
+}
+deinitialize{
+    if(isFileExist == false){
+        
+        string path = (string)mimGet("Disk_1","Source Pathname");
+        dispatchMessage("No File exist in:"+path,"NO_FILE") ;   
+    }    
 }
 cancelBatch{
     debug("cancel batch executed...")  ; 

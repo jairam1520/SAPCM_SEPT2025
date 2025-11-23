@@ -18,7 +18,7 @@
          <string name="ExtRef Profile" null="true"/>
          <float name="ExtRef Version" value="1.0"/>
          <boolean name="Generic Connection" value="false"/>
-         <string name="Host" value="192.168.2.143"/>
+         <string name="Host" value="10.0.0.55"/>
          <string name="ONS" null="true"/>
          <password name="Password" value="DR-4-909C54DDB299887846AE2EB7C9577C42"/>
          <int name="Port" value="5432"/>
@@ -39,11 +39,11 @@
       <boolean name="Is Valid" value="true"/>
       <string name="Key" value="DR1761390759410"/>
       <string name="Modified By" value="sapcmuser14"/>
-      <long name="Modified Date" value="1761361959410"/>
+      <long name="Modified Date" value="1763807465040"/>
       <string name="Name" value="PRF_DB_POSTGRES2"/>
       <string name="Owner" value="sapcmuser14"/>
       <string name="Type" value="Database Profile"/>
-      <int name="Version" value="1"/>
+      <int name="Version" value="2"/>
       <string name="documentation" value=""/>
    </storable>
 </database>

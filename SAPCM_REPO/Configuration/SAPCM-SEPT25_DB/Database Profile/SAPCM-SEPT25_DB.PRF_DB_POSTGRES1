@@ -14,11 +14,8 @@
          <string name="DB Connection Properties" null="true"/>
          <string name="DB Type Class Name"><![CDATA[com.digitalroute.wfc.db.postgresql.PostgreSQLDatabaseDriver]]></string>
          <string name="Database name" null="true"/>
-         <map classname="java.util.HashMap" name="ExtRef Map" size="1">
-            <string name="key_0" value="url"/>
-            <string name="value_0" value="POSTGRES_CONN_STR"/>
-         </map>
-         <string name="ExtRef Profile" value="DR1763304688551"/>
+         <map classname="java.util.HashMap" name="ExtRef Map" size="0"/>
+         <string name="ExtRef Profile" null="true"/>
          <float name="ExtRef Version" value="1.0"/>
          <boolean name="Generic Connection" value="false"/>
          <string name="Host" null="true"/>
@@ -30,7 +27,7 @@
          <string name="Staging Directory" null="true"/>
          <float name="This Version" value="1.0"/>
          <int name="Type" value="7"/>
-         <string name="URL"><![CDATA[jdbc:postgresql://192.168.2.143:5432/postgres?serverTimezone=IST]]></string>
+         <string name="URL" value="jdbc:postgresql://10.0.0.55:5432/postgres"/>
          <string name="Username" value="postgres"/>
       </storable>
       <set name="Dynamic Parameters" null="true"/>
@@ -42,11 +39,11 @@
       <boolean name="Is Valid" value="true"/>
       <string name="Key" value="DR1761390691431"/>
       <string name="Modified By" value="sapcmuser14"/>
-      <long name="Modified Date" value="1763305126968"/>
+      <long name="Modified Date" value="1763807478544"/>
       <string name="Name" value="PRF_DB_POSTGRES1"/>
       <string name="Owner" value="sapcmuser14"/>
       <string name="Type" value="Database Profile"/>
-      <int name="Version" value="3"/>
+      <int name="Version" value="5"/>
       <string name="documentation" value=""/>
    </storable>
 </database>

@@ -8,9 +8,9 @@
                   <int name="NodeId" value="608952228"/>
                   <string name="NodeName" value="HTTP2_Server_1"/>
                   <string name="QName" value="Http2 - Port"/>
-                  <enum classname="com.digitalroute.wf.FieldValue$Type" name="Type" value="EXTREF"/>
+                  <enum classname="com.digitalroute.wf.FieldValue$Type" name="Type" value="VALUE"/>
                   <object name="Value">
-                     <string name="Object Internal" value="LK_HTTP_CLIENT_PORT1"/>
+                     <int name="Object Internal" value="8095"/>
                   </object>
                </storable>
             </list>

@@ -99,7 +99,7 @@
                <string name="Classname" value="com.digitalroute.wfc.analysis.StuffyMapperInsp"/>
                <storable name="Data" storable-id="dr.StuffyMapperData" ver="10.0">
                   <string name="sourceCode"><![CDATA[consume {
-    
+    cancelBatch("Test cancel batch");
     debug(input);
 }]]></string>
                   <array classname="com.digitalroute.devkit.drudr.DRTypeInfo" name="udrTypes" size="1">

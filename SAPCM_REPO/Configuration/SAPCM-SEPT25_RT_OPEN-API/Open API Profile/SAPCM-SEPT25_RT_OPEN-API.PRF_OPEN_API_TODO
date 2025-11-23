@@ -12,143 +12,142 @@
          <list classname="java.util.ArrayList" name="ext_refs_files"/>
          <string name="fileName" value="ToDo.yaml"/>
          <boolean name="ignore_readonly" value="true"/>
-         <string name="scheme"><![CDATA[openapi: 3.0.3
-info:
-  title: Sample ToDo API
-  version: 1.0.0
-  description: >
-    A simple REST API for managing a to-do list.  
-    This example demonstrates basic CRUD operations using OpenAPI 3.0 syntax.
-  contact:
-    name: API Support
-    email: support@example.com
-    url: https://example.com/support
-
-servers:
-  - url: https://api.example.com/v1
-    description: Production server
-  - url: https://sandbox.example.com/v1
-    description: Sandbox for testing
-
-paths:
-  /todos:
-    get:
-      summary: Get all to-do items
-      description: Retrieve a list of all tasks.
-      responses:
-        '200':
-          description: A list of to-do items
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ToDoItem'
-    post:
-      summary: Create a new to-do item
-      description: Add a new task to the list.
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ToDoItemInput'
-      responses:
-        '201':
-          description: To-do item created successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ToDoItem'
-
-  /todos/{id}:
-    get:
-      summary: Get a specific to-do item
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: integer
-          description: ID of the to-do item
-      responses:
-        '200':
-          description: The requested to-do item
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ToDoItem'
-        '404':
-          description: To-do item not found
-
-    put:
-      summary: Update a to-do item
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: integer
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ToDoItemInput'
-      responses:
-        '200':
-          description: Updated successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ToDoItem'
-
-    delete:
-      summary: Delete a to-do item
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: integer
-      responses:
-        '204':
-          description: Deleted successfully
-        '404':
-          description: To-do item not found
-
-components:
-  schemas:
-    ToDoItem:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 1
-        title:
-          type: string
-          example: "Buy groceries"
-        description:
-          type: string
-          example: "Milk, Bread, Eggs"
-        completed:
-          type: boolean
-          example: false
-
-    ToDoItemInput:
-      type: object
-      required:
-        - title
-      properties:
-        title:
-          type: string
-          example: "Call the doctor"
-        description:
-          type: string
-          example: "Schedule appointment for Monday"
-        completed:
-          type: boolean
-          example: false]]></string>
+         <string name="scheme" quoted="true"><![CDATA[openapi: 3.0.3\u000d
+info:\u000d
+  title: Sample ToDo API\u000d
+  version: 1.0.0\u000d
+  description: >\u000d
+    A simple REST API for managing a to-do list.  \u000d
+    This example demonstrates basic CRUD operations using OpenAPI 3.0 syntax.\u000d
+  contact:\u000d
+    name: API Support\u000d
+    email: support@example.com\u000d
+    url: https://example.com/support\u000d
+\u000d
+servers:\u000d
+  - url: http://192.168.2.100:8091/\u000d
+    description: Production server\u000d
+\u000d
+paths:\u000d
+  /todos:\u000d
+    get:\u000d
+      summary: Get all to-do items\u000d
+      description: Retrieve a list of all tasks.\u000d
+      responses:\u000d
+        '200':\u000d
+          description: A list of to-do items\u000d
+          content:\u000d
+            application/json:\u000d
+              schema:\u000d
+                type: array\u000d
+                items:\u000d
+                  $ref: '#/components/schemas/ToDoItem'\u000d
+    post:\u000d
+      summary: Create a new to-do item\u000d
+      description: Add a new task to the list.\u000d
+      requestBody:\u000d
+        required: true\u000d
+        content:\u000d
+          application/json:\u000d
+            schema:\u000d
+              $ref: '#/components/schemas/ToDoItemInput'\u000d
+      responses:\u000d
+        '201':\u000d
+          description: To-do item created successfully\u000d
+          content:\u000d
+            application/json:\u000d
+              schema:\u000d
+                $ref: '#/components/schemas/ToDoItem'\u000d
+\u000d
+  /todos/{id}:\u000d
+    get:\u000d
+      summary: Get a specific to-do item\u000d
+      parameters:\u000d
+        - in: path\u000d
+          name: id\u000d
+          required: true\u000d
+          schema:\u000d
+            type: integer\u000d
+          description: ID of the to-do item\u000d
+      responses:\u000d
+        '200':\u000d
+          description: The requested to-do item\u000d
+          content:\u000d
+            application/json:\u000d
+              schema:\u000d
+                $ref: '#/components/schemas/ToDoItem'\u000d
+        '404':\u000d
+          description: To-do item not found\u000d
+\u000d
+    put:\u000d
+      summary: Update a to-do item\u000d
+      parameters:\u000d
+        - in: path\u000d
+          name: id\u000d
+          required: true\u000d
+          schema:\u000d
+            type: integer\u000d
+      requestBody:\u000d
+        required: true\u000d
+        content:\u000d
+          application/json:\u000d
+            schema:\u000d
+              $ref: '#/components/schemas/ToDoItemInput'\u000d
+      responses:\u000d
+        '200':\u000d
+          description: Updated successfully\u000d
+          content:\u000d
+            application/json:\u000d
+              schema:\u000d
+                $ref: '#/components/schemas/ToDoItem'\u000d
+\u000d
+    delete:\u000d
+      summary: Delete a to-do item\u000d
+      parameters:\u000d
+        - in: path\u000d
+          name: id\u000d
+          required: true\u000d
+          schema:\u000d
+            type: integer\u000d
+      responses:\u000d
+        '204':\u000d
+          description: Deleted successfully\u000d
+        '404':\u000d
+          description: To-do item not found\u000d
+\u000d
+components:\u000d
+  schemas:\u000d
+    ToDoItem:\u000d
+      type: object\u000d
+      properties:\u000d
+        id:\u000d
+          type: integer\u000d
+          example: 1\u000d
+        title:\u000d
+          type: string\u000d
+          example: "Buy groceries"\u000d
+        description:\u000d
+          type: string\u000d
+          example: "Milk, Bread, Eggs"\u000d
+        completed:\u000d
+          type: boolean\u000d
+          example: false\u000d
+\u000d
+    ToDoItemInput:\u000d
+      type: object\u000d
+      required:\u000d
+        - title\u000d
+      properties:\u000d
+        title:\u000d
+          type: string\u000d
+          example: "Call the doctor"\u000d
+        description:\u000d
+          type: string\u000d
+          example: "Schedule appointment for Monday"\u000d
+        completed:\u000d
+          type: boolean\u000d
+          example: false\u000d
+]]></string>
       </storable>
       <set name="Dynamic Parameters" null="true"/>
       <string name="Folder" value="SAPCM-SEPT25_RT_OPEN-API"/>
@@ -159,11 +158,11 @@ components:
       <boolean name="Is Valid" value="true"/>
       <string name="Key" value="DR1762596431375"/>
       <string name="Modified By" value="sapcmuser14"/>
-      <long name="Modified Date" value="1762564031375"/>
+      <long name="Modified Date" value="1763877530116"/>
       <string name="Name" value="PRF_OPEN_API_TODO"/>
       <string name="Owner" value="sapcmuser14"/>
       <string name="Type" value="Open API Profile"/>
-      <int name="Version" value="1"/>
+      <int name="Version" value="3"/>
       <string name="documentation" value=""/>
    </storable>
 </openapiprofile>

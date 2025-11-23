@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event_notification category="Internal">
+   <storable name="event_notification" storable-id="dr.Configuration" ver="10.1">
+      <array classname="java.lang.String" name="Access Groups -read -write -execute" size="3">
+         <string name="0" value="ZSAP_CM_ALL"/>
+         <string name="1" value="ZSAP_CM_ALL"/>
+         <string name="2" value="ZSAP_CM_ALL"/>
+      </array>
+      <storable name="Auxiliary Data" storable-id="dr.ConfigAuxData" ver="2.0">
+         <map classname="java.util.LinkedHashMap" name="Entries" size="1">
+            <string name="key_0" value="Status"/>
+            <string name="value_0" value="Disabled"/>
+         </map>
+      </storable>
+      <storable name="Data" storable-id="dr.NotificationGroupData" ver="1.0">
+         <boolean name="Active" value="false"/>
+         <array classname="com.digitalroute.notification.NotifierEventData" name="Events" size="1">
+            <storable name="0" storable-id="dr.NotifierEventData" ver="1.0">
+               <string name="Classname" value="SAPCM-SEPT25_EVENT.UFL_Events.Evt_Db2CCSync"/>
+               <array classname="com.digitalroute.devkit.event.DRNotifierEventMap" name="Map" size="3">
+                  <storable name="0" storable-id="dr.DRNotifierEventMap" ver="1.0">
+                     <int name="Assignment type" value="2"/>
+                     <storable name="Event field" storable-id="dr.DRUDRField" ver="1.0">
+                        <string name="FieldName" value="workflowName"/>
+                        <boolean name="IsOptional" value="false"/>
+                        <boolean name="IsReadOnly" value="true"/>
+                        <boolean name="Primitive" value="true"/>
+                        <int name="Type" value="9"/>
+                     </storable>
+                     <storable name="Notifier field" storable-id="dr.DRUDRField" ver="1.0">
+                        <string name="FieldName" value="Log Line"/>
+                        <boolean name="IsOptional" value="false"/>
+                        <boolean name="IsReadOnly" value="false"/>
+                        <boolean name="Primitive" value="true"/>
+                        <int name="Type" value="9"/>
+                     </storable>
+                     <string name="Variable" value="wfl"/>
+                  </storable>
+                  <storable name="1" storable-id="dr.DRNotifierEventMap" ver="1.0">
+                     <int name="Assignment type" value="2"/>
+                     <storable name="Event field" storable-id="dr.DRUDRField" ver="1.0">
+                        <string name="FieldName" value="rowIds"/>
+                        <boolean name="IsOptional" value="false"/>
+                        <boolean name="IsReadOnly" value="false"/>
+                        <boolean name="Primitive" value="true"/>
+                        <int name="Type" value="9"/>
+                     </storable>
+                     <storable name="Notifier field" storable-id="dr.DRUDRField" ver="1.0">
+                        <string name="FieldName" value="Log Line"/>
+                        <boolean name="IsOptional" value="false"/>
+                        <boolean name="IsReadOnly" value="false"/>
+                        <boolean name="Primitive" value="true"/>
+                        <int name="Type" value="9"/>
+                     </storable>
+                     <string name="Variable" value="rowIds"/>
+                  </storable>
+                  <storable name="2" storable-id="dr.DRNotifierEventMap" ver="1.0">
+                     <int name="Assignment type" value="2"/>
+                     <storable name="Event field" storable-id="dr.DRUDRField" ver="1.0">
+                        <string name="FieldName" value="mt"/>
+                        <boolean name="IsOptional" value="false"/>
+                        <boolean name="IsReadOnly" value="false"/>
+                        <boolean name="Primitive" value="true"/>
+                        <int name="Type" value="9"/>
+                     </storable>
+                     <storable name="Notifier field" storable-id="dr.DRUDRField" ver="1.0">
+                        <string name="FieldName" value="Log Line"/>
+                        <boolean name="IsOptional" value="false"/>
+                        <boolean name="IsReadOnly" value="false"/>
+                        <boolean name="Primitive" value="true"/>
+                        <int name="Type" value="9"/>
+                     </storable>
+                     <string name="Variable" value="MT"/>
+                  </storable>
+               </array>
+               <storable name="Matcher" storable-id="dr.EventMatcherGroup" ver="1.0">
+                  <list classname="java.util.ArrayList" name="Matchers">
+                     <storable name="0" storable-id="dr.EventClassMatcher" ver="1.0">
+                        <string name="Classname" null="true"/>
+                        <string name="Type name" value="SAPCM-SEPT25_EVENT.UFL_Events.Evt_Db2CCSync"/>
+                     </storable>
+                  </list>
+               </storable>
+               <string name="Name" value="SAPCM-SEPT25_EVENT.UFL_Events.Evt_Db2CCSync"/>
+            </storable>
+         </array>
+         <storable name="Notifier" storable-id="dr.NotifierData" ver="1.0">
+            <string name="Class name"><![CDATA[com.digitalroute.notification.notifiers.LogFileNotifier]]></string>
+            <int name="DupWindow" value="0"/>
+            <array classname="com.digitalroute.devkit.event.DRNotifierAssignment" name="Dynamic config" size="1">
+               <storable name="0" storable-id="dr.DRNotifierAssignment" ver="1.0">
+                  <int name="Assignment type" value="2"/>
+                  <storable name="Notifier field" storable-id="dr.DRUDRField" ver="1.0">
+                     <string name="FieldName" value="Log Line"/>
+                     <boolean name="IsOptional" value="false"/>
+                     <boolean name="IsReadOnly" value="false"/>
+                     <boolean name="Primitive" value="true"/>
+                     <int name="Type" value="9"/>
+                  </storable>
+                  <string name="Value string"><![CDATA[Workflow: $wfl synced following rows: $rowIds in SAP CC Mapping table: $MT]]></string>
+               </storable>
+            </array>
+            <storable name="Static config" storable-id="dr.LogFileNotifierDataExtRef" ver="1.0">
+               <map name="ExtRef Map" null="true"/>
+               <string name="ExtRef Profile" null="true"/>
+               <float name="ExtRef Version" value="1.0"/>
+               <string name="Filename" value="Event_MT_Sync.log"/>
+               <int name="Filesize" value="1"/>
+               <string name="Filesizeunit" value="kb"/>
+               <int name="Interval Type" value="0"/>
+               <string name="Path" value="/opt/mz/SAPCM-SEPT25/EventData"/>
+               <int name="Rotate Interval" value="0"/>
+               <int name="Separator Type" value="1"/>
+               <float name="This Version" value="1.0"/>
+               <boolean name="Use Filesize" value="true"/>
+            </storable>
+         </storable>
+      </storable>
+      <set name="Dynamic Parameters" null="true"/>
+      <string name="Folder" value="SAPCM-SEPT25_EVENT"/>
+      <boolean name="Is Dirty" value="false"/>
+      <boolean name="Is Dry Run" value="false"/>
+      <boolean name="Is Encrypted" value="false"/>
+      <boolean name="Is Locked" value="false"/>
+      <boolean name="Is Valid" value="true"/>
+      <string name="Key" value="DR1763806445349"/>
+      <string name="Modified By" value="sapcmuser14"/>
+      <long name="Modified Date" value="1763807686950"/>
+      <string name="Name" value="EVT_MT_SYNC_LOG"/>
+      <string name="Owner" value="sapcmuser14"/>
+      <string name="Type" value="Event Notification"/>
+      <int name="Version" value="3"/>
+      <string name="documentation" value=""/>
+   </storable>
+</event_notification>

@@ -63,7 +63,8 @@
                   <string name="sourceCode"><![CDATA[string updateQuery = "update customer_orders set tranx_id = -1 where order_id in(";
 boolean rowsFetched;
 beginBatch{
-    rowsFetched = false;    
+    rowsFetched = false; 
+    sleep(30000);   
 }
 consume {
     debug(input);

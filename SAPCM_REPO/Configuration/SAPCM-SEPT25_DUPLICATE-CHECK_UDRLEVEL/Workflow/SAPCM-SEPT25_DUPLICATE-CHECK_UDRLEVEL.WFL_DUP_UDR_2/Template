@@ -150,10 +150,10 @@
                   <string name="sourceCode"><![CDATA[consume {
   
     bytearray ba;
-    strToBA(ba,input.server+input.cpu);
-    cksumReset();
-    cksumUpdate(ba);
-    input.serverHash = cksumResult();
+    strToBA(ba,input.server+input.cpu);//convert str to ba
+    cksumReset();//reset the hash
+    cksumUpdate(ba);//store the new hash
+    input.serverHash = cksumResult();//assign the has
     udrRoute(input);
 }]]></string>
                   <array classname="com.digitalroute.devkit.drudr.DRTypeInfo" name="udrTypes" size="1">

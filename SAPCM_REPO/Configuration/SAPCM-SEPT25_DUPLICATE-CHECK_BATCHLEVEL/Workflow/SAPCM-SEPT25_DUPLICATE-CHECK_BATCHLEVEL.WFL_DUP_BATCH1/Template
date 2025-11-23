@@ -40,7 +40,7 @@
                      <storable name="0" storable-id="dr.DefaultFileInfoConfig" ver="10.0">
                         <string name="baseDir" value="/opt/mz/SAPCM-SEPT25/DUPLICITY/BATCH"/>
                         <enum name="compType" storable-id="dr.CompressionType" value="NONE"/>
-                        <string name="fileRegExp" value="Batch2"/>
+                        <string name="fileRegExp" value="Batch.*"/>
                         <boolean name="subfolders" value="false"/>
                      </storable>
                      <storable name="1" storable-id="dr.DefaultSourceFileHandlingConfig" ver="10.0">
@@ -98,8 +98,9 @@
             <storable name="0" storable-id="dr.WfNodeConfig" ver="1.0">
                <string name="Classname" value="com.digitalroute.wfc.dupbatch.DupBatchInsp"/>
                <storable name="Data" storable-id="dr.DupBatchConfig" ver="11.0">
-                  <array classname="java.lang.String" name="loggedMIM" size="1">
+                  <array classname="java.lang.String" name="loggedMIM" size="2">
                      <string name="0" value="Workflow.Workflow Name"/>
+                     <string name="1" value="COLL_DIR.Source Filename"/>
                   </array>
                   <boolean name="mimBypass" value="false"/>
                   <array classname="com.digitalroute.devkit.misc.DRNameValue" name="mimMap" size="0"/>
