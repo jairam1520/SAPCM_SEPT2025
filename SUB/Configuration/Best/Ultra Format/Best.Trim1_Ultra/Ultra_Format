@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<exportmultiplex category="Ultra_Format" ref_path="ultra_format[Internal]/storable[ultra_format]/storable[Data]">
+   <string name="Definition"><![CDATA[//APartyNumber,BPartyNumber,TypeOfCall,CallStartTime,CallEndTime
+
+external input_data {
+	ascii APartyNumber 	: terminated_by(",");
+    ascii BPartyNumber 	: terminated_by(",");
+    ascii TypeOfCall   	: terminated_by(",");
+    ascii CallStartTime : terminated_by(",");
+    ascii CallEndTime 	: terminated_by(0xA);  
+};
+
+in_map input_inmap : external (input_data),target_internal(input_TI){
+    automatic;
+};
+
+decoder input_dec : in_map(input_inmap);
+
+
+out_map input_outmap : external (input_data),internal(input_TI){
+    automatic;
+};
+
+encoder input_Enc : out_map(input_outmap);
+
+]]></string>
+</exportmultiplex>

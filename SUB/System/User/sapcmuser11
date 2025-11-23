@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<mzuser category="Internal">
+   <storable name="mzuser" storable-id="dr.UserInfo" ver="5.0">
+      <string name="Default Group" value="ZSAP_CM_MNK"/>
+      <string name="Email" value="Atharv@gmail.com"/>
+      <int name="Failed logins" value="0"/>
+      <string name="Full name" value="Atharv"/>
+      <array classname="java.lang.String" name="Groups" size="1">
+         <string name="0" value="ZSAP_CM_MNK"/>
+      </array>
+      <int name="Inactivity period" value="0"/>
+      <boolean name="Is Disabled" value="false"/>
+      <boolean name="Is SystemUser" value="false"/>
+      <boolean name="Is Validity Enabled" value="true"/>
+      <map classname="java.util.HashMap" name="Metadata" size="16">
+         <string name="key_0" value="Aggregation ProfileConfig Window Pref"/>
+         <string name="key_1" value="Browser Settings"/>
+         <string name="key_10" value="WorkflowConfig Window Pref"/>
+         <string name="key_11" value="previous_successful_login_date"/>
+         <string name="key_12" value="previous_successful_login_ip"/>
+         <string name="key_13" value="successful_login_date"/>
+         <string name="key_14" value="successful_login_ip"/>
+         <string name="key_15" value="theme_preference"/>
+         <string name="key_2" value="Editor Pref"/>
+         <string name="key_3" value="MZDesktopPref"/>
+         <string name="key_4" value="SCIMInfo"/>
+         <string name="key_5" value="UDR ViewConfig Window Pref"/>
+         <string name="key_6" value="Ultra FormatConfig Window Pref"/>
+         <string name="key_7" value="WS ProfileConfig Window Pref"/>
+         <string name="key_8" value="Workflow GroupConfig Window Pref"/>
+         <string name="key_9" value="Workflow Monitor"/>
+         <bytearray name="value_0"><![CDATA[M`S^```#_G````#%C;VTN9&EG:71A;')O=71E+G5I+F-O;F9I9RY#;VYF:6=7
+4:6YD;W=0<F5F97)E;F-E`@``````
+`
+]]></bytearray>
+         <bytearray name="value_1"><![CDATA[M`S^,S,W_G````#!C;VTN9&EG:71A;')O=71E+G5I+D-O;F9I9W5R871I;VY0
+/86YE;%!R969E<F5N8V4!
+`
+]]></bytearray>
+         <bytearray name="value_10"><![CDATA[M`S^```#_G````#%C;VTN9&EG:71A;')O=71E+G5I+F-O;F9I9RY#;VYF:6=7
+M:6YD;W=0<F5F97)E;F-E`@````(!``$````/1%(Q-S0Y-#`P-C`R,30T`0`!
+3````#T12,3<T.3$R,S(W,34Q,0``
+`
+]]></bytearray>
+         <bytearray name="value_11"><![CDATA[M`T````#_G````"-C;VTN9&EG:71A;')O=71E+F1E=FMI="YM:7-C+D121&%T
+A90$!```!EU0(@AW_G````!!!;65R:6-A+TYE=U]9;W)K
+`
+]]></bytearray>
+         <bytearray name="value_12"><![CDATA[M`S^```#_G````"QC;VTN9&EG:71A;')O=71E+FUG;71S97)V97(N3&]G:6Y)
+<4%)E9F5R96YC90$````-,3DR+C$V."XQ+C$P,```
+`
+]]></bytearray>
+         <bytearray name="value_13"><![CDATA[M`T````#_G````"-C;VTN9&EG:71A;')O=71E+F1E=FMI="YM:7-C+D121&%T
+A90$!```!EU1P/-'_G````!!!;65R:6-A+TYE=U]9;W)K
+`
+]]></bytearray>
+         <bytearray name="value_14"><![CDATA[M`S^```#_G````"QC;VTN9&EG:71A;')O=71E+FUG;71S97)V97(N3&]G:6Y)
+<4%)E9F5R96YC90$````-,3DR+C$V."XQ+C$P,```
+`
+]]></bytearray>
+         <bytearray name="value_15"><![CDATA[M`T````#_G````"YC;VTN9&EG:71A;')O=71E+G=E8G5I+F1E<VMT;W`N5&AE
+:;650<F5F97)E;F-E`1,'````!$1!4DL!"```
+`
+]]></bytearray>
+         <bytearray name="value_2"><![CDATA[M`S^```#_G````"MC;VTN9&EG:71A;')O=71E+G5I+F-O;6UO;BY%9&ET;W)0
+-<F5F97)E;F-E````#```
+`
+]]></bytearray>
+         <bytearray name="value_3"><![CDATA[M`T!```#_G````"=C;VTN9&EG:71A;')O=71E+G5I+DU:1&5S:W1O<%!R969E
+M<F5N8V4"``````(````!`0H'0$``````!F<```.:__________\!````K`$!
+M__8````!`0H%````!`````````````````````$````!``````4!__8````!
+M`08_\`````````'_]@````$!!C_P`````````0`!````$D-O;F9I9W5R871I
+M;VY086YE;`$``0````]$4C$W-#DQ,C,R-S$U,3$!``$````11%(Q-S0Y,3(S
+K,C<Q-3$Q7S$!``$````43F5W(%5L=')A($9O<FUA="!;-ET```(F```")@``
+`
+]]></bytearray>
+         <bytearray name="value_4"><![CDATA[M`S^F9F;_G````"AC;VTN9&EG:71A;')O=71E+FUG;71S97)V97(N4T-)34UE
+M=&%D871A`0```96W-]VC_YP````006UE<FEC82].97=?66]R:P$```&75'$]
+M+P`!`0```"0V-C0U,V%A8BTU-F,W+30T9F0M8C`Q."TP-3,U,S4Y8F,V8C0!
+%``````$`
+`
+]]></bytearray>
+         <bytearray name="value_5"><![CDATA[M`S^```#_G````#%C;VTN9&EG:71A;')O=71E+G5I+F-O;F9I9RY#;VYF:6=7
+4:6YD;W=0<F5F97)E;F-E`@``````
+`
+]]></bytearray>
+         <bytearray name="value_6"><![CDATA[M`S^```#_G````#%C;VTN9&EG:71A;')O=71E+G5I+F-O;F9I9RY#;VYF:6=7
+M:6YD;W=0<F5F97)E;F-E`@````,!``$````/1%(Q-S0X-#4R,#DW,C(W`0`!
+I````#T12,3<T.#0R,#DU-#$P,0$``0````]$4C$W-#@T,#<S-S<S-3(`
+`
+]]></bytearray>
+         <bytearray name="value_7"><![CDATA[M`S^```#_G````#%C;VTN9&EG:71A;')O=71E+G5I+F-O;F9I9RY#;VYF:6=7
+J:6YD;W=0<F5F97)E;F-E`@````$!``$````/1%(Q-S0Y,3(Q,34Y,SDP
+`
+]]></bytearray>
+         <bytearray name="value_8"><![CDATA[M`S^```#_G````#%C;VTN9&EG:71A;')O=71E+G5I+F-O;F9I9RY#;VYF:6=7
+4:6YD;W=0<F5F97)E;F-E`@``````
+`
+]]></bytearray>
+         <bytearray name="value_9"><![CDATA[M`S^```#_G````#9C;VTN9&EG:71A;')O=71E+G5I+G=O<FMF;&]W+E=O<FMF
+M;&]W36]N:71O<E!R969E<F5N8V4!``/_]`````$!``$````11%(Q-S0X-3`R
+M-38S,3,S7S$!#@/_]`````4!`GVSO>`!``$````!5`$"C&AR:P$``0````%4
+J`0+-)_14`0`!`````50!`B#J(HX!``$````!5`$"H@ZT\`$``0````%4
+`
+]]></bytearray>
+      </map>
+      <string name="Password"><![CDATA[SHA-256>>>-3de9d75a1b74f5708f0d0b9593dd2695d5ab79445c2c72d50630850f903cf69cea917fcca5de43bfa53a709030dba203]]></string>
+      <long name="Password age" value="14470586645"/>
+      <string name="Successor" value=""/>
+      <string name="User name" value="sapcmuser11"/>
+      <long name="Valid From" value="1747695600000"/>
+      <long name="Valid To" value="1750546800000"/>
+      <boolean name="obfuscate" value="false"/>
+      <long name="sessionID" value="-1"/>
+   </storable>
+</mzuser>
